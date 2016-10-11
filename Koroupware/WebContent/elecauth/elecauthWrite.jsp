@@ -12,9 +12,9 @@
 	<div>
 		<h1>결재작성</h1>
 		<form action="" method="post">
-			안건 작성자 
+			안건 작성자 <input type="hidden" name="emp_no" id="emp_no" value="">
 			<br>
-			상신 부서 <input type="text"><input type="button" value="검색">
+			상신 부서 <input type="text" name="dept_no" id="dept_no"><input type="button" value="검색">
 			<br>
 			관리 부서 <input type="text"><input type="button" value="검색">
 			<br>
