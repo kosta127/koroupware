@@ -6,7 +6,7 @@
 <configuration>
 	<typeAliases>
 		<!-- 별칭설정 -->
-		
+		 
 	</typeAliases>
 	
 	<environments default="development">
