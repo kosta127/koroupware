@@ -5,6 +5,7 @@ public class PositionMember {
 	private String position_name;
 	
 	public PositionMember(){}
+	
 	public PositionMember(String position_no, String position_name) {
 		super();
 		this.position_no = position_no;
