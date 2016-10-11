@@ -9,4 +9,12 @@ public class ETC {
 		
 		return true;
 	}
+	
+	public static boolean isCommit(int result){
+		if(result > 0){
+			return true;
+		}
+		
+		return false;
+	} 
 }
