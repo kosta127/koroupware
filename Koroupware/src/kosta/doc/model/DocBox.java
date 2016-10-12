@@ -1,9 +1,9 @@
-package kosta.document.model;
+package kosta.doc.model;
 
 import java.io.Serializable;
 import java.util.Date;
 
-public class DocumentBox implements Serializable{
+public class DocBox implements Serializable{
 	private int doc_box_no;
 	private int doc_no;
 	public int getDoc_no() {
