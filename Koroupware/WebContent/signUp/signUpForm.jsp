@@ -1,24 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 </head>
 <body>
  <form action="SignUpAction.do" method="post">
- ���̵� <input type="text" name="emp_id"><br>
- ��й�ȣ <input type="password" name="emp_password"><br>
- �̸� <input type="text" name="emp_name"><br>
- �ֹε�Ϲ�ȣ <input type="text" name="emp_residentnumber"><br>
- ��ȭ��ȣ <input type="text" name="tel_telephone"><br>
- �̸��� <input type="text" name="emp_email"><br>	
- �ּ� <input type="text" name="emp_address"><br>
- ����̹��� <input type="file" name="emp_img"><br>
- ������� <input type="file" name="emp_elec_auth_img"><br> 
- <input type="submit" value="����">
+ 아이디 <input type="text" name="emp_id"><br>
+ 비밀번호 <input type="password" name="emp_password"><br>
+ 이름 <input type="text" name="emp_name"><br>
+ 주민등록번호 <input type="text" name="emp_residentnumber"><br>
+ 핸드폰<input type="radio" name="tel_type" value="핸드폰">일반전화<input type="radio" name="tel_type" value="일반전화">번호 <input type="text" name="tel_telephone"><br>
+ 이메일 <input type="text" name="emp_email"><br>	
+ 주소 <input type="text" name="emp_address"><br>
+ 사원이미지 <input type="file" name="emp_img"><br>
+ 결재사인 <input type="file" name="emp_elec_auth_img"><br> 
+ <input type="submit" value="가입">
  </form>
- <button onclick="">���</button>
+ <button onclick="">취소</button>
 </body>
 </html>

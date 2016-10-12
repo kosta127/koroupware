@@ -1,5 +1,7 @@
 package kosta.login.action;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,9 +13,15 @@ public class SignUpAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+		
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
+		
 		Emp emp = new Emp();
 		Tel tel = new Tel();
-		System.out.println("여긴되냐");
 	
 		SignUpService service = SignUpService.getInstance();
 		emp.setEmp_id(request.getParameter("emp_id"));
@@ -24,15 +32,26 @@ public class SignUpAction implements Action {
 		emp.setEmp_address(request.getParameter("emp_address"));
 		emp.setEmp_img(request.getParameter("emp_img"));
 		emp.setEmp_elec_auth_img(request.getParameter("emp_elec_auth_img"));
-		int re = service.NewSignUpService(emp);
-		
+		tel.setTel_type(request.getParameter("tel_type"));
+		tel.setTel_telephone(request.getParameter("tel_telephone"));
 		ActionForward forward = new ActionForward();
-		if(re == 1){
-		forward.setRedirect(true);
-		forward.setPath("/signUp/main.jsp");
-		}else{
-		forward.setRedirect(true);
-		forward.setPath("/signUp/signUpForm.jsp");	
+		
+		int re = 0; 
+		int re2 = 0;
+		try {
+			
+			re = service.NewSignUpService(emp);
+			re2 = service.TelInsertService(tel);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		if (re > 0 && re2 > 0) {
+			forward.setRedirect(false);
+			forward.setPath("/signUp/success.jsp");
+		} else {
+			forward.setRedirect(false);
+			forward.setPath("/signUp/signUpForm.jsp");
 		}
 		return forward;
 	}
