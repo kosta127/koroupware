@@ -1,6 +1,6 @@
 package kosta.elecauth.action;
 
-public class ActionForward {
+public class ElecauthActionForward {
 	private boolean isRedirect;
 	private String url;
 	

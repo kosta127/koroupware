@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="kosta.elecauth.mapper.Elec_authMapper">
+	<cache />
+	<select id="elec_authList" resultType="Elec_auth">
+		SELECT elec_auth_no, emp_no, elec_auth_send_dept_no, doc_no, elec_auth_title, elec_auth_contents,
+			elec_auth_management_dept_no, elec_auth_min_select, elec_auth_min_reject, elec_auth_expiration_period,
+			elec_auth_processing_period, elec_auth_regdate, elec_auth_deldate
+		FROM elec_auth
+	</select>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
