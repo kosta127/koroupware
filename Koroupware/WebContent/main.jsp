@@ -5,10 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메인</title>
+<script type="text/javascript">
+function logout() {
+	location.href="login.jsp"
+	
+}
+</script>
 
 </head>
 <body>
 <h1><%=session.getAttribute("emp_id")%> 님께서 로그인 하셨습니다.</h1>
+<button onclick="logout()">로그아웃</button>
 
 </body>
 </html>
