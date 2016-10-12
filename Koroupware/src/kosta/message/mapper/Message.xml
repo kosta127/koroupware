@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kosta.message.mapper.MessageMapper">
+	<select id="selectMessageByEmpNo">
+		SELECT 
+		FROM message
+		WHERE emp_no = #{message_sender_no}
+				AND message_receiver = #{message_receiver_no}
+	</select>
+	<select id="selectMessageModelsByEmpNo" parameterType="int" resultType="MessageModel">
+		SELECT m.message_no, m.message_contents, TO_CHAR(m.message_senddate,'MM/DD HH24:MI:SS') AS message_senddate,
+					m.message_sender_no, m.message_receiver_no,
+				s.sender_name, s.sender_id, s.sender_dept_name, 
+				s.sender_office_name, s.sender_position_name,
+				r.receiver_name, r.receiver_id, r.receiver_dept_name, 
+				r.receiver_office_name, r.receiver_position_name
+		FROM (SELECT message_no, message_contents, message_senddate, message_sender_no, message_receiver_no
+				FROM message
+				WHERE message_sender_no = #{emp_no}) m,
+			(SELECT emp_no AS sender_no, emp_name AS sender_name, emp_id AS sender_id, d.dept_name AS sender_dept_name, 
+					o.office_name AS sender_office_name, p.position_name AS sender_position_name
+			FROM emp e, dept d, office o, position p
+			WHERE e.dept_no = d.dept_no
+					AND e.office_no = o.office_no
+					AND e.position_no = p.position_no) s,
+			(SELECT emp_no AS receiver_no, emp_name AS receiver_name, emp_id AS receiver_id, d.dept_name AS receiver_dept_name, 
+					o.office_name AS receiver_office_name, p.position_name AS receiver_position_name
+			FROM emp e, dept d, office o, position p
+			WHERE e.dept_no = d.dept_no
+					AND e.office_no = o.office_no
+					AND e.position_no = p.position_no) r
+		WHERE m.message_sender_no = s.sender_no
+				AND m.message_receiver_no = r.receiver_no
+	</select>
+	<select id="selectMessageReceiverEmpsByEmpId" resultType="MessageReceiverModel" parameterType="int">
+		SELECT e.emp_no, e.emp_name, e.emp_id, d.dept_name, o.office_name, p.position_name
+		FROM (SELECT emp_no, emp_name, emp_id, dept_no, office_no, position_no
+				FROM emp
+				WHERE emp_no IN (SELECT DISTINCT message_receiver_no
+                                    FROM message
+                                    WHERE message_sender_no = #{emp_no})) e,
+			(SELECT dept_no, dept_name
+				FROM dept) d,
+			(SELECT office_no, office_name
+				FROM office) o,
+			(SELECT position_no, position_name
+				FROM position) p
+		WHERE e.dept_no = d.dept_no
+				AND e.office_no = o.office_no
+				AND e.position_no = p.position_no
+	</select>
+	
+	<insert id="insertMessage" parameterType="Message">
+		INSERT INTO message
+		VALUES(seq_message.NEXTVAL, #{message_contents}, SYSDATE, NULL, #{message_sender_no}, #{message_receiver_no})
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

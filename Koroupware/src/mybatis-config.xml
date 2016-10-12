@@ -6,7 +6,9 @@
 <configuration>
 	<typeAliases>
 		<!-- 별칭설정 -->
-		
+		<typeAlias alias="Message" type="kosta.message.model.Message"/>
+		<typeAlias alias="MessageModel" type="kosta.message.model.MessageModel"/>
+		<typeAlias alias="MessageReceiverModel" type="kosta.message.model.MessageReceiverModel"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -24,6 +26,6 @@
 	
 	<mappers>
 		<!-- mapper등록 -->
-		
+		<mapper resource="kosta/message/mapper/Message.xml"/>
 	</mappers>
 </configuration>
