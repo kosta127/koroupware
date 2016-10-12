@@ -6,7 +6,8 @@
 <configuration>
 	<typeAliases>
 		<!-- 별칭설정 -->
-		
+		<typeAlias type="kosta.emp.model.Emp" alias="Emp"/>
+		<typeAlias type="kosta.emp.model.Tel" alias="Tel"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -24,6 +25,6 @@
 	
 	<mappers>
 		<!-- mapper등록 -->
-		
+		<mapper resource="kosta/login/mapper/SignUp.xml"/>
 	</mappers>
 </configuration>
