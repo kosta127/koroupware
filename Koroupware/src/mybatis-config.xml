@@ -7,6 +7,8 @@
 	<typeAliases>
 		<!-- 별칭설정 -->
 		<typeAlias alias="Message" type="kosta.message.model.Message"/>
+		<typeAlias alias="MessageModel" type="kosta.message.model.MessageModel"/>
+		<typeAlias alias="MessageReceiverModel" type="kosta.message.model.MessageReceiverModel"/>
 	</typeAliases>
 	
 	<environments default="development">

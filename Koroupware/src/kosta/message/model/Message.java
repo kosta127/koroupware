@@ -7,18 +7,18 @@ public class Message {
 	private String message_contents;
 	private Date message_senddate;
 	private Date message_deldate;
-	private int emp_no;
-	private int message_receiver;
+	private int message_sender_no;
+	private int message_receiver_no;
 	
 	public Message(){}
-	public Message(int message_no, String message_contents, Date message_senddate, Date message_deldate, int emp_no,
-			int message_receiver) {
+	public Message(int message_no, String message_contents, Date message_senddate, Date message_deldate,
+			int message_sender_no, int message_receiver_no) {
 		this.message_no = message_no;
 		this.message_contents = message_contents;
 		this.message_senddate = message_senddate;
 		this.message_deldate = message_deldate;
-		this.emp_no = emp_no;
-		this.message_receiver = message_receiver;
+		this.message_sender_no = message_sender_no;
+		this.message_receiver_no = message_receiver_no;
 	}
 	
 	public int getMessage_no() {
@@ -45,23 +45,23 @@ public class Message {
 	public void setMessage_deldate(Date message_deldate) {
 		this.message_deldate = message_deldate;
 	}
-	public int getEmp_no() {
-		return emp_no;
+	public int getMessage_sender_no() {
+		return message_sender_no;
 	}
-	public void setEmp_no(int emp_no) {
-		this.emp_no = emp_no;
+	public void setMessage_sender_no(int message_sender_no) {
+		this.message_sender_no = message_sender_no;
 	}
-	public int getMessage_receiver() {
-		return message_receiver;
+	public int getMessage_receiver_no() {
+		return message_receiver_no;
 	}
-	public void setMessage_receiver(int message_receiver) {
-		this.message_receiver = message_receiver;
+	public void setMessage_receiver_no(int message_receiver_no) {
+		this.message_receiver_no = message_receiver_no;
 	}
 	
 	@Override
 	public String toString() {
 		return "Message [message_no=" + message_no + ", message_contents=" + message_contents + ", message_senddate="
-				+ message_senddate + ", message_deldate=" + message_deldate + ", emp_no=" + emp_no
-				+ ", message_receiver=" + message_receiver + "]";
+				+ message_senddate + ", message_deldate=" + message_deldate + ", message_sender_no=" + message_sender_no
+				+ ", message_receiver_no=" + message_receiver_no + "]";
 	}
 }

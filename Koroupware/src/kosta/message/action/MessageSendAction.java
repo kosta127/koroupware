@@ -17,8 +17,8 @@ public class MessageSendAction implements Action{
 		
 		Message message = new Message();
 		message.setMessage_contents(messageContents);
-		message.setEmp_no(1);	//로그인 한 사람 (보내는 사람)
-		message.setMessage_receiver(2);	//받는 사람
+		message.setMessage_sender_no(1);	//로그인 한 사람 (보내는 사람)
+		message.setMessage_receiver_no(2);	//받는 사람
 		
 		int result = dao.insertMessage(message);
 		
