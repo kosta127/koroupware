@@ -30,6 +30,7 @@
 			$messageReceivers = $messageReceiverList.find("li");
 			$messageReceivers.attr("display", "none");
 			$messageReceiverList.on("click", $messageReceivers, messageReceiverSelect);
+
 			
 		});
 		
