@@ -4,9 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>아이디/비밀번호 찾기</title>
 </head>
 <body>
-<h1>aaa</h1>
+	<h1>아이디 찾기</h1>
+	<form action="FindIdProcess.do" method="post">
+		회원 번호 : <input type="text" name = "find_no">
+		<input type="submit" value="아이디 찾기">
+	</form>
+
+	<h1> 비밀번호 찾기</h1>
+	<form action="FindPasswordProcess.do">
+		아이디 : <input type ="text" name = "find_id">
+		회원 번호 : <input type="text" name = "find_no">
+		<input type="submit" value="비밀번호 찾기">
+	</form>	
 </body>
 </html>

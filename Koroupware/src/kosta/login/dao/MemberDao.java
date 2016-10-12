@@ -35,6 +35,7 @@ public class MemberDao {
 	
 
 	public List<Member> ListMember() {
+		// 로그인 용 리스트
 	
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		
@@ -44,6 +45,36 @@ public class MemberDao {
 			e.printStackTrace();
 			return null;
 		} finally {
+			sqlSession.close();
+		}
+		
+	}
+	
+	public List<Member> FindId_ListMember(){
+		// 아이디 찾기 용 리스트
+		
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		try{
+			return sqlSession.getMapper(LoginMapper.class).FindId_ListMember();
+		}catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			sqlSession.close();
+		}
+	}
+
+	public List<Member> FindPassword_ListMember() {
+		// 비밀번호 찾는 용 
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		try{
+			return sqlSession.getMapper(LoginMapper.class).FindPassword_ListMember();
+		}catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
 			sqlSession.close();
 		}
 		

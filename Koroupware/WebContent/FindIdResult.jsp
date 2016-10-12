@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>아이디 찾기 결과</title>
 </head>
 <body>
-
+ 당신이 찾는 아이디는 <%=session.getAttribute("find_id") %> 입니다.
 </body>
 </html>

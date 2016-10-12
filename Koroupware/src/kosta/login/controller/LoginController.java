@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta.login.action.Action;
 import kosta.login.action.ActionForward;
-import kosta.login.action.FindProcess;
+import kosta.login.action.FindIdProcess;
+import kosta.login.action.FindPasswordProcess;
 import kosta.login.action.LoginProcess;
 
 
@@ -35,15 +36,17 @@ public class LoginController extends HttpServlet {
 	String command = requestURI.substring(contextPath.length()+1);
 	
 	
-	ActionForward forward = null;//
-	
+	ActionForward forward = null;
 	Action action = null;
 	
 	if(command.equals("LoginProcessAction.do")){
 		action = new LoginProcess();
 		forward = action.execute(request, response);
-	}else if(command.equals("FindAction.do")){
-		action = new FindProcess();
+	}else if(command.equals("FindIdProcess.do")){
+		action = new FindIdProcess();
+		forward = action.execute(request, response);
+	}else if(command.equals("FindPasswordProcess.do")){
+		action = new FindPasswordProcess();
 		forward = action.execute(request, response);
 	}
 	

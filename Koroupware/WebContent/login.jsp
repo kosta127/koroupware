@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 function signUp(){
-	location.hrep = "StartAction.do";
+	location.href = "StartAction.do";
 }
 function findUser(){
-	location.hrep = "FindAction.jsp";
+	location.href = "FindAction.jsp";
 }
 </script>
 </head>

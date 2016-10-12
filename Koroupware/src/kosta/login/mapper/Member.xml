@@ -8,5 +8,14 @@
 	<select id="checkMember" resultType="Member">
 			select * from emp
 	</select>
+	
+	<select id = "FindId_ListMember" resultType="Member">
+		select emp_id, emp_no from emp 
+	</select>
+	
+	<select id="FindPassword_ListMember" resultType="Member">
+		select emp_password, emp_no, emp_id from emp
+	</select>
+
 
 </mapper>
