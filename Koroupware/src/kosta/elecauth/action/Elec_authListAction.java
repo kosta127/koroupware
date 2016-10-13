@@ -9,7 +9,7 @@ import kosta.elecauth.dao.Elec_authDao;
 import kosta.elecauth.model.Elec_auth;
 import kosta.elecauth.service.Elec_authService;
 
-public class Elec_authList implements Action {
+public class Elec_authListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
