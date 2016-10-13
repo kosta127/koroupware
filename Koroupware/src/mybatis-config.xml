@@ -25,5 +25,6 @@
 	
 	<mappers>
 		<mapper resource="kosta/login/mapper/SignUp.xml"/>
+		<mapper resource="kosta/search/mapper/Search.xml"/>
 	</mappers>
 </configuration>

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import kosta.emp.model.Emp;
 import kosta.login.dao.LoginDao;
-import kosta.login.model.Member;
+
 
 public class LoginProcess implements Action {
 
@@ -16,7 +16,6 @@ public class LoginProcess implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
 		LoginDao dao = LoginDao.getInstance();
-		Emp emp = new Emp(); 
 		List<Emp> list = dao.ListEmp();
 		
 		HttpSession session = request.getSession();

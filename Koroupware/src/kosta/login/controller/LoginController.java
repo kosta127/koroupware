@@ -54,7 +54,6 @@ public class LoginController extends HttpServlet {
 		action = new StartAction();
 		forward = action.execute(request, response);
 	}else if(command.equals("SignUpAction.do")){
-		System.out.println("여긴되냐");
 		action = new SignUpAction();
 		forward = action.execute(request, response);
 	}

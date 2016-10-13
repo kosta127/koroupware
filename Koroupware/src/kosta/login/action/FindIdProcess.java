@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import kosta.emp.model.Emp;
 import kosta.login.dao.LoginDao;
-import kosta.login.model.Member;
+
 
 public class FindIdProcess implements Action{
 
