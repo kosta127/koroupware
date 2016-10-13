@@ -20,15 +20,18 @@ public class FindPasswordProcess implements Action {
 		MemberDao dao = MemberDao.getInstance();
 		List<Member> list = dao.FindPassword_ListMember();
 		HttpSession session = request.getSession();
-		
+		int num = Integer.parseInt(request.getParameter("find_no"));
 		for(int i=0; i<list.size(); i++){
 			if(list.get(i).getEmp_id().equals(request.getParameter("find_id")) 
-					&& list.get(i).getEmp_no().equals(request.getParameter("find_no"))){
+					&& list.get(i).getEmp_no()== num){
 				session.setAttribute("find_password", list.get(i).getEmp_password());
 				forward.setPath("FindPasswordResult.jsp");
 				forward.setRedirect(false);
+				break;
 			}else{
 				System.out.println("실패");
+				forward.setPath("FindAction.jsp");
+				forward.setRedirect(false);
 			}
 		}
 		

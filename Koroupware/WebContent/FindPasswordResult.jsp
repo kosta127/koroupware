@@ -6,9 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>비밀 번호 결과</title>
 <script type="text/javascript">
-	function backpage() {
-		location.href="login.jps";
-	}
+function backpage() {
+	location.href="login.jsp";
+}
 </script>
 </head>
 <body>

@@ -14,7 +14,7 @@
 	</form>
 
 	<h1> 비밀번호 찾기</h1>
-	<form action="FindPasswordProcess.do">
+	<form action="FindPasswordProcess.do" method="post">
 		아이디 : <input type ="text" name = "find_id">
 		회원 번호 : <input type="text" name = "find_no">
 		<input type="submit" value="비밀번호 찾기">
