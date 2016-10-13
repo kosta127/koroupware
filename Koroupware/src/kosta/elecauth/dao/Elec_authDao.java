@@ -19,6 +19,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kosta.elecauth.mapper.Elec_authMapper;
 import kosta.elecauth.model.Elec_auth;
+import kosta.elecauth.model.Elec_authDetail;
 import kosta.etc.SessionFactory;
 
 public class Elec_authDao {
@@ -57,17 +58,17 @@ public class Elec_authDao {
 		return totalCount;
 	}
 	
-	public Elec_auth elec_authDetail(int elec_auth_no){
+	public Elec_authDetail elec_authDetail(int elec_auth_no){
 		SqlSession sqlSession = SessionFactory.getInstance().openSession();
-		Elec_auth elec_auth=null;
+		Elec_authDetail elec_authDetail=null;
 		try {
-			elec_auth=sqlSession.getMapper(Elec_authMapper.class).elec_authDetail(elec_auth_no);
+			elec_authDetail=sqlSession.getMapper(Elec_authMapper.class).elec_authDetail(elec_auth_no);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
 			sqlSession.close();
 		}
-		return elec_auth;
+		return elec_authDetail;
 	}
 	
 	public int insertElecAuth(Elec_auth ea){

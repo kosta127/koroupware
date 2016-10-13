@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kosta.elecauth.model.Elec_auth;
+import kosta.elecauth.model.Elec_authDetail;
 import kosta.elecauth.service.Elec_authService;
 
 public class Elec_authDetailAction implements Action {
@@ -16,9 +17,9 @@ public class Elec_authDetailAction implements Action {
 		if(elec_no!=null){
 			int elec_auth_no=Integer.parseInt(elec_no);
 			Elec_authService service=Elec_authService.getInstance();
-			Elec_auth elec_auth=service.elec_authDetail(elec_auth_no);
+			Elec_authDetail elec_authDetail=service.elec_authDetail(elec_auth_no);
 			
-			request.setAttribute("elec_authDetail", elec_auth);
+			request.setAttribute("elec_authDetail", elec_authDetail);
 			forward.setRedirect(false);
 			forward.setUrl("/elec_auth/elec_auth_detail.jsp");
 			isOk=true;

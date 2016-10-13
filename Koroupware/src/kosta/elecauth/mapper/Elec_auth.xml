@@ -17,8 +17,15 @@
 		SELECT COUNT(*) FROM elec_auth
 	</select>
 	
-	<select id="elec_authDetail" resultType="Elec_auth" parameterType="int">
-		SELECT * FROM elec_auth WHERE elec_auth_no=#{elec_auth_no}
+	<select id="elec_authDetail" resultType="Elec_authDetail" parameterType="int">
+		SELECT * 
+		FROM elec_auth ea, doc do, dept de, emp e, position p, office o
+		WHERE ea.doc_no=do.doc_no 
+			AND ea.elec_auth_send_dept_no=de.dept_no 
+			AND ea.emp_no=e.emp_no 
+			AND e.position_no=p.position_no 
+			AND e.office_no=o.office_no 
+			AND ea.elec_auth_no=#{elec_auth_no}
 	</select>
 	
 	<insert id="insertElecAuth">

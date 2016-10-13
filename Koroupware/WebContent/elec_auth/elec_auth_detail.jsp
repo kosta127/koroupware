@@ -11,18 +11,30 @@
 <body>
 	<table border="1">
 		<tr>
-			<th>문서번호</th>
-			<td>${elec_authDetail.doc_no }</td>
+			<th>문서제목</th>
+			<td>${elec_authDetail.doc_title }</td>
 			<th>상신부서</th>
-			<td>${elec_authDetail.elec_auth_send_dept_no }</td>
+			<td>${elec_authDetail.dept_name }</td>
 		</tr>
 		<tr>
-			<th>사원번호</th>
-			<td>${elec_authDetail.emp_no }</td>
+			<th>사원이름</th>
+			<td>${elec_authDetail.emp_name }</td>
 			<th>관리부서</th>
-			<td>${elec_authDetail.elec_auth_management_dept_no }</td>
+			<td>${elec_authDetail.dept_name }</td>
 		<tr>
 	</table>
+	<h3>결재선</h3>
+	<table border="1">
+		<tr>
+			<td>직위</td>
+			<td>${elec_authDetail.position_name }</td>
+		</tr>
+		<tr>
+			<td>직급</td>
+			<td>${elec_authDetail.office_name }</td>
+		</tr>
+	</table>
+	
 	
 </body>
 </html>
