@@ -32,12 +32,10 @@ public class LoginProcess implements Action {
 				String id =request.getParameter("emp_id");
 				
 				session.setAttribute("emp_id", id);
-				System.out.println("성공");
 				forward.setPath("main.jsp");
 				forward.setRedirect(false);
 				break;
 			}else{
-				System.out.println("실패");
 				forward.setPath("login.jsp");
 				forward.setRedirect(false);
 			}

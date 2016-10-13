@@ -30,7 +30,6 @@ public class FindPasswordProcess implements Action {
 				forward.setRedirect(false);
 				break;
 			}else{
-				System.out.println("실패");
 				forward.setPath("FindAction.jsp");
 				forward.setRedirect(false);
 			}

@@ -23,14 +23,12 @@ public class FindIdProcess implements Action{
 		
 		for(int i=0; i<list.size(); i++){
 			if(list.get(i).getEmp_no()== num){
-				System.out.println("성공");
 				System.out.println(list.get(i).getEmp_id());
 				session.setAttribute("find_id", list.get(i).getEmp_id());
 				forward.setPath("FindIdResult.jsp");
 				forward.setRedirect(false);
 				break;
 			}else{
-				System.out.println("실패");
 				forward.setPath("FindAction.jsp");
 				forward.setRedirect(false);
 			} 

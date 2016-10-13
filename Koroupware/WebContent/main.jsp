@@ -8,13 +8,16 @@
 <script type="text/javascript">
 function logout() {
 	location.href="login.jsp"
-	
+}
+function signUpdate(){
+	location.href="../signUpdate/signUpdateForm.jsp"
 }
 </script>
 
 </head>
 <body>
-<h1><%=session.getAttribute("emp_id")%> 님께서 로그인 하셨습니다.</h1>
+<h1><%=session.getAttribute("emp_id")%></h1>
+<button onclick="signUpdate()">정보변경</button>
 <button onclick="logout()">로그아웃</button>
 
 </body>
