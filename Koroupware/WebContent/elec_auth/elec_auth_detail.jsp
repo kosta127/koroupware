@@ -12,15 +12,17 @@
 	<table border="1">
 		<tr>
 			<th>문서번호</th>
-			<td>${elec_auth.doc_no }</td>
+			<td>${elec_authDetail.doc_no }</td>
 			<th>상신부서</th>
-			<td>${elec_auth.dept_no }</td>
+			<td>${elec_authDetail.elec_auth_send_dept_no }</td>
 		</tr>
 		<tr>
 			<th>사원번호</th>
-			<td>${elec_auth.emp_no }</td>
+			<td>${elec_authDetail.emp_no }</td>
 			<th>관리부서</th>
-			<td>${elec_auth.elec_auth_management_dept_no }</td>
+			<td>${elec_authDetail.elec_auth_management_dept_no }</td>
+		<tr>
 	</table>
+	
 </body>
 </html>
