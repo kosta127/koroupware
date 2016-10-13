@@ -6,7 +6,7 @@
 <meta httpa-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-function signUp(){
+function signUp(){ 
 	location.href = "StartAction.do";
 }
 function findUser(){
