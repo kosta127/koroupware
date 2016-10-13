@@ -32,7 +32,7 @@ public class FindIdProcess implements Action{
 				System.out.println("실패");
 				forward.setPath("FindAction.jsp");
 				forward.setRedirect(false);
-			}
+			} 
 		}
 		
 		return forward;
