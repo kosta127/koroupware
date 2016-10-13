@@ -15,13 +15,17 @@ public class Elec_authListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward=new ActionForward();
 		
+		String strPageNum=request.getParameter("pageNum");
+		int pageNum=(strPageNum!=null)?Integer.parseInt(strPageNum):1;
+		
 		Elec_authService service=Elec_authService.getInstance();
-		List<Elec_auth> elec_authList=service.elec_authList();
+		List<Elec_auth> elec_authList=service.elec_authList(pageNum);
 		
 		if(elec_authList != null){
 			request.setAttribute("elec_authList", elec_authList);
+			request.setAttribute("paging", service.elec_authListPage(pageNum));
 			forward.setRedirect(false);
-			forward.setUrl("/elec_auth_jdbc/elec_auth_main.jsp");
+			forward.setUrl("/elec_auth/elec_auth_main.jsp");
 		}else{
 			forward.setRedirect(true);
 			forward.setUrl("error.do");

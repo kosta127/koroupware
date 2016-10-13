@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta.elecauth.action.Action;
 import kosta.elecauth.action.ActionForward;
+import kosta.elecauth.action.Elec_authDetailAction;
 import kosta.elecauth.action.Elec_authListAction;
 
 @WebServlet("*.do")
@@ -31,6 +32,9 @@ public class Elec_authController extends HttpServlet{
 		
 		if(command.equals("elec_authList.do")){
 			action=new Elec_authListAction();
+			forward=action.execute(request, response);
+		}else if(command.equals("elec_authDetail.do")){
+			action=new Elec_authDetailAction();
 			forward=action.execute(request, response);
 		}
 		

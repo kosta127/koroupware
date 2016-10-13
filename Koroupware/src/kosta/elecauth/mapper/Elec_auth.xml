@@ -13,7 +13,13 @@
 		FROM elec_auth
 	</select>
 	
+	<select id="getTotalCount" resultType="int">
+		SELECT COUNT(*) FROM elec_auth
+	</select>
 	
+	<select id="elec_authDetail" resultType="Elec_auth" parameterType="int">
+		SELECT * FROM elec_auth WHERE elec_auth_no=#{elec_auth_no}
+	</select>
 </mapper>
 
 
