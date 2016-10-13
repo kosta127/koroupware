@@ -70,4 +70,21 @@ public class Elec_authDao {
 		return elec_auth;
 	}
 	
+	public int insertElecAuth(Elec_auth ea){
+		SqlSession sqlSession = SessionFactory.getInstance().openSession();
+		int res = -1;
+		try {
+			res = sqlSession.getMapper(Elec_authMapper.class).insertElecAuth(ea);
+			if(res>0){
+				sqlSession.commit();
+			}else{
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return res;
+	}
 }
