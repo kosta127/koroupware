@@ -19,6 +19,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kosta.elecauth.mapper.Elec_authMapper;
 import kosta.elecauth.model.Elec_auth;
+import kosta.etc.SessionFactory;
 
 public class Elec_authDao {
 	private static Elec_authDao dao=new Elec_authDao();
@@ -26,21 +27,10 @@ public class Elec_authDao {
 	
 	public static Elec_authDao getInstance(){
 		return dao;
-	}
-	
-	public SqlSessionFactory getSqlSessionFactory(){
-		String resource="mybatis-config.xml";
-		InputStream input=null;
-		try {
-			input=Resources.getResourceAsStream(resource);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return new SqlSessionFactoryBuilder().build(input);
-	}
+	}	
 	
 	public List<Elec_auth> elec_authList(int startRow){
-		SqlSession sqlSession=getSqlSessionFactory().openSession();
+		SqlSession sqlSession=SessionFactory.getInstance().openSession();
 		List<Elec_auth> list=null;
 		
 		try {
@@ -55,7 +45,7 @@ public class Elec_authDao {
 	}
 	
 	public int getTotalCount(){
-		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		SqlSession sqlSession = SessionFactory.getInstance().openSession();
 		int totalCount = 0;
 		try {
 			totalCount = sqlSession.getMapper(Elec_authMapper.class).getTotalCount();
@@ -68,7 +58,7 @@ public class Elec_authDao {
 	}
 	
 	public Elec_auth elec_authDetail(int elec_auth_no){
-		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		SqlSession sqlSession = SessionFactory.getInstance().openSession();
 		Elec_auth elec_auth=null;
 		try {
 			elec_auth=sqlSession.getMapper(Elec_authMapper.class).elec_authDetail(elec_auth_no);
