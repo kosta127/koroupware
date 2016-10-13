@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 function signUp(){ 
-	location.href = "StartAction.do";
+	location.href = "MakeAction.do";
 }
 function findUser(){
 	location.href = "FindAction.jsp";

@@ -50,7 +50,7 @@ public class LoginController extends HttpServlet {
 	}else if(command.equals("FindPasswordProcess.do")){
 		action = new FindPasswordProcess();
 		forward = action.execute(request, response);
-	}else if(command.equals("StartAction.do")){
+	}else if(command.equals("MakeAction.do")){
 		action = new StartAction();
 		forward = action.execute(request, response);
 	}else if(command.equals("SignUpAction.do")){
