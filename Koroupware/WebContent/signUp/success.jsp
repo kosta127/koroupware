@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>가입 완료</title>
 <script type="text/javascript">
-	function backpage() {
+	function backpage() { 
 		location.href="../login.jsp";
 	}
 </script>
