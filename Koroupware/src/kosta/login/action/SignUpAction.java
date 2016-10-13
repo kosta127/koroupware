@@ -35,7 +35,8 @@ public class SignUpAction implements Action {
 		tel.setTel_type(request.getParameter("tel_type"));
 		tel.setTel_telephone(request.getParameter("tel_telephone"));
 		ActionForward forward = new ActionForward();
-		
+		System.out.println(emp.getEmp_no());
+		System.out.println(tel.getEmp_no());
 		int re = 0; 
 		int re2 = 0;
 		try {
