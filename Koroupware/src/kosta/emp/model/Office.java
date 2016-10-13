@@ -8,7 +8,7 @@ public class Office {
 		return office_no; 
 	}
 	public void setOffice_no(int office_no) {
-		this.office_no = office_no;
+		this.office_no = office_no; 
 	}
 	public String getOffice_name() {
 		return office_name;
