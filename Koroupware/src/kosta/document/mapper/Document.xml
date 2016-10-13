@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="kosta.document.mapper.DocumentMapper">
+	<cache />
+	
+	<insert id="insertDoc" parameterType="Doc">
+		insert into doc(
+			doc_no,doc_title,doc_explain,doc_content,doc_regdate,doc_con_period
+		)
+		values(
+			#{doc_no},#{doc_title},#{doc_explain},#{doc_content},SYSDATE,
+			#{doc_con_period}
+		)
+	</insert>
+	
+	<select id="selectDoc_no" resultType="Integer">
+		select max(doc_no) from doc
+	</select>
+	
+	<insert id="insertDoc_box" parameterType="DocBox">
+		insert into doc_box(
+			doc_box_no,doc_box_name,doc_box_regdate,emp_no,doc_no
+		)
+		values (
+			#{doc_box_no},#{doc_box_name},SYSDATE,#{emp_no},#{doc_no}
+		)
+	</insert>
+	
+	<insert id="insertDoc_management" parameterType="DocManagement">
+		insert into doc_management(
+			doc_manage_no,doc_no,doc_box_no
+		)
+		values(
+			#{doc_manage_no},#{doc_no},#{doc_box_no}
+		)
+	</insert>
+	
+	<select id="selectDoc_box_no" resultType="Integer">
+		select max(doc_box_no) from doc_box
+	</select>
+	
+	<select id="selectDoc_manage_no" resultType="Integer">
+		select max(doc_manage_no) from doc_management
+	</select>
+	
+	<select id="listDoc" resultType="Doc">
+		select doc_title,doc_con_period,
+	</select>
+	
+	<!-- <select id="detailDocument" parameterType="int" resultType="Document">
+		select * from doc where doc_no = #{doc_no}
+	</select> -->
+	
+	<select id="listDoc_box" resultType="DocManagement">
+		select doc_management_no,doc_title from doc_box db join doc_management dm
+		on db.doc_box_no = dm.doc_box_no
+		join emp e on db.emp_no = e.emp_no
+		join doc d on dm.doc_no = d.doc_no
+		where dm.doc_no = #{doc_no}
+		and db.emp_no = #{emp_no}
+	</select>
+	
+	<select id="detailDoc" parameterType="DocManagement" resultType="Doc">
+		select doc_title,doc_explain,doc_content,doc_con_period,emp_name 
+		from doc_box db join doc_management dm
+		on db.doc_box_no = dm.doc_box_no
+		join doc d on d.doc_no = dm.doc_no
+		where db.doc_no = #{doc_no}
+		and db.emp_no = #{emp_no}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
