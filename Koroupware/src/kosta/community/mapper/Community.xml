@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="kosta.community.mapper.CommunityMapper">
+	<insert id="insertCategory" parameterType="Category">
+		insert into community(
+			community_no, community_name, community_regdate, community_approvalYN
+		)
+		values(
+			seq_community.NEXTVAL, #{community_name}, SYSDATE, #{community_approvalYN}
+		)
+	</insert>
+	
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

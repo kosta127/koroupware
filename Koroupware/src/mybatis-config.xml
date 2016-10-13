@@ -6,7 +6,10 @@
 <configuration>
 	<typeAliases>
 		<!-- 별칭설정 -->
-		
+		<typeAlias type="kosta.community.model.Board" alias="Board"/>
+		<typeAlias type="kosta.community.model.ListModel" alias="ListModel"/>
+		<typeAlias type="kosta.community.model.Category" alias="Category"/>
+		<typeAlias type="kosta.community.model.Community" alias="Community"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -24,6 +27,7 @@
 	
 	<mappers>
 		<!-- mapper등록 -->
-		
+		<mapper resource="kosta/community/mapper/Board.xml"/>
+		<mapper resource="kosta/community/mapper/Community.xml"/>
 	</mappers>
 </configuration>
