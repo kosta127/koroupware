@@ -8,6 +8,7 @@ import kosta.elecauth.model.Approval_list;
 import kosta.elecauth.model.Elec_auth;
 import kosta.elecauth.model.Elec_authDetail;
 import kosta.elecauth.model.Elec_auth_referrer;
+import kosta.elecauth.model.Elec_authDetail;
 
 public interface Elec_authMapper {
 	public List<Elec_auth> elec_authList(RowBounds rb);

@@ -22,6 +22,7 @@ import kosta.elecauth.model.Approval_list;
 import kosta.elecauth.model.Elec_auth;
 import kosta.elecauth.model.Elec_authDetail;
 import kosta.elecauth.model.Elec_auth_referrer;
+import kosta.elecauth.model.Elec_authDetail;
 import kosta.etc.SessionFactory;
 
 public class Elec_authDao {
