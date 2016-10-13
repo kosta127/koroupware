@@ -27,7 +27,7 @@ public class SearchProcess implements Action {
 		for(int i =0; i<list.size(); i++){
 			if(list.get(i).getEmp_name().equals(request.getParameter("search_content"))){
 				System.out.println("통과");
-				forward.setPath("./Search/searchSuccess.jsp");
+				forward.setPath("./Search/searchSuccess.jsp"); 
 				forward.setRedirect(false);
 				break;
 			}else{
