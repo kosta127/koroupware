@@ -4,6 +4,7 @@ import java.util.List;
 
 import kosta.elecauth.dao.Elec_authDao;
 import kosta.elecauth.model.Elec_auth;
+import kosta.elecauth.model.Elec_authPage;
 
 public class Elec_authService {
 	private static Elec_authService service=new Elec_authService();
@@ -15,8 +16,23 @@ public class Elec_authService {
 		return service;
 	}
 	
-	public List<Elec_auth> elec_authList(){
-		return dao.elec_authList();
+	public List<Elec_auth> elec_authList(int pageNum){
+		int startRow=(pageNum-1)*dao.LIST_SIZE;
+		return dao.elec_authList(startRow);
+	}
+	
+	public Elec_authPage elec_authListPage(int currentPage){
+		int pageNumber=10;
+		int totCount=dao.getTotalCount();
+		int totalPage = totCount/dao.LIST_SIZE + ((totCount%dao.LIST_SIZE>0)?1:0);
+		int startPage = (currentPage<=pageNumber)?1:((currentPage/pageNumber)*pageNumber)+1;
+		int endPage = (totalPage<(startPage+pageNumber)-1)?totalPage:(startPage+pageNumber)-1;
+		return new Elec_authPage(totalPage, startPage, endPage, currentPage,
+						startPage>pageNumber, endPage<totalPage);
+	}
+	
+	public Elec_auth elec_authDetail(int elec_auth_no){
+		return dao.elec_authDetail(elec_auth_no);
 	}
 	
 }
