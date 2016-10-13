@@ -10,4 +10,5 @@ public interface Elec_authMapper {
 	public List<Elec_auth> elec_authList(RowBounds rb);
 	public int getTotalCount();
 	public Elec_auth elec_authDetail(int elec_auth_no);
+	public int insertElecAuth(Elec_auth ea);
 }
