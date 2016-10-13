@@ -5,8 +5,9 @@
 
 <configuration>
 	<typeAliases>
-		<typeAlias type="kosta.login.model.Member" alias="Member"/>
-		
+		<!-- <typeAlias type="kosta.login.model.Member" alias="Member"/> -->
+		<typeAlias type="kosta.emp.model.Emp" alias="Emp"/>
+		<typeAlias type="kosta.emp.model.Tel" alias="Tel"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -23,6 +24,6 @@
 	</environments>
 	
 	<mappers>
-		<mapper resource="kosta/login/mapper/Member.xml"/>
+		<mapper resource="kosta/login/mapper/SignUp.xml"/>
 	</mappers>
 </configuration>

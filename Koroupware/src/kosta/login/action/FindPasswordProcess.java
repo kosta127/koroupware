@@ -9,7 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.SystemUtils;
 
-import kosta.login.dao.MemberDao;
+import kosta.emp.model.Emp;
+import kosta.login.dao.LoginDao;
 import kosta.login.model.Member;
 
 public class FindPasswordProcess implements Action {
@@ -17,8 +18,8 @@ public class FindPasswordProcess implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
-		MemberDao dao = MemberDao.getInstance();
-		List<Member> list = dao.FindPassword_ListMember();
+		LoginDao dao = LoginDao.getInstance();
+		List<Emp> list = dao.FindPassword_ListEmp();
 		HttpSession session = request.getSession();
 		int num = Integer.parseInt(request.getParameter("find_no"));
 		for(int i=0; i<list.size(); i++){

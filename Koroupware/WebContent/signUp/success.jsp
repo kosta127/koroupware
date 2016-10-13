@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>가입 완료</title>
+<script type="text/javascript">
+	function backpage() {
+		location.href="../login.jsp";
+	}
+</script>
 </head>
+
 <body>
-	가입완료
+	<h1>가입완료</h1>
+	<button onclick="backpage()">확인</button>
 </body>
 </html>

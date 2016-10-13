@@ -15,6 +15,8 @@ import kosta.login.action.ActionForward;
 import kosta.login.action.FindIdProcess;
 import kosta.login.action.FindPasswordProcess;
 import kosta.login.action.LoginProcess;
+import kosta.login.action.SignUpAction;
+import kosta.login.action.StartAction;
 
 
 
@@ -48,8 +50,14 @@ public class LoginController extends HttpServlet {
 	}else if(command.equals("FindPasswordProcess.do")){
 		action = new FindPasswordProcess();
 		forward = action.execute(request, response);
+	}else if(command.equals("StartAction.do")){
+		action = new StartAction();
+		forward = action.execute(request, response);
+	}else if(command.equals("SignUpAction.do")){
+		System.out.println("여긴되냐");
+		action = new SignUpAction();
+		forward = action.execute(request, response);
 	}
-	
 	
 	if(forward != null){
 		if(forward.isRedirect()){

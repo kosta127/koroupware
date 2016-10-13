@@ -10,13 +10,13 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import kosta.login.mapper.LoginMapper;
-import kosta.login.model.Member;
+import kosta.emp.model.Emp;
+import kosta.login.mapper.SignUpMapper;
 
-public class MemberDao {
-	private static MemberDao dao = new MemberDao();
+public class LoginDao {
+	private static LoginDao dao = new LoginDao();
 
-	public static MemberDao getInstance() {
+	public static LoginDao getInstance() {
 		return dao;
 	}
 
@@ -34,13 +34,13 @@ public class MemberDao {
 
 	
 
-	public List<Member> ListMember() {
+	public List<Emp> ListEmp() {
 		// 로그인 용 리스트
 	
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		
 		try{
-			return sqlSession.getMapper(LoginMapper.class).checkMember();
+			return sqlSession.getMapper(SignUpMapper.class).checkEmp();
 		}catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -50,13 +50,13 @@ public class MemberDao {
 		
 	}
 	
-	public List<Member> FindId_ListMember(){
+	public List<Emp> FindId_ListEmp(){
 		// 아이디 찾기 용 리스트
 		
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		
 		try{
-			return sqlSession.getMapper(LoginMapper.class).FindId_ListMember();
+			return sqlSession.getMapper(SignUpMapper.class).FindId_ListEmp();
 		}catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -65,12 +65,12 @@ public class MemberDao {
 		}
 	}
 
-	public List<Member> FindPassword_ListMember() {
+	public List<Emp> FindPassword_ListEmp() {
 		// 비밀번호 찾는 용 
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		
 		try{
-			return sqlSession.getMapper(LoginMapper.class).FindPassword_ListMember();
+			return sqlSession.getMapper(SignUpMapper.class).FindPassword_ListEmp();
 		}catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -79,6 +79,8 @@ public class MemberDao {
 		}
 		
 	}
+
+
 	
 
 

@@ -86,4 +86,7 @@ public class SignUpDao {
 			return sqlSession.getMapper(SignUpMapper.class).selectTel_no();
 		}
 	}
+	
+	
+	
 }
