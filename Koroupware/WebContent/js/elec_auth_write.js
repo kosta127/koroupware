@@ -2,5 +2,5 @@
  * 
  */
 window.onload = function(){
-	CKEDITOR.replace('me');	
+	CKEDITOR.replace('elec_auth_content');	
 }

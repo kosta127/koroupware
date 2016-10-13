@@ -20,6 +20,10 @@
 	<select id="elec_authDetail" resultType="Elec_auth" parameterType="int">
 		SELECT * FROM elec_auth WHERE elec_auth_no=#{elec_auth_no}
 	</select>
+	
+	<insert id="insertElecAuth">
+		
+	</insert>
 </mapper>
 
 
