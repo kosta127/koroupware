@@ -3,8 +3,10 @@ package kosta.elecauth.service;
 import java.util.List;
 
 import kosta.elecauth.dao.Elec_authDao;
+import kosta.elecauth.model.Approval_list;
 import kosta.elecauth.model.Elec_auth;
 import kosta.elecauth.model.Elec_authPage;
+import kosta.elecauth.model.Elec_auth_referrer;
 
 public class Elec_authService {
 	private static Elec_authService service=new Elec_authService();
@@ -35,4 +37,8 @@ public class Elec_authService {
 		return dao.elec_authDetail(elec_auth_no);
 	}
 	
+	public boolean insertElecAuth(Elec_auth ea, 
+			List<Approval_list> approvals, List<Elec_auth_referrer> referrers ){
+		return dao.insertElecAuth(ea, approvals, referrers);
+	}
 }

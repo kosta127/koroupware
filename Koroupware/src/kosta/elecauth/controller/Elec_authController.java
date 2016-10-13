@@ -13,6 +13,7 @@ import kosta.elecauth.action.Action;
 import kosta.elecauth.action.ActionForward;
 import kosta.elecauth.action.Elec_authDetailAction;
 import kosta.elecauth.action.Elec_authListAction;
+import kosta.elecauth.action.Elec_authSubmissionAction;
 
 @WebServlet("*.do")
 public class Elec_authController extends HttpServlet{
@@ -36,6 +37,9 @@ public class Elec_authController extends HttpServlet{
 		}else if(command.equals("elec_authDetail.do")){
 			action=new Elec_authDetailAction();
 			forward=action.execute(request, response);
+		}else if (command.equals("elec_authSubmission.do")) {
+			action = new Elec_authSubmissionAction();
+			forward = action.execute(request, response);
 		}
 		
 		if(forward !=null){
