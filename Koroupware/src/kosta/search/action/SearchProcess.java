@@ -30,15 +30,8 @@ public class SearchProcess implements Action {
 			if(list.get(i).getEmp_name().equals(request.getParameter("search_content"))){
 				System.out.println("통과");
 				
-				int search_no = list.get(i).getEmp_no();
-				request.setAttribute("search_no", String.valueOf(search_no));
-				request.setAttribute("search_name", list.get(i).getEmp_name());
-				request.setAttribute("search_id", list.get(i).getEmp_id());
-				request.setAttribute("search_address", list.get(i).getEmp_address());
-				request.setAttribute("sear", list.get(i).getEmp_email());
-				
-			
-				forward.setPath("searchSuccess.go"); 
+				request.setAttribute("emp_id", list.get(i).getEmp_id());
+				forward.setPath("main.jsp"); 
 				forward.setRedirect(false);
 				break;
 			}else{
