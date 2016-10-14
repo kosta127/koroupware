@@ -8,16 +8,20 @@ import javax.servlet.http.HttpSession;
 
 import kosta.emp.model.Emp;
 import kosta.login.dao.LoginDao;
-import kosta.login.model.Member;
+import kosta.login.dao.SessionDao;
+import kosta.login.service.LoginService;
+import kosta.login.service.SessionService;
+
 
 public class LoginProcess implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
-		LoginDao dao = LoginDao.getInstance();
+		LoginService logService = LoginService.getInstance();
+		SessionService service = SessionService.getInstance();
 		Emp emp = new Emp(); 
-		List<Emp> list = dao.ListEmp();
+		List<Emp> list = logService.ListEmpServivce();
 		
 		HttpSession session = request.getSession();
 		
@@ -30,8 +34,8 @@ public class LoginProcess implements Action {
 					&&list.get(i).getEmp_password().equals(request.getParameter("emp_password"))){
 				
 				String id =request.getParameter("emp_id");
-				
-				session.setAttribute("emp_id", id);
+				Emp sessionEmp = service.SessionEmpService(id);
+				session.setAttribute("emp", sessionEmp);
 				forward.setPath("main.jsp");
 				forward.setRedirect(false);
 				break;

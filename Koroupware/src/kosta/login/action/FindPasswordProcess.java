@@ -11,15 +11,16 @@ import org.apache.commons.lang.SystemUtils;
 
 import kosta.emp.model.Emp;
 import kosta.login.dao.LoginDao;
-import kosta.login.model.Member;
+import kosta.login.service.LoginService;
+
 
 public class FindPasswordProcess implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
-		LoginDao dao = LoginDao.getInstance();
-		List<Emp> list = dao.FindPassword_ListEmp();
+		LoginService service = LoginService.getInstance();
+		List<Emp> list = service.FindPassword_ListEmpService();
 		HttpSession session = request.getSession();
 		int num = Integer.parseInt(request.getParameter("find_no"));
 		for(int i=0; i<list.size(); i++){

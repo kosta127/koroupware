@@ -87,6 +87,23 @@ public class SignUpDao {
 		}
 	}
 	
-	
+	public int empUpdate(Emp emp){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		re = sqlSession.getMapper(SignUpMapper.class).empUpdate(emp);
+		try {
+			if(re > 0){
+				sqlSession.commit();
+			}else{
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		
+		return re;
+	}
 	
 }

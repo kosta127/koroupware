@@ -10,9 +10,12 @@ public interface SignUpMapper {
 	public int TelInsert(Tel tel);
 	public Integer selectEmp_no();
 	public Integer selectTel_no();
-
+	public Emp sessionEmp(String emp_id);
+	public List<Tel> empTel(int emp_no);
+	public int empUpdate(Emp emp);
 	//로그인,  아이디/비밀번호 찾기
 	public List<Emp> FindId_ListEmp();
 	public List<Emp> FindPassword_ListEmp();
 	public List<Emp> checkEmp();
 }
+ 

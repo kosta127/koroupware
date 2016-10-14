@@ -16,7 +16,10 @@ import kosta.login.action.FindIdProcess;
 import kosta.login.action.FindPasswordProcess;
 import kosta.login.action.LoginProcess;
 import kosta.login.action.SignUpAction;
+import kosta.login.action.SignUpdateAction;
 import kosta.login.action.StartAction;
+import kosta.login.action.TelAddAction;
+import kosta.login.action.TelDeleteAction;
 
 
 
@@ -54,8 +57,16 @@ public class LoginController extends HttpServlet {
 		action = new StartAction();
 		forward = action.execute(request, response);
 	}else if(command.equals("SignUpAction.do")){
-		System.out.println("여긴되냐");
 		action = new SignUpAction();
+		forward = action.execute(request, response);
+	}else if(command.equals("SignUpdate.do")){
+		action = new SignUpdateAction();
+		forward = action.execute(request, response);
+	}else if(command.equals("telDelete.do")){ 
+		action = new TelDeleteAction();
+		forward = action.execute(request, response);
+	}else if(command.equals("telAdd.do")){
+		action = new TelAddAction();
 		forward = action.execute(request, response);
 	}
 	
