@@ -9,6 +9,7 @@ import kosta.elecauth.model.Elec_authDetail;
 import kosta.elecauth.model.Elec_authList;
 import kosta.elecauth.model.Elec_authPage;
 import kosta.elecauth.model.Elec_auth_referrer;
+import kosta.elecauth.model.EmpDetail;
 
 public class Elec_authService {
 	private static Elec_authService service=new Elec_authService();
@@ -42,5 +43,9 @@ public class Elec_authService {
 	public boolean insertElecAuth(Elec_auth ea, 
 			List<Approval_list> approvals, List<Elec_auth_referrer> referrers ){
 		return dao.insertElecAuth(ea, approvals, referrers);
+	}
+	
+	public List<EmpDetail> searchEmp(String keyword){
+		return dao.searchEmp(keyword);
 	}
 }

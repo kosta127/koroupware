@@ -23,6 +23,7 @@ import kosta.elecauth.model.Elec_auth;
 import kosta.elecauth.model.Elec_authDetail;
 import kosta.elecauth.model.Elec_authList;
 import kosta.elecauth.model.Elec_auth_referrer;
+import kosta.elecauth.model.EmpDetail;
 import kosta.elecauth.model.Elec_authDetail;
 import kosta.etc.SessionFactory;
 
@@ -103,5 +104,18 @@ public class Elec_authDao {
 			sqlSession.close();
 		}
 		return result;
+	}
+	
+	public List<EmpDetail> searchEmp(String keyword){
+		SqlSession sqlSession = SessionFactory.getInstance().openSession();
+		List<EmpDetail> emps = null;
+		try {
+			emps = sqlSession.getMapper(Elec_authMapper.class).searchEmp("%"+keyword+"%");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return emps;
 	}
 }

@@ -8,8 +8,18 @@ $(function(){
 })
 
 $(function(){
-	$('#elec_auth_temp_save').on('click', function(){
-		//location.href = ''
-	})
+	$('#elec_auth_approval_name').keydown(function(){
+		$.ajax({
+				url: 'empSearch.do',
+				type: 'post',
+				dataType: 'json',
+				data: $(this).dd,
+				success: showSearchResult
+		})
+	});
+	
+	function showSearchResult(){
+		alert('oh~');
+	}
 	
 })

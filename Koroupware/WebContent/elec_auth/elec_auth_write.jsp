@@ -31,12 +31,16 @@
 			<br>
 			<textarea name="elec_auth_contents" id="elec_auth_contents"></textarea>
 			<br>
-			<ul>
-				<li><a href="#">기본 정보</a></li>
-				<li><a href="#">결재 서류 정보</a></li>
-				<li><a href="#">결재선 정보</a></li>
-				<li><a href="#">참조자 정보</a></li>
-			</ul>
+			결재자 <input type="text" name="elec_auth_approval_name" id="elec_auth_approval_name">
+			<br>
+			<div id="approval_list">			
+			</div>
+			<br>
+			참조자 <input type="text" name="elec_auth_referrer_name" id="elec_auth_referrer_name">
+			<br>
+			<div id="refferer_list">
+			
+			</div>
 			<br>
 			<input type="button" value="임시저장" id="elec_auth_temp_save">
 			<input type="submit" value="제출">

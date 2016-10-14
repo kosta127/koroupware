@@ -23,18 +23,16 @@ public class Elec_authSubmissionAction implements Action {
 		String manageDept = request.getParameter("elec_auth_management_dept_no");
 		String title = request.getParameter("elec_auth_title");
 		String contents = request.getParameter("elec_auth_contents");
-		String exprDate = request.getParameter("elec_auth_expiration_period");
+		String conDate = request.getParameter("elec_auth_con_period");
 		String procDate = request.getParameter("elec_auth_processing_period"); //1111-11-11형식		
-		
-		System.out.println("contents => "+contents);
-		System.out.println("date => "+exprDate);
-		
+
 		Elec_auth ea = new Elec_auth();
 		ea.setEmp_no(Integer.parseInt(empNo));
 		ea.setDoc_no(Integer.parseInt(docNo));
 		ea.setElec_auth_title(title);
 		ea.setElec_auth_contents(contents);
 		ea.setElec_auth_management_dept_no(Integer.parseInt(manageDept));
+		ea.setElec_auth_con_period(Date.valueOf(conDate));
 		ea.setElec_auth_processing_period(Date.valueOf(procDate));
 	
 		List<Approval_list> approvals = new ArrayList<Approval_list>();
