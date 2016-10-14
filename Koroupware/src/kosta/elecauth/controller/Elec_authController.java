@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import kosta.elecauth.action.Action;
 import kosta.elecauth.action.ActionForward;
 import kosta.elecauth.action.Elec_authDetailAction;
+import kosta.elecauth.action.Elec_authErrorAction;
 import kosta.elecauth.action.Elec_authListAction;
 import kosta.elecauth.action.Elec_authSubmissionAction;
+import kosta.elecauth.action.Elec_authWriteFormAction;
 
 @WebServlet("*.do")
 public class Elec_authController extends HttpServlet{
@@ -27,6 +29,7 @@ public class Elec_authController extends HttpServlet{
 		String requestURI=request.getRequestURI();
 		String contextPath=request.getContextPath();
 		String command=requestURI.substring(contextPath.length()+1);
+		System.out.println("command => "+command);
 		
 		ActionForward forward=null;
 		Action action=null;
@@ -39,6 +42,12 @@ public class Elec_authController extends HttpServlet{
 			forward=action.execute(request, response);
 		}else if (command.equals("elec_authSubmission.do")) {
 			action = new Elec_authSubmissionAction();
+			forward = action.execute(request, response);
+		}else if(command.equals("elec_authWriteForm.do")){
+			action = new Elec_authWriteFormAction();
+			forward = action.execute(request, response);
+		}else if(command.equals("elec_authError.do")){
+			action = new Elec_authErrorAction();
 			forward = action.execute(request, response);
 		}
 		
