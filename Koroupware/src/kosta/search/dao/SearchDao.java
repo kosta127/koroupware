@@ -47,4 +47,18 @@ public class SearchDao {
 		}
 		
 	}
+
+	public List<Emp> ListSearchEmp() {
+SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		try{
+			return sqlSession.getMapper(SearchMapper.class).SearchEmpInfo();
+		}catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			sqlSession.close();
+		}
+		
+	}
 }

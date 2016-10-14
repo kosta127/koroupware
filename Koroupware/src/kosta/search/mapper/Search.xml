@@ -7,4 +7,10 @@
 	<select id="InformationEmp" resultType="Emp">
 		select * from emp
 	</select>
+	
+	<select id="SearchEmpInfo" resultType="Emp">
+		select emp_no, emp_id, emp_name, emp_email, emp_address from emp
+	</select>
+	
+	
 </mapper>

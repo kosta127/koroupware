@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import kosta.login.action.Action;
 import kosta.login.action.ActionForward;
 import kosta.search.action.SearchProcess;
+import kosta.search.action.SearchSucessProcess;
 
 
 
@@ -36,6 +37,10 @@ public class SearchController extends HttpServlet {
     	if(command.equals("SearchAction.go")){
     		action = new SearchProcess();
     		forward = action.execute(request, response);
+    	}else if(command.equals("searchSuccess.go")){
+    		action = new SearchSucessProcess();
+    		forward = action.execute(request, response);
+    		
     	}
     	
     	if(forward != null){
