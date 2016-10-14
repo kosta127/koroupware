@@ -4,41 +4,36 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-
 
 import kosta.emp.model.Emp;
-import kosta.emp.model.Search;
 import kosta.login.action.Action;
 import kosta.login.action.ActionForward;
 import kosta.search.dao.SearchDao;
+import kosta.search.model.Search;
+
 
 public class SearchProcess implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
+		String search_name = request.getParameter("search_content");
 		SearchDao dao = SearchDao.getInstance();
-		List<Emp> list = dao.ListEmp();
+		List<Search> searchlist = dao.SearchInfo(search_name);
+		List<Emp> emplist = dao.ListEmp();
+		ActionForward forward = new ActionForward();
 		
-		ActionForward forward  = new ActionForward();
 		
-		System.out.println(request.getParameter("search_content"));
-		
-		for(int i =0; i<list.size(); i++){
-			if(list.get(i).getEmp_name().equals(request.getParameter("search_content"))){
-				System.out.println("통과");
-				
-				request.setAttribute("emp_id", list.get(i).getEmp_id());
-				forward.setPath("main.jsp"); 
+		for(int i=0; i<emplist.size(); i++){
+			if(emplist.get(i).getEmp_name().equals(search_name)){
+				System.out.println("성공");
+				request.setAttribute("Search", searchlist);
+				forward.setPath("./Search/searchSuccess.jsp");
 				forward.setRedirect(false);
 				break;
 			}else{
 				System.out.println("실패");
 			}
 		}
-		
 		return forward;
 	}
 }

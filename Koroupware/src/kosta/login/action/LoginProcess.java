@@ -17,7 +17,6 @@ public class LoginProcess implements Action {
 		ActionForward forward = new ActionForward();
 		LoginDao dao = LoginDao.getInstance();
 		List<Emp> list = dao.ListEmp();
-		
 		HttpSession session = request.getSession();
 		
 		

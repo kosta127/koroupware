@@ -4,6 +4,7 @@ import java.util.List;
 
 import kosta.emp.model.Emp;
 import kosta.emp.model.Tel;
+import kosta.search.model.Search;
 
 public interface SignUpMapper {
 	public int SignUp(Emp emp);

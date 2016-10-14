@@ -8,6 +8,7 @@
 		<!-- <typeAlias type="kosta.login.model.Member" alias="Member"/> -->
 		<typeAlias type="kosta.emp.model.Emp" alias="Emp"/>
 		<typeAlias type="kosta.emp.model.Tel" alias="Tel"/>
+		<typeAlias type="kosta.search.model.Search" alias="Search"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -26,5 +27,6 @@
 	<mappers>
 		<mapper resource="kosta/login/mapper/SignUp.xml"/>
 		<mapper resource="kosta/search/mapper/Search.xml"/>
+		
 	</mappers>
 </configuration>
