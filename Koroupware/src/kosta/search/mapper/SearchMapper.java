@@ -7,7 +7,8 @@ import kosta.search.model.Search;
 
 public interface SearchMapper {
 	//문서, 사원 검색 용
-	public List<Emp> InformationEmp(String search_content);
+	public List<Emp> ListEmp();
 
-	public List<Search> SearchEmpInfo(String search_name);
+
+	public List<Search> SearchInfo(String search_name);
 }

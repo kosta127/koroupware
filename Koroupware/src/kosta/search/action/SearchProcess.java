@@ -10,6 +10,7 @@ import kosta.login.action.Action;
 import kosta.login.action.ActionForward;
 import kosta.search.dao.SearchDao;
 import kosta.search.model.Search;
+import kosta.search.service.SearchService;
 
 
 public class SearchProcess implements Action {
@@ -17,9 +18,9 @@ public class SearchProcess implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		String search_name = request.getParameter("search_content");
-		SearchDao dao = SearchDao.getInstance();
-		List<Search> searchlist = dao.SearchInfo(search_name);
-		List<Emp> emplist = dao.ListEmp();
+		SearchService service = SearchService.getInstance();
+		List<Search> searchlist = service.SearchInfoService(search_name);
+		List<Emp> emplist = service.ListEmpServivce();
 		ActionForward forward = new ActionForward();
 		
 		

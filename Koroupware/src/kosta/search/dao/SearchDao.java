@@ -32,13 +32,13 @@ public class SearchDao {
 		return new SqlSessionFactoryBuilder().build(input);
 	}
 	
-	public List<Emp> ListEmp_deptname(String search_content) {
+	public List<Emp> ListEmp() {
 		// 로그인 용 리스트
 	
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		
 		try{
-			return sqlSession.getMapper(SearchMapper.class).InformationEmp(search_content);
+			return sqlSession.getMapper(SearchMapper.class).ListEmp();
 		}catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -52,8 +52,7 @@ public class SearchDao {
 	public List<Search> SearchInfo(String search_name) {
 SqlSession sqlSession = getSqlSessionFactory().openSession();		
 		try{
-			System.out.println(sqlSession.getMapper(SearchMapper.class).SearchEmpInfo(search_name));
-			return sqlSession.getMapper(SearchMapper.class).SearchEmpInfo(search_name);
+			return sqlSession.getMapper(SearchMapper.class).SearchInfo(search_name);
 		}catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -62,19 +61,8 @@ SqlSession sqlSession = getSqlSessionFactory().openSession();
 		}
 	}
 
-	public List<Emp> ListEmp() {
-		// 로그인 용 리스트
-	
-		SqlSession sqlSession = getSqlSessionFactory().openSession();
-		
-		try{
-			return sqlSession.getMapper(SignUpMapper.class).checkEmp();
-		}catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		} finally {
-			sqlSession.close();
-		}
-		
-	}
+
+
+
+
 }
