@@ -14,6 +14,7 @@ import kosta.message.action.Action;
 import kosta.message.action.ActionForward;
 import kosta.message.action.FailAction;
 import kosta.message.action.MessagePageAction;
+import kosta.message.action.MessagePageTempAction;
 import kosta.message.action.MessageSendAction;
 
 
@@ -27,12 +28,14 @@ public class MessageController extends HttpServlet {
     public void doProcess(HttpServletRequest request, HttpServletResponse response)
     		throws ServletException, IOException{
     	String command = getRequestPath(request);
-    	
     	Action action = null;
     	
     	switch (command) {
-		case "messagePage.do":
+    	case "messagePage.do":
 			action = new MessagePageAction();
+			break;
+    	case "messagePageTemp.do":
+			action = new MessagePageTempAction();
 			break;
 		case "messageSend.do":
 			action = new MessageSendAction();

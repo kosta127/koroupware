@@ -22,6 +22,8 @@
 		if(!list.isEmpty()){
 			String json = JSONArray.fromObject(list).toString();
 			out.print(json);
+		}else{
+			out.print("[{\"fail\":\"fail\"}]");
 		}
 	}
 %>
