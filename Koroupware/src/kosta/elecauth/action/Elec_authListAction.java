@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta.elecauth.dao.Elec_authDao;
 import kosta.elecauth.model.Elec_auth;
+import kosta.elecauth.model.Elec_authList;
 import kosta.elecauth.service.Elec_authService;
 
 public class Elec_authListAction implements Action {
@@ -19,13 +20,13 @@ public class Elec_authListAction implements Action {
 		int pageNum=(strPageNum!=null)?Integer.parseInt(strPageNum):1;
 		
 		Elec_authService service=Elec_authService.getInstance();
-		List<Elec_auth> elec_authList=service.elec_authList(pageNum);
+		List<Elec_authList> elec_authList=service.elec_authList(pageNum);
 		
 		if(elec_authList != null){
 			request.setAttribute("elec_authList", elec_authList);
 			request.setAttribute("paging", service.elec_authListPage(pageNum));
 			forward.setRedirect(false);
-			forward.setUrl("/elec_auth/elec_auth_main.jsp");
+			forward.setUrl("/elec_auth/elec_auth_list.jsp");
 		}else{
 			forward.setRedirect(true);
 			forward.setUrl("error.do");

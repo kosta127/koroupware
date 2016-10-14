@@ -19,22 +19,27 @@
 <table border="1" class="center">
 	<thead>
 		<tr>
-			<th>No.</th>
+			<th>문서번호</th>
+			<th>문서종류</th>
 			<th>제목</th>
-			<th>내용</th>
-			<th>등록일</th>
-			<th>비고</th>
+			<th>관리부서</th>
+			<th>기안자</th>
+			<th>기안일</th>
+			<th>결재 마감일</th>
+			<th>결재 단계</th>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach var="i" items="${elec_authList }"> 
 			<tr>
 				<td>${i.elec_auth_no }</td>
-				<td>
-					<a href="elec_authDetail.do?elec_auth_no=${i.elec_auth_no}">${i.elec_auth_title }</a></td>
-				<td>${i.elec_auth_contents }</td>
+				<td>${i.doc_title}</td>
+				<td><a href="elec_authDetail.do?elec_auth_no=${i.elec_auth_no}">${i.elec_auth_title }</a></td>
+				<td>${i.dept_name }</td>
+				<td>${i.emp_name }</td>
 				<td>${i.elec_auth_regdate }</td>
-				<td></td>
+				<td>${i.elec_auth_processing_period }</td>
+				<td>${i.approval_list_pass }</td>
 			</tr>
 		</c:forEach>
 	</tbody>

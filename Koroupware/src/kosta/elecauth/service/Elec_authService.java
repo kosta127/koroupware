@@ -6,7 +6,7 @@ import kosta.elecauth.dao.Elec_authDao;
 import kosta.elecauth.model.Approval_list;
 import kosta.elecauth.model.Elec_auth;
 import kosta.elecauth.model.Elec_authDetail;
-import kosta.elecauth.model.Elec_authDetailAR;
+import kosta.elecauth.model.Elec_authList;
 import kosta.elecauth.model.Elec_authPage;
 import kosta.elecauth.model.Elec_auth_referrer;
 
@@ -20,7 +20,7 @@ public class Elec_authService {
 		return service;
 	}
 	
-	public List<Elec_auth> elec_authList(int pageNum){
+	public List<Elec_authList> elec_authList(int pageNum){
 		int startRow=(pageNum-1)*dao.LIST_SIZE;
 		return dao.elec_authList(startRow);
 	}
@@ -37,10 +37,6 @@ public class Elec_authService {
 	
 	public Elec_authDetail elec_authDetail(int elec_auth_no){
 		return dao.elec_authDetail(elec_auth_no);
-	}
-	
-	public Elec_authDetailAR elec_authDetailAR(int elec_auth_no){
-		return dao.elec_authDetailAR(elec_auth_no);
 	}
 	
 	public boolean insertElecAuth(Elec_auth ea, 
