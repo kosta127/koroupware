@@ -2,6 +2,7 @@ package kosta.elecauth.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 public class Elec_authDetail implements Serializable{
 	private String elec_auth_no;
@@ -26,7 +27,7 @@ public class Elec_authDetail implements Serializable{
 	private String office_no;
 	private String office_name;
 	
-	public Elec_authDetail(){}
+	public Elec_authDetail(){}	
 
 	public Elec_authDetail(String elec_auth_no, String emp_no, String doc_no, String elec_auth_send_dept_no,
 			String elec_auth_title, String elec_auth_contents, String elec_auth_management_dept_no,
@@ -56,6 +57,8 @@ public class Elec_authDetail implements Serializable{
 		this.office_no = office_no;
 		this.office_name = office_name;
 	}
+
+
 
 	public String getElec_auth_no() {
 		return elec_auth_no;

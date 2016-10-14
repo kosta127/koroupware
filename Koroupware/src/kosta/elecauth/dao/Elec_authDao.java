@@ -21,6 +21,7 @@ import kosta.elecauth.mapper.Elec_authMapper;
 import kosta.elecauth.model.Approval_list;
 import kosta.elecauth.model.Elec_auth;
 import kosta.elecauth.model.Elec_authDetail;
+import kosta.elecauth.model.Elec_authDetailAR;
 import kosta.elecauth.model.Elec_auth_referrer;
 import kosta.elecauth.model.Elec_authDetail;
 import kosta.etc.SessionFactory;
@@ -72,6 +73,19 @@ public class Elec_authDao {
 			sqlSession.close();
 		}
 		return elec_authDetail;
+	}
+	
+	public Elec_authDetailAR elec_authDetailAR(int elec_auth_no){
+		SqlSession sqlSession=SessionFactory.getInstance().openSession();
+		Elec_authDetailAR elec_authDetailAR=null;
+		try {
+			elec_authDetailAR=sqlSession.getMapper(Elec_authMapper.class).elec_authDetailAR(elec_auth_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			sqlSession.close();
+		}
+		return elec_authDetailAR;
 	}
 	
 	public boolean insertElecAuth(Elec_auth ea, 
