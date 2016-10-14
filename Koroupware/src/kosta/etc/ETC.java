@@ -1,5 +1,7 @@
 package kosta.etc;
 
+import org.apache.ibatis.session.SqlSession;
+
 public class ETC {
 	public static boolean isNotNull(Object object){
 		//null값이 아닌지 확인
@@ -16,5 +18,13 @@ public class ETC {
 		}
 		
 		return false;
-	} 
+	}
+	
+	public void commit(SqlSession session, int result){
+		if(ETC.isCommit(result)){
+			session.commit();
+		}else{
+			session.rollback();
+		}
+	}
 }

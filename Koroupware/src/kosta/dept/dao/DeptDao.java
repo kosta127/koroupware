@@ -1,20 +1,18 @@
-package kosta.emp.dao;
+package kosta.dept.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import kosta.dept.mapper.DeptMapper;
 import kosta.dept.model.Dept;
+import kosta.emp.dao.EmpDao;
 import kosta.emp.mapper.EmpMapper;
-import kosta.emp.model.Emp;
-import kosta.emp.model.SearchEmpModel;
 import kosta.etc.ETC;
 import kosta.etc.SessionFactory;
-import kosta.message.mapper.MessageMapper;
-import kosta.message.model.MessageReceiverModel;
 
-public class EmpDao{
+public class DeptDao {
 	private static EmpDao dao;
 	private SqlSessionFactory sessionFactory;
 	
@@ -30,12 +28,12 @@ public class EmpDao{
 		return dao;
 	}
 	
-	public List<SearchEmpModel> selectSearchEmpModelByKeyword(String keyword){
-		List<SearchEmpModel> searchEmpModelList = null;
+	public List<Dept> selectDeptAll(){
+		List<Dept> list = null;
 		SqlSession session = sessionFactory.openSession();
 		
 		try{
-			searchEmpModelList = session.getMapper(EmpMapper.class).selectSearchEmpModelByKeyword(keyword);
+			list = session.getMapper(DeptMapper.class).selectDeptAll();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -44,6 +42,6 @@ public class EmpDao{
 			}
 		}
 		
-		return searchEmpModelList;
+		return list;
 	}
 }

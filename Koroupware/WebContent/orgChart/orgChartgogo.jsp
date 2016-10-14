@@ -7,7 +7,7 @@
 	<title>Insert title here</title>
 	
 	<script type="text/javascript">
-		location.href = "orgChart.do";
+		location.href = "orgChartPage.do";
 	</script>
 </head>
 <body>

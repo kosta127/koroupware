@@ -64,7 +64,6 @@ public class MessageDao{
 		return messageModelList;
 	}
 	
-	
 	//임시
 	public List<MessageReceiverModel> selectMessageReceiverEmpsByEmpId(int emp_no){
 		List<MessageReceiverModel> messageReceiverModelList = null;

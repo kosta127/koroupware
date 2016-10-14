@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.dept.action.OrgChartPageAction;
 import kosta.etc.ETC;
-import kosta.message.action.Action;
 import kosta.message.action.ActionForward;
 import kosta.message.action.FailAction;
 import kosta.message.action.MessagePageAction;
@@ -39,6 +40,9 @@ public class MessageController extends HttpServlet {
 			break;
 		case "messageSend.do":
 			action = new MessageSendAction();
+			break;
+		case "orgChartPage.do":
+			action = new OrgChartPageAction();
 			break;
 		case "fail.do":
 			action = new FailAction();
