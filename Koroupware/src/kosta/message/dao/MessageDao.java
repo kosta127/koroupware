@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import kosta.emp.model.Emp;
 import kosta.etc.ETC;
 import kosta.etc.SessionFactory;
 import kosta.message.mapper.MessageMapper;
@@ -18,7 +19,6 @@ public class MessageDao{
 	
 	{
 		sessionFactory = SessionFactory.getInstance();
-		
 	}
 	
 	public static MessageDao getInstance(){
@@ -47,12 +47,12 @@ public class MessageDao{
 		return result;
 	}
 	
-	public List<MessageModel> selectMessageModelsByEmpId(int emp_no){
+	public List<MessageModel> selectMessageModelsBySenderNoAndReceiverNo(MessageModel messageModel){
 		List<MessageModel> messageModelList = null;
 		SqlSession session = sessionFactory.openSession();
 		
 		try{
-			messageModelList = session.getMapper(MessageMapper.class).selectMessageModelsByEmpNo(emp_no);
+			messageModelList = session.getMapper(MessageMapper.class).selectMessageModelsBySenderNoAndReceiverNo(messageModel);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {

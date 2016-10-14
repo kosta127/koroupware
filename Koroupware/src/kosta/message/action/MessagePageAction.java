@@ -28,11 +28,8 @@ public class MessagePageAction implements Action{
 		emp.setDept_no(1);
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("emp", emp);
+		session.setAttribute("loginEmp", emp);
 		//
-		
-		List<MessageModel> messageModelList = dao.selectMessageModelsByEmpId(emp.getEmp_no());
-		request.setAttribute("messageModelList", messageModelList);
 		
 		List<MessageReceiverModel> messageReceiverModelList = 
 				dao.selectMessageReceiverEmpsByEmpId(emp.getEmp_no());
@@ -43,5 +40,4 @@ public class MessagePageAction implements Action{
 		
 		return forward;
 	}
-
 }

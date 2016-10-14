@@ -72,11 +72,15 @@ public class MessageController extends HttpServlet {
 		if(ETC.isNotNull(action)){
 			ActionForward forward = action.execute(request, response);
 			
-			if(forward.isRedirect()){
-				response.sendRedirect(forward.getPath());
+			if(ETC.isNotNull(forward)){
+				if(forward.isRedirect()){
+					response.sendRedirect(forward.getPath());
+				}else{
+					RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
+					dispatcher.forward(request, response);
+				}
 			}else{
-				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
-				dispatcher.forward(request, response);
+				System.out.println("ActionForward가 NULL");
 			}
 		}else{
 			System.out.println("Action이 NULL");

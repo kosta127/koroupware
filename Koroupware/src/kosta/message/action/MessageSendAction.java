@@ -22,12 +22,16 @@ public class MessageSendAction implements Action{
 		
 		int result = dao.insertMessage(message);
 		
+		/*
 		if(ETC.isCommit(result)){
 			forward.setPath("messagePage.do");
 			forward.setRedirect(false);
 		}
 		
 		return forward;
+		*/
+		
+		return null;
 	}
 
 }
