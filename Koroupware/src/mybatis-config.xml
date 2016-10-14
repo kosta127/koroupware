@@ -8,6 +8,7 @@
 		<!-- 별칭설정 -->
 		<typeAlias type="kosta.elecauth.model.Elec_auth" alias="Elec_auth"/>
 		<typeAlias type="kosta.elecauth.model.Elec_authDetail" alias="Elec_authDetail"/>
+		<typeAlias type="kosta.elecauth.model.Elec_authDetailAR" alias="Elec_authDetailAR"/>
 		 
 	</typeAliases>
 	

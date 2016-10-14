@@ -28,6 +28,18 @@
 			AND ea.elec_auth_no=#{elec_auth_no}
 	</select>
 	
+	<select id="elec_authDetailAR" resultType="Elec_authDetailAR" parameterType="int">
+		SELECT *
+		FROM elec_auth ea, approval_list al, elec_auth_referrer ear, emp e, position p, office o
+		WHERE ea.elec_auth_no=al.elec_auth_no
+		AND al.emp_no=e.emp_no
+		AND ea.elec_auth_no=ear.elec_auth_no
+		AND ear.emp_no=e.emp_no
+		AND e.position_no=p.position_no 
+		AND e.office_no=o.office_no
+		AND ea.elec_auth_no=#{elec_auth_no}
+	</select>
+	
 	<insert id="insertElecAuth">
 		
 	</insert>
