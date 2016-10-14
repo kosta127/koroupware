@@ -9,6 +9,8 @@ import kosta.elecauth.model.Elec_auth;
 import kosta.elecauth.model.Elec_authDetail;
 import kosta.elecauth.model.Elec_authDetailAR;
 import kosta.elecauth.model.Elec_auth_referrer;
+import kosta.elecauth.model.EmpDetail;
+import kosta.emp.model.Emp;
 import kosta.elecauth.model.Elec_authDetail;
 
 public interface Elec_authMapper {
@@ -19,4 +21,5 @@ public interface Elec_authMapper {
 	public int insertElecAuth(Elec_auth ea);
 	public int insertElecAuthReferrer(Elec_auth_referrer ref);
 	public int insertApprovalList(Approval_list al);
+	public List<EmpDetail> searchEmp(String keyword);
 }

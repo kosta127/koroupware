@@ -40,9 +40,26 @@
 		AND ea.elec_auth_no=#{elec_auth_no}
 	</select>
 	
-	<insert id="insertElecAuth">
-		
+	<insert id="insertElecAuth" parameterType="ELec_auth">
+		INSERT INTO ELEC_AUTH(elec_auth_no, emp_no, elec_auth_management_dept_no,
+                      elec_auth_title, elec_auth_contents,
+                      elec_auth_processing_period, 
+                      elec_auth_temporary_saveYN, elec_auth_con_period,
+                      doc_no, elec_auth_regdate, elec_auth_deldate)
+        	VALUES(TEST_SEQ.NEXT_VAL, #{emp_no}, #{elec_auth_management_dept_no},
+        			#{elec_auth_title}, #{elec_auth_contents},
+        			#{elec_auth_processing_period},
+        			#{elec_auth_temporary_saveYN}, #{elec_auth_con_period},
+        			#{doc_no}, SYSDATE, NULL)
 	</insert>
+	
+	<select id="serchEmpDetail" parameterType="String" resultType="EmpDetail">
+		SELECT e.*, d.dept_name, o.office_name, p.position_name
+ 		 FROM emp e INNER JOIN dept d ON e.dept_no = d.dept_no
+      		 INNER JOIN office o ON e.office_no = o.office_no
+     		 INNER JOIN position p ON e.position_no = p.position_no
+  		WHERE emp_name like #{searchKeyword}
+	</select>
 </mapper>
 
 
