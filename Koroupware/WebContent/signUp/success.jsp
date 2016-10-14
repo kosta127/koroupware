@@ -7,7 +7,7 @@
 <title>가입 완료</title>
 <script type="text/javascript">
 	function backpage() { 
-		location.href="/login.jsp";
+		location.href="loginGo.do";
 	}
 </script>
 </head>

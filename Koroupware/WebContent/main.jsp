@@ -27,6 +27,11 @@ function setting() {
 <body>
 <img alt="logo" src="main.gif">
 <h2>${emp.emp_name }</h2><br>
+<c:if test="${emp.emp_img != null }">
+<c:set var="head" value="${fun:substring(emp.emp_img, 0, fun:length(emp.emp_img) - 4) }"></c:set>
+<c:set var="pattern" value="${fun:substringAfter(emp.emp_img, head) }"></c:set>
+<img src="upload/${head }_small${pattern}" alt="${head }_small${pattern}"/>
+</c:if>
 <button onclick="signUpdate()">정보변경</button>
 <button onclick="setting()">설정</button>
 <button onclick="logout()">로그아웃</button><br>

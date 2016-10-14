@@ -53,6 +53,7 @@ public class SignUpDao {
 	public int TelInsert(Tel tel){
 		int re = -1;
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		System.out.println(tel);
 		re = sqlSession.getMapper(SignUpMapper.class).TelInsert(tel);
 		try {
 			if(re > 0){
@@ -70,14 +71,20 @@ public class SignUpDao {
 	}
 	
 	public int selectEmp_no(){
-		SqlSession sqlSession = getSqlSessionFactory().openSession();	
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try{
 		if(sqlSession.getMapper(SignUpMapper.class).selectEmp_no() == null){
 			return 0;
 		}else{
 			return sqlSession.getMapper(SignUpMapper.class).selectEmp_no();
 		}
+		}catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}finally{
+			sqlSession.close();
+		}
 	}
-	
 	public int selectTel_no(){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();	
 		if(sqlSession.getMapper(SignUpMapper.class).selectTel_no() == null){
@@ -105,5 +112,22 @@ public class SignUpDao {
 		
 		return re;
 	}
-	
+	public int telUpdate(Tel tel){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		re = sqlSession.getMapper(SignUpMapper.class).empUpdate(emp);
+		try {
+			if(re > 0){
+				sqlSession.commit();
+			}else{
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		
+		return re;
+	}
 }

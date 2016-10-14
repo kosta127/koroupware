@@ -138,5 +138,14 @@ public class Emp implements Serializable{
 	public void setEmp_elec_auth_img(String emp_elec_auth_img) {
 		this.emp_elec_auth_img = emp_elec_auth_img;
 	}
-	
+	@Override
+	public String toString() {
+		return "Emp [emp_no=" + emp_no + ", emp_name=" + emp_name + ", dept_no=" + dept_no + ", emp_email=" + emp_email
+				+ ", emp_superior=" + emp_superior + ", emp_reporter=" + emp_reporter + ", emp_id=" + emp_id
+				+ ", emp_password=" + emp_password + ", emp_address=" + emp_address + ", emp_approvalyn="
+				+ emp_approvalyn + ", emp_residentnumber=" + emp_residentnumber + ", emp_hiredate=" + emp_hiredate
+				+ ", emp_resigndate=" + emp_resigndate + ", position_no=" + position_no + ", office_no=" + office_no
+				+ ", emp_email_sign=" + emp_email_sign + ", emp_elec_auth_signkey=" + emp_elec_auth_signkey
+				+ ", emp_img=" + emp_img + ", emp_elec_auth_img=" + emp_elec_auth_img + "]";
+	}
 }

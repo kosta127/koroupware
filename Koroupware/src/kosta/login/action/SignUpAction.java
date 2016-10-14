@@ -16,7 +16,6 @@ import kosta.login.model.ImageUtil;
 import kosta.login.service.SignUpService;
 
 public class SignUpAction implements Action {
-
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response){
 		
@@ -26,32 +25,20 @@ public class SignUpAction implements Action {
 			e1.printStackTrace();
 		}
 		
-		Emp emp = new Emp();
 		Tel tel = new Tel();
 	
 		SignUpService service = SignUpService.getInstance();
+		System.out.println("dd");
 		
-		emp.setEmp_no(Integer.parseInt(request.getParameter("emp_no")));
-		emp.setDept_no(Integer.parseInt(request.getParameter("dept_no")));
-		emp.setEmp_id(request.getParameter("emp_id"));
-		emp.setEmp_password(request.getParameter("emp_password"));
-		emp.setEmp_name(request.getParameter("emp_name"));
-		emp.setEmp_residentnumber(request.getParameter("emp_residentnumber"));
-		emp.setEmp_email(request.getParameter("emp_email"));
-		emp.setEmp_address(request.getParameter("emp_address"));
-		emp.setEmp_img(request.getParameter("emp_img"));
-		emp.setEmp_elec_auth_img(request.getParameter("emp_elec_auth_img"));
 		
-		tel.setTel_type(request.getParameter("tel_type"));
-		tel.setTel_telephone(request.getParameter("tel_telephone"));
 		
 		ActionForward forward = new ActionForward();
-
+		System.out.println("gg");
 		int re = 0; 
 		int re2 = 0;
 		try {
-			
-			re = service.NewSignUpService(emp);
+			System.out.println("gg");
+			re = service.NewSignUpService(request);
 			re2 = service.TelInsertService(tel);
 		} catch (Exception e) {
 			e.printStackTrace();

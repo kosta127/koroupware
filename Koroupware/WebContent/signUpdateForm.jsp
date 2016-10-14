@@ -6,9 +6,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fun" uri="http://java.sun.com/jsp/jstl/functions" %>
     <%
       Emp emp = (Emp)session.getAttribute("emp");
-      System.out.println(emp.getEmp_no());
       SessionService service = SessionService.getInstance();
       List<Tel> tel = (List<Tel>)service.empTelService(emp.getEmp_no());
       request.setAttribute("tel", tel);
@@ -22,16 +22,20 @@
 function telDelete() {
 	location.href = "telDelete.do";
 }
-function telAdd() {
-	location.href = "telAdd.do";
-}
+
 </script>
 </head>
 <body>
-<form action="SignUpdate.do" method="post">
+
+<form action="SignUpdate.do" method="post" enctype="multipart/form-data">
 <input type = "hidden" value="${emp.emp_no }" name="emp_no" >
 <input type = "hidden" value="${emp.dept_no }" name = "dept_no">
 <input type = "hidden" value="${emp.emp_id }" name="emp_id">
+<c:if test="${emp.emp_img != null }">
+<c:set var="head" value="${fun:substring(emp.emp_img, 0, fun:length(emp.emp_img) - 4) }"></c:set>
+<c:set var="pattern" value="${fun:substringAfter(emp.emp_img, head) }"></c:set>
+<img src="upload/${head }_small${pattern}" alt="${head }_small${pattern}"/><br>
+</c:if>
 사진 <input type="file" name="emp_img"><br>
 아이디<input type="text" value="${emp.emp_id }" disabled="disabled"><br>
 이름<input type="text" value="${emp.emp_name }"><br>
@@ -45,8 +49,13 @@ function telAdd() {
 </c:forEach>
 추가번호 핸드폰<input type="radio" value="핸드폰" name="tel_type">
 일반전화<input type="radio" value="일반전화" name="tel_type"><br>
-<input type="text" name="tel_telephone"><button onclick="telAdd()">추가</button>
+<input type="text" name="tel_telephone">
 <br>
+<c:if test="${emp.emp_elec_auth_img != null }">
+<c:set var="head" value="${fun:substring(emp.emp_elec_auth_img, 0, fun:length(emp.emp_elec_auth_img) - 4) }"></c:set>
+<c:set var="pattern" value="${fun:substringAfter(emp.emp_elec_auth_img, head) }"></c:set>
+<img src="upload/${head }_small${pattern}" alt="${head }_small${pattern}"/>
+</c:if><br>
 결재서명 <input type="file" name="emp_elec_auth_img"><br> 
 <input type="submit" value="수정">
 </form>

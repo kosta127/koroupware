@@ -14,6 +14,7 @@ import kosta.login.action.Action;
 import kosta.login.action.ActionForward;
 import kosta.login.action.FindIdProcess;
 import kosta.login.action.FindPasswordProcess;
+import kosta.login.action.LoginGoAction;
 import kosta.login.action.LoginProcess;
 import kosta.login.action.SignUpAction;
 import kosta.login.action.SignUpdateAction;
@@ -67,6 +68,9 @@ public class LoginController extends HttpServlet {
 		forward = action.execute(request, response);
 	}else if(command.equals("telAdd.do")){
 		action = new TelAddAction();
+		forward = action.execute(request, response);
+	}else if(command.equals("loginGo.do")){
+		action = new LoginGoAction();
 		forward = action.execute(request, response);
 	}
 	

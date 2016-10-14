@@ -19,26 +19,16 @@ public class SignUpdateAction implements Action {
 			e1.printStackTrace();
 		}
 		
-		Emp emp = new Emp();
-		
 		SignUpService service = SignUpService.getInstance();
 		
-		System.out.println(request.getParameter("emp_id")+request.getParameter("emp_no"));
-		emp.setEmp_no(Integer.parseInt(request.getParameter("emp_no")));
-		emp.setDept_no(Integer.parseInt(request.getParameter("dept_no")));
-		emp.setEmp_id(request.getParameter("emp_id"));
-		emp.setEmp_password(request.getParameter("emp_password"));
-		emp.setEmp_name(request.getParameter("emp_name"));
-		emp.setEmp_email(request.getParameter("emp_email"));
-		emp.setEmp_address(request.getParameter("emp_address"));
-		emp.setEmp_img(request.getParameter("emp_img"));
-		emp.setEmp_elec_auth_img(request.getParameter("emp_elec_auth_img"));
 		
 		ActionForward forward = new ActionForward();
 		
 		int re = 0; 
+		int re2 = 0;
 		try {
-			re = service.EmpUpdateService(emp);
+			re = service.EmpUpdateService(request);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
