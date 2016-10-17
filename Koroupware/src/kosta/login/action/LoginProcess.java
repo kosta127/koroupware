@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kosta.emp.model.Emp;
-import kosta.login.dao.LoginDao;
-import kosta.login.dao.SessionDao;
 import kosta.login.service.LoginService;
 import kosta.login.service.SessionService;
 
@@ -31,7 +29,7 @@ public class LoginProcess implements Action {
 		for(int i=0; i<list.size(); i++){
 			if(list.get(i).getEmp_id().equals(request.getParameter("emp_id"))
 					&&list.get(i).getEmp_password().equals(request.getParameter("emp_password"))){
-				
+				System.out.println("로그인성공");
 				String id =request.getParameter("emp_id");
 				Emp sessionEmp = service.SessionEmpService(id);
 				session.setAttribute("emp", sessionEmp);

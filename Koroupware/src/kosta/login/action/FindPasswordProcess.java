@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kosta.emp.model.Emp;
-import kosta.login.dao.LoginDao;
 import kosta.login.service.LoginService;
 
 

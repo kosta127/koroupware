@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import kosta.emp.model.Tel;
 import kosta.login.service.SignUpService;
 
-public class SignUpdateAction implements Action {
+public class TelUpdateAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
@@ -24,10 +24,11 @@ public class SignUpdateAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		System.out.println("액션 포워드 성공");
-		int re = 0; 
+		int re = 0;
+		
 		try {
 			System.out.println("성공");
-			re = service.EmpUpdateService(request);
+			re = service.TelUpdateService(request);
 			System.out.println("정보수정");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -35,7 +36,7 @@ public class SignUpdateAction implements Action {
  
 		if (re > 0) {
 			forward.setRedirect(false);
-			forward.setPath("main.jsp");
+			forward.setPath("signUpdateForm.jsp");
 		}
 		
 		return forward;

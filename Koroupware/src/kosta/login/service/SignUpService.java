@@ -4,9 +4,6 @@ import kosta.login.model.ImageUtil;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Date;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import com.oreilly.servlet.MultipartRequest;
@@ -134,7 +131,6 @@ public class SignUpService {
 		emp.setEmp_id(multipartRequest.getParameter("emp_id"));
 		emp.setEmp_password(multipartRequest.getParameter("emp_password"));
 		emp.setEmp_name(multipartRequest.getParameter("emp_name"));
-		emp.setEmp_residentnumber(multipartRequest.getParameter("emp_residentnumber"));
 		emp.setEmp_email(multipartRequest.getParameter("emp_email"));
 		emp.setEmp_address(multipartRequest.getParameter("emp_address"));
 		emp.setEmp_elec_auth_signkey(multipartRequest.getParameter("emp_elec_auth_signkey"));
@@ -198,8 +194,26 @@ public class SignUpService {
 		return dao.empUpdate(emp);
 	}
 	
+	public int TelInsertUpdateService(HttpServletRequest request) {
+		Tel tel = new Tel();
+		tel.setTel_no(dao.selectTel_no() + 1);
+		tel.setEmp_no(Integer.parseInt(request.getParameter("emp_no")));
+		tel.setTel_type(request.getParameter("tel_type"));
+		tel.setTel_telephone(request.getParameter("tel_telephone"));
+		System.out.println(tel.getTel_telephone());
+		return dao.TelInsert(tel);
+	}
 
-	public int TelUpdateService(Tel tel) {
+	public int TelUpdateService(HttpServletRequest request) {
+		Tel tel = new Tel();
+		tel.setTel_no(Integer.parseInt(request.getParameter("tel_no")));
+		tel.setEmp_no(Integer.parseInt(request.getParameter("emp_no")));
+		tel.setTel_type(request.getParameter("tel_type"));
+		tel.setTel_telephone(request.getParameter("tel_telephone"));
 		return dao.telUpdate(tel);
+	}
+	
+	public int TelDeleteService(int tel_no){
+		return dao.telDelete(tel_no);
 	}
 }

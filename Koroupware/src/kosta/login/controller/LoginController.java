@@ -22,6 +22,8 @@ import kosta.login.action.SignUpdateAction;
 import kosta.login.action.StartAction;
 import kosta.login.action.TelAddAction;
 import kosta.login.action.TelDeleteAction;
+import kosta.login.action.TelUpdateAction;
+import kosta.search.action.SearchProcess;
 
 
 
@@ -47,7 +49,6 @@ public class LoginController extends HttpServlet {
 	Action action = null;
 	
 	if(command.equals("LoginProcessAction.do")){
-		System.out.println("1");
 		action = new LoginProcess();
 		forward = action.execute(request, response);
 	}else if(command.equals("FindIdProcess.do")){
@@ -66,17 +67,26 @@ public class LoginController extends HttpServlet {
 		System.out.println("업데이트 시작");
 		action = new SignUpdateAction();
 		forward = action.execute(request, response);
-	}else if(command.equals("telDelete.do")){ 
-		action = new TelDeleteAction();
-		forward = action.execute(request, response);
-	}else if(command.equals("telAdd.do")){
-		action = new TelAddAction();
-		forward = action.execute(request, response);
 	}else if(command.equals("loginGo.do")){
 		action = new LoginGoAction();
 		forward = action.execute(request, response);
 	}else if(command.equals("main.do")){
 		action = new MainAction();
+		forward = action.execute(request, response);
+	}else if(command.equals("telDelete.do")){
+		System.out.println("전화번호 삭제");
+		action = new TelDeleteAction();
+		forward = action.execute(request, response);
+	}else if(command.equals("SearchAction.do")){
+		action = new SearchProcess();
+		forward = action.execute(request, response);
+	}else if(command.equals("telAdd.do")){
+		System.out.println("전화번호 추가");
+		action = new TelAddAction();
+		forward = action.execute(request, response);
+	}else if(command.equals("telUpdate.do")){
+		System.out.println("전화번호수정");
+		action = new TelUpdateAction();
 		forward = action.execute(request, response);
 	}
 	
