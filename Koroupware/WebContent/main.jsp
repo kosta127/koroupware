@@ -37,7 +37,7 @@ function signUpdate(){
 <p>결재</p>
 <p>커뮤니티</p>
 <p>조직도</p><br>
-<form action="SearchAction.go" method="get">
+<form action="SearchAction.do" method="get">
 	검색을 하시오<input type="text" name ="search_content">
 	<input type="submit" value="검색"><br>
 </form>

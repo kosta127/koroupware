@@ -130,7 +130,7 @@ public class MainController extends HttpServlet {
 			case "main.do":
 				action = new MainAction();
 				break;
-			case "SearchAction.go":
+			case "SearchAction.do":
 				action = new SearchProcess();
 				break;
 			default:
