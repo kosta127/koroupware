@@ -1,6 +1,8 @@
 package kosta.elecauth.model;
 
-public class Elec_authDetailReferrer {
+import java.io.Serializable;
+
+public class Elec_authDetailReferrer implements Serializable{
 	private int elec_auth_referrer_no;
 	private int elec_auth_no;
 	private int emp_no;

@@ -1,6 +1,8 @@
 package kosta.elecauth.model;
 
-public class Elec_authPage {
+import java.io.Serializable;
+
+public class Elec_authPage implements Serializable{
 	private int totalPage;
 	private int startPage;
 	private int endPage;

@@ -6,15 +6,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<script src="../js/bootstrap.min.js" ></script>
-<script src="../js/jquery.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="js/bootstrap.min.js" ></script>
+<script src="js/jquery.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
 	.center{
 			text-align: center;
 		}
 </style>
+<script type="text/javascript">
+
+	$(function(){
+		$('#write').on('click', function(){
+			location.href="elec_authWriteForm.do";
+		});
+	});
+</script>
 </head>
 <body>
 <h2>결재</h2>
@@ -65,7 +73,7 @@
 		<span class="label"><a href="elec_authList.do?pageNum=${paging.endPage+1 }">다음</a></span>
 	</c:if>
 </div>
-<input type="button" value="결재작성">
+<input type="button"  id="write"  value="결재작성" >
 
 </body>
 </html>
