@@ -24,7 +24,9 @@ public class Elec_authSubmissionAction implements Action {
 		String title = request.getParameter("elec_auth_title");
 		String contents = request.getParameter("elec_auth_contents");
 		String conDate = request.getParameter("elec_auth_con_period");
-		String procDate = request.getParameter("elec_auth_processing_period"); //1111-11-11형식		
+		String procDate = request.getParameter("elec_auth_processing_period"); //1111-11-11형식	
+		String[] apps = request.getParameterValues("approval_emp_no");
+		String[] refs = request.getParameterValues("refferer_emp_no");
 
 		Elec_auth ea = new Elec_auth();
 		ea.setEmp_no(Integer.parseInt(empNo));
@@ -37,7 +39,16 @@ public class Elec_authSubmissionAction implements Action {
 	
 		List<Approval_list> approvals = new ArrayList<Approval_list>();
 		List<Elec_auth_referrer> referrers = new ArrayList<Elec_auth_referrer>();
-		
+		for(String appEmpNo : apps){
+			Approval_list al = new Approval_list();
+			al.setEmp_no(Integer.parseInt(appEmpNo));
+			approvals.add(al);
+		}
+		for(String refEmpNo : refs){
+			Elec_auth_referrer ref = new Elec_auth_referrer();
+			ref.setEmp_no(Integer.parseInt(refEmpNo));
+			referrers.add(ref);
+		}
 		
 		Elec_authService service = Elec_authService.getInstance();
 		boolean res = service.insertElecAuth(ea, approvals, referrers);

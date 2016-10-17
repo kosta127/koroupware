@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.RowBounds;
 
+import kosta.doc.model.Doc;
 import kosta.elecauth.model.Approval_list;
 import kosta.elecauth.model.Elec_auth;
 import kosta.elecauth.model.Elec_authDetail;
@@ -20,5 +21,6 @@ public interface Elec_authMapper {
 	public int insertElecAuth(Elec_auth ea);
 	public int insertElecAuthReferrer(Elec_auth_referrer ref);
 	public int insertApprovalList(Approval_list al);
-	public List<EmpDetail> searchEmp(String keyword);
+	public List<EmpDetail> searchEmpDetail(String keyword);
+	public List<Doc> getDocFormList();
 }

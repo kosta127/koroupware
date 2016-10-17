@@ -17,6 +17,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import kosta.doc.model.Doc;
 import kosta.elecauth.mapper.Elec_authMapper;
 import kosta.elecauth.model.Approval_list;
 import kosta.elecauth.model.Elec_auth;
@@ -110,12 +111,25 @@ public class Elec_authDao {
 		SqlSession sqlSession = SessionFactory.getInstance().openSession();
 		List<EmpDetail> emps = null;
 		try {
-			emps = sqlSession.getMapper(Elec_authMapper.class).searchEmp("%"+keyword+"%");
+			emps = sqlSession.getMapper(Elec_authMapper.class).searchEmpDetail(keyword);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			sqlSession.close();
 		}
 		return emps;
+	}
+	
+	public List<Doc> getDocFormList(){
+		SqlSession sqlSession = SessionFactory.getInstance().openSession();
+		List<Doc> docList = null;
+		try {
+			docList = sqlSession.getMapper(Elec_authMapper.class).getDocFormList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return docList;
 	}
 }
