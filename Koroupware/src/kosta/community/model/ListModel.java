@@ -3,15 +3,14 @@ package kosta.community.model;
 import java.util.List;
 
 public class ListModel {
-	private List<Board> list;
+	private List<BoardModel> list;
 	private int requestPage;
 	private int totalPageCount;
 	private int startPage;
 	private int endPage;
 	
 	public ListModel(){}
-	
-	public ListModel(List<Board> list, int requestPage, int totalPageCount, int startPage, int endPage) {
+	public ListModel(List<BoardModel> list, int requestPage, int totalPageCount, int startPage, int endPage) {
 		super();
 		this.list = list;
 		this.requestPage = requestPage;
@@ -19,17 +18,10 @@ public class ListModel {
 		this.startPage = startPage;
 		this.endPage = endPage;
 	}
-	
-	@Override
-	public String toString() {
-		return "ListModel [list=" + list + ", requestPage=" + requestPage + ", totalPageCount=" + totalPageCount
-				+ ", startPage=" + startPage + ", endPage=" + endPage + "]";
-	}
-	
-	public List<Board> getList() {
+	public List<BoardModel> getList() {
 		return list;
 	}
-	public void setList(List<Board> list) {
+	public void setList(List<BoardModel> list) {
 		this.list = list;
 	}
 	public int getRequestPage() {
@@ -55,5 +47,10 @@ public class ListModel {
 	}
 	public void setEndPage(int endPage) {
 		this.endPage = endPage;
+	}
+	@Override
+	public String toString() {
+		return "ListModel [list=" + list + ", requestPage=" + requestPage + ", totalPageCount=" + totalPageCount
+				+ ", startPage=" + startPage + ", endPage=" + endPage + "]";
 	}
 }

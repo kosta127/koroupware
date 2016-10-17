@@ -10,6 +10,12 @@
 		<typeAlias type="kosta.community.model.ListModel" alias="ListModel"/>
 		<typeAlias type="kosta.community.model.Category" alias="Category"/>
 		<typeAlias type="kosta.community.model.Community" alias="Community"/>
+		<typeAlias type="kosta.community.model.Search" alias="Search"/>
+		<typeAlias type="kosta.community.model.BoardFile" alias="BoardFile"/>
+		<typeAlias type="kosta.emp.model.Emp" alias="Emp"/>
+		<typeAlias type="kosta.community.model.Reply" alias="Reply"/>
+		<typeAlias type="kosta.community.model.ReplyModel" alias="ReplyModel"/>
+		<typeAlias type="kosta.community.model.BoardModel" alias="BoardModel"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -29,5 +35,7 @@
 		<!-- mapper등록 -->
 		<mapper resource="kosta/community/mapper/Board.xml"/>
 		<mapper resource="kosta/community/mapper/Community.xml"/>
+		<mapper resource="kosta/community/mapper/boardFile.xml"/>
+		<mapper resource="kosta/community/mapper/Reply.xml"/>
 	</mappers>
 </configuration>

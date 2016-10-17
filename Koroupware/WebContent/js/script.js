@@ -1,8 +1,8 @@
 ( function( $ ) {
 $( document ).ready(function() {
-$('#cssmenu li.has-sub>a').on('click', function(){
+$('#cssmenu li.community>a').on('click', function(){//카테고리li
 		$(this).removeAttr('href');
-		var element = $(this).parent('li');
+		var element = $(this).parent('li');//커뮤니티li
 		if (element.hasClass('open')) {
 			element.removeClass('open');
 			element.find('li').removeClass('open');
@@ -11,14 +11,14 @@ $('#cssmenu li.has-sub>a').on('click', function(){
 		else {
 			element.addClass('open');
 			element.children('ul').slideDown();
-			element.siblings('li').children('ul').slideUp();
+			element.siblings('li').children('ul').slideUp();//siblings: 형제요소들찾기
 			element.siblings('li').removeClass('open');
 			element.siblings('li').find('li').removeClass('open');
 			element.siblings('li').find('ul').slideUp();
 		}
 	});
 
-	$('#cssmenu>ul>li.has-sub>a').append('<span class="holder"></span>');
+	$('#cssmenu>ul>li.community>a').append('<span class="holder"></span>');
 
 	(function getColor() {
 		var r, g, b;
@@ -40,7 +40,7 @@ $('#cssmenu li.has-sub>a').on('click', function(){
 			$('#cssmenu>ul>li>a>span').css('border-color', 'rgba(255, 255, 255, .35)');
 		}
 	})();
-
+	
 	function rgbToHsl(r, g, b) {
 	    r /= 255, g /= 255, b /= 255;
 	    var max = Math.max(r, g, b), min = Math.min(r, g, b);

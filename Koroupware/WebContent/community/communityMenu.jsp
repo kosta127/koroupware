@@ -1,5 +1,6 @@
-<!doctype html>
-<html lang=''>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
 <head>
 	<meta charset='utf-8'>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,8 +36,7 @@
 	</style>
 </head>
 <body>
-
-	<div id='cssmenu'>
+<div id='cssmenu'>
 		<ul>
 			<li class="community"><a href='#'><span>업무 공지 사항</span></a>
 				<ul>
@@ -76,6 +76,5 @@
 	<div id="contents">
 		
 	</div>
-
 </body>
-<html>
+</html>

@@ -7,11 +7,13 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-
+import kosta.community.action.ListAction;
 import kosta.community.mapper.BoardMapper;
+import kosta.etc.SessionFactory;
 
 
 public class BoardDao {
@@ -60,12 +62,12 @@ public class BoardDao {
 		return re;
 	}
 	
-	public List<Board> listBoard(){
+	public List<Board> listBoard(int startRow, Search search){
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		List<Board> list = null;
-		
+		int page_size = ListAction.PAGE_SIZE;
 		try {
-			list = sqlSession.getMapper(BoardMapper.class).listBoard();
+			list = sqlSession.getMapper(BoardMapper.class).listBoard(new RowBounds(startRow, page_size), search);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -75,20 +77,33 @@ public class BoardDao {
 		
 	}
 	
-	public Board selectBoardNo(int board_no){
+	public List<BoardModel> listBoardModel(int startRow, Search search){
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		
-		Board board = null;
-		
+		List<BoardModel> list = null;
+		int page_size = ListAction.PAGE_SIZE;
 		try {
-			board=sqlSession.getMapper(BoardMapper.class).selectBoardNo(board_no);
+			list = sqlSession.getMapper(BoardMapper.class).listBoardModel(new RowBounds(startRow, page_size), search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession!=null) sqlSession.close();
+		}
+		return list;
+		
+	}
+	
+	public int selectBoardNo(){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int result = 0;
+		try {
+			result=sqlSession.getMapper(BoardMapper.class).selectBoardNo();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			if(sqlSession != null) sqlSession.close();
 		}
 		
-		return board;
+		return result;
 	}
 	
 	public Board detailBoard(int board_no){
@@ -130,6 +145,66 @@ public class BoardDao {
 		return re;
 	}
 	
+	public int DeleteBoard(int board_no){
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		int re = -1;
+		
+		try {
+			re = sqlSession.getMapper(BoardMapper.class).DeleteBoard(board_no);
+			
+			if(re > 0){
+				sqlSession.commit();
+			}else{
+				sqlSession.rollback();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		return re;
+	}
+	
+	public int updateHit(int board_no){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		int result = -1;
+		
+		try {
+			result = sqlSession.getMapper(BoardMapper.class).updateHit(board_no);
+			
+			if(result>0){
+				sqlSession.commit();
+			}else{
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		
+		return result;
+	}
+	
+	public int countBoard(Search search){
+		int re = -1;
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		try {
+			re = sqlSession.getMapper(BoardMapper.class).countBoard(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(sqlSession != null) sqlSession.close();
+		}
+		
+		return re;
+	}
 	
 }
 
