@@ -20,13 +20,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
+
 function cancel() {
-	location.href = "main.do"
+	location.href = "main.do";
+}
+
+function telDelete(tel_no, tel_type, tel_telephone) {
+	location.href = "telDelete.do?tel_no=" + tel_no + "&tel_type=" + tel_type + "&tel_telephone=" + tel_telephone;
+}
+function telUpdate(tel_no) {
+	location.href = "telUpdate.do?tel_no=" + tel_no;
 }
 </script>
 </head>
 <body>
-
 <form action="SignUpdate.do" method="post" enctype="multipart/form-data">
 <input type = "hidden" value="${emp.emp_no }" name="emp_no" >
 <input type = "hidden" value="${emp.dept_no }" name = "dept_no">
@@ -41,10 +48,9 @@ function cancel() {
 이름<input type="text" value="${emp.emp_name }"><br>
 비밀번호<input type="password" name="emp_password"><br>
 주소<input type="text" value="${emp.emp_address}" name="emp_address"><br>
-<c:forEach var="tels" items="${tel}">
-
+<c:forEach var="tels" items="${tel}" >
 기존번호<input type="text" value="${tels.tel_type }">
-<input type="text" value="${tels.tel_telephone }"><button onclick="">수정</button><button onclick="">삭제</button><br>
+<input type="text" value="${tels.tel_telephone }"><button onclick="telUpdate(${tels.tel_no}, ${tels.tel_type}, ${tels.tel_telephone})">수정</button><button onclick="telDelete(${tels.tel_no})">삭제</button><br>
 </c:forEach>
 추가번호 핸드폰<input type="radio" value="핸드폰" name="tel_type">
 일반전화<input type="radio" value="일반전화" name="tel_type"><br>
@@ -56,7 +62,7 @@ function cancel() {
 <img src="upload/${head }_small${pattern}" alt="${head }_small${pattern}"/>
 </c:if><br>
 결재서명 <input type="file" name="emp_elec_auth_img"><br> 
-<input type="text" name = "emp_elec_auth_signkey">
+<input type="text" name = "emp_elec_auth_signkey"><br>
 <input type="submit" value="수정">
 </form>
 <button onclick="cancel()">취소</button>

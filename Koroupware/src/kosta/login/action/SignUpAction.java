@@ -31,7 +31,7 @@ public class SignUpAction implements Action {
 		System.out.println("dd");
 		
 		
-		
+		 
 		ActionForward forward = new ActionForward();
 		System.out.println("gg");
 		int re = 0; 

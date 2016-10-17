@@ -63,6 +63,7 @@ public class LoginController extends HttpServlet {
 		action = new SignUpAction();
 		forward = action.execute(request, response);
 	}else if(command.equals("SignUpdate.do")){
+		System.out.println("업데이트 시작");
 		action = new SignUpdateAction();
 		forward = action.execute(request, response);
 	}else if(command.equals("telDelete.do")){ 
