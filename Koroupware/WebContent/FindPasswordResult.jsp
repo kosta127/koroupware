@@ -7,8 +7,8 @@
 <title>비밀 번호 결과</title>
 <script type="text/javascript">
 function backpage() {
-	location.href="sendMail.jsp";
-}
+	location.href="SendMail.jsp";
+}s
 </script>
 </head>
 <body>

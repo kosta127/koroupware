@@ -25,8 +25,8 @@ public class FindPasswordProcess implements Action {
 		for(int i=0; i<list.size(); i++){
 			if(list.get(i).getEmp_id().equals(request.getParameter("find_id")) 
 					&& list.get(i).getEmp_no()== num){
-				session.setAttribute("find_password", list.get(i).getEmp_password());
-				forward.setPath("FindPasswordResult.jsp");
+				session.setAttribute("find_no", list.get(i).getEmp_no());
+				forward.setPath("SendMail.jsp");
 				forward.setRedirect(false);
 				break;
 			}else{
