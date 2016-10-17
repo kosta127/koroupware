@@ -101,7 +101,7 @@ public class SignUpService {
 		
 		System.out.println(emp);
 		
-		System.out.println("?1W");
+		System.out.println("?1");
 		System.out.println("됨1");
 		return dao.SignUp(emp);
 	}
