@@ -32,5 +32,9 @@ public class Tel implements Serializable{
 	public void setTel_telephone(String tel_telephone) {
 		this.tel_telephone = tel_telephone;
 	}
-	
+	@Override
+	public String toString() {
+		return "Tel [tel_no=" + tel_no + ", emp_no=" + emp_no + ", tel_type=" + tel_type + ", tel_telephone="
+				+ tel_telephone + "]";
+	}
 }

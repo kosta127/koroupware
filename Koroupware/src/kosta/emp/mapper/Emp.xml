@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kosta.emp.mapper.EmpMapper">
+	<select id="selectSearchEmpModelByKeyword" resultType="SearchEmpModel">
+		SELECT emp_no, emp_name, dept_name, office_name, position_name
+		FROM emp e, dept d, office o, position p
+		WHERE e.dept_no = d.dept_no
+		        AND e.position_no = p.position_no
+		        AND e.office_no = o.office_no
+		        AND (emp_name LIKE #{keyword}
+				        OR dept_name LIKE #{keyword}
+				        OR office_name LIKE #{keyword}
+				        OR position_name LIKE #{keyword})
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

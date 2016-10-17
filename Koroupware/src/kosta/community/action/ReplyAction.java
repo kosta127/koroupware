@@ -5,13 +5,15 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.community.model.Reply;
 import kosta.community.model.ReplyDao;
 
 public class ReplyAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response){
 		Reply reply = new Reply();
 		ReplyDao dao = ReplyDao.getInstance();
 		

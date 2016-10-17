@@ -1,4 +1,4 @@
-package kosta.community.action;
+package kosta.action;
 
 public class ActionForward {
 	private boolean isRedirect;	

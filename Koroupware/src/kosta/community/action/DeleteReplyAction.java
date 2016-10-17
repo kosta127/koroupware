@@ -5,11 +5,13 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.community.model.ReplyDao;
 
 public class DeleteReplyAction implements Action{
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
 		
 		int reply_no = Integer.parseInt(request.getParameter("reply_no"));

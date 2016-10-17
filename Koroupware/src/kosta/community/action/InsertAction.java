@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.community.model.Board;
 import kosta.community.model.BoardDao;
 import kosta.community.model.BoardFile;
@@ -18,7 +20,7 @@ import kosta.community.model.BoardFileDao;
 public class InsertAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException{
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		Board board = new Board();
 		BoardFile boardfile = new BoardFile();
 		
