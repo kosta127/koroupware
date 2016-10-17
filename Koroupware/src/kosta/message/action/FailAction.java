@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kosta.action.Action;
+import kosta.action.ActionForward;
 
 public class FailAction implements Action{
 	@Override

@@ -1,8 +1,8 @@
-package kosta.message.action;
+package kosta.action;
 
 public class ActionForward {
-	private boolean isRedirect = true;	
-	private String path = "fail.do";
+	private boolean isRedirect;	
+	private String path;
 	
 	public ActionForward(){}
 	public ActionForward(boolean isRedirect, String path) {

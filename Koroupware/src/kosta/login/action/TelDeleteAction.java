@@ -3,6 +3,8 @@ package kosta.login.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import oracle.net.aso.f;
 
 public class TelDeleteAction implements Action {

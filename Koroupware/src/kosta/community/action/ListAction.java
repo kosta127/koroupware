@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.community.model.Board;
 import kosta.community.model.BoardDao;
 import kosta.community.model.BoardModel;

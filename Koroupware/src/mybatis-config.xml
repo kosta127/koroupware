@@ -25,7 +25,7 @@
 		<!-- <typeAlias type="kosta.login.model.Member" alias="Member"/> -->
 		<typeAlias type="kosta.emp.model.Emp" alias="Emp"/>
 		<typeAlias type="kosta.emp.model.Tel" alias="Tel"/>
-		<typeAlias type="kosta.search.model.Search" alias="Search"/>
+		<typeAlias type="kosta.search.model.Search" alias="SearchModel"/>
 	</typeAliases>
 	
 	<environments default="development">

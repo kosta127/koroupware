@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.etc.ETC;
 import kosta.message.dao.MessageDao;
 import kosta.message.model.Message;

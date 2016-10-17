@@ -8,7 +8,7 @@
 		select * from emp
 	</select>
 	
-	<select id="SearchInfo"  parameterType="String" resultType="Search">
+	<select id="SearchInfo"  parameterType="String" resultType="SearchModel">
 		select dept.dept_name, emp.EMP_NAME, emp.EMP_ID, emp.EMP_ADDRESS, emp.EMP_EMAIL, emp.EMP_HIREDATE  
 		from dept Inner Join emp 
 		on dept.DEPT_NO = emp.DEPT_NO

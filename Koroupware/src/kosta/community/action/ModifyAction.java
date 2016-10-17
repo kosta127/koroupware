@@ -3,6 +3,8 @@ package kosta.community.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.community.model.Board;
 import kosta.community.model.BoardDao;
 
