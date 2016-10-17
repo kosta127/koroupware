@@ -53,12 +53,25 @@
         			#{doc_no}, SYSDATE, NULL)
 	</insert>
 	
-	<select id="serchEmpDetail" parameterType="String" resultType="EmpDetail">
-		SELECT e.*, d.dept_name, o.office_name, p.position_name
+	<select id="searchEmpDetail" parameterType="String" resultType="EmpDetail">
+		SELECT e.emp_no, e.emp_name, e.dept_no, e.emp_email,
+			   e.emp_superior, e.emp_reporter, e.emp_id,
+			   e.emp_address, TO_CHAR(e.emp_hiredate, 'yyyy-mm-dd'),
+			   TO_CHAR(e.emp_resigndate, 'yyyy-mm-dd'), 
+			   e.emp_email_sign, e.emp_elec_auth_signkey,
+			   e.emp_img, e.emp_elec_auth_img,
+			   d.dept_name, o.office_name, p.position_name
  		 FROM emp e INNER JOIN dept d ON e.dept_no = d.dept_no
       		 INNER JOIN office o ON e.office_no = o.office_no
      		 INNER JOIN position p ON e.position_no = p.position_no
   		WHERE emp_name like #{searchKeyword}
+	</select>
+	
+	<select id="getDocFormList" resultType="Doc">
+		SELECT doc_title, doc_no 
+			FROM doc
+			WHERE doc_formyn = 'Y'
+			ORDER BY doc_title ASC
 	</select>
 </mapper>
 

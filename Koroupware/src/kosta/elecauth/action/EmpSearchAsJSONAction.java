@@ -7,18 +7,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta.elecauth.model.EmpDetail;
 import kosta.elecauth.service.Elec_authService;
+import net.sf.json.JSONArray;
 
-public class EmpSearchAction implements Action{
+public class EmpSearchAsJSONAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
 		
 		Elec_authService service = Elec_authService.getInstance();
-		List<EmpDetail> empList = service.searchEmp(request.getParameter("searchKeyword"));
+		List<EmpDetail> empList = 
+				service.searchEmp("%"+request.getParameter("searchKey")+"%");
+		
+		String jsonStr = JSONArray.fromObject(empList).toString();
+		request.setAttribute("empListAsJSON", jsonStr);
 		
 		forward.setRedirect(false);
-		forward.setUrl("/elec_auth/");
+		forward.setUrl("/elec_auth/searchEmpListAsJSON.jsp");
 		return forward;
 	}
 

@@ -16,7 +16,7 @@ import kosta.elecauth.action.Elec_authErrorAction;
 import kosta.elecauth.action.Elec_authListAction;
 import kosta.elecauth.action.Elec_authSubmissionAction;
 import kosta.elecauth.action.Elec_authWriteFormAction;
-import kosta.elecauth.action.EmpSearchAction;
+import kosta.elecauth.action.EmpSearchAsJSONAction;
 
 @WebServlet("*.do")
 public class Elec_authController extends HttpServlet{
@@ -50,8 +50,8 @@ public class Elec_authController extends HttpServlet{
 		}else if(command.equals("elec_authError.do")){
 			action = new Elec_authErrorAction();
 			forward = action.execute(request, response);
-		}else if(command.equals("empSearch.do")){
-			action = new EmpSearchAction();
+		}else if(command.equals("empSearchAsJSON.do")){
+			action = new EmpSearchAsJSONAction();
 			forward = action.execute(request, response);
 		}
 		
