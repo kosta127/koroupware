@@ -1,13 +1,4 @@
-<%@page import="kosta.pwdEmail.model.SMTP"%>
-<%@page import="javax.mail.Transport"%>
-<%@page import="javax.mail.Message"%>
-<%@page import="javax.mail.Address"%>
-<%@page import="javax.mail.internet.InternetAddress"%>
-<%@page import="javax.mail.internet.MimeMessage"%>
-<%@page import="javax.mail.Session"%>
-
-<%@page import="javax.mail.Authenticator"%>
-<%@page import="java.util.Properties"%>
+System.out.println(from);
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -18,8 +9,12 @@ String to = request.getParameter("to");
 String subject = request.getParameter("subject");
 String content = request.getParameter("content");
 // 입력값 받음
+ System.out.println(from);
+ System.out.println(to);
+ System.out.println(subject);
+ System.out.println(content);
  
-Properties p = new Properties(); // 정보를 담을 객체
+/* Properties p = new Properties(); // 정보를 담을 객체
  
 p.put("mail.smtp.host","smtp.naver.com"); // 네이버 SMTP
  
@@ -57,6 +52,6 @@ try{
     return;
 }
  
-out.println("<script>alert('Send Mail Success!!');location.href='mailForm.html';</script>");
+out.println("<script>alert('Send Mail Success!!');location.href='mailForm.html';</script>"); */
 // 성공 시
 %>

@@ -7,8 +7,8 @@ public class SMTP  extends Authenticator{
 
 	@Override
 	protected PasswordAuthentication getPasswordAuthentication() {
-		// TODO Auto-generated method stub
-		return super.getPasswordAuthentication();
+		
+		return new PasswordAuthentication("sdc337dc@naver.com", "tnwla7845!@#");
 	}
 		
 }
