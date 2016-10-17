@@ -13,16 +13,16 @@ import kosta.etc.ETC;
 import kosta.etc.SessionFactory;
 
 public class DeptDao {
-	private static EmpDao dao;
+	private static DeptDao dao;
 	private SqlSessionFactory sessionFactory;
 	
 	{
 		sessionFactory = SessionFactory.getInstance();
 	}
 	
-	public static EmpDao getInstance(){
+	public static DeptDao getInstance(){
 		if(dao == null){
-			dao = new EmpDao();
+			dao = new DeptDao();
 		}
 
 		return dao;

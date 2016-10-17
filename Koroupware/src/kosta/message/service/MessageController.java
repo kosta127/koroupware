@@ -32,24 +32,24 @@ public class MessageController extends HttpServlet {
     	Action action = null;
     	
     	switch (command) {
-    	case "messagePage.do":
-			action = new MessagePageAction();
-			break;
-    	case "messagePageTemp.do":
-			action = new MessagePageTempAction();
-			break;
-		case "messageSend.do":
-			action = new MessageSendAction();
-			break;
-		case "orgChartPage.do":
-			action = new OrgChartPageAction();
-			break;
-		case "fail.do":
-			action = new FailAction();
-			break;
-		default:
-			System.out.println("없는 요청");
-			break;
+	    	case "messagePage.do":
+				action = new MessagePageAction();
+				break;
+	    	case "messagePageTemp.do":
+				action = new MessagePageTempAction();
+				break;
+			case "messageSend.do":
+				action = new MessageSendAction();
+				break;
+			case "orgChartPage.do":
+				action = new OrgChartPageAction();
+				break;
+			case "fail.do":
+				action = new FailAction();
+				break;
+			default:
+				System.out.println("없는 요청");
+				break;
 		}
     	
     	actionForward(request, response, action);
