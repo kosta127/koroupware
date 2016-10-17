@@ -12,7 +12,7 @@ public class CommunityAction implements Action{
 		ActionForward forward = new ActionForward();
 
 		forward.setRedirect(true);
-		forward.setPath("list.jsp");
+		forward.setPath("board/list.jsp");
 		
 		return forward;
 	}

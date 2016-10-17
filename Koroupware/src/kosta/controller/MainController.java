@@ -35,7 +35,6 @@ import kosta.login.action.TelAddAction;
 import kosta.login.action.TelDeleteAction;
 import kosta.message.action.FailAction;
 import kosta.message.action.MessagePageAction;
-import kosta.message.action.MessagePageTempAction;
 import kosta.message.action.MessageSendAction;
 import kosta.search.action.SearchProcess;
 
@@ -57,9 +56,6 @@ public class MainController extends HttpServlet {
     	switch (command) {
 	    	case "messagePage.do":
 				action = new MessagePageAction();
-				break;
-	    	case "messagePageTemp.do":
-				action = new MessagePageTempAction();
 				break;
 			case "messageSend.do":
 				action = new MessageSendAction();

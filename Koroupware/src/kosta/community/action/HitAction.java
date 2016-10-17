@@ -21,7 +21,7 @@ public class HitAction implements Action {
 		ActionForward forward = new ActionForward();
 		
 		forward.setRedirect(false);
-		forward.setPath("detailForm.jsp");
+		forward.setPath("board/detailForm.jsp");
 		return forward;
 	}
 

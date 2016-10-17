@@ -39,7 +39,7 @@ public class DetailAction implements Action {
 			forward.setPath("hit.do");
 		}else{
 			forward.setRedirect(true);
-			forward.setPath("list.jsp");
+			forward.setPath("board/list.jsp");
 		}
 		
 		return forward;

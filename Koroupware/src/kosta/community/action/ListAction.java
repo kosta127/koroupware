@@ -81,10 +81,10 @@ public class ListAction implements Action {
 		
 		if(list != null){
 			forward.setRedirect(false);
-			forward.setPath("list.jsp");
+			forward.setPath("board/list.jsp");
 		}else{
 			forward.setRedirect(true);
-			forward.setPath("insertForm.jsp");
+			forward.setPath("board/insertForm.jsp");
 		}
 		
 		return forward;

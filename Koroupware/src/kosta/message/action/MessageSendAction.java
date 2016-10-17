@@ -2,9 +2,11 @@ package kosta.message.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kosta.action.Action;
 import kosta.action.ActionForward;
+import kosta.emp.model.Emp;
 import kosta.etc.ETC;
 import kosta.message.dao.MessageDao;
 import kosta.message.model.Message;
@@ -14,6 +16,9 @@ public class MessageSendAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
 		MessageDao dao = MessageDao.getInstance();
+		HttpSession session = request.getSession();
+		
+		Emp emp = (Emp)session.getAttribute("emp");
 		
 		String messageContents = request.getParameter("messageContents");
 		

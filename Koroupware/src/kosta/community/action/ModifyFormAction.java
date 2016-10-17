@@ -18,7 +18,7 @@ public class ModifyFormAction implements Action {
 		int board_no = Integer.parseInt(request.getParameter("board_no"));
 		request.setAttribute("board_no", board_no);
 		forward.setRedirect(false);
-		forward.setPath("modifyForm.jsp");
+		forward.setPath("board/modifyForm.jsp");
 		
 		return forward;
 	}

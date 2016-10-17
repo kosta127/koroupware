@@ -26,6 +26,10 @@
 		<typeAlias type="kosta.emp.model.Emp" alias="Emp"/>
 		<typeAlias type="kosta.emp.model.Tel" alias="Tel"/>
 		<typeAlias type="kosta.search.model.Search" alias="SearchModel"/>
+		<typeAlias type="kosta.doc.model.Doc" alias="Doc"/>
+		<typeAlias type="kosta.doc.model.DocBox" alias="DocBox"/>
+		<typeAlias type="kosta.doc.model.DocManagement" alias="DocManagement"/>
+		<typeAlias type="kosta.doc.model.DocFile" alias="DocFile" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -51,5 +55,6 @@
 		<mapper resource="kosta/community/mapper/Community.xml"/>
 		<mapper resource="kosta/community/mapper/boardFile.xml"/>
 		<mapper resource="kosta/community/mapper/Reply.xml"/>
+		<mapper resource="kosta/doc/mapper/Doc.xml" />
 	</mappers>
 </configuration>
