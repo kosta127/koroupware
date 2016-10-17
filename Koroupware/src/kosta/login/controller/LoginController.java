@@ -47,6 +47,7 @@ public class LoginController extends HttpServlet {
 	Action action = null;
 	
 	if(command.equals("LoginProcessAction.do")){
+		System.out.println("1");
 		action = new LoginProcess();
 		forward = action.execute(request, response);
 	}else if(command.equals("FindIdProcess.do")){

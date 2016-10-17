@@ -1,11 +1,11 @@
-package kosta.document.model;
+package kosta.doc.model;
 
 import java.io.Serializable;
 import java.util.Date;
 
 
 
-public class Document implements Serializable{
+public class Doc implements Serializable{
 	private int doc_no;
 	private String doc_title;
 	private String doc_explain;

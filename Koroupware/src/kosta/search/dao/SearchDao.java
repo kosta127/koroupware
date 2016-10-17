@@ -1,25 +1,26 @@
-package kosta.login.dao;
+package kosta.search.dao;
 
 import java.io.InputStream;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
-
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kosta.emp.model.Emp;
 import kosta.login.mapper.SignUpMapper;
+import kosta.search.mapper.SearchMapper;
+import kosta.search.model.Search;
 
-public class LoginDao {
-	private static LoginDao dao = new LoginDao();
+public class SearchDao {
+	private static SearchDao dao = new SearchDao();
 
-	public static LoginDao getInstance() {
+	public static SearchDao getInstance() {
 		return dao;
 	}
-
-	public SqlSessionFactory getSqlSessionFactory() {
+	
+	public SqlSessionFactory getSqlSessionFactory(){
 		String resource = "mybatis-config.xml";
 		InputStream input = null;
 		try {
@@ -27,19 +28,17 @@ public class LoginDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 		return new SqlSessionFactoryBuilder().build(input);
 	}
-
 	
-
 	public List<Emp> ListEmp() {
 		// 로그인 용 리스트
 	
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		
 		try{
-			return sqlSession.getMapper(SignUpMapper.class).checkEmp();
+			return sqlSession.getMapper(SearchMapper.class).ListEmp();
 		}catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -48,39 +47,22 @@ public class LoginDao {
 		}
 		
 	}
-	
-	public List<Emp> FindId_ListEmp(){
-		// 아이디 찾기 용 리스트
-		
-		SqlSession sqlSession = getSqlSessionFactory().openSession();
-		
+
+
+	public List<Search> SearchInfo(String search_name) {
+SqlSession sqlSession = getSqlSessionFactory().openSession();		
 		try{
-			return sqlSession.getMapper(SignUpMapper.class).FindId_ListEmp();
+			return sqlSession.getMapper(SearchMapper.class).SearchInfo(search_name);
 		}catch (Exception e) {
 			e.printStackTrace();
 			return null;
-		}finally {
+		} finally {
 			sqlSession.close();
 		}
 	}
 
-	public List<Emp> FindPassword_ListEmp() {
-		// 비밀번호 찾는 용 
-		SqlSession sqlSession = getSqlSessionFactory().openSession();
-		
-		try{
-			return sqlSession.getMapper(SignUpMapper.class).FindPassword_ListEmp();
-		}catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}finally {
-			sqlSession.close();
-		}
-		
-	}
 
 
-	
 
 
 }

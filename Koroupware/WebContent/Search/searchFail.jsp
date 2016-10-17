@@ -4,17 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<title>아이디 찾기 결과</title>
-<script type="text/javascript">
-function backpage() {
-	location.href="login.jsp";
-}
-</script>
+<title>Insert title here</title>
 </head>
 <body>
-<h1>아이디 찾기 결과</h1>>
- 당신이 찾는 아이디는 <%=session.getAttribute("find_name") %> 입니다.
- <button onclick="backpage()">확인</button>
+	<h1>검색한 내용이 없습니다.</h1>
 </body>
 </html>

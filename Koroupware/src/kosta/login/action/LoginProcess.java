@@ -13,6 +13,7 @@ import kosta.login.service.LoginService;
 import kosta.login.service.SessionService;
 
 
+
 public class LoginProcess implements Action {
 
 	@Override
@@ -20,9 +21,7 @@ public class LoginProcess implements Action {
 		ActionForward forward = new ActionForward();
 		LoginService logService = LoginService.getInstance();
 		SessionService service = SessionService.getInstance();
-		Emp emp = new Emp(); 
 		List<Emp> list = logService.ListEmpServivce();
-		
 		HttpSession session = request.getSession();
 		
 		

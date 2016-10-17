@@ -41,5 +41,13 @@ function setting() {
 <p>커뮤니티</p>
 <p>조직도</p><br>
 검색<input type="text" name="search">
+<form action="SearchAction.go" method="get">
+	검색을 하시오<input type="text" name ="search_content">
+	<input type="submit" value="검색"><br>
+</form>
+
+<button onclick="signUpdate()">정보변경</button><br>
+<button onclick="logout()">로그아웃</button><br>
+
 </body>
 </html>
