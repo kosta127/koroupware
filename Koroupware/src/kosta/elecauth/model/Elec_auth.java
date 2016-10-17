@@ -10,7 +10,7 @@ public class Elec_auth implements Serializable {
 	private int elec_auth_management_dept_no;	
 	private String elec_auth_title;
 	private String elec_auth_contents;
-	private Date elec_auth_processing_period;
+	private Date elec_auth_enddate;
 	private String elec_auth_temporary_saveYN;
 	private Date elec_auth_con_period;
 	private Date elec_auth_regdate;
@@ -20,7 +20,7 @@ public class Elec_auth implements Serializable {
 	}
 
 	public Elec_auth(int elec_auth_no, int emp_no, int doc_no, int elec_auth_management_dept_no, String elec_auth_title,
-			String elec_auth_contents, Date elec_auth_processing_period, String elec_auth_temporary_saveYN,
+			String elec_auth_contents, Date elec_auth_enddate, String elec_auth_temporary_saveYN,
 			Date elec_auth_con_period, Date elec_auth_regdate, Date elec_auth_deldate) {
 		super();
 		this.elec_auth_no = elec_auth_no;
@@ -29,7 +29,7 @@ public class Elec_auth implements Serializable {
 		this.elec_auth_management_dept_no = elec_auth_management_dept_no;
 		this.elec_auth_title = elec_auth_title;
 		this.elec_auth_contents = elec_auth_contents;
-		this.elec_auth_processing_period = elec_auth_processing_period;
+		this.elec_auth_enddate = elec_auth_enddate;
 		this.elec_auth_temporary_saveYN = elec_auth_temporary_saveYN;
 		this.elec_auth_con_period = elec_auth_con_period;
 		this.elec_auth_regdate = elec_auth_regdate;
@@ -84,12 +84,12 @@ public class Elec_auth implements Serializable {
 		this.elec_auth_contents = elec_auth_contents;
 	}
 
-	public Date getElec_auth_processing_period() {
-		return elec_auth_processing_period;
+	public Date getElec_auth_enddate() {
+		return elec_auth_enddate;
 	}
 
-	public void setElec_auth_processing_period(Date elec_auth_processing_period) {
-		this.elec_auth_processing_period = elec_auth_processing_period;
+	public void setElec_auth_enddate(Date elec_auth_enddate) {
+		this.elec_auth_enddate = elec_auth_enddate;
 	}
 
 	public String getElec_auth_temporary_saveYN() {

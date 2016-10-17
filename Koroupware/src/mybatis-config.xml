@@ -9,6 +9,8 @@
 		<typeAlias type="kosta.elecauth.model.Elec_auth" alias="Elec_auth"/>
 		<typeAlias type="kosta.elecauth.model.Elec_authList" alias="Elec_authList"/>
 		<typeAlias type="kosta.elecauth.model.Elec_authDetail" alias="Elec_authDetail"/>
+		<typeAlias type="kosta.elecauth.model.Elec_authDetailApproval" alias="Elec_authDetailApproval"/>
+		<typeAlias type="kosta.elecauth.model.Elec_authDetailReferrer" alias="Elec_authDetailReferrer"/>
 		<typeAlias type="kosta.elecauth.model.EmpDetail" alias="EmpDetail"/>
 		<typeAlias type="kosta.doc.model.Doc" alias="Doc"/>
 	</typeAliases>

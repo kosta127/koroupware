@@ -7,6 +7,8 @@ import kosta.elecauth.dao.Elec_authDao;
 import kosta.elecauth.model.Approval_list;
 import kosta.elecauth.model.Elec_auth;
 import kosta.elecauth.model.Elec_authDetail;
+import kosta.elecauth.model.Elec_authDetailApproval;
+import kosta.elecauth.model.Elec_authDetailReferrer;
 import kosta.elecauth.model.Elec_authList;
 import kosta.elecauth.model.Elec_authPage;
 import kosta.elecauth.model.Elec_auth_referrer;
@@ -39,6 +41,14 @@ public class Elec_authService {
 	
 	public Elec_authDetail elec_authDetail(int elec_auth_no){
 		return dao.elec_authDetail(elec_auth_no);
+	}
+	
+	public List<Elec_authDetailApproval> elec_authDetailApproval(int elec_auth_no){
+		return dao.elec_authDetailApproval(elec_auth_no);
+	}
+	
+	public List<Elec_authDetailReferrer> elec_authDetailReferrer(int elec_auth_no){
+		return dao.elec_authDetailReferrer(elec_auth_no);
 	}
 	
 	public boolean insertElecAuth(Elec_auth ea, 

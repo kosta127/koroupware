@@ -6,6 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<script src="../js/bootstrap.min.js" ></script>
+<script src="../js/jquery.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
 	.center{
@@ -38,7 +41,7 @@
 				<td>${i.dept_name }</td>
 				<td>${i.emp_name }</td>
 				<td>${i.elec_auth_regdate }</td>
-				<td>${i.elec_auth_processing_period }</td>
+				<td>${i.elec_auth_enddate }</td>
 				<td>${i.approval_list_pass }</td>
 			</tr>
 		</c:forEach>
