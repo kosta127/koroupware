@@ -4,7 +4,7 @@ System.out.println(from);
 <%
 request.setCharacterEncoding("utf-8");
  
-String from = request.getParameter("from");
+String from = request.getParameter("from"); 
 String to = request.getParameter("to");
 String subject = request.getParameter("subject");
 String content = request.getParameter("content");
