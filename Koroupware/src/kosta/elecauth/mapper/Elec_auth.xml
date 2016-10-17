@@ -40,7 +40,7 @@
 	
 
 	
-	<insert id="insertElecAuth" parameterType="ELec_auth">
+	<insert id="insertElecAuth" parameterType="Elec_auth">
 		INSERT INTO ELEC_AUTH(elec_auth_no, emp_no, elec_auth_management_dept_no,
                       elec_auth_title, elec_auth_contents,
                       elec_auth_processing_period, 
