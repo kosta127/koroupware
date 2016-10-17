@@ -6,7 +6,10 @@
 <configuration>
 	<typeAliases>
 		<!-- 별칭설정 -->
-		
+		<typeAlias type="kosta.doc.model.Doc" alias="Doc"/>
+		<typeAlias type="kosta.doc.model.DocBox" alias="DocBox"/>
+		<typeAlias type="kosta.doc.model.DocManagement" alias="DocManagement"/>
+		<typeAlias type="kosta.doc.model.DocFile" alias="DocFile" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -24,6 +27,6 @@
 	
 	<mappers>
 		<!-- mapper등록 -->
-		
+		<mapper resource="kosta/doc/mapper/Doc.xml" />
 	</mappers>
 </configuration>
