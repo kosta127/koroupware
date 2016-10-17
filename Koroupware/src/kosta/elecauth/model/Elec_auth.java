@@ -84,11 +84,11 @@ public class Elec_auth implements Serializable {
 		this.elec_auth_contents = elec_auth_contents;
 	}
 
-	public Date getElec_auth_processing_period() {
+	public Date getElec_auth_enddate() {
 		return elec_auth_enddate;
 	}
-
-	public void setElec_auth_processing_period(Date elec_auth_enddate) {
+	
+	public void setElec_auth_enddate(Date elec_auth_enddate) {
 		this.elec_auth_enddate = elec_auth_enddate;
 	}
 

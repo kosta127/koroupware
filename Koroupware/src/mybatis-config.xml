@@ -11,6 +11,8 @@
 		<typeAlias type="kosta.elecauth.model.Elec_authDetail" alias="Elec_authDetail"/>
 		<typeAlias type="kosta.elecauth.model.Approval_list" alias="Approval_list"/>
 		<typeAlias type="kosta.elecauth.model.Elec_auth_referrer" alias="Elec_auth_referrer"/>
+		<typeAlias type="kosta.elecauth.model.Elec_authDetailApproval" alias="Elec_authDetailApproval"/>
+		<typeAlias type="kosta.elecauth.model.Elec_authDetailReferrer" alias="Elec_authDetailReferrer"/>
 		<typeAlias type="kosta.elecauth.model.EmpDetail" alias="EmpDetail"/>
 		<typeAlias type="kosta.doc.model.Doc" alias="Doc"/>
 	</typeAliases>

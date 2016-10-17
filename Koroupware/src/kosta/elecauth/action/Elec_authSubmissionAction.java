@@ -39,8 +39,8 @@ public class Elec_authSubmissionAction implements Action {
 		ea.setElec_auth_contents(contents);
 		ea.setElec_auth_management_dept_no(Integer.parseInt(manageDept));
 		ea.setElec_auth_con_period(Date.valueOf(conDate));
-		ea.setElec_auth_processing_period(Date.valueOf(endDate));
 		ea.setElec_auth_temporary_saveYN(tempSaveYN);
+		ea.setElec_auth_enddate(Date.valueOf(endDate));
 	
 		List<Approval_list> approvals = new ArrayList<Approval_list>();
 		List<Elec_auth_referrer> referrers = new ArrayList<Elec_auth_referrer>();

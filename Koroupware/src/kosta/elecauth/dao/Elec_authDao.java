@@ -22,6 +22,8 @@ import kosta.elecauth.mapper.Elec_authMapper;
 import kosta.elecauth.model.Approval_list;
 import kosta.elecauth.model.Elec_auth;
 import kosta.elecauth.model.Elec_authDetail;
+import kosta.elecauth.model.Elec_authDetailApproval;
+import kosta.elecauth.model.Elec_authDetailReferrer;
 import kosta.elecauth.model.Elec_authList;
 import kosta.elecauth.model.Elec_auth_referrer;
 import kosta.elecauth.model.EmpDetail;
@@ -89,6 +91,34 @@ public class Elec_authDao {
 			sqlSession.close();
 		}
 		return nextElecAuthNo;
+	}
+	
+	public List<Elec_authDetailApproval> elec_authDetailApproval(int elec_auth_no){
+		SqlSession sqlSession=SessionFactory.getInstance().openSession();
+		List<Elec_authDetailApproval> elec_authDetailApproval=null;
+		
+		try {
+			elec_authDetailApproval=sqlSession.getMapper(Elec_authMapper.class).elec_authDetailApproval(elec_auth_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			sqlSession.close();
+		}
+		return elec_authDetailApproval;
+	}
+	
+	public List<Elec_authDetailReferrer> elec_authDetailReferrer(int elec_auth_no){
+		SqlSession sqlSession=SessionFactory.getInstance().openSession();
+		List<Elec_authDetailReferrer> elec_authDetailReferrer=null;
+		
+		try {
+			elec_authDetailReferrer=sqlSession.getMapper(Elec_authMapper.class).elec_authDetailReferrer(elec_auth_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			sqlSession.close();
+		}
+		return elec_authDetailReferrer;
 	}
 	
 	public boolean insertElecAuth(Elec_auth ea, 
