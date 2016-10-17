@@ -16,7 +16,7 @@ public class Elec_authWriteFormAction implements Action {
 		
 		//양식 가져옴
 		Elec_authService service = Elec_authService.getInstance();
-		List<Doc> docFormList = service.getDocFormList();
+		List<Doc> docFormList = service.getDocFormList();		
 		
 		if(docFormList != null){
 			request.setAttribute("docFormList", docFormList);

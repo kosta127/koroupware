@@ -19,13 +19,11 @@ $(function(){
 })
 
 $(function(){
+	//문서양식
+	$('#docform_div div').hide();
 	//문서양식 변경
 	$('#docFormList').on('change', function(){
-		var str = '<c:forEach var="doc" items="${docFormList}">\n'+
-		'<c:if test="${doc.doc_no = '+ $(this).val() +' }">'+
-		'<c:out value="${ doc.doc_contents}" />'+
-		'</c:if></c:forEach>';
-		console.log(str)
+		var str = $('#hidden_docform_div_'+$(this).val()).html();
 		CKEDITOR.instances.elec_auth_contents.setData(str)
 	})
 })
@@ -83,7 +81,7 @@ $(function(){
 			searchListHtml += '<span class="emp_position">'+empDetail.position_name+' - '
 			searchListHtml += empDetail.office_name+'</span><br>\n';
 			searchListHtml += '<span class="emp_contract">'+empDetail.emp_email+'</span>\n';
-			searchListHtml += '<input type="hidden" name="refferer_emp_no" value="'+empDetail.emp_no+'">'
+			searchListHtml += '<input type="hidden" name="referrer_emp_no" value="'+empDetail.emp_no+'">'
 			searchListHtml += '</div><br></a>';
 		})
 		refSearchList.html(searchListHtml);
