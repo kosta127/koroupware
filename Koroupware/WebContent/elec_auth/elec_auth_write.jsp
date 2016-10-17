@@ -13,8 +13,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:forEach var="doc" items="${docFormList}">
-<c:if test="${doc.doc_no == 4 }"><c:out value="${ doc.doc_contents}" /></c:if></c:forEach>
 	<div>
 		<h1>결재작성</h1>
 		<form id="elec_auth_form" action="elec_authSubmission.do" method="post">
@@ -31,15 +29,23 @@
 				<select id="docFormList" name="doc_no">
 					<option value="" disabled="disabled" selected="selected">양식을 선택하세요</option>
 					<c:forEach var="doc" items="${docFormList }">
-						<option value="${doc.doc_no }">${doc.doc_title }</option>
+						<option value="${doc.doc_no }">${doc.doc_title }</option>						
 					</c:forEach>
 				</select>
+				<c:forEach var="doc" items="${docFormList }">
+					<div id="hidden_docform_div_${doc.doc_no }">${doc.doc_contents }</div>
+				</c:forEach>
 			</div>
 			<div id="enddate_div">
 				결재 마감일  <input type="date" name="elec_auth_enddate" id="elec_auth_enddate" required="required">
 			</div>
 			<div id="conperiod_div">
-			보존년한 <input type="date" name="elec_auth_con_period" id="elec_auth_con_period" required="required">
+				보존년한 
+				<select name="elec_auth_con_period" id="elec_auth_con_period" required="required">
+					<c:forEach var="i" begin="1" end="10">
+						<option value="${i }">${i }년</option>
+					</c:forEach>
+				</select>
 			</div>
 			<div id="title_div">
 			안건 제목 <input type="text" name="elec_auth_title" id="elec_auth_title" required="required">

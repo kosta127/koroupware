@@ -1,7 +1,9 @@
 package kosta.elecauth.action;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,14 +25,16 @@ public class Elec_authSubmissionAction implements Action {
 		String manageDept = request.getParameter("elec_auth_management_dept_no");
 		String title = request.getParameter("elec_auth_title");
 		String contents = request.getParameter("elec_auth_contents");
-		String conDate = request.getParameter("elec_auth_con_period");
+		String conDatePeriod = request.getParameter("elec_auth_con_period"); //1~10
 		String endDate = request.getParameter("elec_auth_enddate"); //1111-11-11형식	
 		String[] apps = request.getParameterValues("approval_emp_no");
-		String[] refs = request.getParameterValues("refferer_emp_no");
+		String[] refs = request.getParameterValues("referrer_emp_no");
 		String tempSaveYN = request.getParameter("tempYN");
-		
-		//System.out.println("tempYN -> "+ tempSaveYN);
 		if(tempSaveYN == null) tempSaveYN = "N";
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar conDate = Calendar.getInstance();
+		conDate.roll(Calendar.YEAR, Integer.parseInt(conDatePeriod));
 
 		Elec_auth ea = new Elec_auth();
 		ea.setEmp_no(Integer.parseInt(empNo));
@@ -38,7 +42,7 @@ public class Elec_authSubmissionAction implements Action {
 		ea.setElec_auth_title(title);
 		ea.setElec_auth_contents(contents);
 		ea.setElec_auth_management_dept_no(Integer.parseInt(manageDept));
-		ea.setElec_auth_con_period(Date.valueOf(conDate));
+		ea.setElec_auth_con_period(Date.valueOf(sdf.format(conDate.getTime())));
 		ea.setElec_auth_temporary_saveYN(tempSaveYN);
 		ea.setElec_auth_enddate(Date.valueOf(endDate));
 	
