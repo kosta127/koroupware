@@ -24,9 +24,13 @@ public class Elec_authSubmissionAction implements Action {
 		String title = request.getParameter("elec_auth_title");
 		String contents = request.getParameter("elec_auth_contents");
 		String conDate = request.getParameter("elec_auth_con_period");
-		String procDate = request.getParameter("elec_auth_processing_period"); //1111-11-11형식	
+		String endDate = request.getParameter("elec_auth_enddate"); //1111-11-11형식	
 		String[] apps = request.getParameterValues("approval_emp_no");
 		String[] refs = request.getParameterValues("refferer_emp_no");
+		String tempSaveYN = request.getParameter("tempYN");
+		
+		//System.out.println("tempYN -> "+ tempSaveYN);
+		if(tempSaveYN == null) tempSaveYN = "N";
 
 		Elec_auth ea = new Elec_auth();
 		ea.setEmp_no(Integer.parseInt(empNo));
@@ -35,13 +39,17 @@ public class Elec_authSubmissionAction implements Action {
 		ea.setElec_auth_contents(contents);
 		ea.setElec_auth_management_dept_no(Integer.parseInt(manageDept));
 		ea.setElec_auth_con_period(Date.valueOf(conDate));
-		ea.setElec_auth_processing_period(Date.valueOf(procDate));
+		ea.setElec_auth_processing_period(Date.valueOf(endDate));
+		ea.setElec_auth_temporary_saveYN(tempSaveYN);
 	
 		List<Approval_list> approvals = new ArrayList<Approval_list>();
 		List<Elec_auth_referrer> referrers = new ArrayList<Elec_auth_referrer>();
+		
+		int step = 0;
 		for(String appEmpNo : apps){
 			Approval_list al = new Approval_list();
 			al.setEmp_no(Integer.parseInt(appEmpNo));
+			al.setApproval_list_step(++step);
 			approvals.add(al);
 		}
 		for(String refEmpNo : refs){

@@ -43,6 +43,10 @@ public class Elec_authService {
 	
 	public boolean insertElecAuth(Elec_auth ea, 
 			List<Approval_list> approvals, List<Elec_auth_referrer> referrers ){
+		int elecAuthNO = dao.getNextElecAuthNo();
+		ea.setElec_auth_no(elecAuthNO);
+		for(Approval_list l : approvals) l.setElec_auth_no(elecAuthNO);
+		for(Elec_auth_referrer ref : referrers) ref.setElec_auth_no(elecAuthNO);
 		return dao.insertElecAuth(ea, approvals, referrers);
 	}
 	

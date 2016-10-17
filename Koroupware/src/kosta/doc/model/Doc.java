@@ -9,7 +9,7 @@ public class Doc implements Serializable{
 	private int doc_no;
 	private String doc_title;
 	private String doc_explain;
-	private String doc_content;
+	private String doc_contents;
 	private Date doc_con_period;
 	private int emp_no;
 	private String emp_name;
@@ -45,11 +45,11 @@ public class Doc implements Serializable{
 	public void setDoc_explain(String doc_explain) {
 		this.doc_explain = doc_explain;
 	}
-	public String getDoc_content() {
-		return doc_content;
+	public String getDoc_contents() {
+		return doc_contents;
 	}
-	public void setDoc_content(String doc_contents) {
-		this.doc_content = doc_contents;
+	public void setDoc_contents(String doc_contents) {
+		this.doc_contents = doc_contents;
 	}
 	public Date getDoc_con_period() {
 		return doc_con_period;

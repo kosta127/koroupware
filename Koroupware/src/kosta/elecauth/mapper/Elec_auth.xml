@@ -7,7 +7,7 @@
 <mapper namespace="kosta.elecauth.mapper.Elec_authMapper">
 	<cache />
 	<select id="elec_authList" resultType="Elec_authList">
-		SELECT ea.elec_auth_no, ea.elec_auth_title, ea.elec_auth_regdate, ea.elec_auth_processing_period,
+		SELECT ea.elec_auth_no, ea.elec_auth_title, ea.elec_auth_regdate, ea.elec_auth_enddate,
 			do.doc_title, de.dept_name, e.emp_name, (CASE WHEN 
          																 (SELECT count(*)
           																  FROM approval_list al
@@ -21,6 +21,8 @@
 		WHERE ea.doc_no=do.doc_no
 		AND ea.elec_auth_management_dept_no=de.dept_no
 		AND ea.emp_no=e.emp_no
+		AND ea.elec_auth_deldate IS NULL
+		ORDER BY ea.elec_auth_no DESC
 	</select>
 	
 	<select id="getTotalCount" resultType="int">
@@ -38,19 +40,31 @@
 			AND ea.elec_auth_no=#{elec_auth_no}
 	</select>
 	
-
+	<select id="getNextElecAuthNo" resultType="int">
+		SELECT TEST_SEQ.nextval FROM DUAL
+	</select>
 	
 	<insert id="insertElecAuth" parameterType="Elec_auth">
 		INSERT INTO ELEC_AUTH(elec_auth_no, emp_no, elec_auth_management_dept_no,
                       elec_auth_title, elec_auth_contents,
-                      elec_auth_processing_period, 
+                      elec_auth_enddate, 
                       elec_auth_temporary_saveYN, elec_auth_con_period,
-                      doc_no, elec_auth_regdate, elec_auth_deldate)
-        	VALUES(TEST_SEQ.NEXT_VAL, #{emp_no}, #{elec_auth_management_dept_no},
+                      doc_no, elec_auth_regdate)
+        	VALUES(#{elec_auth_no}, #{emp_no}, #{elec_auth_management_dept_no},
         			#{elec_auth_title}, #{elec_auth_contents},
-        			#{elec_auth_processing_period},
+        			#{elec_auth_enddate},
         			#{elec_auth_temporary_saveYN}, #{elec_auth_con_period},
-        			#{doc_no}, SYSDATE, NULL)
+        			#{doc_no}, SYSDATE)
+	</insert>
+	
+	<insert id="insertApprovalList" parameterType="Approval_list">
+		INSERT INTO APPROVAL_LIST(elec_auth_no, emp_no, approval_list_step)
+               VALUES(#{elec_auth_no}, #{emp_no}, #{approval_list_step})
+	</insert>
+	
+	<insert id="insertElecAuthReferrer" parameterType="Elec_auth_referrer">
+		INSERT INTO ELEC_AUTH_REFERRER(elec_auth_referrer_no, elec_auth_no, emp_no)	
+				VALUES(TEST_SEQ.NEXTVAL, #{elec_auth_no}, #{emp_no})
 	</insert>
 	
 	<select id="searchEmpDetail" parameterType="String" resultType="EmpDetail">
@@ -64,13 +78,15 @@
  		 FROM emp e INNER JOIN dept d ON e.dept_no = d.dept_no
       		 INNER JOIN office o ON e.office_no = o.office_no
      		 INNER JOIN position p ON e.position_no = p.position_no
-  		WHERE emp_name like #{searchKeyword}
+  		WHERE emp_resigndate IS NULL
+  		AND emp_name like #{searchKeyword}
 	</select>
 	
 	<select id="getDocFormList" resultType="Doc">
-		SELECT doc_title, doc_no 
+		SELECT doc_title, doc_no, doc_contents
 			FROM doc
 			WHERE doc_formyn = 'Y'
+			AND doc_deldate IS NULL
 			ORDER BY doc_title ASC
 	</select>
 </mapper>

@@ -8,6 +8,30 @@ $(function(){
 })
 
 $(function(){
+	//임시저장
+	var $value = $('#elec_auth_temp_save');
+	
+	$value.on('click',function(){
+		var form = $('#elec_auth_form');
+		form.attr('action', 'elec_authSubmission.do?tempYN=Y');
+		form.submit();
+	});
+})
+
+$(function(){
+	//문서양식 변경
+	$('#docFormList').on('change', function(){
+		var str = '<c:forEach var="doc" items="${docFormList}">\n'+
+		'<c:if test="${doc.doc_no = '+ $(this).val() +' }">'+
+		'<c:out value="${ doc.doc_contents}" />'+
+		'</c:if></c:forEach>';
+		console.log(str)
+		CKEDITOR.instances.elec_auth_contents.setData(str)
+	})
+})
+
+$(function(){
+	//결재자, 참조자 설정
 	var refSearchList = $('#referrer_search_list');
 	var apprSearchList = $('#approval_search_list');
 	refSearchList.hide();
@@ -68,10 +92,12 @@ $(function(){
 	
 	apprSearchList.on('click', '.appr_list', function(){
 		$(this).appendTo("#approval_list");		
+		apprSearchList.html("");
 		apprSearchList.hide();
 	});
 	refSearchList.on('click', '.ref_list', function(){
 		$(this).appendTo("#referrer_list");
+		refSearchList.html("");
 		refSearchList.hide();
 	});
 	

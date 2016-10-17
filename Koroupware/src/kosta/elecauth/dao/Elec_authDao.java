@@ -77,6 +77,20 @@ public class Elec_authDao {
 		return elec_authDetail;
 	}
 	
+	public int getNextElecAuthNo(){
+		SqlSession sqlSession = SessionFactory.getInstance().openSession();
+		int nextElecAuthNo = 0;
+		try {
+			nextElecAuthNo = sqlSession.getMapper(Elec_authMapper.class).
+					getNextElecAuthNo();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			sqlSession.close();
+		}
+		return nextElecAuthNo;
+	}
+	
 	public boolean insertElecAuth(Elec_auth ea, 
 			List<Approval_list> approvals, List<Elec_auth_referrer> referrers ){
 		SqlSession sqlSession = SessionFactory.getInstance().openSession();
@@ -87,10 +101,12 @@ public class Elec_authDao {
 			res = mapper.insertElecAuth(ea);
 			if(res > 0){
 				for(Approval_list al : approvals){
-					if((res = mapper.insertApprovalList(al)) < 0) throw new Exception("APPROVAL LIST INSERT FAILED");
+					if((res = mapper.insertApprovalList(al)) < 0) 
+						throw new Exception("APPROVAL LIST INSERT FAILED");
 				}
 				for(Elec_auth_referrer ref : referrers){
-					if((res = mapper.insertElecAuthReferrer(ref)) < 0) throw new Exception("ELEC AUTH REFERRER INSERT FAILED");
+					if((res = mapper.insertElecAuthReferrer(ref)) < 0) 
+						throw new Exception("ELEC AUTH REFERRER INSERT FAILED");
 				}
 				result = true;
 			}

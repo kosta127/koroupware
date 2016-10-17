@@ -23,4 +23,5 @@ public interface Elec_authMapper {
 	public int insertApprovalList(Approval_list al);
 	public List<EmpDetail> searchEmpDetail(String keyword);
 	public List<Doc> getDocFormList();
+	public int getNextElecAuthNo();
 }
