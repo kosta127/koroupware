@@ -40,7 +40,7 @@
 	</select>
 	
 	<update id="empUpdate" parameterType="Emp">
-		update emp set emp_name = #{emp_name}, emp_mail = #{emp_mail}, emp_password = #{emp_password}, emp_img = #{emp_img}, emp_elec_auth_img = #{emp_elec_auth_img} where emp_no = #{emp_no}
+		update emp set emp_name = #{emp_name}, emp_mail = #{emp_mail}, emp_password = #{emp_password}, emp_img = #{emp_img}, emp_elec_auth_img = #{emp_elec_auth_img}, emp_elec_auth_signkey = #{emp_elec_auth_signkey} where emp_no = #{emp_no}
 	</update>
 	
 	<update id="telUpdate" parameterType="Tel">

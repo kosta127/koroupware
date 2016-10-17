@@ -13,6 +13,7 @@ public interface SignUpMapper {
 	public Emp sessionEmp(String emp_id);
 	public List<Tel> empTel(int emp_no);
 	public int empUpdate(Emp emp);
+	public int telUpdate(Tel tel);
 	//로그인,  아이디/비밀번호 찾기
 	public List<Emp> FindId_ListEmp();
 	public List<Emp> FindPassword_ListEmp();

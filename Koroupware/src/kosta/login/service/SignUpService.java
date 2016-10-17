@@ -124,6 +124,8 @@ public class SignUpService {
 		multipartRequest = new MultipartRequest(request, uploadPath, size, "utf-8",
 					new DefaultFileRenamePolicy());
 		
+		emp.setEmp_no(tel_emp_no);
+		emp.setDept_no(1);
 		emp.setEmp_id(multipartRequest.getParameter("emp_id"));
 		emp.setEmp_password(multipartRequest.getParameter("emp_password"));
 		emp.setEmp_name(multipartRequest.getParameter("emp_name"));
@@ -189,5 +191,10 @@ public class SignUpService {
 		return dao.empUpdate(emp);
 	}
 	
-	
+
+	public int TelUpdateService(Tel tel) {
+		tel.setTel_type(multipartRequest.getParameter("tel_type"));
+		tel.setTel_telephone(multipartRequest.getParameter("tel_telephone"));
+		return dao.telUpdate(tel);
+	}
 }

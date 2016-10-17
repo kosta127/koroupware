@@ -12,6 +12,7 @@
       SessionService service = SessionService.getInstance();
       List<Tel> tel = (List<Tel>)service.empTelService(emp.getEmp_no());
       request.setAttribute("tel", tel);
+      System.out.println();
     %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,10 +20,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-function telDelete() {
-	location.href = "telDelete.do";
+function cancel() {
+	location.href = "main.do"
 }
-
 </script>
 </head>
 <body>
@@ -45,7 +45,7 @@ function telDelete() {
 <input type="hidden" value="${tels.tel_type }">
 <input type="hidden" value="${tels.tel_telephone }">
 기존번호<input type="text" value="${tels.tel_type }" disabled="disabled">
-<input type="text" value="${tels.tel_telephone }" disabled="disabled"><button onclick="telDelete()">삭제</button><br>
+<input type="text" value="${tels.tel_telephone }" disabled="disabled"><br><button onclick="">수정</button><button onclick="">삭제</button>
 </c:forEach>
 추가번호 핸드폰<input type="radio" value="핸드폰" name="tel_type">
 일반전화<input type="radio" value="일반전화" name="tel_type"><br>
@@ -59,5 +59,6 @@ function telDelete() {
 결재서명 <input type="file" name="emp_elec_auth_img"><br> 
 <input type="submit" value="수정">
 </form>
+<button onclick="cancel()">취소</button>
 </body>
 </html>

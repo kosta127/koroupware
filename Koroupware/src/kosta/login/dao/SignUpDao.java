@@ -112,10 +112,11 @@ public class SignUpDao {
 		
 		return re;
 	}
+	
 	public int telUpdate(Tel tel){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = -1;
-		re = sqlSession.getMapper(SignUpMapper.class).empUpdate(emp);
+		re = sqlSession.getMapper(SignUpMapper.class).telUpdate(tel);
 		try {
 			if(re > 0){
 				sqlSession.commit();
