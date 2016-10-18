@@ -44,7 +44,7 @@
 	</update>
 	
 	<update id="telUpdate" parameterType="Tel">
-		update tel set tel_type = #{tel_type}, tel_telephone = #{tel_telephone} where tel_no = #{tel_no} and emp_no = #{emp_no}
+		update tel set emp_no = #{emp_no}, tel_type = #{tel_type}, tel_telephone = #{tel_telephone} where tel_no = #{tel_no}
 	</update>
 	
 	<delete id="telDelete" parameterType="int">

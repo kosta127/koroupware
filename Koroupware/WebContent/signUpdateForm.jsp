@@ -28,8 +28,9 @@ function cancel() {
 function telAdd() {
 	location.href = "telAdd.do?emp_no=" + $('.emp_no').val() + "&tel_type=" + $('.tel_type').val() + "&tel_telephone=" + $('.tel_telephone').val();
 }
-function telUpdate(tel_no, tel_type, tel_telephone) {
-	location.href = "telUpdate.do?&emp_no=" + $('.emp_no').val() + "tel_no=" + tel_no + "&tel_type=" + tel_type + "&tel_telephone=" + tel_telephone;
+function telUpdate(emp_no, tel_no, tel_type, tel_telephone) {
+	alert($('.emp_no').val());
+	location.href = "telUpdate.do?emp_no=" + emp_no + "&tel_no=" + tel_no + "&tel_type=" + tel_type + "&tel_telephone=" + tel_telephone;
 }
 function telDelete(tel_no) {
 	location.href = "telDelete.do?tel_no=" + tel_no;
@@ -61,7 +62,7 @@ function telDelete(tel_no) {
 기존번호<input type="text" value="${tels.tel_type }">
 			<input type="text" value="${tels.tel_telephone }">
 			<button type="button"
-				onclick="telUpdate(${tels.tel_no}, ${tels.tel_type}, ${tels.tel_telephone})">수정</button>
+				onclick="telUpdate(${emp.emp_no}, ${tels.tel_no}, ${tels.tel_type}, ${tels.tel_telephone})">수정</button>
 			<button type="button" onclick="telDelete(${tels.tel_no})">삭제</button>
 			<br>
 		</c:forEach>
