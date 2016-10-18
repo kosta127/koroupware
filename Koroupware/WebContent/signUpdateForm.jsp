@@ -34,7 +34,6 @@ function telDelete(tel_no) {
 }
 
 function telUpdate(index){
-	alert($("#oldTelNo-"+index).val());
 	location.href = "telUpdate.do?emp_no=" + $('.emp_no').val() + "&tel_no=" + $("#oldTelNo-"+index).val() + "&tel_type=" + $("#oldTelType-"+index).val() + "&tel_telephone=" + $("#oldTelTelephone-"+index).val();
 }
 
