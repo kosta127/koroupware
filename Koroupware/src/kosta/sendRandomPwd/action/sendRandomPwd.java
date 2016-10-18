@@ -34,7 +34,7 @@ public class sendRandomPwd implements Action {
 				list.get(i).setEmp_no(find_no);
 				list.get(i).setEmp_password(new_pwd);
 				pwdservice.SessionPwdService(list.get(i)); // 이렇게하면 emp객체 형식
-				forward.setPath("login.jsp");
+				forward.setPath("FindPasswordResult.jsp");
 				forward.setRedirect(false);
 				break;
 			}

@@ -8,8 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import kosta.doc.model.Doc;
 import kosta.emp.model.Emp;
-import kosta.login.mapper.SignUpMapper;
 import kosta.search.mapper.SearchMapper;
 import kosta.search.model.Search;
 
@@ -19,8 +19,8 @@ public class SearchDao {
 	public static SearchDao getInstance() {
 		return dao;
 	}
-	
-	public SqlSessionFactory getSqlSessionFactory(){
+
+	public SqlSessionFactory getSqlSessionFactory() {
 		String resource = "mybatis-config.xml";
 		InputStream input = null;
 		try {
@@ -28,32 +28,47 @@ public class SearchDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return new SqlSessionFactoryBuilder().build(input);
 	}
-	
+
 	public List<Emp> ListEmp() {
 		// 로그인 용 리스트
-	
+
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
-		
-		try{
+
+		try {
 			return sqlSession.getMapper(SearchMapper.class).ListEmp();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		} finally {
 			sqlSession.close();
 		}
-		
+
 	}
 
+	public List<Doc> ListDoc() {
+		// 로그인 용 리스트
 
-	public List<Search> SearchInfo(String search_name) {
-SqlSession sqlSession = getSqlSessionFactory().openSession();		
-		try{
-			return sqlSession.getMapper(SearchMapper.class).SearchInfo(search_name);
-		}catch (Exception e) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+
+		try {
+			return sqlSession.getMapper(SearchMapper.class).ListDoc();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			sqlSession.close();
+		}
+
+	}
+
+	public List<Search> SearchName(String search_content) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			return sqlSession.getMapper(SearchMapper.class).SearchName(search_content);
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		} finally {
@@ -61,8 +76,16 @@ SqlSession sqlSession = getSqlSessionFactory().openSession();
 		}
 	}
 
+	public List<Doc> SearchDoc(String search_content) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			return sqlSession.getMapper(SearchMapper.class).SearchDoc(search_content);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			sqlSession.close();
+		}
 
-
-
-
+	}
 }

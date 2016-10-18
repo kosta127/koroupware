@@ -8,11 +8,19 @@
 		select * from emp
 	</select>
 	
-	<select id="SearchInfo"  parameterType="String" resultType="SearchModel">
+	<select id="ListDoc" resultType="Doc">
+	select * from doc
+	</select>
+	
+	<select id="SearchName"  parameterType="String" resultType="SearchModel">
 		select dept.dept_name, emp.EMP_NAME, emp.EMP_ID, emp.EMP_ADDRESS, emp.EMP_EMAIL, emp.EMP_HIREDATE  
 		from dept Inner Join emp 
 		on dept.DEPT_NO = emp.DEPT_NO
-		where emp.EMP_NAME= #{search_name}
+		where emp.EMP_NAME= #{search_content}
+	</select>
+	
+	<select id="SearchDoc" parameterType="String" resultType="SearchModel">
+	select doc_no, doc_title from doc where doc_title like #{search_content}
 	</select>
 	
 	

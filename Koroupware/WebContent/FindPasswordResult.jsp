@@ -7,13 +7,13 @@
 <title>비밀 번호 결과</title>
 <script type="text/javascript">
 function backpage() {
-	location.href="SendMail.jsp";
-}s
+	location.href="login.jsp";
+}
 </script>
 </head>
 <body>
 <h1>비밀 번호 결과</h1>
-회원님의 비밀번호는 <%=session.getAttribute("find_password") %>입니다.
+회원님의 이메일<%=session.getAttribute("sendemail_to") %>로  임시비밀번호를 보냈습니다.
 <button onclick="backpage()">확인</button>
 </body>
 </html>

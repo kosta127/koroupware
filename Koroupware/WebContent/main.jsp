@@ -14,7 +14,7 @@
 <title>메인</title>
 <script type="text/javascript">
 function logout() {
-	location.href="login.jsp"
+	location.href="logout.do"
 }
 function signUpdate(){
 	location.href="signUpdateForm.jsp"
@@ -46,9 +46,14 @@ function signUpdate(){
 		<li><a href="messagePage.do">쪽지</a></li>
 	</ul>
 	<br>
-	<form action="SearchAction.do" method="get">
-		검색을 하시오<input type="text" name="search_content"> <input
-			type="submit" value="검색"><br>
+	<form action="SearchAction.do" method="post">
+		<select name = "keyField">
+			<option value="0"> 선택  </option>
+			<option value="emp_name"> 사원 이름 </option>
+			<option value="document"> 문서  </option>
+		</select>
+		검색을 하시오<input type="text" name="search_content"> 
+		<input type="submit" value="검색"><br>
 	</form>
 
 
