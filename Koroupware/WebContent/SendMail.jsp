@@ -13,7 +13,6 @@
 <%
 request.setCharacterEncoding("utf-8");
 HttpSession session1 = request.getSession();
-System.out.println("dldldldldldlfdldldldldldlddldlddldldldldld "+session.getAttribute("find_no"));
 String randomChar = null;
 String Array[];
 Array = new String[8];
@@ -146,7 +145,7 @@ System.out.println(value);
 
  
 String from = "sdc337dc@naver.com"; 
-String to = "show7224@naver.com";
+String to = (String)session1.getAttribute("sendemail_to");
 String subject = "임시비밀번호 입니다";
 String content = value;
 request.setAttribute("pwd", value);
@@ -194,6 +193,6 @@ try{
     return;
 }
  
-out.println("<script>alert('Send Mail success..');location.href='sendRandomPwd.mail?pwd="+value+"';</script>");
+out.println("<script>alert('"+"회원님의 이메일 : "+to +"로 임시비밀번호를 보냈습니다.');location.href='sendRandomPwd.mail?pwd="+value+"';</script>");
 // 성공 시
 %>

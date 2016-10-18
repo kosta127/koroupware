@@ -61,7 +61,7 @@
 	</select>
 	
 	<select id="FindPassword_ListEmp" resultType="Emp">
-		select emp_password, emp_no, emp_id from emp
+		select emp_password, emp_no, emp_id, emp_email from emp
 	</select>
 	
 	
