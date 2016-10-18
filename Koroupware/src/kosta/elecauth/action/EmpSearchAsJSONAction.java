@@ -16,8 +16,8 @@ public class EmpSearchAsJSONAction implements Action{
 		ActionForward forward = new ActionForward();
 		
 		Elec_authService service = Elec_authService.getInstance();
-		List<EmpDetail> empList = 
-				service.searchEmp("%"+request.getParameter("searchKey")+"%");
+		List<EmpDetail> empList = service.searchEmp();
+				//service.searchEmp("%"+request.getParameter("searchKey")+"%");
 		
 		String jsonStr = JSONArray.fromObject(empList).toString();
 		request.setAttribute("empListAsJSON", jsonStr);

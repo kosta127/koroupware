@@ -153,11 +153,11 @@ public class Elec_authDao {
 		return result;
 	}
 	
-	public List<EmpDetail> searchEmp(String keyword){
+	public List<EmpDetail> searchEmp(){
 		SqlSession sqlSession = SessionFactory.getInstance().openSession();
 		List<EmpDetail> emps = null;
 		try {
-			emps = sqlSession.getMapper(Elec_authMapper.class).searchEmpDetail(keyword);
+			emps = sqlSession.getMapper(Elec_authMapper.class).searchEmpDetail();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

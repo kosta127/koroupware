@@ -66,9 +66,7 @@
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td>
-				<textarea rows="10" cols="100">${elec_authDetail.elec_auth_contents }</textarea>
-			</td>
+			<td>${elec_authDetail.elec_auth_contents }</td>
 	</table>
 	<br>
 	

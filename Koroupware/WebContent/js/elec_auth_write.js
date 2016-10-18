@@ -29,80 +29,106 @@ $(function(){
 })
 
 $(function(){
-	//결재자, 참조자 설정
-	var refSearchList = $('#referrer_search_list');
-	var apprSearchList = $('#approval_search_list');
-	refSearchList.hide();
-	apprSearchList.hide();
+	//결재마감일 달력 
+	var $endDate = $('#elec_auth_enddate');
+	$endDate.datepicker({minDate : 0,
+						dateFormat : 'yy-MM-dd',
+						monthNames : ['01', '02', '03', '04', '05', '06', 
+							'07', '08', '09', '10', '11', '12'],
+						monthNamesShort : ['01', '02', '03', '04', '05', '06', 
+								'07', '08', '09', '10', '11', '12'],	
+						dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+						closeText: '닫기',
+				        prevText: '이전달',
+				        nextText: '다음달',
+				        currentText: '오늘',
+				        changeYear: true,
+				        changeMonth: true,
+				        showButtonPanel: true,
+				        showOtherMonths: true,
+				        selectOtherMonths: true,
+				        showMonthAfterYear: true});
+})
+
+$( function() {
+	//결재자, 참조자 설정	
+	var autoCompleteList = new Array();	
 	
-	var ajaxInfo = {
-			url: 'empSearchAsJSON.do',
-			type: 'post',
-			dataType: 'json'
-	};
+	$.ajax({
+		url: 'empSearchAsJSON.do',
+		type: 'post',
+		dataType: 'json',
+		success : setAutocompleteList
+	});	
 	
-	$('#elec_auth_approval_name').keydown(function(){
-		if($(this).val()!=''){
-			ajaxInfo.data = {'searchKey' : $(this).val()};
-			ajaxInfo.success = showApprSearchResult;
-			$.ajax(ajaxInfo);
-		}
-	});
-	$('#elec_auth_referrer_name').keydown(function(){
-		if($(this).val()!=''){
-			ajaxInfo.data = {'searchKey' : $(this).val()};
-			ajaxInfo.success = showReferrerSearchResult;
-			$.ajax(ajaxInfo);
-		}
-	});
-	
-	function showApprSearchResult(data){
-		var searchListHtml = '';
-		$.each(data, function(idx, empDetail){
-			searchListHtml += '<a class="appr_list"><div class="emp_detail">\n';
-			searchListHtml += '<span class="emp_name">'+empDetail.emp_name+'</span>';
-			searchListHtml += '<span class="emp_dept">'+empDetail.dept_name+'</span>';
-			searchListHtml += '<span class="emp_position">'+empDetail.position_name+' - '
-			searchListHtml += empDetail.office_name+'</span><br>';
-			searchListHtml += '<span class="emp_contract">'+empDetail.emp_email+'</span>';
-			searchListHtml += '<input type="hidden" name="approval_emp_no" value="'+empDetail.emp_no+'">'
-			searchListHtml += '</div></a><br>';
-		})
-		apprSearchList.html(searchListHtml);
-		apprSearchList.show();
+	function setAutocompleteList(data){		
+		$.each(data, function(idx, empDetail){			
+			autoCompleteList.push(
+				{
+					value: empDetail.emp_name,
+					label: empDetail.emp_name,
+				    emp_no: empDetail.emp_no,
+				    dept_name: empDetail.dept_name,
+				    position_name: empDetail.position_name,
+				    office_name: empDetail.office_name,
+				    emp_email: empDetail.emp_email,
+				    desc: '<div class="emp_detail">\n<span class="emp_name">'+empDetail.emp_name+'</span>' +
+	        		 		'<span class="emp_dept">'+empDetail.dept_name+'</span>' +
+	        		 		'<span class="emp_position">'+empDetail.position_name+' ' +
+	        		 		empDetail.office_name+'</span><br><span class="emp_contract">'+empDetail.emp_email+'</span></div>'
+				}
+			);
+		})		
 	}
+
+	//결재자
+	var $approv = $('#elec_auth_approval');
+	$approv.autocomplete({
+	      minLength: 0,
+	      source: autoCompleteList,
+	      focus: function( event, ui ) {
+	    	  //$approv.val( ui.item.value );
+	        return false;
+	      },
+	      select: function( event, ui ) {
+	    	$( '#'+$approv.attr('id')+'_list' ).append('<a class="appr_list">'+ui.item.desc+
+	    			'<input type="hidden" name="approval_emp_no" value="'+ui.item.emp_no+'">'+'</a>');
+	    	$approv.val('');
+	        return false;
+	      }
+	    })
+	    .autocomplete( "instance" )._renderItem = function( ul, item ) {
+	      return $( "<li>" )
+	        .append(item.desc)
+	        .appendTo( ul );
+	    };
+	//참조자
+    var $referr = $('#elec_auth_referrer');
+    $referr.autocomplete({
+	      minLength: 0,
+	      source: autoCompleteList,
+	      focus: function( event, ui ) {
+	    	  //$referr.val( ui.item.value );
+	        return false;
+	      },
+	      select: function( event, ui ) {
+	    	$( '#'+$referr.attr('id')+'_list' ).append('<a class="ref_list">'+ui.item.desc+
+	    			'<input type="hidden" name="referrer_emp_no" value="'+ui.item.emp_no+'">'+'</a>');
+	    	$referr.val('');
+	        return false;
+	      }
+	    })
+	    .autocomplete( "instance" )._renderItem = function( ul, item ) {
+	      return $( "<li>" )
+	        .append(item.desc)
+	        .appendTo( ul );
+	    };
 	
-	function showReferrerSearchResult(data){
-		var searchListHtml = '';
-		$.each(data, function(idx, empDetail){
-			searchListHtml += '<a class="ref_list"><div class="emp_detail">\n';
-			searchListHtml += '<span class="emp_name">'+empDetail.emp_name+'</span>\n';
-			searchListHtml += '<span class="emp_dept">'+empDetail.dept_name+'</span>\n';
-			searchListHtml += '<span class="emp_position">'+empDetail.position_name+' - '
-			searchListHtml += empDetail.office_name+'</span><br>\n';
-			searchListHtml += '<span class="emp_contract">'+empDetail.emp_email+'</span>\n';
-			searchListHtml += '<input type="hidden" name="referrer_emp_no" value="'+empDetail.emp_no+'">'
-			searchListHtml += '</div><br></a>';
-		})
-		refSearchList.html(searchListHtml);
-		refSearchList.show();
-	}
-	
-	apprSearchList.on('click', '.appr_list', function(){
-		$(this).appendTo("#approval_list");		
-		apprSearchList.html("");
-		apprSearchList.hide();
-	});
-	refSearchList.on('click', '.ref_list', function(){
-		$(this).appendTo("#referrer_list");
-		refSearchList.html("");
-		refSearchList.hide();
-	});
-	
-	$("#approval_list").on('click', '.appr_list', function(){
+	//목록클릭시 사라지게
+    $("#approval_list").on('click', '.appr_list', function(){
 		$(this).remove();
 	});
 	$("#referrer_list").on('click', '.ref_list', function(){
 		$(this).remove();
-	});	
-})
+	});
+  } );

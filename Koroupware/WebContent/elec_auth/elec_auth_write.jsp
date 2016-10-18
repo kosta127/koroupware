@@ -5,9 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="css/elec_auth_write.css" rel="stylesheet">
+<link rel="stylesheet" href="css/elec_auth_write.css">
+<link rel="stylesheet" href="css/jquery-ui.min.css">
 <script src="ckeditor/ckeditor.js"></script>
 <script src="js/jquery.js"></script>
+<script src="js/jquery-ui.min.js"></script>
 <script src="js/elec_auth_write.js"></script>
 <!-- <script>alert(window.location.pathname);location.href="js/elec_auth_write.js"</script> -->
 <title>Insert title here</title>
@@ -37,7 +39,7 @@
 				</c:forEach>
 			</div>
 			<div id="enddate_div">
-				결재 마감일  <input type="date" name="elec_auth_enddate" id="elec_auth_enddate" required="required">
+				결재 마감일  <input type="text" name="elec_auth_enddate" id="elec_auth_enddate" required="required" readonly="readonly">
 			</div>
 			<div id="conperiod_div">
 				보존년한 
@@ -54,23 +56,17 @@
 			<textarea name="elec_auth_contents" id="elec_auth_contents" required="required"></textarea>
 			</div>
 			<div id="approval_div">
-				결재자 <input type="text" name="elec_auth_approval_name" id="elec_auth_approval_name">
+				결재자 <input type="text" name="elec_auth_approval" id="elec_auth_approval">
 				<br>
-				결재자 검색 결과<br>
-				<div id="approval_search_list">
-				</div>
 				결재자 목록<br>
-				<div id="approval_list">
+				<div id="elec_auth_approval_list">
 				</div>
 			</div>
 			<div id="referrer_div">
-				참조자 <input type="text" name="elec_auth_referrer_name" id="elec_auth_referrer_name">
+				참조자 <input type="text" name="elec_auth_referrer" id="elec_auth_referrer">
 				<br>
-				참조자 검색 결과<br>
-				<div id="referrer_search_list">
-				</div>
 				참조자 목록<br>
-				<div id="referrer_list">			
+				<div id="elec_auth_referrer_list">			
 				</div>
 			</div>
 			<div id="btn_div">

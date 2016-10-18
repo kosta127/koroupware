@@ -95,7 +95,6 @@
       		 INNER JOIN office o ON e.office_no = o.office_no
      		 INNER JOIN position p ON e.position_no = p.position_no
   		WHERE emp_resigndate IS NULL
-  		AND emp_name like #{searchKeyword}
 	</select>
 	
 	<select id="getDocFormList" resultType="Doc">

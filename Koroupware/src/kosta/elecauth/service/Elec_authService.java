@@ -60,8 +60,8 @@ public class Elec_authService {
 		return dao.insertElecAuth(ea, approvals, referrers);
 	}
 	
-	public List<EmpDetail> searchEmp(String keyword){
-		return dao.searchEmp(keyword);
+	public List<EmpDetail> searchEmp(){
+		return dao.searchEmp();
 	}
 	
 	public List<Doc> getDocFormList(){

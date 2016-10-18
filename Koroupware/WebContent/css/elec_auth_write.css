@@ -1,16 +1,8 @@
 
-#approval_list {
+#elec_auth_approval_list {
 	border: solid 1px #800080;
 }
 
-#approval_search_list{
-	border: solid 1px #800080;
-}
-
-#referrer_search_list{
-	border: solid 1px #8000ff;
-}
-
-#referrer_list{
+#elec_auth_referrer_list{
 	border: solid 1px #8000ff;
 }
