@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kosta.action.Action;
 import kosta.action.ActionForward;
@@ -11,6 +12,7 @@ import kosta.elecauth.dao.Elec_authDao;
 import kosta.elecauth.model.Elec_auth;
 import kosta.elecauth.model.Elec_authList;
 import kosta.elecauth.service.Elec_authService;
+import kosta.emp.model.Emp;
 
 public class Elec_authListAction implements Action {
 
@@ -21,8 +23,9 @@ public class Elec_authListAction implements Action {
 		String strPageNum=request.getParameter("pageNum");
 		int pageNum=(strPageNum!=null)?Integer.parseInt(strPageNum):1;
 		
-		String empNo=request.getParameter("emp_no");
-		int emp_no=Integer.parseInt(empNo);
+		HttpSession session = request.getSession();
+		Emp emp = (Emp) session.getAttribute("emp");
+		int emp_no= emp.getEmp_no();
 		
 		Elec_authService service=Elec_authService.getInstance();
 		List<Elec_authList> elec_authList=service.elec_authList(pageNum, emp_no);
