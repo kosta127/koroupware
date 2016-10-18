@@ -15,12 +15,15 @@
           																  =(SELECT count(*)
          																	 FROM approval_list al
           																	 WHERE ea.elec_auth_no = al.elec_auth_no
-           																	 AND al.approval_list_pass='Y') THEN '진행완료' ELSE '진행중'
+           																	 AND al.approval_list_pass='Y') THEN '진행완료'
+           															    WHEN  TRUNC(SYSDATE-ea.elec_auth_enddate)>0
+           																	 THEN '진행부결' ELSE '결재중'
          															         END ) approval_list_pass
 		FROM elec_auth ea, doc do, dept de, emp e
 		WHERE ea.doc_no=do.doc_no
 		AND ea.elec_auth_management_dept_no=de.dept_no
 		AND ea.emp_no=e.emp_no
+		AND ea.emp_no=#{emp_no}
 		AND ea.elec_auth_deldate IS NULL
 		ORDER BY ea.elec_auth_no DESC
 	</select>

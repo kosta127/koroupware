@@ -19,8 +19,11 @@ public class Elec_authListAction implements Action {
 		String strPageNum=request.getParameter("pageNum");
 		int pageNum=(strPageNum!=null)?Integer.parseInt(strPageNum):1;
 		
+		String empNo="3";
+		int emp_no=Integer.parseInt(empNo);
+		
 		Elec_authService service=Elec_authService.getInstance();
-		List<Elec_authList> elec_authList=service.elec_authList(pageNum);
+		List<Elec_authList> elec_authList=service.elec_authList(pageNum, emp_no);
 		
 		if(elec_authList != null){
 			request.setAttribute("elec_authList", elec_authList);

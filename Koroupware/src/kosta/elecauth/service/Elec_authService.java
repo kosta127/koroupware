@@ -24,9 +24,9 @@ public class Elec_authService {
 		return service;
 	}
 	
-	public List<Elec_authList> elec_authList(int pageNum){
+	public List<Elec_authList> elec_authList(int pageNum, int emp_no){
 		int startRow=(pageNum-1)*dao.LIST_SIZE;
-		return dao.elec_authList(startRow);
+		return dao.elec_authList(startRow, emp_no);
 	}
 	
 	public Elec_authPage elec_authListPage(int currentPage){

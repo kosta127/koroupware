@@ -12,8 +12,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<input type="button" name="print1" value="인쇄">
-	<input type="button" name="elec_authLine1" value="지정결재선 등록">
 	<br><br>
 	
 	<table border="1">
@@ -73,7 +71,6 @@
 	<br>
 	
 	<input type="button" name="print2" value="인쇄">
-	<input type="button" name="elec_authLine2" value="지정결재선 등록">
 	<br>
 	
 	<h3>@결재 진행 상태 및 의견</h3>

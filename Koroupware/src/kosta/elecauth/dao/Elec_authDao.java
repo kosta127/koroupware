@@ -38,13 +38,13 @@ public class Elec_authDao {
 		return dao;
 	}	
 	
-	public List<Elec_authList> elec_authList(int startRow){
+	public List<Elec_authList> elec_authList(int startRow, int emp_no){
 		SqlSession sqlSession=SessionFactory.getInstance().openSession();
 		List<Elec_authList> list=null;
 		
 		try {
 			list=sqlSession.getMapper(Elec_authMapper.class).elec_authList(
-					new RowBounds(startRow, LIST_SIZE));
+					new RowBounds(startRow, LIST_SIZE), emp_no);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{

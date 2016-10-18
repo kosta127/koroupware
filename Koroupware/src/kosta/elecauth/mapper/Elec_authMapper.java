@@ -17,7 +17,7 @@ import kosta.emp.model.Emp;
 import kosta.elecauth.model.Elec_authDetail;
 
 public interface Elec_authMapper {
-	public List<Elec_authList> elec_authList(RowBounds rb);
+	public List<Elec_authList> elec_authList(RowBounds rb, int emp_no);
 	public int getTotalCount();
 	public Elec_authDetail elec_authDetail(int elec_auth_no);
 	public List<Elec_authDetailApproval> elec_authDetailApproval(int elec_auth_no);
