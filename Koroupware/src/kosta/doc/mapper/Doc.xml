@@ -121,6 +121,8 @@
 		update doc set doc_deldate = SYSDATE
 		where doc_no = #{doc_no}
 	</update>
+	
+	
 </mapper>
 
 
