@@ -13,9 +13,10 @@
 	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.theme.min.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+	
 	  
 	<!-- 사용자 css -->
-	
+	<link rel="stylesheet" type="text/css" href="../css/boardDetail.css"/>
 	<!--  -->
 	
 	<script type="text/javascript" src="../js/jquery.js"></script>
@@ -41,50 +42,58 @@
 			location.href="deleteReply.do?reply_no="+param+"&board_no=${board.board_no}";
 		}
 	</script>
+<!-- <style>
+.btn{
+	background-color: #00A5FF;
+	color: white;
+	
+}
+</style> -->
 </head>
 <body>
+<h1>글 상세보기</h1>
 	<table border="1">
-		<tr>
-			<td>번호</td>
+		<tr height="30">
+			<td align="center">번호</td>
 			<td>${board.board_no }</td>
 		</tr>
-		<tr>
-			<td>제목</td>
+		<tr height="30">
+			<td align="center">제목</td>
 			<td>${board.board_title}</td>
 		</tr>
-		<tr>
-			<td>파일</td>
+		<tr height="30">
+			<td align="center">파일</td>
 			<td>
 				<c:forEach items="${boardFileList}" var="boardfile">
 					<a href="download.jsp?board_file_real_name=${boardfile.board_file_real_name}">${boardfile.board_file_real_name}</a>
 				</c:forEach>
 			</td>
 		</tr>
-		<tr>
-			<td>작성날짜</td>
-			<td align="center">
+		<tr height="30">
+			<td align="center">작성날짜</td>
+			<td>
 				<fmt:formatDate value="${board.board_regdate }" pattern="yyyy-MM-dd"/>
 			</td>
 		</tr>
-		<tr>
+		<tr height="30">
 			<td colspan="2">${board.board_contents }</td>
 		</tr>
 		
 	</table>
-	<input type="button" value="댓글" onclick="show_reply()">
-	<input type="button" value="수정" onclick="board_modify()">
-	<input type="button" value="목록" onclick="board_list()">
-	<input type="button" value="삭제" onclick="board_delete()">
+	<input type="button" class="btn btn-default" value="댓글" onclick="show_reply()">
+	<input type="button" class="btn btn-default" value="수정" onclick="board_modify()">
+	<input type="button" class="btn btn-default" value="목록" onclick="board_list()">
+	<input type="button" class="btn btn-default" value="삭제" onclick="board_delete()">
 	
 	<br><br>
 	
 	<div id="replyDiv">
 		<table border="1" cellpadding="0" cellspacing="0">
 			<tr height="30">
-				<th>작성자</th>
-				<th>내용</th>
-				<th>등록일</th>
-				<th></th>
+				<td width="250" align="center">작성자</td>
+				<td align="center">내용</td>
+				<td width="150" align="center">등록일</td>
+				<td align="center"></td>
 			</tr>
 		<c:forEach var="replyModel" items="${replyList }">
 			<input type="hidden" value="${replyModel.reply_no}" name="reply_no">
@@ -93,7 +102,7 @@
 				<td class="reply_contents">${replyModel.reply_contents}</td>
 				<td>${replyModel.reply_regdate}</td>	
 				<td>
-					<input type="button" value="삭제" onclick="reply_delete(${replyModel.reply_no})">
+					<input type="button" value="삭제" class="btn btn-default" onclick="reply_delete(${replyModel.reply_no})">
 				</td>	
 			</tr>
 		</c:forEach>
@@ -103,12 +112,12 @@
 			<input type="hidden" name="board_no" value="${board.board_no }">
 			<table border="1" cellpadding="0" cellspacing="0">
 				<tr height="10">
-					<td align="left">작성자</td>
+					<td align="center">작성자</td>
 					<td>
 						<textarea cols="40" rows="1" name="reply_contents"></textarea>
 					</td>
-					<td colspan="4" align="center">
-						<input type="submit" value="등록">
+					<td colspan="4">
+						<input type="submit" class="btn btn-default" value="등록">
 					</td>
 				</tr>
 			</table>

@@ -38,17 +38,13 @@
 		<table border="1" cellpadding="0" cellspacing="0">
 		
 		<tr height="30">
-			<td>작성자</td>
-			<td>
+			<td align="center">작성자</td>
+			<td align="center">
 				<input type="text" name="emp_name" size="10">
 			</td>
-			<td width="80">제목</td>
-			<td align="left" colspan="3">
-				<c:choose>
-					<c:when test="${board_no == null }">
-						<input type="text" name="board_title" size="50">	
-					</c:when>
-				</c:choose>					
+			<td width="80" align="center">제목</td>
+			<td align="left" colspan="3">		
+				<input type="text" name="board_title" size="50">	
 			</td>			
 		</tr>		
 		<!-- <tr height="30">
@@ -58,7 +54,7 @@
 			</td>	
 		</tr> -->
 		<tr height="30">		
-			<td>파일</td>
+			<td align="center">파일</td>
 			<td colspan="3">
 				<input type="file" name="board_fname">	
 			</td>

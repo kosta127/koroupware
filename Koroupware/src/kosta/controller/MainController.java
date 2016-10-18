@@ -49,8 +49,7 @@ public class MainController extends HttpServlet {
 
     public void doProcess(HttpServletRequest request, HttpServletResponse response)
     		throws ServletException, IOException{
-    	System.out.println(123);
-    	
+
     	String command = getRequestPath(request);
     	Action action = null;
     	
