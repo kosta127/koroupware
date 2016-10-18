@@ -67,4 +67,8 @@ public class Elec_authService {
 	public List<Doc> getDocFormList(){
 		return dao.getDocFormList();
 	}
+	
+	public EmpDetail getEmpDetail(int emp_no){
+		return dao.getEmpDetail(emp_no);
+	}
 }

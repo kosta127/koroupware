@@ -178,4 +178,19 @@ public class Elec_authDao {
 		}
 		return docList;
 	}
+	
+	public EmpDetail getEmpDetail(int emp_no){
+		SqlSession sqlSession = SessionFactory.getInstance().openSession();
+		EmpDetail empDetail = null;
+		try {
+			empDetail = sqlSession.getMapper(Elec_authMapper.class).getEmpDetail(emp_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return empDetail;
+	}
+	
+	
 }

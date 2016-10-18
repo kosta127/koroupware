@@ -19,12 +19,12 @@
 		<h1>결재작성</h1>
 		<form id="elec_auth_form" action="elec_authSubmission.do" method="post">
 			<div id="emp_div">
-				안건 작성자 
-				<input type="hidden" name="emp_no" id="emp_no" value="${4 }">
+				안건 작성자 ${empDetail.emp_name }
+				<input type="hidden" name="emp_no" id="emp_no" value="${empDetail.emp_no }">
 			</div>
 			<div id="manage_dept_div">
-			관리 부서 <input type="text" name="management_dept_name" id="management_dept_name" value="${'히히' }" readonly="readonly">
-			<input type="hidden" name="elec_auth_management_dept_no" id="elec_auth_management_dept_no" value="${1 }">
+			관리 부서 <input type="text" name="management_dept_name" id="management_dept_name" value="${empDetail.dept_name }" readonly="readonly">
+			<input type="hidden" name="elec_auth_management_dept_no" id="elec_auth_management_dept_no" value="${empDetail.dept_no }">
 			</div>
 			<div id="docform_div">
 				문서 양식 선택
