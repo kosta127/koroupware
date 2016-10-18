@@ -14,7 +14,7 @@ function backpage() {
 </head>
 <body>
 <h1>아이디 찾기 결과</h1>>
- 당신이 찾는 아이디는 <%=session.getAttribute("find_name") %> 입니다.
+ 당신이 찾는 아이디는 <%=session.getAttribute("find_id") %> 입니다.
  <button onclick="backpage()">확인</button>
 </body>
 </html>
