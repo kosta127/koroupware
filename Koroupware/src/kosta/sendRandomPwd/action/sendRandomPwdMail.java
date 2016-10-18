@@ -151,7 +151,7 @@ public class sendRandomPwdMail implements Action {
 		System.out.println(value);
 
 		String from = "sdc337dc@naver.com";
-		String to = (String) session1.getAttribute("sendemail_to");
+		String to = "sdc337dc@naver.com";//(String) session1.getAttribute("sendemail_to");
 		String subject = "임시비밀번호 입니다";
 		String content = value;
 		request.setAttribute("pwd", value);

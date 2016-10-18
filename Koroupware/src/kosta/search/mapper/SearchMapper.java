@@ -16,4 +16,7 @@ public interface SearchMapper {
 	public List<Search> SearchName(String search_content);
 	
 	public List<Doc> SearchDoc(String search_content);
+
+
+	public List<Doc> SearchDocEmpName(String search_content);
 }

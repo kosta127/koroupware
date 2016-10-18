@@ -78,8 +78,23 @@ public class SearchDao {
 
 	public List<Doc> SearchDoc(String search_content) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		System.out.println(search_content);
 		try {
 			return sqlSession.getMapper(SearchMapper.class).SearchDoc(search_content);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			sqlSession.close();
+		}
+
+	}
+
+	public List<Doc> SearchDocEmpName(String search_content) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		System.out.println(search_content);
+		try {
+			return sqlSession.getMapper(SearchMapper.class).SearchDocEmpName(search_content);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

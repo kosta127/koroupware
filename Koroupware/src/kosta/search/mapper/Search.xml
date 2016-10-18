@@ -8,6 +8,7 @@
 		select * from emp
 	</select>
 	
+	
 	<select id="ListDoc" resultType="Doc">
 	select * from doc
 	</select>
@@ -19,9 +20,20 @@
 		where emp.EMP_NAME= #{search_content}
 	</select>
 	
-	<select id="SearchDoc" parameterType="String" resultType="SearchModel">
-	select doc_no, doc_title from doc where doc_title like #{search_content}
-	</select>
 	
+	
+	<select id="SearchDoc" parameterType="String" resultType="SearchModel">
+		select doc.doc_no, doc.doc_title, doc.doc_con_period,emp.emp_no,emp.EMP_NAME,doc.DOC_CONTENTS 
+	from doc Inner Join emp
+	on doc.emp_no = emp.emp_no
+	where (doc.doc_title like #{search_content} ) or (doc.DOC_CONTENTS like #{search_content} )
+	</select>
+
+	<select id="SearchDocEmpName" parameterType="String" resultType="SearchModel">
+		select doc.doc_no, doc.doc_title, doc.doc_con_period,emp.emp_no,emp.EMP_NAME,doc.DOC_CONTENTS 
+	from doc Inner Join emp
+	on doc.emp_no = emp.emp_no
+	where emp.EMP_NAME= #{search_content} 
+	</select>
 	
 </mapper>

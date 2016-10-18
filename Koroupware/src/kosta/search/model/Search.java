@@ -15,6 +15,7 @@ public class Search implements Serializable{
 	private String doc_title;
 	private String doc_explain;
 	private String doc_contents;
+	private Date doc_con_period;
 	
 
 	public String getEmp_email() {
@@ -76,6 +77,12 @@ public class Search implements Serializable{
 	}
 	public void setEmp_name(String emp_name) {
 		this.emp_name = emp_name;
+	}
+	public Date getDoc_con_period() {
+		return doc_con_period;
+	}
+	public void setDoc_con_period(Date doc_con_period) {
+		this.doc_con_period = doc_con_period;
 	}
 
 

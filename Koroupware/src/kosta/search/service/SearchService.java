@@ -32,6 +32,12 @@ public class SearchService {
 	}
 	
 	public List<Doc> SearchDocService(String search_content){
-		return dao.SearchDoc(search_content);
+		
+		return dao.SearchDoc("%"+search_content+"%");
+	}
+
+	public List<Doc> SearchDocEmpNameService(String search_content) {
+		// TODO Auto-generated method stub
+		return dao.SearchDocEmpName("%"+search_content+"%");
 	}
 }
