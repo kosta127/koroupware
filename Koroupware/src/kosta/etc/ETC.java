@@ -27,4 +27,12 @@ public class ETC {
 			session.rollback();
 		}
 	}
+	
+	public String toTelephoneFormat(String telephone){
+		String parseTelephone = "";
+		
+		System.out.println(telephone);
+		
+		return parseTelephone;
+	}
 }

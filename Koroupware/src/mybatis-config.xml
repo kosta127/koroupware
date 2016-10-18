@@ -30,6 +30,8 @@
 		<typeAlias type="kosta.doc.model.DocBox" alias="DocBox"/>
 		<typeAlias type="kosta.doc.model.DocManagement" alias="DocManagement"/>
 		<typeAlias type="kosta.doc.model.DocFile" alias="DocFile" />
+		<typeAlias type="kosta.dept.model.OrgChartModel" alias="OrgChartModel" />
+		<typeAlias type="kosta.dept.model.OrgChartEmpModel" alias="OrgChartEmpModel" />
 	</typeAliases>
 	
 	<environments default="development">

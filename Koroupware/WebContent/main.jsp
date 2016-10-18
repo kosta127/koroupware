@@ -14,10 +14,10 @@
 <title>메인</title>
 <script type="text/javascript">
 	function logout() {
-		location.href = "login.jsp"
+		location.href = "logout.do";
 	}
 	function signUpdate() {
-		location.href = "signUpdateForm.jsp"
+		location.href = "signUpdateForm.jsp";
 	}
 </script>
 
@@ -41,7 +41,7 @@
 		<li><a href="listDoc_box.do">문서</a></li>
 		<li><a>결재</a></li>
 		<li><a href="listBoard.do">커뮤니티</a></li>
-		<li><a>조직도</a></li>
+		<li><a href="orgChartPage.do">조직도</a></li>
 		<li><a href="messagePage.do">쪽지</a></li>
 	</ul>
 	<br>

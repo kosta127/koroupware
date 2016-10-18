@@ -42,7 +42,8 @@
 				FROM emp
 				WHERE emp_no IN (SELECT DISTINCT message_receiver_no
                                     FROM message
-                                    WHERE message_sender_no = #{emp_no})) e,
+                                    WHERE message_sender_no = #{emp_no}
+                                    		OR message_receiver_no = #{emp_no})) e,
 			(SELECT dept_no, dept_name
 				FROM dept) d,
 			(SELECT office_no, office_name
