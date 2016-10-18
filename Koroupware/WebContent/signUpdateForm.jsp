@@ -33,13 +33,6 @@ function telDelete(tel_no) {
 	location.href = "telDelete.do?tel_no=" + tel_no;
 }
 
-$('.oldTelType').keyup(function(){
-	var tel_type = $(".oldTelType").index(this);
-});
-$('.oldTelTelephone').keyup(function(){
-	var tel_telephone = $(".oldTelTelephone").index(this);
-});
-
 function telUpdate(index){
 	alert($("#oldTelNo-"+index).val());
 	location.href = "telUpdate.do?emp_no=" + $('.emp_no').val() + "&tel_no=" + $("#oldTelNo-"+index).val() + "&tel_type=" + $("#oldTelType-"+index).val() + "&tel_telephone=" + $("#oldTelTelephone-"+index).val();
