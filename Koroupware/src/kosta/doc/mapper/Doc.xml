@@ -50,6 +50,7 @@
 	
 	<select id="listDoc" resultType="Doc">
 		select * from doc 
+	
 	</select>
 	
 	
@@ -116,10 +117,10 @@
 		where doc_box_no = #{doc_box_no}
 	</delete>
 	
-	<delete id="deleteDoc" parameterType="int">
-		delete from doc
+	<update id="deleteDoc" parameterType="int">
+		update doc set doc_deldate = SYSDATE
 		where doc_no = #{doc_no}
-	</delete> 
+	</update>
 </mapper>
 
 

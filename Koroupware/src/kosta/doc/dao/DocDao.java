@@ -309,6 +309,7 @@ public class DocDao {
 		return re;
 	}
 	
+	
 	public int deleteDoc(int doc_no){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = 0;
@@ -316,8 +317,9 @@ public class DocDao {
 			re = sqlSession.getMapper(DocMapper.class).deleteDoc(doc_no);
 			if(re > 0){
 				sqlSession.commit();
-			}else { 
+			}else {
 				sqlSession.rollback();
+			
 			}
 		}catch (Exception e) {
 			e.printStackTrace();

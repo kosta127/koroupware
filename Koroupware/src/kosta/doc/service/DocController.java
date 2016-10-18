@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta.doc.action.Action;
 import kosta.doc.action.ActionForward;
+import kosta.doc.action.DeleteDocAction;
+import kosta.doc.action.DeleteDocBoxAction;
 import kosta.doc.action.DetailDocBoxAction;
 import kosta.doc.action.DetailDocAction;
 import kosta.doc.action.DocBoxFormAction;
@@ -75,9 +77,11 @@ public class DocController extends HttpServlet {
 			action = new updateDocBoxProcAction();
 			forward = action.execute(request, response);
 		}else if(command.equals("doc/deleteDoc.do")){
-			
+			action = new DeleteDocAction();
+			forward = action.execute(request, response);
 		}else if(command.equals("doc/deleteDoc_box.do")){
-			
+			action = new DeleteDocBoxAction();
+			forward = action.execute(request, response);
 		}
 		
 		

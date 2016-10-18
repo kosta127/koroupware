@@ -18,11 +18,13 @@
 		<tr height="30">
 			<th>글제목</th>
 			<th>보존년한</th>
+			<th></th>
 		</tr>
 		<c:forEach var="doc" items="${list }">
 			<tr height="30">
 				<td><a href="detailDoc.do?doc_no=${doc.doc_no}&doc_box_no=${doc_box_no}&emp_no=${emp_no}">${doc.doc_title }</a></td>
 				<td>${doc.doc_con_period }</td>
+				<td><a href="delete_Doc.do?doc_no=${doc.doc_no }&emp_no=${emp_no}&doc_box_no=${doc_box_no}">삭제</a></td>
 			</tr>
 		</c:forEach>
 	</table>

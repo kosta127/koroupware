@@ -4,9 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kosta.doc.dao.DocDao;
-import kosta.doc.model.DocManagement;
 
-public class deleteDoc_box implements Action {
+public class DeleteDocBoxAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -21,7 +20,9 @@ public class deleteDoc_box implements Action {
 		int re1 = dao.deleteDoc_management(doc_box_no);
 		int re2 = dao.deleteDoc_box(doc_box_no);
 		if(re1 > 0){
+			System.out.println("1");
 			if(re2 > 0){
+				System.out.println("2");
 				forward.setPath("listDoc_box.do");
 				forward.setRedirect(false);
 			}
