@@ -2,15 +2,17 @@ package kosta.doc.model;
 
 import java.io.Serializable;
 
+
 public class DocManagement implements Serializable{
-	private int doc_manage_no;
+	private int doc_management_no;
 	private int doc_no;
 	private int doc_box_no;
-	public int getDoc_manage_no() {
-		return doc_manage_no;
+	
+	public int getDoc_management_no() {
+		return doc_management_no;
 	}
-	public void setDoc_manage_no(int doc_manage_no) {
-		this.doc_manage_no = doc_manage_no;
+	public void setDoc_management_no(int doc_manage_no) {
+		this.doc_management_no = doc_manage_no;
 	}
 	public int getDoc_no() {
 		return doc_no;

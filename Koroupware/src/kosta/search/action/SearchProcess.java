@@ -5,9 +5,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.emp.model.Emp;
-import kosta.login.action.Action;
-import kosta.login.action.ActionForward;
 import kosta.search.dao.SearchDao;
 import kosta.search.model.Search;
 import kosta.search.service.SearchService;

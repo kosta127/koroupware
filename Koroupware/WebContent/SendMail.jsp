@@ -1,10 +1,10 @@
+<%@page import="kosta.sendRandomPwd.model.SMTP"%>
 <%@page import="java.io.FileOutputStream"%>
 <%@page import="java.io.ObjectOutputStream"%>
 <%@page import="java.io.FileInputStream"%>
 <%@page import="java.io.ObjectInputStream"%>
 <%@ page import="javax.mail.*" %>
 <%@ page import="javax.mail.internet.*" %>
-<%@page import="kosta.pwdEmail.model.SMTP"%>
 <%@page import="javax.mail.Authenticator" %>
 <%@page import="javax.mail.PasswordAuthentication" %>
 <%@page import="java.util.Properties" %>
@@ -23,7 +23,7 @@ for(int i=0; i<8; i++){
 	for(int j=0; j<8; j++){
 		if(randomValue==0){
 			randomChar="0";
-			
+			Array[0]= randomChar;	
 		}else if(randomValue==1){
 			randomChar="1";
 			Array[i] = randomChar;
@@ -134,9 +134,9 @@ for(int i=0; i<8; i++){
 			Array[i] = randomChar;
 		}
 		
-		System.out.println("랜덤 값"+ randomChar);
+		
 	}
-
+	System.out.println("랜덤 값"+ randomChar);
 }
 
 String value = Array[0]+Array[1]+Array[2]+Array[3]+Array[4]+Array[5]+Array[6]+Array[7];
@@ -188,11 +188,11 @@ try{
     Transport.send(msg); // 전송
 } catch(Exception e){
     e.printStackTrace();
-    out.println("<script>alert('Send Mail Failed..');location.href='login.jsp';</script>");
+    out.println("<script>alert('이메일 전송이 실패 했습니다.');location.href='login.jsp';</script>");
     // 오류 발생시 뒤로 돌아가도록
     return;
 }
  
-out.println("<script>alert('"+"회원님의 이메일 : "+to +"로 임시비밀번호를 보냈습니다.');location.href='sendRandomPwd.mail?pwd="+value+"';</script>");
+out.println("<script>alert('"+"회원님의 이메일 : "+to +"로 임시비밀번호를 보냈습니다.');location.href='sendRandomPwd.do?pwd="+value+"';</script>");
 // 성공 시
 %>

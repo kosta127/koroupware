@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.emp.model.Emp;
 import kosta.emp.model.Tel;
 import kosta.login.model.ImageUtil;

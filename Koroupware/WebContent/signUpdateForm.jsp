@@ -42,10 +42,9 @@ function cancel() {
 비밀번호<input type="password" name="emp_password"><br>
 주소<input type="text" value="${emp.emp_address}" name="emp_address"><br>
 <c:forEach var="tels" items="${tel}">
-<input type="hidden" value="${tels.tel_type }">
-<input type="hidden" value="${tels.tel_telephone }">
-기존번호<input type="text" value="${tels.tel_type }" disabled="disabled">
-<input type="text" value="${tels.tel_telephone }" disabled="disabled"><br><button onclick="">수정</button><button onclick="">삭제</button>
+
+기존번호<input type="text" value="${tels.tel_type }">
+<input type="text" value="${tels.tel_telephone }"><button onclick="">수정</button><button onclick="">삭제</button><br>
 </c:forEach>
 추가번호 핸드폰<input type="radio" value="핸드폰" name="tel_type">
 일반전화<input type="radio" value="일반전화" name="tel_type"><br>
@@ -57,6 +56,7 @@ function cancel() {
 <img src="upload/${head }_small${pattern}" alt="${head }_small${pattern}"/>
 </c:if><br>
 결재서명 <input type="file" name="emp_elec_auth_img"><br> 
+<input type="text" name = "emp_elec_auth_signkey">
 <input type="submit" value="수정">
 </form>
 <button onclick="cancel()">취소</button>

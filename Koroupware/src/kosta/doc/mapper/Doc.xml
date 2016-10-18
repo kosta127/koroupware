@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="kosta.doc.mapper.DocMapper">
+	<cache />
+	
+	<insert id="insertDoc" parameterType="Doc">
+		insert into doc(
+			doc_no,doc_title,doc_explain,doc_contents,doc_regdate,
+			doc_con_period,emp_no,doc_formYN
+		)
+		values(
+			#{doc_no},#{doc_title},#{doc_explain},#{doc_contents},SYSDATE,
+			#{doc_con_period},#{emp_no},#{doc_formYN}
+		)
+	</insert>
+	
+	<select id="selectDoc_no" resultType="Integer">
+		select max(doc_no) from doc
+	</select>
+	
+	<insert id="insertDoc_box" parameterType="DocBox">
+		insert into doc_box(
+			doc_box_no,doc_box_name,doc_box_regdate,emp_no
+		)
+		values (
+			#{doc_box_no},#{doc_box_name},SYSDATE,#{emp_no}
+		)
+	</insert>
+	
+	<insert id="insertDoc_management" parameterType="DocManagement">
+		insert into doc_management(
+			doc_management_no,doc_no,doc_box_no
+		)
+		values(
+			#{doc_management_no},#{doc_no},#{doc_box_no}
+		)
+	</insert>
+	
+	<select id="selectDoc_management_no" resultType="Integer">
+		select max(doc_management_no) from doc_management
+	</select>
+	
+	<select id="selectDoc_box_no" resultType="Integer">
+		select max(doc_box_no) from doc_box
+	</select>
+	
+	<select id="listDoc" resultType="Doc">
+		select * from doc 
+	</select>
+	
+	
+	<select id="listDoc_box" parameterType="int" resultType="DocBox">
+		select doc_box_no,doc_box_name,db.emp_no,doc_box_regdate 
+		from doc_box db join emp e
+		on db.emp_no = e.emp_no
+		where db.emp_no = #{emp_no}
+	</select>
+	
+	
+	<select id="detailDoc_box" parameterType="int" resultType="Doc">
+		select dm.doc_no,doc_title,doc_con_period 
+		from doc d 
+		join doc_management dm
+		on d.doc_no = dm.doc_no
+		where dm.doc_box_no = #{doc_box_no}
+	</select>
+	
+	<select id="detailDoc" parameterType="int" resultType="Doc">
+		select doc_title,doc_explain,doc_contents,emp_no
+		from doc 
+		where doc_no=#{doc_no}
+	</select>
+	
+	<select id="selectEmp_name" parameterType="int" resultType="String">
+		select emp_name from emp where emp_no = #{emp_no}
+	</select>
+	
+	<update id="updateDoc_box_name" parameterType="DocBox">
+		update doc_box set doc_box_name=#{doc_box_name}
+		where doc_box_no=#{doc_box_no}
+	</update>
+	
+	<select id="selectDoc_box" parameterType="int" resultType="DocBox">
+		select * from doc_box
+		where doc_box_no = #{doc_box_no}
+	</select>
+	
+	<insert id="insertDoc_file" parameterType="DocFile">
+		insert into doc_file(
+			doc_file_no, doc_no, doc_file_real_name, doc_file_save_name, doc_file_size
+		)
+		values(
+			#{doc_file_no}, #{doc_no}, #{doc_file_real_name}, #{doc_file_save_name},
+			#{doc_file_size}
+		)
+	</insert>
+	
+	<select id="selectDoc_file_no" resultType="Integer">
+		select max(doc_file_no) from doc_file
+	</select>
+	
+	<select id="selectDoc_file" parameterType="int" resultType="DocFile">
+		select * from doc_file where doc_no = #{doc_no}
+	</select>
+	
+	<delete id="deleteDoc_box" parameterType="int">
+		delete from doc_box where doc_box_no = #{doc_box_no}
+	</delete>
+	
+	<delete id="deleteDoc_management" parameterType="int">
+		delete from doc_management 
+		where doc_box_no = #{doc_box_no}
+	</delete>
+	
+	<delete id="deleteDoc" parameterType="int">
+		delete from doc
+		where doc_no = #{doc_no}
+	</delete> 
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
