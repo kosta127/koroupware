@@ -15,6 +15,32 @@
 		<typeAlias type="kosta.elecauth.model.Elec_authDetailReferrer" alias="Elec_authDetailReferrer"/>
 		<typeAlias type="kosta.elecauth.model.EmpDetail" alias="EmpDetail"/>
 		<typeAlias type="kosta.doc.model.Doc" alias="Doc"/>
+		<typeAlias alias="Message" type="kosta.message.model.Message"/>
+		<typeAlias alias="MessageModel" type="kosta.message.model.MessageModel"/>
+		<typeAlias alias="MessageReceiverModel" type="kosta.message.model.MessageReceiverModel"/>
+		<typeAlias alias="Emp" type="kosta.emp.model.Emp"/>
+		<typeAlias alias="SearchEmpModel" type="kosta.emp.model.SearchEmpModel"/>
+		<typeAlias alias="Dept" type="kosta.dept.model.Dept"/>
+		<typeAlias type="kosta.community.model.Board" alias="Board"/>
+		<typeAlias type="kosta.community.model.ListModel" alias="ListModel"/>
+		<typeAlias type="kosta.community.model.Category" alias="Category"/>
+		<typeAlias type="kosta.community.model.Community" alias="Community"/>
+		<typeAlias type="kosta.community.model.Search" alias="Search"/>
+		<typeAlias type="kosta.community.model.BoardFile" alias="BoardFile"/>
+		<typeAlias type="kosta.emp.model.Emp" alias="Emp"/>
+		<typeAlias type="kosta.community.model.Reply" alias="Reply"/>
+		<typeAlias type="kosta.community.model.ReplyModel" alias="ReplyModel"/>
+		<typeAlias type="kosta.community.model.BoardModel" alias="BoardModel"/>
+		<!-- <typeAlias type="kosta.login.model.Member" alias="Member"/> -->
+		<typeAlias type="kosta.emp.model.Emp" alias="Emp"/>
+		<typeAlias type="kosta.emp.model.Tel" alias="Tel"/>
+		<typeAlias type="kosta.search.model.Search" alias="SearchModel"/>
+		<typeAlias type="kosta.doc.model.Doc" alias="Doc"/>
+		<typeAlias type="kosta.doc.model.DocBox" alias="DocBox"/>
+		<typeAlias type="kosta.doc.model.DocManagement" alias="DocManagement"/>
+		<typeAlias type="kosta.doc.model.DocFile" alias="DocFile" />
+		<typeAlias type="kosta.dept.model.OrgChartModel" alias="OrgChartModel" />
+		<typeAlias type="kosta.dept.model.OrgChartEmpModel" alias="OrgChartEmpModel" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -33,5 +59,15 @@
 	<mappers>
 		<!-- mapper등록 -->
 		<mapper resource="kosta/elecauth/mapper/Elec_auth.xml"/>
+		<mapper resource="kosta/login/mapper/SignUp.xml"/>
+		<mapper resource="kosta/search/mapper/Search.xml"/>
+		<mapper resource="kosta/message/mapper/Message.xml"/>
+		<mapper resource="kosta/emp/mapper/Emp.xml"/>
+		<mapper resource="kosta/dept/mapper/Dept.xml"/>
+		<mapper resource="kosta/community/mapper/Board.xml"/>
+		<mapper resource="kosta/community/mapper/Community.xml"/>
+		<mapper resource="kosta/community/mapper/boardFile.xml"/>
+		<mapper resource="kosta/community/mapper/Reply.xml"/>
+		<mapper resource="kosta/doc/mapper/Doc.xml" />
 	</mappers>
 </configuration>

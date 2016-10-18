@@ -3,6 +3,9 @@ package kosta.elecauth.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
+
 public class Elec_authErrorAction implements Action {
 
 	@Override
@@ -10,7 +13,7 @@ public class Elec_authErrorAction implements Action {
 		ActionForward forward = new ActionForward();
 		
 		forward.setRedirect(true);
-		forward.setUrl("/elec_auth/elec_auth_error.jsp");
+		forward.setPath("/elec_auth/elec_auth_error.jsp");
 		return forward;
 	}
 

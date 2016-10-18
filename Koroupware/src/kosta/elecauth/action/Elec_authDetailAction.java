@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.elecauth.model.Approval_list;
 import kosta.elecauth.model.Elec_auth;
 import kosta.elecauth.model.Elec_authDetail;
@@ -31,12 +33,12 @@ public class Elec_authDetailAction implements Action {
 			request.setAttribute("elec_authDetailApproval", elec_authDetailApproval);
 			request.setAttribute("elec_authDetailReferrer", elec_authDetailReferrer);
 			forward.setRedirect(false);
-			forward.setUrl("/elec_auth/elec_auth_detail.jsp");
+			forward.setPath("/elec_auth/elec_auth_detail.jsp");
 			isOk=true;
 		}
 		if(!isOk){
 			forward.setRedirect(false);
-			forward.setUrl("error.do");
+			forward.setPath("error.do");
 		}
 		return forward;
 	}
