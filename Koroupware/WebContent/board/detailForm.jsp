@@ -98,7 +98,7 @@
 		<c:forEach var="replyModel" items="${replyList }">
 			<input type="hidden" value="${replyModel.reply_no}" name="reply_no">
 			<tr height="30">
-				<td>${replyModel.emp_name}</td>	
+				<td>${replyModel.emp_name}</td>
 				<td class="reply_contents">${replyModel.reply_contents}</td>
 				<td>${replyModel.reply_regdate}</td>	
 				<td>

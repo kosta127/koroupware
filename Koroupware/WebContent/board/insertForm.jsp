@@ -39,20 +39,12 @@
 		
 		<tr height="30">
 			<td align="center">작성자</td>
-			<td align="center">
-				<input type="text" name="emp_name" size="10">
-			</td>
+			<td align="center">${emp_name }</td>
 			<td width="80" align="center">제목</td>
 			<td align="left" colspan="3">		
 				<input type="text" name="board_title" size="50">	
 			</td>			
 		</tr>		
-		<!-- <tr height="30">
-			<td width="80">작성자</td>
-			<td width="170">
-				<input type="text" name="emp_name" size="10">
-			</td>	
-		</tr> -->
 		<tr height="30">		
 			<td align="center">파일</td>
 			<td colspan="3">
