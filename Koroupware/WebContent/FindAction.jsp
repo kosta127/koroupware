@@ -5,6 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>아이디/비밀번호 찾기</title>
+<script type="text/javascript">
+function login() {
+	location.href = "loginGo.do";
+}
+</script>
 </head>
 <body>
 	<h1>아이디 찾기</h1>
@@ -19,5 +24,7 @@
 		회원 번호 : <input type="text" name = "find_no">
 		<input type="submit" value="비밀번호 찾기">
 	</form>	
+	<button onclick="login()">취소</button>
 </body>
 </html>
+

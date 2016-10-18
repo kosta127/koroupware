@@ -28,13 +28,24 @@ function cancel() {
 function telAdd() {
 	location.href = "telAdd.do?emp_no=" + $('.emp_no').val() + "&tel_type=" + $('.tel_type').val() + "&tel_telephone=" + $('.tel_telephone').val();
 }
-function telUpdate(emp_no, tel_no, tel_type, tel_telephone) {
-	alert($('.emp_no').val());
-	location.href = "telUpdate.do?emp_no=" + emp_no + "&tel_no=" + tel_no + "&tel_type=" + tel_type + "&tel_telephone=" + tel_telephone;
-}
+
 function telDelete(tel_no) {
 	location.href = "telDelete.do?tel_no=" + tel_no;
 }
+
+$('.oldTelType').keyup(function(){
+	var tel_type = $(".oldTelType").index(this);
+});
+$('.oldTelTelephone').keyup(function(){
+	var tel_telephone = $(".oldTelTelephone").index(this);
+});
+
+function telUpdate(index){
+	alert($("#oldTelNo-"+index).val());
+	location.href = "telUpdate.do?emp_no=" + $('.emp_no').val() + "&tel_no=" + $("#oldTelNo-"+index).val() + "&tel_type=" + $("#oldTelType-"+index).val() + "&tel_telephone=" + $("#oldTelTelephone-"+index).val();
+}
+
+
 </script>
 </head>
 <body>
@@ -58,15 +69,16 @@ function telDelete(tel_no) {
 		비밀번호<input type="password" name="emp_password"><br> 주소<input
 			type="text" value="${emp.emp_address}" name="emp_address"><br>
 		이메일 <input type="text" value="${emp.emp_email }" name="emp_email"><br>
-		<c:forEach var="tels" items="${tel}">
-기존번호<input type="text" value="${tels.tel_type }">
-			<input type="text" value="${tels.tel_telephone }">
-			<button type="button"
-				onclick="telUpdate(${emp.emp_no}, ${tels.tel_no}, ${tels.tel_type}, ${tels.tel_telephone})">수정</button>
+		기존번호<br><c:forEach var="tels" items="${tel}" varStatus="status">
+		<input type="hidden" value="${tels.tel_no}" id="oldTelNo-${status.index}">
+<input type="text" value="${tels.tel_type}" id="oldTelType-${status.index}">
+			<input type="text" value="${tels.tel_telephone}" id="oldTelTelephone-${status.index}">
+		<button type="button"
+				onclick="telUpdate(${status.index})">수정</button>
 			<button type="button" onclick="telDelete(${tels.tel_no})">삭제</button>
 			<br>
 		</c:forEach>
-		추가번호 핸드폰<input type="radio" value="핸드폰" name="tel_type" id="tel_type" class="tel_type"> 일반전화<input
+		추가번호 핸드폰<br><input type="radio" value="핸드폰" name="tel_type" id="tel_type" class="tel_type"> 일반전화<input
 			type="radio" value="일반전화" name="tel_type" id="tel_type" class="tel_type"> <input
 			type="text" name="tel_telephone" id="tel_telephone" class="tel_telephone">
 			<button type="button" onclick="telAdd()">추가</button><br>
@@ -79,7 +91,7 @@ function telDelete(tel_no) {
 				alt="${head }_small${pattern}" />
 		</c:if>
 		<br> 결재서명 <input type="file" name="emp_elec_auth_img"
-			value="${emp_elec_auth_img }"><br> <input type="text"
+			value="${emp_elec_auth_img }"><br> 결재사인키 <input type="password"
 			name="emp_elec_auth_signkey"><br> <input type="submit"
 			value="수정">
 	</form>

@@ -3,6 +3,8 @@ package kosta.login.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.login.service.SignUpService;
 
 public class TelDeleteAction implements Action {

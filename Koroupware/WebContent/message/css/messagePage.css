@@ -1,0 +1,32 @@
+.myMessage{
+	font-size:22px;
+	text-align:right;
+}
+
+.receiverMessage{
+	font-size:22px;
+	text-align:left;
+}
+
+.messageSendDate{
+	font-size:10px;
+}
+
+.messageReceiver{
+	font-size:30px;
+	font-weight:bold;
+	text-align:center;
+}
+
+div#messageBox{
+	overflow:scroll;
+	width: 780px;
+	height: 400px;
+}
+
+div#messageReceiverListDiv{
+	margin-top:20px;
+	overflow:scroll;
+	width: 280px;
+	height: 310px;
+}
