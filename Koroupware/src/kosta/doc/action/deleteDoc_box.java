@@ -3,13 +3,15 @@ package kosta.doc.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.doc.dao.DocDao;
 import kosta.doc.model.DocManagement;
 
 public class deleteDoc_box implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
 		DocDao dao = DocDao.getInstance();
 		int doc_box_no = Integer.parseInt(request.getParameter("doc_box_no"));

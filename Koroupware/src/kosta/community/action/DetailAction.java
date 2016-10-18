@@ -20,9 +20,10 @@ public class DetailAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ReplyDao replyDao = ReplyDao.getInstance();
 		BoardDao dao = BoardDao.getInstance();
+		BoardFileDao filedao = BoardFileDao.getInstance();
+		
 		int board_no = Integer.parseInt(request.getParameter("board_no"));
 		Board board = dao.detailBoard(board_no);
-		BoardFileDao filedao = BoardFileDao.getInstance();
 		
 		List<ReplyModel> replyList = replyDao.selectReplyModelByBoardNo(board_no);
 		request.setAttribute("replyList", replyList);

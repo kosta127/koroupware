@@ -22,6 +22,17 @@ import kosta.community.action.ModifyAction;
 import kosta.community.action.ModifyFormAction;
 import kosta.community.action.ReplyAction;
 import kosta.dept.action.OrgChartPageAction;
+import kosta.doc.action.DetailDocAction;
+import kosta.doc.action.DetailDocBoxAction;
+import kosta.doc.action.DocBoxFormAction;
+import kosta.doc.action.DocBoxProcAction;
+import kosta.doc.action.DocFormAction;
+import kosta.doc.action.DocProcAction;
+import kosta.doc.action.InsertDocManagementAction;
+import kosta.doc.action.ListDocAction;
+import kosta.doc.action.ListDocBoxAction;
+import kosta.doc.action.updateDocBoxFormAction;
+import kosta.doc.action.updateDocBoxProcAction;
 import kosta.etc.ETC;
 import kosta.login.action.FindIdProcess;
 import kosta.login.action.FindPasswordProcess;
@@ -128,6 +139,45 @@ public class MainController extends HttpServlet {
 				break;
 			case "SearchAction.do":
 				action = new SearchProcess();
+				break;
+			case "docForm.do":
+				action = new DocFormAction();
+				break;
+			case "docProc.do":
+				action = new DocProcAction();
+				break;
+			case "listDoc.do":
+				action = new ListDocAction();
+				break;
+			case "detailDoc.do":
+				action = new DetailDocAction();
+				break;
+			case "doc_boxForm.do":
+				action = new DocBoxFormAction();
+				break;
+			case "doc_boxProc.do":
+				action = new DocBoxProcAction();
+				break;
+			case "listDoc_box.do":
+				action = new ListDocBoxAction();
+				break;
+			case "detailDoc_box.do":
+				action = new DetailDocBoxAction();
+				break;
+			case "insertDoc_management.do":
+				action = new InsertDocManagementAction();
+				break;
+			case "updateDoc_box_Form.do":
+				action = new updateDocBoxFormAction();
+				break;
+			case "updateDoc_box_Proc.do":
+				action = new updateDocBoxProcAction();
+				break;
+			case "deleteDoc.do":
+
+				break;
+			case "deleteDoc_box.do":
+
 				break;
 			default:
 				System.out.println("없는 요청");

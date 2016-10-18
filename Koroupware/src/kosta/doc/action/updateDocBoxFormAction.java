@@ -3,6 +3,8 @@ package kosta.doc.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.doc.dao.DocDao;
 import kosta.doc.model.DocBox;
 
@@ -16,7 +18,7 @@ public class updateDocBoxFormAction implements Action {
 		int emp_no = Integer.parseInt(request.getParameter("emp_no"));
 		request.setAttribute("emp_no", emp_no);
 		request.setAttribute("doc_box_no",doc_box_no);
-		forward.setPath("updateDoc_box_Form.jsp");
+		forward.setPath("doc/updateDoc_box_Form.jsp");
 		forward.setRedirect(false);
 		return forward;
 	}

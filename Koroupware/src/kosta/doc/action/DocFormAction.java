@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
+
 public class DocFormAction implements Action {
 
 	@Override
@@ -19,7 +22,7 @@ public class DocFormAction implements Action {
 		request.setAttribute("emp_no", emp_no);
 		request.setAttribute("doc_box_no", doc_box_no);
 		forward.setRedirect(false);
-		forward.setPath("docForm.jsp");
+		forward.setPath("doc/docForm.jsp");
 		return forward;
 	}
 

@@ -3,6 +3,9 @@ package kosta.doc.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
+
 public class DocBoxFormAction implements Action {
 
 	@Override
@@ -12,7 +15,7 @@ public class DocBoxFormAction implements Action {
 		
 		request.setAttribute("emp_no",request.getParameter("emp_no"));
 		forward.setRedirect(false);
-		forward.setPath("doc_boxForm.jsp");
+		forward.setPath("doc/doc_boxForm.jsp");
 		return forward;
 	}
 

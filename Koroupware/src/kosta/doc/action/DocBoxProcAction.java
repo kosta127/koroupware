@@ -4,6 +4,8 @@ package kosta.doc.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.doc.dao.DocDao;
 import kosta.doc.model.DocBox;
 
