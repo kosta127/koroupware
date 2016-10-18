@@ -9,6 +9,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.elecauth.model.Approval_list;
 import kosta.elecauth.model.Elec_auth;
 import kosta.elecauth.model.Elec_auth_referrer;
@@ -67,9 +69,9 @@ public class Elec_authSubmissionAction implements Action {
 		
 		forward.setRedirect(true);
 		if(res){			
-			forward.setUrl("elec_authList.do");
+			forward.setPath("elec_authList.do");
 		}else{
-			forward.setUrl("elec_authError.do");
+			forward.setPath("elec_authError.do");
 		}		
 		return forward;
 	}

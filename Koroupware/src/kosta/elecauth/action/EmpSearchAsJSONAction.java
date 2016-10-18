@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.elecauth.model.EmpDetail;
 import kosta.elecauth.service.Elec_authService;
 import net.sf.json.JSONArray;
@@ -23,7 +25,7 @@ public class EmpSearchAsJSONAction implements Action{
 		request.setAttribute("empListAsJSON", jsonStr);
 		
 		forward.setRedirect(false);
-		forward.setUrl("/elec_auth/searchEmpListAsJSON.jsp");
+		forward.setPath("/elec_auth/searchEmpListAsJSON.jsp");
 		return forward;
 	}
 

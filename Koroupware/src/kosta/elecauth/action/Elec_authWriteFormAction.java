@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.doc.model.Doc;
 import kosta.elecauth.service.Elec_authService;
 
@@ -21,10 +23,10 @@ public class Elec_authWriteFormAction implements Action {
 		if(docFormList != null){
 			request.setAttribute("docFormList", docFormList);
 			forward.setRedirect(false);
-			forward.setUrl("/elec_auth/elec_auth_write.jsp");
+			forward.setPath("/elec_auth/elec_auth_write.jsp");
 		}else{
 			forward.setRedirect(true);
-			forward.setUrl("elec_authError.do");
+			forward.setPath("elec_authError.do");
 		}
 		
 		return forward;

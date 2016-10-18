@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="kosta.community.mapper.BoardMapper">
+	<insert id="insertBoard" parameterType="Board">
+		insert into board(
+			board_no, board_title, board_contents, board_regdate, board_hit
+		)
+		values(
+			seq_board.NEXTVAL, #{board_title}, #{board_contents}, SYSDATE, 0
+		)
+	</insert>
+	
+	<select id="selectBoardNo" resultType="Integer">
+		select max(board_no) from board
+	</select>
+	
+	<select id="listBoardModel" resultType="BoardModel">
+		SELECT b.board_no, b.board_title, e.emp_name, d.dept_name, o.office_name, p.position_name, b.board_regdate, b.board_hit
+		FROM board b, emp e, position p, office o, dept d
+		WHERE b.emp_no = e.emp_no
+		      AND e.position_no = p.position_no
+		      AND e.office_no = o.office_no
+		      AND e.dept_no = d.dept_no
+		      <if test="area != null">
+		      	AND 
+		      	<foreach collection="area" item="item" separator="or" open="(" close=")">
+					<!-- title LIKE %자바% OR writer LIKE %자바% -->
+						${item} LIKE #{searchKey}
+					</foreach>
+		      </if>
+		      AND board_deldate IS NULL
+		ORDER BY board_no DESC
+	</select>
+	
+	<select id="listBoard" resultType="Board">
+		select * from board	
+		<choose>
+			<when test="area != null">
+				<where>
+					<foreach collection="area" item="item" separator="or" open="(" close=")">
+					<!-- title LIKE %자바% OR writer LIKE %자바% -->
+						${item} LIKE #{searchKey}
+					</foreach>
+					AND board_deldate IS NULL
+				</where>
+			</when>
+			<otherwise>
+				WHERE board_deldate IS NULL
+			</otherwise>
+		</choose>
+		order by board_no DESC
+	</select>
+	
+	<select id="detailBoard" parameterType="int" resultType="Board">
+		select * from board where board_no = #{board_no}
+	</select>
+	
+	<update id="ModifyBoard" parameterType="Board">
+		update board set board_title = #{board_title}, board_contents = #{board_contents}
+			where board_no=#{board_no}
+	</update>
+	
+	<update id="DeleteBoard">
+		update board set board_deldate = sysdate
+			where board_no = #{board_no}
+	</update>
+	
+	<update id="updateHit">
+		update board set board_hit = board_hit+1
+			where board_no=#{board_no}
+	</update>
+	
+	<select id="countBoard" resultType="int" parameterType="Search">
+		select count(*)
+		from board
+		<if test="area != null">
+			<where>
+				<foreach collection="area" item="item" separator="or" open="(" close=")">
+				<!-- title LIKE %자바% OR writer LIKE %자바% -->
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

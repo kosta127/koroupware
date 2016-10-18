@@ -12,14 +12,13 @@ public class Doc implements Serializable{
 	private String doc_contents;
 	private Date doc_con_period;
 	private int emp_no;
-	private String emp_name;
+	private String doc_formYN;
 	
-	
-	public String getEmp_name() {
-		return emp_name;
+	public String getDoc_formYN() {
+		return doc_formYN;
 	}
-	public void setEmp_name(String emp_name) {
-		this.emp_name = emp_name;
+	public void setDoc_formYN(String doc_formYN) {
+		this.doc_formYN = doc_formYN;
 	}
 	public int getEmp_no() {
 		return emp_no;
@@ -57,6 +56,10 @@ public class Doc implements Serializable{
 	public void setDoc_con_period(Date date) {
 		this.doc_con_period = date;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "Doc [doc_no=" + doc_no + ", doc_title=" + doc_title + ", doc_explain=" + doc_explain + ", doc_contents="
+				+ doc_contents + ", doc_con_period=" + doc_con_period + ", emp_no=" + emp_no + ", doc_formYN="
+				+ doc_formYN + "]";
+	}
 }
