@@ -67,7 +67,7 @@ public class InsertAction implements Action {
 				filedao.fileInsert(boardfile);
 			}else{
 				forward.setRedirect(true);
-				forward.setPath("insertForm.jsp");
+				forward.setPath("board/insertForm.jsp");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

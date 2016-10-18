@@ -5,13 +5,6 @@ import java.util.Date;
 
 public class DocBox implements Serializable{
 	private int doc_box_no;
-	private int doc_no;
-	public int getDoc_no() {
-		return doc_no;
-	}
-	public void setDoc_no(int doc_no) {
-		this.doc_no = doc_no;
-	}
 	private int emp_no;
 	private String doc_box_name;
 	private Date doc_box_regdate;

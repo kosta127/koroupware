@@ -8,7 +8,7 @@
 <%@page import="kosta.etc.ETC"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%	
-	Emp loginEmp = (Emp)session.getAttribute("loginEmp");
+	Emp loginEmp = (Emp)session.getAttribute("emp");
 	MessageDao dao = MessageDao.getInstance();
 	
 	String receiverEmpNo = request.getParameter("receiverEmpNo");

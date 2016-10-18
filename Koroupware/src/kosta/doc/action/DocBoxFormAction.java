@@ -1,27 +1,21 @@
-package kosta.community.action;
-
-import java.io.IOException;
+package kosta.doc.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kosta.action.Action;
 import kosta.action.ActionForward;
-import kosta.community.model.BoardDao;
 
-public class HitAction implements Action {
+public class DocBoxFormAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		BoardDao dao = BoardDao.getInstance();
-		
-		int board_no = Integer.parseInt(request.getParameter("board_no"));
-		int re = dao.updateHit(board_no);
-		
 		ActionForward forward = new ActionForward();
 		
+		
+		request.setAttribute("emp_no",request.getParameter("emp_no"));
 		forward.setRedirect(false);
-		forward.setPath("board/detailForm.jsp");
+		forward.setPath("doc/doc_boxForm.jsp");
 		return forward;
 	}
 

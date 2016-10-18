@@ -8,7 +8,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String receiverNo = request.getParameter("receiverNo");
-	Emp emp = (Emp)session.getAttribute("loginEmp");
+	Emp emp = (Emp)session.getAttribute("emp");
 	
 	if(ETC.isNotNull(emp) && ETC.isNotNull(receiverNo)){
 		MessageDao dao = MessageDao.getInstance();

@@ -18,7 +18,7 @@ public class MessagePageAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
 		MessageDao dao = MessageDao.getInstance();
-		
+		/*
 		//가짜 데이터 (로그인)
 		Emp emp = new Emp();
 
@@ -32,12 +32,15 @@ public class MessagePageAction implements Action{
 		HttpSession session = request.getSession();
 		session.setAttribute("loginEmp", emp);
 		//
+		*/
+		HttpSession session = request.getSession();
+		Emp emp = (Emp)session.getAttribute("emp");
 		
 		List<MessageReceiverModel> messageReceiverModelList = 
 				dao.selectMessageReceiverEmpsByEmpId(emp.getEmp_no());
 		request.setAttribute("messageReceiverModelList", messageReceiverModelList);
 		
-		forward.setPath("messagePage.jsp");
+		forward.setPath("message/messagePage.jsp");
 		forward.setRedirect(false);
 		
 		return forward;

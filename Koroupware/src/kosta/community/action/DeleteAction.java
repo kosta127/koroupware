@@ -20,7 +20,7 @@ public class DeleteAction implements Action {
 		request.setAttribute("board_no", board_no);
 		
 		forward.setRedirect(false);
-		forward.setPath("listBoard.do");
+		forward.setPath("board/listBoard.do");
 		
 		
 		return forward;

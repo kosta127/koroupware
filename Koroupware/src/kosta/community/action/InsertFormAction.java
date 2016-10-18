@@ -15,7 +15,7 @@ public class InsertFormAction implements Action {
 		
 		
 		forward.setRedirect(false);
-		forward.setPath("insertForm.jsp");
+		forward.setPath("board/insertForm.jsp");
 		
 		return forward;
 	}
