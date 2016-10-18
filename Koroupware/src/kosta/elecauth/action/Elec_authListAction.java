@@ -21,7 +21,7 @@ public class Elec_authListAction implements Action {
 		String strPageNum=request.getParameter("pageNum");
 		int pageNum=(strPageNum!=null)?Integer.parseInt(strPageNum):1;
 		
-		String empNo="3";
+		String empNo=request.getParameter("emp_no");
 		int emp_no=Integer.parseInt(empNo);
 		
 		Elec_authService service=Elec_authService.getInstance();
