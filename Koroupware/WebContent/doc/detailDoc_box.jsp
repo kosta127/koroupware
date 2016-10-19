@@ -13,16 +13,18 @@
 </script>
 </head>
 <body>
-	<a href="updateDoc_box_Form.do?doc_box_no=${doc_box.doc_box_no}&emp_no=${emp_no }">${doc_box.doc_box_name}</a>
+	<a href="updateDoc_boxForm.do?doc_box_no=${doc_box.doc_box_no}&emp_no=${emp_no }">${doc_box.doc_box_name}</a>
 	<table border="1" cellpadding="0" cellspacing="0">
 		<tr height="30">
 			<th>글제목</th>
 			<th>보존년한</th>
+			<th></th>
 		</tr>
 		<c:forEach var="doc" items="${list }">
 			<tr height="30">
 				<td><a href="detailDoc.do?doc_no=${doc.doc_no}&doc_box_no=${doc_box_no}&emp_no=${emp_no}">${doc.doc_title }</a></td>
 				<td>${doc.doc_con_period }</td>
+				<td><a href="deleteDoc_management.do?doc_no=${doc.doc_no }&emp_no=${emp_no}&doc_box_no=${doc_box_no}">삭제</a></td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -22,17 +22,26 @@ import kosta.community.action.ModifyAction;
 import kosta.community.action.ModifyFormAction;
 import kosta.community.action.ReplyAction;
 import kosta.dept.action.OrgChartPageAction;
+import kosta.doc.action.DeleteDocAction;
+import kosta.doc.action.DeleteDocBoxManagementAction;
+import kosta.doc.action.DeleteDocManagementAction;
 import kosta.doc.action.DetailDocAction;
 import kosta.doc.action.DetailDocBoxAction;
 import kosta.doc.action.DocBoxFormAction;
 import kosta.doc.action.DocBoxProcAction;
 import kosta.doc.action.DocFormAction;
 import kosta.doc.action.DocProcAction;
+import kosta.doc.action.InsertDocHisProcAction;
+import kosta.doc.action.InsertDocHisProcAction;
 import kosta.doc.action.InsertDocManagementAction;
 import kosta.doc.action.ListDocAction;
 import kosta.doc.action.ListDocBoxAction;
-import kosta.doc.action.updateDocBoxFormAction;
-import kosta.doc.action.updateDocBoxProcAction;
+import kosta.doc.action.ListDocHisAction;
+import kosta.doc.action.UpdateDocFormAction;
+import kosta.doc.action.UpdateDocProcAction;
+import kosta.doc.action.UpdateDocProcAction;
+import kosta.doc.action.UpdateDocBoxFormAction;
+import kosta.doc.action.UpdateDocBoxProcAction;
 import kosta.etc.ETC;
 import kosta.login.action.FindIdProcess;
 import kosta.login.action.FindPasswordProcess;
@@ -140,10 +149,11 @@ public class MainController extends HttpServlet {
 			case "SearchAction.do":
 				action = new SearchProcess();
 				break;
-			case "docForm.do":
+			case "DocForm.do":
+				System.out.println("ddddd");
 				action = new DocFormAction();
 				break;
-			case "docProc.do":
+			case "DocProc.do":
 				action = new DocProcAction();
 				break;
 			case "listDoc.do":
@@ -152,10 +162,10 @@ public class MainController extends HttpServlet {
 			case "detailDoc.do":
 				action = new DetailDocAction();
 				break;
-			case "doc_boxForm.do":
+			case "Doc_boxForm.do":
 				action = new DocBoxFormAction();
 				break;
-			case "doc_boxProc.do":
+			case "Doc_boxProc.do":
 				action = new DocBoxProcAction();
 				break;
 			case "listDoc_box.do":
@@ -167,20 +177,38 @@ public class MainController extends HttpServlet {
 			case "insertDoc_management.do":
 				action = new InsertDocManagementAction();
 				break;
-			case "updateDoc_box_Form.do":
-				action = new updateDocBoxFormAction();
+			case "updateDoc_boxForm.do":
+				action = new UpdateDocBoxFormAction();
 				break;
-			case "updateDoc_box_Proc.do":
-				action = new updateDocBoxProcAction();
+			case "updateDoc_boxProc.do":
+				action = new UpdateDocBoxProcAction();
 				break;
 			case "deleteDoc.do":
-
+				action = new DeleteDocAction();
 				break;
-			case "deleteDoc_box.do":
-
+			case "deleteDoc_box_management.do":
+				action = new DeleteDocBoxManagementAction();
+				break;
+			case "deleteDoc_management.do":
+				action = new DeleteDocManagementAction();
+				break;
+			case "insertDoc_his.do":
+				action = new InsertDocHisProcAction();
+				break;
+			case "updateDocForm.do":
+				action = new UpdateDocFormAction();
+				break;
+			case "updateDocProc.do":
+				action = new UpdateDocProcAction();
+				break;
+			case "insertDoc_hisProc.do":
+				action = new InsertDocHisProcAction();
+				break;
+			case "listDoc_his.do":
+				action = new ListDocHisAction();
 				break;
 			default:
-				System.out.println("없는 요청");
+				System.out.println("dd");
 				break;
 		}
     	
@@ -221,10 +249,10 @@ public class MainController extends HttpServlet {
 					dispatcher.forward(request, response);
 				}
 			}else{
-				System.out.println("ActionForward가 NULL");
+				System.out.println("ActionForward媛� NULL");
 			}
 		}else{
-			System.out.println("Action이 NULL");
+			System.out.println("Action�씠 NULL");
 		}
 	}
 }

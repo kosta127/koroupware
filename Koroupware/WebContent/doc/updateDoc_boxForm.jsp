@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>문서함명 수정</h1>
-	<form action="updateDoc_box_Proc.do?doc_box_no=${doc_box_no }&emp_no=${emp_no}" method="post">
+	<form action="updateDoc_boxProc.do?doc_box_no=${doc_box_no }&emp_no=${emp_no}" method="post">
 		문서함명 : <input type="text" name="doc_box_name">
 		<input type="submit" value="수정">
 	</form>

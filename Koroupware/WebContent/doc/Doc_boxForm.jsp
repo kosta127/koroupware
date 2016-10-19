@@ -5,11 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-	location.href = "listDoc_box.do?emp_no=2";
-</script>
 </head>
 <body>
-
+	<form action="Doc_boxProc.do" method="post">
+		<input type="hidden" name="emp_no" value="${emp_no }">
+		문서함명 : <input type="text" name="doc_box_name">&nbsp;&nbsp;&nbsp;
+		<input type="submit" value="생성">
+	</form>
 </body>
 </html>

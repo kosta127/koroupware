@@ -8,7 +8,7 @@ import kosta.action.ActionForward;
 import kosta.doc.dao.DocDao;
 import kosta.doc.model.DocBox;
 
-public class updateDocBoxProcAction implements Action {
+public class UpdateDocBoxProcAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();

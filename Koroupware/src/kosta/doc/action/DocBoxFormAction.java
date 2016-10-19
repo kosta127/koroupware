@@ -15,7 +15,7 @@ public class DocBoxFormAction implements Action {
 		
 		request.setAttribute("emp_no",request.getParameter("emp_no"));
 		forward.setRedirect(false);
-		forward.setPath("doc/doc_boxForm.jsp");
+		forward.setPath("doc/Doc_boxForm.jsp");
 		return forward;
 	}
 

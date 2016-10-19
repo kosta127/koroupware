@@ -47,9 +47,7 @@ public class DocProcAction implements Action {
 		SimpleDateFormat format = new SimpleDateFormat("yy/MM/dd");
 		Date date= null;
 		try {
-			System.out.println(request.getParameter("doc_con_period"));
 			date = format.parse(multi.getParameter("doc_con_period"));
-			System.out.println(date);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -73,7 +71,7 @@ public class DocProcAction implements Action {
 			
 			
 		if(multi.getFilesystemName("doc_file_real_name") != null) {
-			String doc_file_real_name = multi.getFilesystemName("doc_file_real_name");	//���� ���ε�� ���� �̸� ������ �Լ�
+			String doc_file_real_name = multi.getFilesystemName("doc_file_real_name");
 			UUID uid = UUID.randomUUID();
 			doc_file.setDoc_file_real_name(doc_file_real_name);
 			String doc_file_save_name = uid.toString() + "_" + doc_file_real_name;
@@ -84,9 +82,6 @@ public class DocProcAction implements Action {
 	         }else{
 	            doc_file.setDoc_file_real_name("");
 	         }
-		
-		
-		System.out.println(doc);
 		
 		
 		int re = dao.insertDoc(doc);

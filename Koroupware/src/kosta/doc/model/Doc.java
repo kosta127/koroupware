@@ -13,7 +13,14 @@ public class Doc implements Serializable{
 	private Date doc_con_period;
 	private int emp_no;
 	private String doc_formYN;
+	private Date doc_deldate;
 	
+	public Date getDoc_deldate() {
+		return doc_deldate;
+	}
+	public void setDoc_deldate(Date doc_deldate) {
+		this.doc_deldate = doc_deldate;
+	}
 	public String getDoc_formYN() {
 		return doc_formYN;
 	}

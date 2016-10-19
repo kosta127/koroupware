@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="doc_boxProc.do" method="post">
-		<input type="hidden" name="emp_no" value="${emp_no }">
-		문서함명 : <input type="text" name="doc_box_name">&nbsp;&nbsp;&nbsp;
-		<input type="submit" value="생성">
+	<form action="insertDoc_hisProc.do?doc_no=${doc_no }&emp_no=${emp_no}&doc_box_no=${doc_box_no}" method="post">
+		변경 사유 : <input type="text" name="doc_his_reason_change"><br>
+		재개정여부 : <input type="text" name="doc_his_revise"><br>
+		<input type="submit" value="수정완료">
 	</form>
 </body>
 </html>

@@ -38,7 +38,9 @@
 			</c:forEach>
 		</tr>
 	</table>
-	
+	<form action="updateDocForm.do?doc_no=${doc_no }&doc_box_no=${doc_box_no }&emp_no=${emp_no}" method="post">
+		<input type="submit" value="수정하기">
+	</form>
 	
 </body>
 </html>

@@ -27,7 +27,7 @@ public class DocBoxProcAction implements Action {
 			forward.setPath("listDoc_box.do");
 		}else {
 			forward.setRedirect(true);
-			forward.setPath("doc_boxForm.do");
+			forward.setPath("Doc_boxForm.do");
 		}
 		return forward;
 	}

@@ -20,12 +20,12 @@
 				<td>${doc_box.doc_box_no }</td>
 				<td><a href="detailDoc_box.do?doc_box_no=${doc_box.doc_box_no}&emp_no=${emp_no}">${doc_box.doc_box_name }</a></td>
 				<td>${doc_box.doc_box_regdate }</td>
-				<td><a href="deleteDoc_box.do?emp_no=${emp_no }&doc_box_no=${doc_box.doc_box_no}">삭제</a></td>
+				<td><a href="deleteDoc_box_management.do?emp_no=${emp_no }&doc_box_no=${doc_box.doc_box_no}">삭제</a></td>
 			</tr>
 		</c:forEach>
 		
 	</table>
-	<form action="doc_boxForm.do" method="post">
+	<form action="Doc_boxForm.do" method="post">
 		<input type="hidden" name="emp_no" value="${emp_no }">
 		<input type="submit" value="문서함 추가">
 	</form>
