@@ -1,0 +1,75 @@
+
+.body
+{
+	margin-top: 10%;
+	margin-left: 33%;
+	height: 100%;
+	margin-right: 33%;
+}
+
+.searchIdPass
+{
+	margin-left: 40%
+}
+
+body
+{
+	background-image: url("desktop.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+}
+
+
+.main-font1{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #0080c0;
+   font-size: 55px;
+   margin-left: 200px;
+}
+
+.main-font2{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #E64A19;
+   font-size: 50px;
+}
+.main-font3{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #43A047;
+   font-size: 50px;
+}
+.main-font4{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #F9A825;
+   font-size: 50px;
+}
+.main-font5{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #E64A19;
+   font-size: 50px;
+}
+.main-font6{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #0080c0;
+   font-size: 50px;
+}
+.main-font7{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #43A047;
+   font-size: 50px;
+}
+.main-font8{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color: #F9A825;
+   font-size: 50px;
+}
+.main-font9{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color: #0080c0;
+   font-size: 50px;
+}
+.main-font10{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #E64A19;
+   font-size: 50px;
+}
