@@ -11,7 +11,7 @@
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="./js/login.js"></script>
 </head>
-<body>
+<body> 
 	<form action="LoginProcessAction.do" method="post">
 		아이디 : <input type="text" name="emp_id"><br> 비밀번호 : <input
 			type="password" name="emp_password"><br> <input
