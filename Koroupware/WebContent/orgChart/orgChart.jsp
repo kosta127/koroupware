@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,63 +20,81 @@
 		var $orgChartModelList;
 		var $deptCollapse;
 		var $myModal;
+		var $myModalLabel;
 		var $modalBody;
+
+		function toSmallImgTag(emp_img){
+			var head = emp_img.substring(0, emp_img.length - 4);
+			var pattern = emp_img.substring(emp_img.length - 4);
+				
+			return "upload/" + head + "_small" + pattern;
+		}
 		
-		function aaaa(data){
+		function showOrgChartEmpModelDetailEvent(data){
 			var html = "";
 
 			for(var i = 0; i < data.length; i++){
-				alert(data[i].classification);
- 				if(data[i].classification == "myEmp"){
-
- 					
- 	 				html += "<span>이름 : " + data[i].emp_name + "</span>";
- 	 				html += "<span>이메일 : " + data[i].emp_email + "</span>";
- 	 				html += "<span>아이디 : " + data[i].emp_id + "</span>";
- 	 				html += "<span>주소 : " + data[i].emp_address + "</span>";
- 	 				html += "<span>입사일 : " + data[i].emp_hiredate + "</span>";
- 	 				html += "<span>이름 : " + data[i].emp_name + "</span>";
- 	 				html += "<span>사진 : " + data[i].emp_img + "</span>";
- 	 				html += "<span>직속상관 : " + data[i].emp_superior + "</span>";
- 	 				html += "<span>직접보고자 : " + data[i].emp_reporter + "</span>";
- 	 				html += "<span>직책 : " + data[i].position_name + "</span>";
- 	 				html += "<span>직위 : " + data[i].office_name + "</span>";
- 	 				html += "<span>부서 : " + data[i].dept_name + "</span>";
- 	 				html += "<span>업무 : " + data[i].dept_work + "</span>";
- 	 			}
-				/* 
- 	 			else if(data.classification.equals("superiorEmp")){
- 	 	 			
- 	 	 		}else if(data.classification.equals("reporterEmp")){
- 	 	 	 		
+				var e = data[i];
+ 				if(e.classification == "myEmp"){
+ 	 				$myModalLabel.html("<span>" + e.dept_name + " - " + e.emp_name +
+							e.office_name + " (" + e.position_name + ")<span>");
+ 	 						
+ 	 				var imgTag = toSmallImgTag(e.emp_img);
+ 	 				
+ 	 				html += "<div>"
+ 	 	 			html += "<img src='" + imgTag + "'/><br>";
+ 					html += "<span>아이디 : " + e.emp_id + "</span><br>";
+ 	 				html += "<span>이메일 : " + e.emp_email + "</span><br>";
+ 	 				html += "<span>주소 : " + e.emp_address + "</span><br>";
+ 	 				html += "<span>담당업무 : " + e.dept_work + "</span><br>";
+ 	 				html += "</div>";
+ 	 			}else if(e.classification == "superiorEmp"){
+ 	 	 			html += "<div>";
+ 	 				html += "<span>직속상관 : <a><span class='hidden'>" + e.emp_no + "</span>" + 
+ 	 							e.dept_name + " - " + e.emp_name + e.office_name +
+ 	 							" (" + e.position_name + ")</a></span><br>";
+ 	 				html += "</div>";
+ 	 	 		}else if(e.classification == "reporterEmp"){
+ 	 	 			html += "<div>";
+ 	 	 			html += "<span>직접보고자 : <a><span class='hidden'>" + e.emp_no + "</span>" +
+ 	 	 						e.dept_name + " - " + e.emp_name + e.office_name +
+ 	 	 						" (" + e.position_name + ")</a></span><br>";
+ 	 				html += "</div>";
  	 	 		}
- 	 	 		 */
 			}
 
 			$modalBody.html(html);
+			$modalBody.find("a").on("click", orgChartClickEvent);
+		}
+
+		function orgChartClickEvent(){
+			var empNo = $(this).find("span").html();
+			
+			$.ajax({
+				url : "orgChart/ajax/orgChartEmpModelDetailAjax.jsp",
+				type : "POST",
+				dataType : "json",
+				data : "empNo=" + empNo,
+				success : showOrgChartEmpModelDetailEvent
+			});
 		}
 		
 		$(function(){
 			$orgChartModelList = $("div#orgChartModelList");
 			$deptCollapse = $orgChartModelList.find(".panel-collapse");
 			$myModal = $("div#myModal");
-			$modalBody = $myModal.find($("div#modalBody"));
+			$myModalLabel = $myModal.find("h4#myModalLabel");
+			$modalBody = $myModal.find("div#modalBody");
 			
 			$.each($deptCollapse, function(index, item){
-				var empNo = $(this).find("a").find("span").html();
-				
-				$(this).find("a").on("click", function(){
-					$.ajax({
-						url : "orgChart/ajax/orgChartEmpModelDetailAjax.jsp",
-						type : "POST",
-						dataType : "json",
-						data : "empNo=" + empNo,
-						success : aaaa
-					});
-				});
+				$(this).find("a").on("click", orgChartClickEvent);
 			});
 		});
 	</script>
+	<style type="text/css">
+		
+		
+	</style>
 </head>
 <body>
 	<div id="container" class="container">

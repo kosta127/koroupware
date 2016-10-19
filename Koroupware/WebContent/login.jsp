@@ -25,6 +25,7 @@
 	}
 </script>
 </head>
+<<<<<<< HEAD
 <body>	
 	<div class="body">
 	<span class="main-font1">K</span><span class="main-font2">o</span><span class="main-font3">r</span><span class="main-font4">o</span><span class="main-font5">u</span><span class="main-font6">p</span><span class="main-font7">w</span><span class="main-font8">a</span><span class="main-font9">r</span><span class="main-font10">e</span>
@@ -54,7 +55,16 @@
 				<input type="submit" class="btn btn-default" style="width: 100%"
 					value="ENTER">
 			</form><br>
+=======
+<body>
+	<form action="LoginProcessAction.do" method="post">
+		아이디 : <input type="text" name="emp_id"><br> 비밀번호 : <input
+			type="password" name="emp_password"><br> <input
+			type="submit" value="로그인">
+	</form>
+>>>>>>> refs/remotes/origi/kjy_161019_total
 
+<<<<<<< HEAD
 			<div class="searchIdPass">		
 					<button onclick="findUser()" class="btn btn-primary">아이디/비밀번호 찾기</button>
 					<button onclick="signUp()" class="btn btn-warning">회원 가입</button>
@@ -63,5 +73,10 @@
 	</div>
 	</div>
 	
+=======
+
+	<button onclick="signUp()">회원 가입</button>
+	<button onclick="findUser()">아이디/비밀번호 찾기</button>
+>>>>>>> refs/remotes/origi/kjy_161019_total
 </body>
 </html>

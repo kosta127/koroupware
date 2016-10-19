@@ -32,9 +32,8 @@
 		<tr height="30">
 			<th>파일</th>
 			<c:forEach var="doc_file" items="${list }">
-			<td><a href="downloadDoc.jsp?doc_file_real_name=${doc_file_real_name}
-			&doc_box_no=${doc_box_no}&doc_no=${doc_no}">${doc_file.doc_file_real_name }</a></td>
-			
+			<td><a href="doc/downloadDoc.jsp?doc_file_real_name=
+					${doc_file.doc_file_real_name}">${doc_file.doc_file_real_name }</a></td>
 			</c:forEach>
 		</tr>
 	</table>
