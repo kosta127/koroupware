@@ -11,6 +11,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+#logo{
+	margin-top: 3em;
+	margin-left: 30em;
+}
+form{
+	margin-top: 5em;
+	margin-left: 10em;
+}
+</style>
+
 <title>메인</title>
 <script type="text/javascript">
 	function logout() {
@@ -23,7 +35,12 @@
 
 </head>
 <body>
-	<img alt="logo" src="main.gif">
+<div class="container">
+	
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-9"><img alt="logo" src="main.gif" id="logo"></div>
+		<div class="col-md-2">
 	<h2>${emp.emp_name }</h2>
 	<br>
 	<c:if test="${emp.emp_img != null }">
@@ -36,20 +53,32 @@
 	<button onclick="signUpdate()">정보변경</button>
 	<button onclick="logout()">로그아웃</button>
 	<br>
+	</div>
 	
-	<ul>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-3"><ul>
 		<li><a href="listDoc_box.do">문서</a></li>
 		<li><a>결재</a></li>
 		<li><a href="listBoard.do">커뮤니티</a></li>
 		<li><a href="orgChartPage.do">조직도</a></li>
 		<li><a href="messagePage.do">쪽지</a></li>
-	</ul>
-	<br>
-	<form action="SearchAction.do" method="get">
+		</ul>
+		<br>
+		</div>
+		<div class="col-md-7">
+		<form action="SearchAction.do" method="get">
 		검색을 하시오<input type="text" name="search_content"> <input
 			type="submit" value="검색"><br>
-	</form>
-
+		</form>
+		</div>
+		<div class="col-md-2"></div>
+		
+	
+	</div>
+	
+</div>
 
 </body>
 </html>

@@ -6,6 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<style type="text/css">
+	div.col-md-8{
+		margin-top: 10em;
+	}
+</style>
 <script type="text/javascript">
 	function fn_addDoc(){
 		location.href="DocForm.do?emp_no="+${emp_no}+"&doc_box_no="+${doc_box_no};
@@ -13,23 +19,28 @@
 	function fn_listDocHis(){
 		location.href="listDoc_his.do?emp_no="+${emp_no}+"&doc_box_no="+${doc_box_no};
 	}
-
+	function fn_detailDoc_box(){
+		location.href="detailDoc_box.do?doc_box_no=${doc_box_no}&emp_no=${emp_no}";
+	}
 
 </script>
 </head>
 <body>
-	<form action="insertDoc_management.do?doc_box_no=${doc_box_no }&emp_no=${emp_no}" method="post">
-	<table border="1" cellpadding="0" cellspacing="0" id="checklist">
-		<tr height="30">
-			<th>선택</th>
-			<th>No</th>
-			<th>제목</th>
-			<th>보존년한</th>
-			<th></th>
-		</tr>
+	<div class="container">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<form action="insertDoc_management.do?doc_box_no=${doc_box_no }&emp_no=${emp_no}" method="post">
+		<table border="1" cellpadding="0" cellspacing="0" id="checklist" class="table table-hover">
+			<tr height="30">
+				<th>선택</th>
+				<th>No</th>
+				<th>제목</th>
+				<th>보존년한</th>
+				<th></th>
+			</tr>
 		
-		<c:forEach var="doc" items="${list}">
-		<c:if test="${doc.doc_deldate == null }">
+			<c:forEach var="doc" items="${list}">
+			<c:if test="${doc.doc_deldate == null }">
 			<tr>
 				<td><input type="checkbox" name="doc_no" value=${doc.doc_no }></td>
 				<td>${doc.doc_no }</td>
@@ -37,15 +48,21 @@
 				<td>${doc.doc_con_period }</td>
 				<td><a href="deleteDoc.do?doc_no=${doc.doc_no}&doc_box_no=${doc_box_no}&emp_no=${emp_no}">삭제</a></td>
 			</tr>
-		</c:if>
+			</c:if>
 			
-		</c:forEach>
+			</c:forEach>
 		
-	</table>
-			<input type="submit" value="문서함에 문서 추가">
-			<input type="button" value="문서 추가" onclick="fn_addDoc()">
-			<input type="button" value="문서수정이력보기" onclick="fn_listDocHis()">
-	</form>
+			</table>
+			<input type="submit" value="문서함에 문서 추가" class="btn btn-default">
+			<input type="button" value="문서 추가" class="btn btn-default" onclick="fn_addDoc()">
+			<input type="button" value="문서수정이력보기" class="btn btn-default" onclick="fn_listDocHis()">
+			<input type="button" value="돌아가기" class="btn btn-default" onclick="fn_detailDoc_box()">
+			</form>
+			
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	
 	
 	
 </body>

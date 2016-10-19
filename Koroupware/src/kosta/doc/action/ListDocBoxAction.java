@@ -22,6 +22,7 @@ public class ListDocBoxAction implements Action {
 		HttpSession session = request.getSession();
 		
 		Emp emp = (Emp)session.getAttribute("emp");
+		System.out.println(emp);
 		int emp_no = emp.getEmp_no();
 		
 		List<DocBox> list = dao.listDoc_box(emp_no);
