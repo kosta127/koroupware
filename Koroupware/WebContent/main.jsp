@@ -35,7 +35,6 @@
 	<button onclick="signUpdate()">정보변경</button>
 	<button onclick="logout()">로그아웃</button>
 	<br>
-	
 	<ul>
 		<li><a href="listDoc_box.do">문서</a></li>
 		<li><a>결재</a></li>
@@ -43,6 +42,7 @@
 		<li><a href="orgChartPage.do">조직도</a></li>
 		<li><a href="messagePage.do">쪽지</a></li>
 	</ul>
+	
 	<br>
 	<form action="SearchAction.do" method="get">
 		검색을 하시오<input type="text" name="search_content"> <input
