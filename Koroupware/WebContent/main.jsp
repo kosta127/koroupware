@@ -31,33 +31,6 @@
 
 </head>
 <body>
-	<img alt="logo" src="main.gif">
-	<h2>${emp.emp_name }</h2>
-	<br>
-	<c:if test="${emp.emp_img != null }">
-		<c:set var="head"
-			value="${fun:substring(emp.emp_img, 0, fun:length(emp.emp_img) - 4) }"></c:set>
-		<c:set var="pattern" value="${fun:substringAfter(emp.emp_img, head) }"></c:set>
-		<img src="upload/${head }_small${pattern}"
-			alt="${head }_small${pattern}" />
-	</c:if>
-	<button onclick="signUpdate()">정보변경</button>
-	<button onclick="logout()">로그아웃</button>
-	<br>
-	
-	<ul>
-		<li><a href="listDoc_box.do">문서</a></li>
-		<li><a href="elec_authList.do">결재</a></li>
-		<li><a href="listBoard.do">커뮤니티</a></li>
-		<li><a href="orgChartPage.do">조직도</a></li>
-		<li><a href="messagePage.do">쪽지</a></li>
-	</ul>
-	<br>
-	<form action="SearchAction.do" method="get">
-		검색을 하시오<input type="text" name="search_content"> <input
-			type="submit" value="검색"><br>
-	</form>
-
 
 <nav class="navbar navbar-default sidebar" role="navigation">
     <div class="container-fluid">

@@ -186,7 +186,6 @@ public class MainController extends HttpServlet {
 			case "deleteDoc_box.do":
 
 				break;
-<<<<<<< HEAD
 			case "elec_authList.do":
 				action=new Elec_authListAction();
 				break;
@@ -204,10 +203,8 @@ public class MainController extends HttpServlet {
 				break;
 			case "empSearchAsJSON.do":
 				action = new EmpSearchAsJSONAction();
-=======
 			case "telUpdate.do":
 				action = new TelUpdateAction();
->>>>>>> refs/remotes/origi/hkh_20161019
 				break;
 			default:
 				System.out.println("없는 요청");
