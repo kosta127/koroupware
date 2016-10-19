@@ -8,15 +8,13 @@
 </head>
 <body>
 	<h1>문서 등록</h1>
-	<form action="docProc.do?emp_no=${emp_no }&doc_box_no=${doc_box_no}" method="post"
-		enctype="multipart/form-data">
+	<form action="docProc.do?doc_box_no=${doc_box_no}" method="post" enctype="multipart/form-data">
 		문서 제목 : <input type="text" name="doc_title"><br>
 		문서 설명 : <input type="text" name="doc_explain"><br>
 		문서 내용 : <input type="text" name="doc_contents"><br>
 		보존 연한 : <input type="text" name="doc_con_period"><br>
 		양식 여부 : <input type="text" name="doc_formYN"><br>
 		파일 : 	<input type="file" name="doc_file_real_name"><br>
-	
 		<input type="submit" value="등록">
 	</form>
 </body>

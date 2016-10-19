@@ -8,7 +8,6 @@
 </head>
 <body>
 	<form action="doc_boxProc.do" method="post">
-		<input type="hidden" name="emp_no" value="${emp_no }">
 		문서함명 : <input type="text" name="doc_box_name">&nbsp;&nbsp;&nbsp;
 		<input type="submit" value="생성">
 	</form>

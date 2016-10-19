@@ -23,7 +23,6 @@ public class SearchProcess implements Action {
 		List<Emp> emplist = service.ListEmpServivce();
 		ActionForward forward = new ActionForward();
 		
-		
 		for(int i=0; i<emplist.size(); i++){
 			if(emplist.get(i).getEmp_name().equals(search_name)){
 				System.out.println("성공");
