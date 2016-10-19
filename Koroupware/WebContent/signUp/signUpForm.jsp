@@ -5,6 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+function login() {
+	location.href = "loginGo.do";
+}
+</script>
 </head>
 <body>
  <form action="SignUpAction.do" method="post" enctype="multipart/form-data">
@@ -21,6 +26,6 @@
  <br> 
  <input type="submit" value="가입">
  </form>
- <button onclick="">취소</button>
+ <button onclick="login()">취소</button>
 </body>
 </html>

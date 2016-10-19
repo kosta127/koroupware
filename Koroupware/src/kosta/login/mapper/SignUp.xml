@@ -33,18 +33,18 @@
 	</select>
 	
 	<select id="empTel" resultType="Tel">
-	select t.emp_no, t.tel_type, t.tel_telephone
+	select t.emp_no, t.tel_no, t.tel_type, t.tel_telephone
 		from emp e, tel t
 		where e.emp_no = t.emp_no
 		and e.emp_no = #{emp_no}
 	</select>
 	
 	<update id="empUpdate" parameterType="Emp">
-		update emp set emp_name = #{emp_name}, emp_mail = #{emp_mail}, emp_password = #{emp_password}, emp_img = #{emp_img}, emp_elec_auth_img = #{emp_elec_auth_img}, emp_elec_auth_signkey = #{emp_elec_auth_signkey} where emp_no = #{emp_no}
+		update emp set emp_name = #{emp_name}, emp_email = #{emp_email}, emp_password = #{emp_password}, emp_img = #{emp_img}, emp_elec_auth_img = #{emp_elec_auth_img}, emp_elec_auth_signkey = #{emp_elec_auth_signkey} where emp_no = #{emp_no}
 	</update>
 	
 	<update id="telUpdate" parameterType="Tel">
-		update tel set tel_type = #{tel_type}, tel_telephone = #{tel_telephone} where tel_no = #{tel_no}
+		update tel set emp_no = #{emp_no}, tel_type = #{tel_type}, tel_telephone = #{tel_telephone} where tel_no = #{tel_no}
 	</update>
 	
 	<delete id="telDelete" parameterType="int">
