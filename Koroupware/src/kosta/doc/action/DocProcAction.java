@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.doc.dao.DocDao;
 import kosta.doc.model.Doc;
 import kosta.doc.model.DocFile;
@@ -21,7 +23,7 @@ import kosta.doc.model.DocFile;
 public class DocProcAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response){
 		ActionForward forward = new ActionForward();
 		DocDao dao = DocDao.getInstance();
 		Doc doc = new Doc();
@@ -29,10 +31,15 @@ public class DocProcAction implements Action {
 		String uploadPath = request.getRealPath("upload");
 		int size = 20 * 1024 * 1024;	//20MB
 		
+		MultipartRequest multi = null;
 		
-			MultipartRequest multi = 
-					new MultipartRequest(request, uploadPath, size,
-							"utf-8",new DefaultFileRenamePolicy());
+		try{
+			multi = new MultipartRequest(request, uploadPath, size,
+					"utf-8",new DefaultFileRenamePolicy());
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
 		int emp_no = Integer.parseInt(multi.getParameter("emp_no"));
 		int doc_box_no = Integer.parseInt(multi.getParameter("doc_box_no"));
 		request.setAttribute("emp_no", emp_no);
@@ -40,9 +47,7 @@ public class DocProcAction implements Action {
 		SimpleDateFormat format = new SimpleDateFormat("yy/MM/dd");
 		Date date= null;
 		try {
-			System.out.println(request.getParameter("doc_con_period"));
 			date = format.parse(multi.getParameter("doc_con_period"));
-			System.out.println(date);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -66,7 +71,7 @@ public class DocProcAction implements Action {
 			
 			
 		if(multi.getFilesystemName("doc_file_real_name") != null) {
-			String doc_file_real_name = multi.getFilesystemName("doc_file_real_name");	//파일 업로드시 파일 이름 얻어오는 함수
+			String doc_file_real_name = multi.getFilesystemName("doc_file_real_name");
 			UUID uid = UUID.randomUUID();
 			doc_file.setDoc_file_real_name(doc_file_real_name);
 			String doc_file_save_name = uid.toString() + "_" + doc_file_real_name;
@@ -77,9 +82,6 @@ public class DocProcAction implements Action {
 	         }else{
 	            doc_file.setDoc_file_real_name("");
 	         }
-		
-		
-		System.out.println(doc);
 		
 		
 		int re = dao.insertDoc(doc);

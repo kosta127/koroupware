@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.doc.dao.DocDao;
 import kosta.doc.model.Doc;
 import kosta.doc.model.DocBox;
@@ -30,7 +32,7 @@ public class DetailDocBoxAction implements Action {
 		request.setAttribute("emp_no",emp_no);
 		request.setAttribute("doc_box", doc_box);
 		forward.setRedirect(false);
-		forward.setPath("detailDoc_box.jsp");
+		forward.setPath("doc/detailDoc_box.jsp");
 		return forward;
 	}
 

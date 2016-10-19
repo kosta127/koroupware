@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta.action.Action;
+import kosta.action.ActionForward;
 import kosta.doc.dao.DocDao;
 import kosta.doc.model.Doc;
 
@@ -22,7 +24,7 @@ public class ListDocAction implements Action {
 		request.setAttribute("doc_box_no", doc_box_no);
 		request.setAttribute("emp_no", emp_no);
 		forward.setRedirect(false);
-		forward.setPath("listDoc.jsp");
+		forward.setPath("doc/listDoc.jsp");
 		return forward;
 	}
 
