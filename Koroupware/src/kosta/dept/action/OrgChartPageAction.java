@@ -14,6 +14,7 @@ import kosta.dept.model.Dept;
 import kosta.dept.model.OrgChartEmpModel;
 import kosta.dept.model.OrgChartModel;
 import kosta.emp.dao.EmpDao;
+import kosta.etc.ETC;
 
 public class OrgChartPageAction implements Action{
 	@Override
@@ -31,6 +32,9 @@ public class OrgChartPageAction implements Action{
 			OrgChartModel model = new OrgChartModel();
 			List<OrgChartEmpModel> orgChartEmpModelList = 
 					dao.selectOrgChartEmpModelByDeptNo(dept.getDept_no());
+			
+			String telephone = dept.getDept_telephone();
+			dept.setDept_telephone(ETC.toTelephoneFormat(telephone));
 			
 			model.setDept(dept);
 			model.setOrgChartEmpList(orgChartEmpModelList);

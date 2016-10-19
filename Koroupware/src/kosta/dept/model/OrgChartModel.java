@@ -3,6 +3,7 @@ package kosta.dept.model;
 import java.util.List;
 
 import kosta.emp.model.Emp;
+import kosta.etc.ETC;
 
 public class OrgChartModel {
 	private Dept dept;

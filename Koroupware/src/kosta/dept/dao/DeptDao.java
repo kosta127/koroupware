@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import kosta.dept.mapper.DeptMapper;
 import kosta.dept.model.Dept;
+import kosta.dept.model.OrgChartEmpDetailModel;
 import kosta.dept.model.OrgChartEmpModel;
 import kosta.dept.model.OrgChartModel;
 import kosta.emp.dao.EmpDao;
@@ -62,5 +63,22 @@ public class DeptDao {
 		}
 		
 		return list;
+	}
+	
+	public OrgChartEmpDetailModel selectOrgChartEmpDetailModelByEmpNo(int emp_no){
+		OrgChartEmpDetailModel model = null;
+		SqlSession session = sessionFactory.openSession();
+		
+		try{
+			model = session.getMapper(DeptMapper.class).selectOrgChartEmpDetailModelByEmpNo(emp_no);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(ETC.isNotNull(session)){
+				session.close();
+			}
+		}
+		
+		return model;
 	}
 }

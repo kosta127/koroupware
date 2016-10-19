@@ -41,6 +41,7 @@
 		<typeAlias type="kosta.doc.model.DocFile" alias="DocFile" />
 		<typeAlias type="kosta.dept.model.OrgChartModel" alias="OrgChartModel" />
 		<typeAlias type="kosta.dept.model.OrgChartEmpModel" alias="OrgChartEmpModel" />
+		<typeAlias type="kosta.dept.model.OrgChartEmpDetailModel" alias="OrgChartEmpDetailModel" />
 	</typeAliases>
 	
 	<environments default="development">
