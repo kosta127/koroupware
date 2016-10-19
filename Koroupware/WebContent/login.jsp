@@ -5,18 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
-
-<style type="text/css">
-</style>
-<script type="text/javascript">
-function signUp(){ 
-	location.href = "MakeAction.do";
-}
-function findUser(){ 
-	location.href = "FindAction.jsp";
-}
-</script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="./js/login.js"></script>
 </head>
 <body>
 	<form action="LoginProcessAction.do" method="post">
