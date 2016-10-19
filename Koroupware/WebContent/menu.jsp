@@ -1,5 +1,3 @@
-
-
 <%@page import="kosta.emp.model.Emp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -15,50 +13,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="./css/menu.css"/>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
-<link href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i' rel='stylesheet' type='text/css'>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript">
-	function logout() {
-		location.href = "logout.do";
-	}
-	function signUpdate() {
-		location.href = "signUpdateForm.jsp";
-	}
-</script>
+
 <title>Insert title here</title>
 
 </head>
 <body>
-	<img alt="logo" src="main.gif">
-	<h2>${emp.emp_name }</h2>
-	<br>
-	<c:if test="${emp.emp_img != null }">
-		<c:set var="head"
-			value="${fun:substring(emp.emp_img, 0, fun:length(emp.emp_img) - 4) }"></c:set>
-		<c:set var="pattern" value="${fun:substringAfter(emp.emp_img, head) }"></c:set>
-		<img src="upload/${head }_small${pattern}"
-			alt="${head }_small${pattern}" />
-	</c:if>
-	<button onclick="signUpdate()">정보변경</button>
-	<button onclick="logout()">로그아웃</button>
-	<br>
-	
-	<ul>
-		<li><a href="listDoc_box.do">문서</a></li>
-		<li><a href="elec_authList.do">결재</a></li>
-		<li><a href="listBoard.do">커뮤니티</a></li>
-		<li><a href="orgChartPage.do">조직도</a></li>
-		<li><a href="messagePage.do">쪽지</a></li>
-	</ul>
-	<br>
-	<form action="SearchAction.do" method="get">
-		검색을 하시오<input type="text" name="search_content"> <input
-			type="submit" value="검색"><br>
-	</form>
-
-
 <nav class="navbar navbar-default sidebar" role="navigation">
     <div class="container-fluid">
     <div class="navbar-header">
@@ -96,22 +58,21 @@
   </div>
 </nav>
 <div class="main-main">
-<div class="main-top">
-   <span>${emp.emp_name }</span>
+
+   <h2>${emp.emp_name }</h2>
    <c:if test="${emp.emp_img != null }">
       <c:set var="head"
          value="${fun:substring(emp.emp_img, 0, fun:length(emp.emp_img) - 4) }"></c:set>
       <c:set var="pattern" value="${fun:substringAfter(emp.emp_img, head) }"></c:set>
       <img src="upload/${head }_small${pattern}"
-         alt="${head }_small${pattern}" class="face-img img-circle"/>
+         alt="${head }_small${pattern}" />
    </c:if>
-  
+   <div class="button">
    <button onclick="signUpdate()" class="btn btn-success">정보변경</button>
    <button onclick="logout()" class="btn btn-warning">로그아웃</button>
    </div>
    <div class="logo">
- <img alt="logo" src="main.jpg" id="logo" class="logo-img img-circle">
- <span class="main-font1">K</span><span class="main-font2">o</span><span class="main-font3">r</span><span class="main-font4">o</span><span class="main-font5">u</span><span class="main-font6">p</span><span class="main-font7">w</span><span class="main-font8">a</span><span class="main-font9">r</span><span class="main-font10">e</span>
+ <img alt="logo" src="main.gif" id="logo" class="img-circle">
    </div>
    <div class="search">
       <form action="SearchAction.do" method="get">
