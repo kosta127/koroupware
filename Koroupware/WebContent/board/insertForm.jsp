@@ -37,14 +37,19 @@
 	<form action="insert.do" method="post" enctype="multipart/form-data">
 		<table border="1" cellpadding="0" cellspacing="0">
 		
-		<tr height="30">
-			<td align="center">작성자</td>
-			<td align="center">${emp_name }</td>
-			<td width="80" align="center">제목</td>
-			<td align="left" colspan="3">		
-				<input type="text" name="board_title" size="50">	
-			</td>			
-		</tr>		
+			<tr height="30">
+				<td align="center">작성자</td>
+				<td align="left">
+					<input type="hidden" value="${sessionScope.emp.emp_no}" name="emp_no"/>
+						${sessionScope.emp.emp_name}</td>
+			</tr>
+			<tr>
+				<td width="80" align="center">제목</td>
+				<td align="left" colspan="3">		
+					<input type="text" name="board_title" size="80">	
+				</td>			
+			</tr>
+				
 		<tr height="30">		
 			<td align="center">파일</td>
 			<td colspan="3">

@@ -23,7 +23,7 @@ public class DeleteReplyAction implements Action{
 		request.setAttribute("board_no", board_no);
 		
 		forward.setRedirect(false);
-		forward.setPath("board/boardDetail.do");
+		forward.setPath("boardDetail.do");
 		
 		return forward;
 	}

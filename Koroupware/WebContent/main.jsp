@@ -19,8 +19,11 @@
 	function signUpdate() {
 		location.href = "signUpdateForm.jsp"
 	}
+	function community_create() {
+		location.href="insertCommunityForm.do?emp_no=${emp.emp_no}"
+	}
 </script>
-
+ 
 </head>
 <body>
 	<img alt="logo" src="main.gif">
@@ -40,7 +43,7 @@
 	<ul>
 		<li><a href="listDoc_box.do">문서</a></li>
 		<li><a>결재</a></li>
-		<li><a href="listBoard.do">커뮤니티</a></li>
+		<li><a href="listCommsunity.do?emp_no=${emp.emp_no}">커뮤니티</a></li>
 		<li><a>조직도</a></li>
 		<li><a href="messagePage.do">쪽지</a></li>
 	</ul>
@@ -49,7 +52,9 @@
 		검색을 하시오<input type="text" name="search_content"> <input
 			type="submit" value="검색"><br>
 	</form>
-
+	<form>
+		<input type="button" value="커뮤니티 추가" onclick="community_create()">
+	</form>
 
 </body>
 </html>

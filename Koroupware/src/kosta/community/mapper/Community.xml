@@ -5,15 +5,21 @@
 
 
 <mapper namespace="kosta.community.mapper.CommunityMapper">
-	<insert id="insertCategory" parameterType="Category">
+	<insert id="insertCommunity" parameterType="Community">
 		insert into community(
-			community_no, community_name, community_regdate, community_approvalYN
+			community_no, community_name, community_regdate, emp_no
 		)
 		values(
-			seq_community.NEXTVAL, #{community_name}, SYSDATE, #{community_approvalYN}
+			seq_community.NEXTVAL, #{community_name}, SYSDATE, #{emp_no}
 		)
 	</insert>
 	
+	<select id="listCommunity" resultType="Community">
+		select c.community_name
+		from community c, emp e
+ 		where e.emp_no=c.emp_no
+  			and emp_no = #{emp_no}
+	</select>
 	
 	
 </mapper>

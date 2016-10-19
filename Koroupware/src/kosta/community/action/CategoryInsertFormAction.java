@@ -6,13 +6,14 @@ import javax.servlet.http.HttpServletResponse;
 import kosta.action.Action;
 import kosta.action.ActionForward;
 
-public class CommunityAction implements Action{
-	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response){
-		ActionForward forward = new ActionForward();
+public class CategoryInsertFormAction implements Action {
 
-		forward.setRedirect(true);
-		forward.setPath("board/list.jsp");
+	@Override
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward forward = new ActionForward();
+		
+		forward.setRedirect(false);
+		forward.setPath("category/categoryInsertForm.jsp");
 		
 		return forward;
 	}

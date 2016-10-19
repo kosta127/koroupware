@@ -42,13 +42,7 @@
 			location.href="deleteReply.do?reply_no="+param+"&board_no=${board.board_no}";
 		}
 	</script>
-<!-- <style>
-.btn{
-	background-color: #00A5FF;
-	color: white;
-	
-}
-</style> -->
+
 </head>
 <body>
 <h1>글 상세보기</h1>

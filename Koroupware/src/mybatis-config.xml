@@ -53,6 +53,7 @@
 		<mapper resource="kosta/dept/mapper/Dept.xml"/>
 		<mapper resource="kosta/community/mapper/Board.xml"/>
 		<mapper resource="kosta/community/mapper/Community.xml"/>
+		<mapper resource="kosta/community/mapper/Category.xml"/>
 		<mapper resource="kosta/community/mapper/boardFile.xml"/>
 		<mapper resource="kosta/community/mapper/Reply.xml"/>
 		<mapper resource="kosta/doc/mapper/Doc.xml" />

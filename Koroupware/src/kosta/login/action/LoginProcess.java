@@ -41,6 +41,7 @@ public class LoginProcess implements Action {
 				forward.setRedirect(false);
 				break;
 			}else{
+				session.removeAttribute("emp");
 				forward.setPath("login.jsp");
 				forward.setRedirect(false);
 			}

@@ -73,7 +73,7 @@ public class ListAction implements Action {
 		
 		List<BoardModel> list = dao.listBoardModel(startRow, search);
 		ListModel listModel = new ListModel(list, requestPage, totalPageCount, startPage, endPage);
-		System.out.println(listModel);
+		
 		request.setAttribute("list", list);
 		request.setAttribute("listModel", listModel);
 		
