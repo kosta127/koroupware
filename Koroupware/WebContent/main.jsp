@@ -44,10 +44,10 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home<span class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-        <li ><a href="#">문서<span class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-        <li ><a href="#">전자결재<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span> </a></li>
-        <li ><a href="#">게시판<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>         
+        <li class="active"><a href="">Home<span class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+        <li ><a href="">문서<span class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+        <li ><a href="elec_authList.do">전자결재<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span> </a></li>
+        <li ><a href="">게시판<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>         
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">커뮤니티 <span class="caret"></span><span  class="pull-right hidden-xs showopacity glyphicon glyphicon-comment"></span></a>
           <ul class="dropdown-menu forAnimate" role="menu">

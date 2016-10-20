@@ -9,9 +9,9 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/jquery-ui.min.css">
 <link rel="stylesheet" href="css/elec_auth_list.css">
-<script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/jquery-ui.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="js/elec_auth_list.js"></script>
 <title>Insert title here</title>
 </head>
@@ -28,7 +28,7 @@
 	<div class="col-md-3">
 	</div>
 
-	<div class="col-md-3">
+	<div class="col-md-2">
 	<div id="elec_auth_box">
 		<h3><a href="elec_authList.do">내가 올린 결재</a></h3>
 		<div id="write_list">					
@@ -47,7 +47,7 @@
 	</div>
 	</div>
 
-	<div class="col-md-6">
+	<div class="col-md-7">
 	<div class="elec_authList">
 			<h3>결재문서 목록</h3>
 			<table border="1" class="table table-bordered">
