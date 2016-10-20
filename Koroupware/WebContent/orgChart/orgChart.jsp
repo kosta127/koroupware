@@ -140,10 +140,10 @@
 							<button type="button" class="close" data-dismiss="modal">
 								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 							</button>
-							<h4 class="modal-title" id="myModalLabel">모달 제목</h4>
+							<h4 class="modal-title" id="myModalLabel">검색중</h4>
 						</div>
 						<div class="modal-body" id="modalBody">
-							<p>여기는 내용이 들어 가는 곳</p>
+							<p>뜨는중</p>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>

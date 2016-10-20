@@ -53,6 +53,7 @@ import kosta.login.action.FindIdProcess;
 import kosta.login.action.FindPasswordProcess;
 import kosta.login.action.LoginGoAction;
 import kosta.login.action.LoginProcess;
+import kosta.login.action.LogoutAction;
 import kosta.login.action.MainAction;
 import kosta.login.action.SignUpAction;
 import kosta.login.action.SignUpdateAction;
@@ -234,6 +235,9 @@ public class MainController extends HttpServlet {
 				break;
 			case "telUpdate.do":
 				action = new TelUpdateAction();
+				break;
+			case "logout.do":
+				action = new LogoutAction();
 				break;
 			default:
 				System.out.println("dd");

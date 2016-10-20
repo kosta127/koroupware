@@ -41,13 +41,13 @@
 	</select>
 	<select id="selectMessageReceiverEmpsByEmpId" resultType="MessageReceiverModel" parameterType="int">
 		SELECT e.emp_no, e.emp_name, e.emp_id, d.dept_name, o.office_name, p.position_name
-		FROM (SELECT emp_no, emp_name, emp_id, dept_no, office_no, position_no
+		FROM (SELECT emp_no, emp_name, emp_id, dept_no, office_no, position_no, emp_resigndate
 				FROM emp
 				WHERE emp_no IN (SELECT DISTINCT message_receiver_no
                                     FROM message
                                     WHERE message_sender_no = #{emp_no}
-                                    		OR message_receiver_no = #{emp_no}))
-						AND emp_resigndate IS NULL e,
+                                    		OR message_receiver_no = #{emp_no})
+						AND emp_resigndate IS NULL) e,
 			(SELECT dept_no, dept_name
 				FROM dept) d,
 			(SELECT office_no, office_name

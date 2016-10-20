@@ -95,7 +95,7 @@
                       elec_auth_enddate, 
                       elec_auth_temporary_saveYN, elec_auth_con_period,
                       doc_no, elec_auth_regdate)
-        	VALUES(#{elec_auth_no}, #{emp_no}, #{elec_auth_management_dept_no},
+        	VALUES(seq_elec_auth.NEXTVAL, #{emp_no}, #{elec_auth_management_dept_no},
         			#{elec_auth_title}, #{elec_auth_contents},
         			#{elec_auth_enddate},
         			#{elec_auth_temporary_saveYN}, #{elec_auth_con_period},
@@ -109,7 +109,7 @@
 	
 	<insert id="insertElecAuthReferrer" parameterType="Elec_auth_referrer">
 		INSERT INTO ELEC_AUTH_REFERRER(elec_auth_referrer_no, elec_auth_no, emp_no)	
-				VALUES(TEST_SEQ.NEXTVAL, #{elec_auth_no}, #{emp_no})
+				VALUES(seq_elec_auth_referrer.NEXTVAL, #{elec_auth_no}, #{emp_no})
 	</insert>
 	
 	<select id="searchEmpDetail" parameterType="String" resultType="EmpDetail">
