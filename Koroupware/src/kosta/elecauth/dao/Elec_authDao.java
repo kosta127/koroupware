@@ -25,6 +25,7 @@ import kosta.elecauth.model.Elec_authDetail;
 import kosta.elecauth.model.Elec_authDetailApproval;
 import kosta.elecauth.model.Elec_authDetailReferrer;
 import kosta.elecauth.model.Elec_authList;
+import kosta.elecauth.model.Elec_authListCond;
 import kosta.elecauth.model.Elec_auth_referrer;
 import kosta.elecauth.model.EmpDetail;
 import kosta.elecauth.model.Elec_authDetail;
@@ -38,13 +39,13 @@ public class Elec_authDao {
 		return dao;
 	}	
 	
-	public List<Elec_authList> elec_authList(int startRow, int emp_no){
+	public List<Elec_authList> elec_authList(int startRow, Elec_authListCond listCond){
 		SqlSession sqlSession=SessionFactory.getInstance().openSession();
 		List<Elec_authList> list=null;
 		
 		try {
 			list=sqlSession.getMapper(Elec_authMapper.class).elec_authList(
-					new RowBounds(startRow, LIST_SIZE), emp_no);
+					new RowBounds(startRow, LIST_SIZE), listCond);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
@@ -53,11 +54,11 @@ public class Elec_authDao {
 		return list;
 	}
 	
-	public int getTotalCount(){
+	public int getTotalCount(Elec_authListCond listCond){
 		SqlSession sqlSession = SessionFactory.getInstance().openSession();
 		int totalCount = 0;
 		try {
-			totalCount = sqlSession.getMapper(Elec_authMapper.class).getTotalCount();
+			totalCount = sqlSession.getMapper(Elec_authMapper.class).getTotalCount(listCond);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

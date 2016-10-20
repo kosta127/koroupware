@@ -25,15 +25,28 @@ public class Elec_authListAction implements Action {
 		
 		HttpSession session = request.getSession();
 		Emp emp = (Emp) session.getAttribute("emp");
-		int emp_no= emp.getEmp_no();
+		if(emp == null){ //회원정보 없으면 로그인 페이지로
+			forward.setRedirect(true);
+			forward.setPath(request.getContextPath()+"/login.jsp");
+			return forward;
+		}
+		
+		int emp_no = emp.getEmp_no(); 
+		
+		String rFlag = request.getParameter("receive");
+		String flag = request.getParameter("flag");
+		if(flag==null) flag = "";
 		
 		Elec_authService service=Elec_authService.getInstance();
-		List<Elec_authList> elec_authList=service.elec_authList(pageNum, emp_no);
-		
+		List<Elec_authList> elec_authList = 
+				service.elec_authList(pageNum, emp_no, (rFlag!=null)?true:false, flag);
+		  
 		if(elec_authList != null){
+			request.setAttribute("receive", rFlag);
 			request.setAttribute("elec_authList", elec_authList);
-			request.setAttribute("paging", service.elec_authListPage(pageNum));
-			forward.setRedirect(false);
+			request.setAttribute("paging", 
+					service.elec_authListPage(pageNum, emp_no, (rFlag!=null)?true:false, flag));
+			forward.setRedirect(false); 
 			forward.setPath("/elec_auth/elec_auth_list.jsp");
 		}else{
 			forward.setRedirect(true);

@@ -92,13 +92,13 @@ $( function() {
 	      },
 	      select: function( event, ui ) {
 	    	$( '#'+$approv.attr('id')+'_list' ).append('<a class="appr_list">'+ui.item.desc+
-	    			'<input type="hidden" name="approval_emp_no" value="'+ui.item.emp_no+'">'+'</a>');
+	    			'<input type="hidden" name="approval_emp_no" value="'+ui.item.emp_no+'"></a>');
 	    	$approv.val('');
 	        return false;
 	      }
 	    })
-	    .autocomplete( "instance" )._renderItem = function( ul, item ) {
-	      return $( "<li>" )
+	    .autocomplete( 'instance' )._renderItem = function( ul, item ) {
+	      return $( '<li>' )
 	        .append(item.desc)
 	        .appendTo( ul );
 	    };
@@ -113,22 +113,22 @@ $( function() {
 	      },
 	      select: function( event, ui ) {
 	    	$( '#'+$referr.attr('id')+'_list' ).append('<a class="ref_list">'+ui.item.desc+
-	    			'<input type="hidden" name="referrer_emp_no" value="'+ui.item.emp_no+'">'+'</a>');
+	    			'<input type="hidden" name="referrer_emp_no" value="'+ui.item.emp_no+'"></a>');
 	    	$referr.val('');
 	        return false;
 	      }
 	    })
-	    .autocomplete( "instance" )._renderItem = function( ul, item ) {
-	      return $( "<li>" )
+	    .autocomplete( 'instance' )._renderItem = function( ul, item ) {
+	      return $( '<li>' )
 	        .append(item.desc)
 	        .appendTo( ul );
 	    };
 	
 	//목록클릭시 사라지게
-    $("#approval_list").on('click', '.appr_list', function(){
+    $("#elec_auth_approval_list").on('click', '.appr_list', function(){
 		$(this).remove();
 	});
-	$("#referrer_list").on('click', '.ref_list', function(){
+	$("#elec_auth_referrer_list").on('click', '.ref_list', function(){
 		$(this).remove();
 	});
-  } );
+});

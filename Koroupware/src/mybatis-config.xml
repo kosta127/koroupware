@@ -8,6 +8,7 @@
 		<!-- 별칭설정 -->
 		<typeAlias type="kosta.elecauth.model.Elec_auth" alias="Elec_auth"/>
 		<typeAlias type="kosta.elecauth.model.Elec_authList" alias="Elec_authList"/>
+		<typeAlias type="kosta.elecauth.model.Elec_authListCond" alias="Elec_authListCond"/>
 		<typeAlias type="kosta.elecauth.model.Elec_authDetail" alias="Elec_authDetail"/>
 		<typeAlias type="kosta.elecauth.model.Approval_list" alias="Approval_list"/>
 		<typeAlias type="kosta.elecauth.model.Elec_auth_referrer" alias="Elec_auth_referrer"/>

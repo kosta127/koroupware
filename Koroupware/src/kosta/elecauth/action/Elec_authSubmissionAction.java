@@ -46,22 +46,25 @@ public class Elec_authSubmissionAction implements Action {
 		ea.setElec_auth_management_dept_no(Integer.parseInt(manageDept));
 		ea.setElec_auth_con_period(Date.valueOf(sdf.format(conDate.getTime())));
 		ea.setElec_auth_temporary_saveYN(tempSaveYN);
-		ea.setElec_auth_enddate(Date.valueOf(endDate));
-	
-		List<Approval_list> approvals = new ArrayList<Approval_list>();
-		List<Elec_auth_referrer> referrers = new ArrayList<Elec_auth_referrer>();
+		ea.setElec_auth_enddate(Date.valueOf(endDate));	
 		
-		int step = 0;
-		for(String appEmpNo : apps){
-			Approval_list al = new Approval_list();
-			al.setEmp_no(Integer.parseInt(appEmpNo));
-			al.setApproval_list_step(++step);
-			approvals.add(al);
+		List<Approval_list> approvals = new ArrayList<Approval_list>();
+		List<Elec_auth_referrer> referrers = new ArrayList<Elec_auth_referrer>();		
+		if(apps != null){
+			int step = 0;	
+			for(String appEmpNo : apps){
+				Approval_list al = new Approval_list();
+				al.setEmp_no(Integer.parseInt(appEmpNo));
+				al.setApproval_list_step(++step);
+				approvals.add(al);
+			}
 		}
-		for(String refEmpNo : refs){
-			Elec_auth_referrer ref = new Elec_auth_referrer();
-			ref.setEmp_no(Integer.parseInt(refEmpNo));
-			referrers.add(ref);
+		if(refs != null){
+			for(String refEmpNo : refs){
+				Elec_auth_referrer ref = new Elec_auth_referrer();
+				ref.setEmp_no(Integer.parseInt(refEmpNo));
+				referrers.add(ref);
+			}
 		}
 		
 		Elec_authService service = Elec_authService.getInstance();
