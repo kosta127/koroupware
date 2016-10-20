@@ -28,11 +28,6 @@
 </script>
 </head>
 <body>
-	<form action="LoginProcessAction.do" method="post">
-		아이디 : <input type="text" name="emp_id"><br> 비밀번호 : <input
-			type="password" name="emp_password"><br> <input
-			type="submit" value="로그인">
-	</form>
 	<div class="body">
 		<div class="panel panel-default">
 
