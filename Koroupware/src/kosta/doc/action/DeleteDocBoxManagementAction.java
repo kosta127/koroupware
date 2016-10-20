@@ -2,10 +2,12 @@ package kosta.doc.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kosta.action.Action;
 import kosta.action.ActionForward;
 import kosta.doc.dao.DocDao;
+import kosta.emp.model.Emp;
 
 public class DeleteDocBoxManagementAction implements Action {
 
@@ -13,8 +15,11 @@ public class DeleteDocBoxManagementAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response){
 		ActionForward forward = new ActionForward();
 		DocDao dao = DocDao.getInstance();
+		HttpSession session = request.getSession();
 		int doc_box_no = Integer.parseInt(request.getParameter("doc_box_no"));
-		int emp_no = Integer.parseInt(request.getParameter("emp_no"));
+		
+		Emp emp = (Emp)session.getAttribute("emp");
+		int emp_no = emp.getEmp_no();
 		
 	
 		request.setAttribute("doc_box_no", doc_box_no);
