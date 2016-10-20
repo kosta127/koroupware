@@ -12,6 +12,7 @@ import kosta.doc.mapper.DocMapper;
 import kosta.doc.model.Doc;
 import kosta.doc.model.DocBox;
 import kosta.doc.model.DocFile;
+import kosta.doc.model.DocHis;
 import kosta.doc.model.DocManagement;
 
 public class DocDao {
@@ -292,11 +293,11 @@ public class DocDao {
 		return re;
 	}
 	
-	public int deleteDoc_management(int doc_management_no){
+	public int deleteDoc_box_management(int doc_management_no){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = 0;
 		try {
-			re = sqlSession.getMapper(DocMapper.class).deleteDoc_management(doc_management_no);
+			re = sqlSession.getMapper(DocMapper.class).deleteDoc_box_management(doc_management_no);
 			if(re > 0){
 				sqlSession.commit();
 			}else {
@@ -310,6 +311,7 @@ public class DocDao {
 		return re;
 	}
 	
+	
 	public int deleteDoc(int doc_no){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = 0;
@@ -317,7 +319,45 @@ public class DocDao {
 			re = sqlSession.getMapper(DocMapper.class).deleteDoc(doc_no);
 			if(re > 0){
 				sqlSession.commit();
-			}else { 
+			}else {
+				sqlSession.rollback();
+			
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			sqlSession.close();
+		}
+		return re;
+	}
+	
+	public int deleteDoc_management(DocManagement doc_management){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = 0;
+		try{
+			re = sqlSession.getMapper(DocMapper.class).deleteDoc_management(doc_management);
+			if(re > 0){
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+			
+		}finally{
+			sqlSession.close();
+		}
+		return re;
+	}
+	
+	public int insertDoc_his(DocHis doc_his){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = 0;
+		try{
+			re = sqlSession.getMapper(DocMapper.class).insertDoc_his(doc_his);
+			if(re > 0){
+				sqlSession.commit();
+			}else {
 				sqlSession.rollback();
 			}
 		}catch (Exception e) {
@@ -326,5 +366,54 @@ public class DocDao {
 			sqlSession.close();
 		}
 		return re;
+	}
+	
+	public int selectDoc_his_no(){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = 0;
+		try{
+			if(sqlSession.getMapper(DocMapper.class).selectDoc_his_no()==null){
+				re = 0;
+			}else {
+				re = sqlSession.getMapper(DocMapper.class).selectDoc_his_no();
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+			re = 0;
+		}finally{
+			sqlSession.close();
+		}
+		return re;
+	}
+	
+	public int updateDoc(Doc doc){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = 0;
+		try {
+			re = sqlSession.getMapper(DocMapper.class).updateDoc(doc);
+			if(re > 0){
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+			re = 0;
+		}finally{
+			sqlSession.close();
+		}
+		return re;
+	}
+	
+	public List<DocHis> listDocHis(){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try{
+			return sqlSession.getMapper(DocMapper.class).listDocHis();
+		}catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally{
+			sqlSession.close();
+		}
 	}
 }

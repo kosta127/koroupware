@@ -31,8 +31,8 @@ import kosta.doc.action.DocProcAction;
 import kosta.doc.action.InsertDocManagementAction;
 import kosta.doc.action.ListDocAction;
 import kosta.doc.action.ListDocBoxAction;
-import kosta.doc.action.updateDocBoxFormAction;
-import kosta.doc.action.updateDocBoxProcAction;
+import kosta.doc.action.UpdateDocBoxFormAction;
+import kosta.doc.action.UpdateDocBoxProcAction;
 import kosta.elecauth.action.Elec_authDetailAction;
 import kosta.elecauth.action.Elec_authErrorAction;
 import kosta.elecauth.action.Elec_authListAction;
@@ -175,10 +175,10 @@ public class MainController extends HttpServlet {
 				action = new InsertDocManagementAction();
 				break;
 			case "updateDoc_box_Form.do":
-				action = new updateDocBoxFormAction();
+				action = new UpdateDocBoxFormAction();
 				break;
 			case "updateDoc_box_Proc.do":
-				action = new updateDocBoxProcAction();
+				action = new UpdateDocBoxProcAction();
 				break;
 			case "deleteDoc.do":
 

@@ -32,6 +32,9 @@
 				append : new Date()
 			});
 		});
+		$("#backList").on('click', function(){
+			location.href="elec_authList.do";
+		});
 	});
 </script>
 <title>Insert title here</title>
@@ -114,5 +117,6 @@
 		</table><br>
 	</div>
 	<input id="printButton" type="button" class="btn btn-success" name="print2" value="인쇄">
+	<button id="backList" class="btn btn-primary">돌아가기</button>
 </body>
 </html>
