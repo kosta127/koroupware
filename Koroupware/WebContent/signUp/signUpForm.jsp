@@ -9,14 +9,16 @@
  	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bootstrap/css/custom2.css" rel="stylesheet">
 <title>Insert title here</title>
-<style type="text/css">
-	.form-control{
-		width: 300px;
-	}
-</style>
+
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 <link href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
+<style type="text/css">
+	.form-control{
+		width: 300px;
+		margin-left: 10em;
+	}
+</style>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
