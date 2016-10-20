@@ -24,6 +24,9 @@ public class UpdateDocBoxProcAction implements Action {
 		if(re>0){
 			forward.setRedirect(false);
 			forward.setPath("listDoc_box.do");
+		}else {
+			forward.setRedirect(false);
+			forward.setPath("fail.jsp");
 		}
 		return forward;
 	}

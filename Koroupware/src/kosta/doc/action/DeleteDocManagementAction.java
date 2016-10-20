@@ -31,6 +31,9 @@ public class DeleteDocManagementAction implements Action {
 		if(re > 0){
 				forward.setPath("detailDoc_box.do");
 				forward.setRedirect(false);
+		}else {
+			forward.setRedirect(false);
+			forward.setPath("fail.jsp");
 		}
 		return forward;
 	}

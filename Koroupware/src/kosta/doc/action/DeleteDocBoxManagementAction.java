@@ -21,13 +21,12 @@ public class DeleteDocBoxManagementAction implements Action {
 		request.setAttribute("emp_no", emp_no);
 		int re1 = dao.deleteDoc_box_management(doc_box_no);
 		int re2 = dao.deleteDoc_box(doc_box_no);
-		if(re1 > 0){
-			if(re2 > 0){
-				forward.setPath("listDoc_box.do");
-				forward.setRedirect(false);
-			}
-		}
 		
+		forward.setRedirect(false);
+		forward.setPath("listDoc_box.do");
+		
+	
+			
 		return forward;
 	}
 

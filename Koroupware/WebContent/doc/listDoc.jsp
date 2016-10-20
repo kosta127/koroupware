@@ -5,11 +5,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./css/menu.css"/>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+<link href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i' rel='stylesheet' type='text/css'>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>Insert title here</title>
+
 <style type="text/css">
 	div.col-md-8{
 		margin-top: 10em;
+		margin-left: 10em;
 	}
 </style>
 <script type="text/javascript">
@@ -26,8 +34,7 @@
 </script>
 </head>
 <body>
-	<div class="container">
-		<div class="col-md-2"></div>
+		<jsp:include page="../menu.jsp"></jsp:include>
 		<div class="col-md-8">
 			<form action="insertDoc_management.do?doc_box_no=${doc_box_no }&emp_no=${emp_no}" method="post">
 		<table border="1" cellpadding="0" cellspacing="0" id="checklist" class="table table-hover">
@@ -60,8 +67,7 @@
 			</form>
 			
 		</div>
-		<div class="col-md-2"></div>
-	</div>
+		
 	
 	
 	

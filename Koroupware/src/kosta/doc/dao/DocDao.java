@@ -52,38 +52,8 @@ public class DocDao {
 		}
 		return re;
 	}
-	public int selectDoc_no() {
-		SqlSession sqlSession = getSqlSessionFactory().openSession();
-		
-		try {
-			if(sqlSession.getMapper(DocMapper.class).selectDoc_no() == null){
-				return 0;
-			}else {
-				return sqlSession.getMapper(DocMapper.class).selectDoc_no();
-			}
-			
-		}catch (Exception e) {
-			e.printStackTrace();
-			return 0;
-		}finally{
-			sqlSession.close();
-		}
-	}
-	public int selectDoc_box_no(){
-		SqlSession sqlSession = getSqlSessionFactory().openSession();
-		try{
-			if(sqlSession.getMapper(DocMapper.class).selectDoc_box_no() == null){
-				return 0;
-			}else {
-				return sqlSession.getMapper(DocMapper.class).selectDoc_box_no();
-			}
-		}catch (Exception e) {
-			e.printStackTrace();
-			return 0;
-		}finally{
-			sqlSession.close();
-		}
-	}
+	
+	
 	
 	public List<Doc> listDoc() {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
@@ -224,23 +194,7 @@ public class DocDao {
 		}
 	}
 	
-	public int selectDoc_file_no(){
-		SqlSession sqlSession = getSqlSessionFactory().openSession();
-		
-		try{
-			if(sqlSession.getMapper(DocMapper.class).selectDoc_file_no() == null){
-				return 0;
-			}else{
-				return sqlSession.getMapper(DocMapper.class).selectDoc_file_no();
-			}
-			
-		}catch (Exception e) {
-			e.printStackTrace();
-			return 0;
-		}finally{
-			sqlSession.close();
-		}
-	}
+	
 	
 	public int insertDoc_file(DocFile doc_file){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
@@ -367,24 +321,6 @@ public class DocDao {
 		return re;
 	}
 	
-	public int selectDoc_his_no(){
-		SqlSession sqlSession = getSqlSessionFactory().openSession();
-		int re = 0;
-		try{
-			if(sqlSession.getMapper(DocMapper.class).selectDoc_his_no()==null){
-				re = 0;
-			}else {
-				re = sqlSession.getMapper(DocMapper.class).selectDoc_his_no();
-			}
-		}catch (Exception e) {
-			e.printStackTrace();
-			re = 0;
-		}finally{
-			sqlSession.close();
-		}
-		return re;
-	}
-	
 	public int updateDoc(Doc doc){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = 0;
@@ -411,6 +347,17 @@ public class DocDao {
 		}catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		}finally{
+			sqlSession.close();
+		}
+	}
+	public int nextDoc_no() {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try{
+			return sqlSession.getMapper(DocMapper.class).nextDoc_no();
+		}catch (Exception e) {
+			e.printStackTrace();
+			return 0;
 		}finally{
 			sqlSession.close();
 		}

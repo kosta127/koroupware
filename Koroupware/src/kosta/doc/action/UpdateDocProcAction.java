@@ -53,6 +53,9 @@ public class UpdateDocProcAction implements Action {
 		if(re>0){
 			forward.setPath("doc/insertDoc_hisForm.jsp");
 			forward.setRedirect(false);
+		}else {
+			forward.setRedirect(false);
+			forward.setPath("fail.jsp");
 		}
 		return forward;
 	}

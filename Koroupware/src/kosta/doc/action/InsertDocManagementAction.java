@@ -26,6 +26,9 @@ public class InsertDocManagementAction implements Action {
 			request.setAttribute("emp_no", emp_no);
 			forward.setRedirect(false);
 			forward.setPath("detailDoc_box.do");
+		}else {
+			forward.setRedirect(false);
+			forward.setPath("fail.jsp");
 		}
 		return forward;
 	}

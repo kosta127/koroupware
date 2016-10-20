@@ -60,14 +60,15 @@ public class DocProcAction implements Action {
 		}
 		
 		
-			doc.setDoc_no(dao.selectDoc_no()+1);
+			int current_no = dao.nextDoc_no();
+			doc.setDoc_no(current_no);
 			doc.setDoc_con_period(date);
 			doc.setDoc_title(multi.getParameter("doc_title"));
 			doc.setDoc_explain(multi.getParameter("doc_explain"));
 			doc.setDoc_contents(multi.getParameter("doc_contents"));
 			doc.setEmp_no(emp_no);
 			doc.setDoc_formYN(multi.getParameter("doc_formYN"));
-			doc_file.setDoc_no(doc.getDoc_no());
+			doc_file.setDoc_no(current_no);
 			
 			
 		if(multi.getFilesystemName("doc_file_real_name") != null) {
@@ -77,19 +78,25 @@ public class DocProcAction implements Action {
 			String doc_file_save_name = uid.toString() + "_" + doc_file_real_name;
 			 doc_file.setDoc_file_real_name(doc_file_real_name);
 	         doc_file.setDoc_file_save_name(doc_file_save_name);
-	         doc_file.setDoc_file_no(dao.selectDoc_file_no()+1);
+	   
 	            
 	         }else{
 	            doc_file.setDoc_file_real_name("");
 	         }
-		
-		
 		int re = dao.insertDoc(doc);
+		
 		int ref = dao.insertDoc_file(doc_file);
+		
+		
 		if(re > 0) {
-			if(ref > 0){
+			
+			if(ref> 0){
 				forward.setRedirect(false);
 				forward.setPath("listDoc.do");
+			}
+			else {
+				forward.setRedirect(false);
+				forward.setPath("fail.jsp");
 			}
 			
 		}

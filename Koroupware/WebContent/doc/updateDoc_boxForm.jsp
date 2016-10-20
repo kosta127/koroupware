@@ -4,10 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./css/menu.css"/>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+<link href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i' rel='stylesheet' type='text/css'>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>문서함명 수정</h1>
+	<jsp:include page="../menu.jsp"></jsp:include>
 	<form action="updateDoc_boxProc.do?doc_box_no=${doc_box_no }&emp_no=${emp_no}" method="post">
 		문서함명 : <input type="text" name="doc_box_name">
 		<input type="submit" value="수정">

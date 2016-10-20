@@ -21,7 +21,6 @@ public class InsertDocHisProcAction implements Action {
 		request.setAttribute("emp_no", emp_no);
 		request.setAttribute("doc_box_no", doc_box_no);
 		DocHis doc_his = new DocHis();
-		doc_his.setDoc_his_no(dao.selectDoc_his_no()+1);
 		doc_his.setEmp_no(emp_no);
 		doc_his.setDoc_no(doc_no);
 		doc_his.setDoc_his_reason_change(request.getParameter("doc_his_reason_change"));
@@ -31,6 +30,9 @@ public class InsertDocHisProcAction implements Action {
 		if(re > 0){
 			forward.setPath("listDoc.do");
 			forward.setRedirect(false);
+		}else {
+			forward.setRedirect(false);
+			forward.setPath("fail.jsp");
 		}
 		return forward;
 	}

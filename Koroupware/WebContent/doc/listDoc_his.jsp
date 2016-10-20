@@ -6,17 +6,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./css/menu.css"/>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+<link href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i' rel='stylesheet' type='text/css'>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style type="text/css">
 	div.col-md-8{
 		margin-top: 10em;
+		margin-left: 10em;
 	}
 </style>
 
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container">
-		<div class="col-md-2"></div>
+		<jsp:include page="../menu.jsp"></jsp:include>
 		<div class="col-md-8">
 			<h1>문서 수정 이력</h1>
 			<c:forEach var="doc_his" items="${list }">
@@ -43,9 +49,7 @@
 					<input type="submit" value="돌아가기" class="btn btn-default">
 			</form>
 		</div>
-		<div class="col-md-2"></div>
-	</div>
-	
+		
 	
 </body>
 </html>

@@ -18,16 +18,14 @@
 		)
 	</insert>
 	
-	<select id="selectDoc_no" resultType="Integer">
-		select max(doc_no) from doc
-	</select>
+	
 	
 	<insert id="insertDoc_box" parameterType="DocBox">
 		insert into doc_box(
 			doc_box_no,doc_box_name,doc_box_regdate,emp_no
 		)
 		values (
-			#{doc_box_no},#{doc_box_name},SYSDATE,#{emp_no}
+			seq_doc_box.NEXTVAL,#{doc_box_name},SYSDATE,#{emp_no}
 		)
 	</insert>
 	
@@ -44,12 +42,11 @@
 		select max(doc_management_no) from doc_management
 	</select>
 	
-	<select id="selectDoc_box_no" resultType="Integer">
-		select max(doc_box_no) from doc_box
-	</select>
+	
 	
 	<select id="listDoc" resultType="Doc">
-		select * from doc 
+		select * from doc d join doc_file df
+		on d.doc_no = df.doc_no
 	
 	</select>
 	
@@ -95,14 +92,10 @@
 			doc_file_no, doc_no, doc_file_real_name, doc_file_save_name, doc_file_size
 		)
 		values(
-			#{doc_file_no}, #{doc_no}, #{doc_file_real_name}, #{doc_file_save_name},
+			seq_doc_file.NEXTVAL, #{doc_no}, #{doc_file_real_name}, #{doc_file_save_name},
 			#{doc_file_size}
 		)
 	</insert>
-	
-	<select id="selectDoc_file_no" resultType="Integer">
-		select max(doc_file_no) from doc_file
-	</select>
 	
 	<select id="selectDoc_file" parameterType="int" resultType="DocFile">
 		select * from doc_file where doc_no = #{doc_no}
@@ -134,13 +127,11 @@
 			doc_his_no, emp_no, doc_no, doc_his_reason_change, doc_his_moddate, doc_his_revise
 		)
 		values(
-			#{doc_his_no}, #{emp_no}, #{doc_no}, #{doc_his_reason_change}, SYSDATE, #{doc_his_revise}
+			seq_doc_his.NEXTVAL, #{emp_no}, #{doc_no}, #{doc_his_reason_change}, SYSDATE, #{doc_his_revise}
 		)
 	</insert>
 	
-	<select id="selectDoc_his_no" resultType="Integer">
-		select max(doc_his_no) from doc_his
-	</select>
+	
 	
 	<update id="updateDoc" parameterType="Doc">
 		update doc set doc_regdate = SYSDATE,doc_title=#{doc_title},doc_contents=#{doc_contents},
@@ -150,6 +141,9 @@
 	
 	<select id="listDocHis" resultType="DocHis">
 		select * from doc_his
+	</select>
+	<select id="nextDoc_no" resultType="int">
+		select seq_doc.nextval from dual
 	</select>
 </mapper>
 
