@@ -51,14 +51,11 @@
 	font-size: 50px; 
 }
 
-.signUp-main{
-	margin-left: 500px;
-	font-family:'Nanum Gothic';
-	font-weight: bold;
-	font-size : 30px;
+.sign-submit-button{
+	margin-left: 330px; 
 }
 
-.signUpdate-form{
+.sign-form{
 	margin-left: 150px;
 }
 
@@ -67,16 +64,19 @@
 	margin-bottom: 40px;
 }
 
-.sign-img{
-	width: 100px;
-	height: 100px;
+.span{
+	font-family:'Nanum Gothic';
+	font-size : 16px;
+	margin-right: 5px; 
 }
 
-.face-img{
-	width: 100px;
-	height: 100px;
+.radio-button{
+	margin-left: 10px;
 }
 
-.submit-button{
-	margin-left: 310px;
+.signUp-main{
+	margin-left: 500px;
+	font-family:'Nanum Gothic';
+	font-weight: bold;
+	font-size : 30px;
 }

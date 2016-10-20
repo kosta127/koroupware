@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta.action.Action;
 import kosta.action.ActionForward;
+import kosta.community.action.CategoryInsertAction;
+import kosta.community.action.CategoryInsertFormAction;
+import kosta.community.action.CategoryListAction;
+import kosta.community.action.CommunityInsertAction;
+import kosta.community.action.CommunityInsertFormAction;
+import kosta.community.action.CommunityListAction;
 import kosta.community.action.DeleteAction;
 import kosta.community.action.DeleteReplyAction;
 import kosta.community.action.DetailAction;
@@ -124,6 +130,24 @@ public class MainController extends HttpServlet {
 			case "deleteReply.do":
 				action = new DeleteReplyAction();
 				break;
+			case "insertCommunityForm.do":
+	            action = new CommunityInsertFormAction();
+	            break;
+	        case "insertCommunity.do":
+	            action = new CommunityInsertAction();
+	            break;
+	        case "listCommunity.do":
+	            action = new CommunityListAction();
+	            break;
+	        case "insertCategoryForm.do":
+	            action = new CategoryInsertFormAction();
+	            break;
+	        case "insertCategory.do":
+	            action = new CategoryInsertAction();
+	            break;
+	        case "listCategory.do":
+	            action = new CategoryListAction();
+	            break;
 			case "LoginProcessAction.do":
 				action = new LoginProcess();
 				break;

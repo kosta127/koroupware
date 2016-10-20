@@ -1,5 +1,5 @@
 .main-font1{
-	margin-left: 120px;
+	margin-left: 150px;
 	font-family: 'Product Sans', Arial, sans-serif;
 	color : #0080c0;
 	font-size: 55px;
@@ -48,35 +48,54 @@
 .main-font10{
 	font-family: 'Product Sans', Arial, sans-serif;
 	color : #E64A19;
-	font-size: 50px; 
+	font-size: 50px;
 }
 
 .signUp-main{
-	margin-left: 500px;
+	margin-left: 300px;
+	font-family:'Nanum Gothic';
+	font-weight: bold;
+	font-size : 30px;
+}
+.main-logo{
+	margin-bottom: 100px;
+}
+.find-id{
+	margin-top: 80px;
+	margin-left: 350px;
+}
+
+.find-pass{
+	margin-left: 330px;
+}
+
+.find-all{
+	margin-left: 150px;
+}
+.find-id-search{ 
+	margin-left: 130px;
 	font-family:'Nanum Gothic';
 	font-weight: bold;
 	font-size : 30px;
 }
 
-.signUpdate-form{
-	margin-left: 150px;
+.find-pass-search{
+	margin-left: 130px;
+	font-family:'Nanum Gothic';
+	font-weight: bold;
+	font-size : 30px;
+}
+.my-id{
+	font-family:'Nanum Gothic';
+	font-weight: bold;
+	font-size : 20px;
+}
+.input-id{
+	margin-bottom: 20px;
 }
 
-.main-logo{
-	margin-left: 30px;
-	margin-bottom: 40px;
-}
-
-.sign-img{
-	width: 100px;
-	height: 100px;
-}
-
-.face-img{
-	width: 100px;
-	height: 100px;
-}
-
-.submit-button{
-	margin-left: 310px;
+.residentnumber{
+	font-family:'Nanum Gothic';
+	font-weight: bold;
+	font-size : 20px;
 }

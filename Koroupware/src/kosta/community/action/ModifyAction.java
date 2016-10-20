@@ -17,6 +17,8 @@ public class ModifyAction implements Action {
 		BoardDao dao = BoardDao.getInstance();
 		
 		int board_no = Integer.parseInt(request.getParameter("board_no"));
+		int category_no = Integer.parseInt(request.getParameter("category_no"));
+		request.setAttribute("category_no", category_no);
 		
 		Board board = dao.detailBoard(board_no);
 		board.setBoard_title(request.getParameter("board_title"));
@@ -29,7 +31,7 @@ public class ModifyAction implements Action {
 			forward.setPath("listBoard.do");
 		}else{
 			forward.setRedirect(true);
-			forward.setPath("listForm.do");
+			forward.setPath("board/modifyForm.jsp");
 		}
 		return forward;
 	}
