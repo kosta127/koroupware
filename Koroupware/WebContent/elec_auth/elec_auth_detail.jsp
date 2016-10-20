@@ -8,9 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/elec_auth_detail.css">
-<script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="printTool/jQuery.print.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$("input#printButton").on('click',function() {

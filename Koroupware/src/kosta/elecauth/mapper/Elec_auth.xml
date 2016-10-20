@@ -148,6 +148,13 @@
 			AND doc_deldate IS NULL
 			ORDER BY doc_title ASC
 	</select>
+	
+	<insert id="elec_authYN" >
+		INSERT WHEN elec_auth_no=#{elec_auth_no} AND emp_no={emp_no} THEN
+			INTO APPROVAL_LIST(approval_list_pass)
+			VALUES(#{approval_list_pass})
+	</insert>
+	
 </mapper>
 
 

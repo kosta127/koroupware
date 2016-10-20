@@ -9,9 +9,9 @@ $(function() {
 	});
 });
 
-$( function() {
+/*$( function() {
 	//결재함 메뉴
-   /* $( "#elec_auth_box" ).accordion({
+   $( "#elec_auth_box" ).accordion({
       collapsible: true
-    });*/
-  } );
+    });
+  } );*/
