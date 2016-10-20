@@ -47,9 +47,9 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home<span class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+        <li class="active"><a href="main.do">Home<span class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
         <li ><a href="listDoc_box.do">문서<span class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-        <li ><a href="#">전자결재<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span> </a></li>
+        <li ><a href="elec_authList.do">전자결재<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span> </a></li>
         <li ><a href="listCommunity.do">커뮤니티 <span  class="pull-right hidden-xs showopacity glyphicon glyphicon-comment"></span></a>
 				<c:forEach var="communityList" items="${communityList }">
 					<li class="li-comu">
@@ -62,7 +62,7 @@
 								<li><a href="listBoard.do?category_no=${categoryList.category_no}">${categoryList.category_name}</a></li>
 							</ul>
 				</c:forEach></li>          
-        <li ><a href="#">조직도<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+        <li ><a href="orgChartPage.do">조직도<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
         <li ><a href="messagePage.do">쪽지<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-send"></span></a></li>  
       </ul>
     </div>
