@@ -110,7 +110,7 @@ public class SignUpDao {
 			sqlSession.close();
 		}
 		
-		return re;
+		return re; 
 	}
 	
 	public int telUpdate(Tel tel){
@@ -129,6 +129,24 @@ public class SignUpDao {
 			sqlSession.close();
 		}
 		
+		return re;
+	}
+	
+	public int telDelete(int tel_no){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		re = sqlSession.getMapper(SignUpMapper.class).telDelete(tel_no);
+		try {
+			if(re > 0){
+				sqlSession.commit();
+			}else{
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 		return re;
 	}
 }

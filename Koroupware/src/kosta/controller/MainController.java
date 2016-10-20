@@ -53,6 +53,7 @@ import kosta.login.action.SignUpdateAction;
 import kosta.login.action.StartAction;
 import kosta.login.action.TelAddAction;
 import kosta.login.action.TelDeleteAction;
+import kosta.login.action.TelUpdateAction;
 import kosta.message.action.FailAction;
 import kosta.message.action.MessagePageAction;
 import kosta.message.action.MessageSendAction;
@@ -206,6 +207,9 @@ public class MainController extends HttpServlet {
 				break;
 			case "listDoc_his.do":
 				action = new ListDocHisAction();
+				break;
+			case "telUpdate.do":
+				action = new TelUpdateAction();
 				break;
 			default:
 				System.out.println("dd");

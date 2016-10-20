@@ -5,7 +5,6 @@ import java.util.List;
 import kosta.emp.model.Emp;
 import kosta.emp.model.Tel;
 import kosta.login.dao.SessionDao;
-import kosta.login.dao.SignUpDao;
 
 public class SessionService {
 	private static SessionDao dao = new SessionDao();
