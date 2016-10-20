@@ -5,8 +5,7 @@
 <%@ taglib prefix="fun" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%
    Emp emp = (Emp) session.getAttribute("emp");
-%>
-    
+%>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,9 +33,9 @@
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home<span class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-        <li ><a href="#">문서<span class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+        <li ><a href="listDoc_box.do">문서<span class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
         <li ><a href="#">전자결재<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span> </a></li>
-        <li ><a href="#">게시판<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>         
+        <li ><a href="listBoard.do">게시판<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>         
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">커뮤니티 <span class="caret"></span><span  class="pull-right hidden-xs showopacity glyphicon glyphicon-comment"></span></a>
           <ul class="dropdown-menu forAnimate" role="menu">
@@ -51,8 +50,8 @@
             <li><a href="#">컴퓨터</a></li>
           </ul>
         </li>          
-        <li ><a href="#">조직도<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-        <li ><a href="#">쪽지<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-send"></span></a></li>  
+        <li ><a href="orgChartPage.do">조직도<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+        <li ><a href="messagePage.do">쪽지<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-send"></span></a></li>  
       </ul>
     </div>
   </div>
@@ -69,11 +68,11 @@
    </c:if>
    <div class="button">
    <button onclick="signUpdate()" class="btn btn-success">정보변경</button>
-   <button onclick="logout()" class="btn btn-warning">로그아웃</button>
+   <button onclick="messagePage.dout()" class="btn btn-warning">로그아웃</button>
    </div>
-   <div class="logo">
+  <div class="logo">
  <img alt="logo" src="main.gif" id="logo" class="img-circle">
-   </div>
+   </div> 
    <div class="search">
       <form action="SearchAction.do" method="get">
       <div class="col-xs-6">
@@ -82,5 +81,6 @@
       </form>
       </div>
 </div>
+
 </body>
 </html>

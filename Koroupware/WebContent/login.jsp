@@ -14,6 +14,18 @@
 
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.js"></script>
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link
+	href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i'
+	rel='stylesheet' type='text/css'>
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.js"></script>
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/login.css" />
 <script type="text/javascript">
@@ -31,6 +43,40 @@
       
       <div class="panel-heading">
       <span class="main-font1">K</span><span class="main-font2">o</span><span class="main-font3">r</span><span class="main-font4">o</span><span class="main-font5">u</span><span class="main-font6">p</span><span class="main-font7">w</span><span class="main-font8">a</span><span class="main-font9">r</span><span class="main-font10">e</span>
+<body>
+	<div class="body">
+		<div class="panel panel-default">
+
+			<div class="panel-heading">
+				<span class="main-font1">K</span><span class="main-font2">o</span><span
+					class="main-font3">r</span><span class="main-font4">o</span><span
+					class="main-font5">u</span><span class="main-font6">p</span><span
+					class="main-font7">w</span><span class="main-font8">a</span><span
+					class="main-font9">r</span><span class="main-font10">e</span>
+
+			</div>
+			<div class="panel-body">
+				<form class="login" action="LoginProcessAction.do" method="post">
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"> <i
+								class="glyphicon glyphicon-user" style="width: auto"></i>
+							</span> <input id="txtUsuario" type="text" class="form-control"
+								name="emp_id" placeholder="Username" />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"> <i
+								class="glyphicon glyphicon-lock" style="width: auto"></i>
+							</span> <input id="txtSenha" type="password" class="form-control"
+								name="emp_password" placeholder="Password" />
+						</div>
+					</div>
+					<input type="submit" class="btn btn-default" style="width: 100%"
+						value="ENTER">
+				</form>
+				<br>
 
       </div>
       <div class="panel-body">
@@ -54,6 +100,14 @@
             <input type="submit" class="btn btn-default" style="width: 100%"
                value="ENTER">
          </form><br>
+				<div class="searchIdPass">
+					<button onclick="findUser()" class="btn btn-primary">아이디/비밀번호
+						찾기</button>
+					<button onclick="signUp()" class="btn btn-warning">회원 가입</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
          <div class="searchIdPass">      
                <button onclick="findUser()" class="btn btn-primary">아이디/비밀번호 찾기</button>

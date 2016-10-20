@@ -7,11 +7,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<style type="text/css">
+	div.col-md-8{
+		margin-top: 10em;
+	}
+</style>
+<script type="text/javascript">
+	function fn_back(){
+		history.back(-1);
+	}
+</script>
 <title>Insert title here</title>
 
 </head>
 <body>
-	<table border="1" cellpadding="0" cellspacing="0">
+	<div class="container">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<table border="1" cellpadding="0" cellspacing="0" class="table table-hover">
 		<tr height="30">
 			<th>제목</th>
 			<td>${doc.doc_title }</td>
@@ -37,6 +51,13 @@
 			</c:forEach>
 		</tr>
 	</table>
+	<form action="updateDocForm.do?doc_no=${doc_no }&doc_box_no=${doc_box_no }&emp_no=${emp_no}" method="post">
+		<input type="submit" value="수정하기 " class="btn btn-default">
+		<input type="button" value="돌아가기" class="btn btn-default" onclick="fn_back()">
+	</form>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
 	
 	
 </body>
