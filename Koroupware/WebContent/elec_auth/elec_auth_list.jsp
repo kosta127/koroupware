@@ -7,39 +7,42 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+<link rel="stylesheet" href="css/elec_auth_list.css">
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/elec_auth_list.js"></script>
 <title>Insert title here</title>
-<style type="text/css">
-.center {
-	text-align: center;
-}
-</style>
-<script type="text/javascript">
-	$(function() {
-		$('#write').on('click', function() {
-			location.href = "elec_authWriteForm.do";
-		});
-	});
-</script>
 </head>
 <body>
-	<div class="col-md-3">
-		<h3>테두리</h3>
-	</div>
+	<c:choose>
+		<c:when test="${receive != null}">
+			<c:set var="pageUrl" value="elec_authList.do?receive=ok"></c:set>
+		</c:when>
+		<c:otherwise>
+			<c:set var="pageUrl" value="elec_authList.do?"></c:set>
+		</c:otherwise>
+	</c:choose>
 
-	<div class="elec_authBox">
-		<div class="col-md-3">
-			<h3>문서함</h3>
-			<br>
-			<div id="all_list">전체 문서</div><br><br>
-			<div id="write_list">내가 올린 문서</div><br><br>
-			<div id="send_list">내가 받은 문서</div>
+	<div id="elec_auth_box">
+		<h3><a href="elec_authList.do">내가 올린 결재</a></h3>
+		<div id="write_list">					
+		<!-- <p><a href="elec_authList.do?flag=ing">진행중인 결재</a></p>
+			<p><a href="elec_authList.do?flag=done">완료된 결재</a></p>
+			<p><a href="elec_authList.do?flag=ret">부결/반려된 결재</a></p> 나중에추가합시다-->
+			<p><a href="elec_authList.do?flag=temp">임시저장 결재</a></p>
 		</div>
+		<h3><a href="elec_authList.do?receive=ok">내가 받은 결재</a></h3>
+		<div id="receive_list">			
+		<!-- <p><a href="elec_authList.do?receive=ok&flag=wait">결재대기중인 결재</a></p>
+			<p><a href="elec_authList.do?receive=ok&flag=ing">진행중인 결재</a></p>
+			<p><a href="elec_authList.do?receive=ok&flag=done">완료된 결재</a></p>
+			<p><a href="elec_authList.do?receive=ok&flag=ret">부결/반려한 결재</a></p> 나중에추가합시다-->
+		</div>	
 	</div>
 
 	<div class="elec_authList">
-		<div class="col-md-6">
 			<h3>결재문서 목록</h3>
 			<table border="1" class="center">
 				<thead>
@@ -59,8 +62,7 @@
 						<tr>
 							<td>${i.elec_auth_no }</td>
 							<td>${i.doc_title}</td>
-							<td><a
-								href="elec_authDetail.do?elec_auth_no=${i.elec_auth_no}">${i.elec_auth_title }</a></td>
+							<td><a href="elec_authDetail.do?elec_auth_no=${i.elec_auth_no}">${i.elec_auth_title }</a></td>
 							<td>${i.dept_name }</td>
 							<td>${i.emp_name }</td>
 							<td>${i.elec_auth_regdate }</td>
@@ -69,32 +71,27 @@
 						</tr>
 					</c:forEach>
 				</tbody>
-			</table>
+			</table> 
 			
 			<div class="center">
 				<c:if test="${paging.needBefore }">
-				<br>
-					<span class="labe"><a href="elec_authList.do?pageNum=${paging.startPage-1 }">이전</a></span>
+					<span class="labe"><a href="${pageUrl }&pageNum=${paging.startPage-1 }">이전</a></span>
 				</c:if>
 				<c:forEach var="i" begin="${paging.startPage }"
 					end="${paging.endPage }">
 					<c:choose>
 						<c:when test="${i==paging.currentPage }">
-						<br>
 							<span class="label label-info">${i }</span>
 						</c:when>
 						<c:otherwise>
-						<br>
-							<span class="label"><a href="elec_authList.do?pageNum=${i }">${i }</a></span>
+							<span class="label"><a href="${pageUrl }&pageNum=${i }">${i }</a></span>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 				<c:if test="${paging.needAfter }">
-				<br>
-					<span class="label"><a href="elec_authList.do?pageNum=${paging.endPage+1 }">다음</a></span>
+					<span class="label"><a href="${pageUrl }&pageNum=${paging.endPage+1 }">다음</a></span>
 				</c:if>
 			</div>
-		</div>
 	</div>
 	<input type="button" id="write" value="결재작성">
 
