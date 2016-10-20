@@ -1,19 +1,21 @@
 <%@page import="java.net.URLEncoder"%>
-<%@page import="kosta.etc.FileDownloadHelper"%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-
-<%
+<%@page import="kosta.doc.model.FileDownloadHelper"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
 	request.setCharacterEncoding("utf-8");
 	response.reset();
 	
 	String fileName = request.getParameter("doc_file_real_name");
-	//String fileName = new String(fileName2.getBytes("8859_1"), "UTF-8");
-	
-	System.out.println(fileName);
-	
+	out.print(fileName);
 	fileName = URLEncoder.encode(fileName, "utf-8");
-	System.out.println(fileName);
 	
 	String uploadPath = request.getRealPath("upload");
 	String path = uploadPath.trim() + "\\" + fileName.trim();
@@ -35,12 +37,7 @@
 		System.out.println("ok");
 		e.printStackTrace();
 	}
+	
 %>    
-
-
-
-
-
-
-
-
+</body>
+</html>

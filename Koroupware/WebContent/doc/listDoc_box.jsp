@@ -6,16 +6,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./css/menu.css"/>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+<link href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i' rel='stylesheet' type='text/css'>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+</head>
 <style type="text/css">
 	div.col-md-8{
-		margin-top: 10em
+		margin-top: 10em;
+		margin-left: 10em;
 	}
 </style>
-<title>Insert title here</title>
-</head>
 <body>
-	<div class="container">
-		<div class="col-md-2"></div>
+		<jsp:include page="../menu.jsp"></jsp:include>
 		<div class="col-md-8">
 		<table border="1" cellpadding="0" cellspacing="0" class="table table-hover">
 		<tr height="30">
@@ -26,20 +32,21 @@
 		</tr>
 		<c:forEach var="doc_box" items="${list}">
 			<tr>
-				<td>${doc_box.doc_box_no }</td>
-				<td><a href="detailDoc_box.do?doc_box_no=${doc_box.doc_box_no}">${doc_box.doc_box_name }</a></td>
+				<td>${doc_box.doc_box_no}</td>
+				<td><a href="detailDoc_box.do?doc_box_no=${doc_box.doc_box_no}&emp_no=${emp_no}">${doc_box.doc_box_name }</a></td>
 				<td>${doc_box.doc_box_regdate }</td>
-				<td><a href="deleteDoc_box_management.do?doc_box_no=${doc_box.doc_box_no}">삭제</a></td>
+				<td><a href="deleteDoc_box_management.do?emp_no=${emp_no }&doc_box_no=${doc_box.doc_box_no}">삭제</a></td>
 			</tr>
 		</c:forEach>
 		
 	</table>
 	<form action="Doc_boxForm.do" method="post">
+		<input type="hidden" name="emp_no" value="${emp_no }">
 		<input type="submit" value="문서함 추가" class="btn btn-default">
 	</form>
 		</div>
-		<div class="col-md-2"></div>
-	</div>
+		
+
 	
 </body>
 </html>

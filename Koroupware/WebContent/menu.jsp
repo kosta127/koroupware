@@ -3,7 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fun" uri="http://java.sun.com/jsp/jstl/functions"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -78,17 +78,7 @@
 			<button onclick="signUpdate()" class="btn btn-success">정보변경</button>
 			<button onclick="messagePage.dout()" class="btn btn-warning">로그아웃</button>
 		</div>
-		<div class="logo">
-			<img alt="logo" src="main.gif" id="logo" class="img-circle">
-		</div>
-		<div class="search">
-			<form action="SearchAction.do" method="get">
-				<div class="col-xs-6">
-					<input type="text" name="search_content" class="form-control">
-				</div>
-				<input type="submit" value="검색" class="btn btn-primary">
-			</form>
-		</div>
+		
 	</div>
 
 </body>

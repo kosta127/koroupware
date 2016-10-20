@@ -14,7 +14,6 @@ import kosta.action.ActionForward;
 import kosta.emp.model.Emp;
 
 public class DocFormAction implements Action {
-
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
@@ -23,7 +22,7 @@ public class DocFormAction implements Action {
 		request.setAttribute("doc_box_no", doc_box_no);
 		
 		forward.setRedirect(false);
-		forward.setPath("doc/docForm.jsp");
+		forward.setPath("doc/DocForm.jsp");
 		
 		return forward;
 	}

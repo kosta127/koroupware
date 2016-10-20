@@ -15,14 +15,14 @@ public class DeleteDocManagementAction implements Action {
 		ActionForward forward = new ActionForward();
 		DocDao dao = DocDao.getInstance();
 		int doc_no = Integer.parseInt(request.getParameter("doc_no"));
-		int doc_box_no = Integer.parseInt(request.getParameter("doc_box_no"));
+		int doc_management_no = Integer.parseInt(request.getParameter("doc_management_no"));
 		int emp_no = Integer.parseInt(request.getParameter("emp_no"));
 		
 		request.setAttribute("doc_no", doc_no);
-		request.setAttribute("doc_box_no", doc_box_no);
+		request.setAttribute("doc_management_no", doc_management_no);
 		request.setAttribute("emp_no", emp_no);
 		DocManagement doc_management = new DocManagement();
-		doc_management.setDoc_box_no(doc_box_no);
+		doc_management.setDoc_management_no(doc_management_no);
 		doc_management.setDoc_no(doc_no);
 		System.out.println(doc_management.getDoc_box_no());
 		System.out.println(doc_management.getDoc_box_no());

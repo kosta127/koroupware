@@ -115,7 +115,7 @@
 	
 	<delete id="deleteDoc_box_management" parameterType="int">
 		delete from doc_management 
-		where doc_box_no = #{doc_box_no}
+		where doc_management_no = #{doc_management_no}
 	</delete>
 	
 	<update id="deleteDoc" parameterType="int">

@@ -68,7 +68,7 @@
 	</select>
 	
 	<select id="getNextElecAuthNo" resultType="int">
-		SELECT TEST_SEQ.nextval FROM DUAL
+		SELECT seq_elec_auth.nextval FROM DUAL
 	</select>
 	<select id="elec_authDetailApproval" resultType="Elec_authDetailApproval" parameterType="int">
 		SELECT ea.elec_auth_no, a.emp_no, a.approval_list_pass, a.approval_list_step, a.approval_list_date,
@@ -95,7 +95,7 @@
                       elec_auth_enddate, 
                       elec_auth_temporary_saveYN, elec_auth_con_period,
                       doc_no, elec_auth_regdate)
-        	VALUES(seq_elec_auth.NEXTVAL, #{emp_no}, #{elec_auth_management_dept_no},
+        	VALUES(#{elec_auth_no}, #{emp_no}, #{elec_auth_management_dept_no},
         			#{elec_auth_title}, #{elec_auth_contents},
         			#{elec_auth_enddate},
         			#{elec_auth_temporary_saveYN}, #{elec_auth_con_period},
