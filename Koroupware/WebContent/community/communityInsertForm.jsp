@@ -12,16 +12,16 @@
 	<form action="insertCommunity.do" method="post">
 		<input type="hidden" value="${sessionScope.emp.emp_no}" name="emp_no"/>
 		<table border="1" cellpadding="0" cellspacing="0">
-				<tr height="10">
-					<td align="center">커뮤티니 명:</td>
-					<td>
-						<textarea cols="40" rows="1" name="community_name"></textarea>
-					</td>
-					<td colspan="4">
-						<input type="submit" value="생성">
-					</td>
-				</tr>
-			</table>
+			<tr height="10">
+				<td align="center">커뮤티니 명:</td>
+				<td>
+					<textarea cols="40" rows="1" name="community_name"></textarea>
+				</td>
+				<td colspan="4">
+					<input type="submit" value="생성">
+				</td>
+			</tr>
+		</table>
 	</form>
 </body>
 </html>

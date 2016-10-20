@@ -8,32 +8,32 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.structure.min.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.theme.min.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 	
 	  
 	<!-- 사용자 css -->
-	<link rel="stylesheet" type="text/css" href="../css/boardDetail.css"/>
+	<link rel="stylesheet" type="text/css" href="css/boardDetail.css"/>
 	<!--  -->
 	
-	<script type="text/javascript" src="../js/jquery.js"></script>
-	<script type="text/javascript" src="../js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 	
 	<!-- 사용자 js -->
 	<script type="text/javascript">
 		function board_modify() {
-			location.href="modifyForm.do?board_no=${board.board_no}";
+			location.href="modifyForm.do?board_no=${board.board_no}&category_no=${board.category_no}";
 		}
 		function board_list() {
-			location.href="listBoard.do";
+			location.href="listBoard.do?category_no=${board.category_no}";
 		}
 		function board_delete() {
-			location.href="delete.do?board_no=${board.board_no}";
+			location.href="delete.do?board_no=${board.board_no}&category_no=${board.category_no}";
 		}
 		function show_reply() {
 			$("div#replyDiv").toggle();
@@ -102,7 +102,7 @@
 		</c:forEach>
 		</table>
 	</div>
-	<form action="reply.do" method="post">
+		<form action="reply.do" method="post">
 			<input type="hidden" name="board_no" value="${board.board_no }">
 			<table border="1" cellpadding="0" cellspacing="0">
 				<tr height="10">

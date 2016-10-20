@@ -12,6 +12,7 @@ public class CommunityInsertFormAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
 		
+		
 		forward.setRedirect(false);
 		forward.setPath("community/communityInsertForm.jsp");
 		

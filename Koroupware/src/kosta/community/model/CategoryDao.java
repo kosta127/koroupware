@@ -40,11 +40,16 @@ public class CategoryDao {
 	}
 	
 	public int insertCategory(Category category){
-		int re = -1;
+		int re = 0;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		
+		System.out.println(category);
 		try {
 			re = sqlSession.getMapper(CategoryMapper.class).insertCategory(category);
+			if(re>0){
+				sqlSession.commit();
+			}else{
+				sqlSession.rollback();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -52,20 +57,21 @@ public class CategoryDao {
 		}
 		return re;
 	}
-	
-	public List<Community> listCategory(int community_no){
-		List<Community> list = null;
+	 
+	public List<Category> listCategory(int community_no){
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
+		
 		try {
-			list = sqlSession.getMapper(CategoryMapper.class).listCategory(community_no);
+			return sqlSession.getMapper(CategoryMapper.class).listCategory(community_no);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}finally {
 			if(sqlSession != null) sqlSession.close(); 
 		}
 		
-		return list;
+		
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -16,6 +17,7 @@ import kosta.community.model.Board;
 import kosta.community.model.BoardDao;
 import kosta.community.model.BoardFile;
 import kosta.community.model.BoardFileDao;
+import kosta.emp.model.Emp;
 
 public class InsertAction implements Action {
 
@@ -23,6 +25,8 @@ public class InsertAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		Board board = new Board();
 		BoardFile boardfile = new BoardFile();
+		HttpSession session = request.getSession();
+		Emp emp = (Emp)session.getAttribute("emp");
 		
 		ActionForward forward = new ActionForward();
 		
@@ -30,14 +34,18 @@ public class InsertAction implements Action {
 		
 		String uploadPath = request.getRealPath("upload");
 		int max_size = 1024 * 1024 * 20;
+		int category_no = 0;
 		
 		try {
 			MultipartRequest mpr = new MultipartRequest(request, uploadPath, max_size, "UTF-8", new DefaultFileRenamePolicy());
+			
+			category_no = Integer.parseInt(mpr.getParameter("category_no"));
 			board.setBoard_title(mpr.getParameter("board_title"));
 			board.setBoard_contents(mpr.getParameter("board_contents"));
-			/*board.setBoard_hit(Integer.parseInt(request.getParameter("hit")));*/
-			/*board.setEmp_no(Integer.parseInt(request.getParameter("emp_no")));*/
-			board.setEmp_no(1);	//임시 (로그인)
+			board.setEmp_no(emp.getEmp_no());
+			board.setCategory_no(category_no);
+			/*board.setEmp_no(1);	//임시 (로그인)*/
+			
 			BoardDao dao = BoardDao.getInstance();
 			int re = dao.insertBoard(board);
 			
@@ -60,8 +68,10 @@ public class InsertAction implements Action {
 				boardfile.setBoard_file_real_name("");
 			}
 			
-			if(re==1){
-				forward.setRedirect(true);
+			if(re>0){
+				request.setAttribute("category_no", category_no);
+				
+				forward.setRedirect(false);
 				forward.setPath("listBoard.do");
 				
 				filedao.fileInsert(boardfile);

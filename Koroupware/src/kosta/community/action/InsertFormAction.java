@@ -12,6 +12,9 @@ public class InsertFormAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
 		
+		int category_no = Integer.parseInt(request.getParameter("category_no"));
+		request.setAttribute("category_no", category_no);
+		
 		forward.setRedirect(false);
 		forward.setPath("board/insertForm.jsp");
 		

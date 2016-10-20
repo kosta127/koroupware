@@ -3,35 +3,43 @@ package kosta.community.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 
 import kosta.action.Action;
 import kosta.action.ActionForward;
 import kosta.community.model.Category;
 import kosta.community.model.CategoryDao;
 
+
 public class CategoryInsertAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		 Category category = new Category();
+		
+		 int community_no = Integer.parseInt(request.getParameter("community_no"));
+		 
 		 CategoryDao dao = CategoryDao.getInstance();
 		 
 		 category.setCategory_name(request.getParameter("category_name"));
+		 category.setCommunity_no(community_no);
 		 
 		 int re = dao.insertCategory(category);
 		 
 		 ActionForward forward = new ActionForward();
-		 
-		 if(re==1){
-			 forward.setRedirect(false);
-			 forward.setPath("listCategory.do");
-		 }else{
-			 forward.setRedirect(true);
-			 forward.setPath("category/categoryInsertForm.jsp");
-		 }
-		return null;
+		
+		request.setAttribute("community_no", community_no);
+		
+		if(re>0){
+			forward.setRedirect(false);
+			forward.setPath("main.do");
+		}else{
+			forward.setRedirect(true);
+			forward.setPath("category/categoryInsertForm.jsp");
+		}
+		
+		
+		return forward;
 	}
 
 }

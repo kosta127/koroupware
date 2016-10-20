@@ -3,7 +3,6 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-
 <mapper namespace="kosta.community.mapper.CommunityMapper">
 	<insert id="insertCommunity" parameterType="Community">
 		insert into community(
@@ -14,11 +13,11 @@
 		)
 	</insert>
 	
-	<select id="listCommunity" resultType="Community">
-		select c.community_name
+	<select id="listCommunity" resultType="Community" parameterType="int">
+		select c.community_name, c.community_no
 		from community c, emp e
  		where e.emp_no=c.emp_no
-  			and emp_no = #{emp_no}
+  			and e.emp_no = #{emp_no}
 	</select>
 	
 	

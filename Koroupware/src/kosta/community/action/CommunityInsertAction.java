@@ -27,14 +27,11 @@ public class CommunityInsertAction implements Action {
 		community.setEmp_no(emp_no);
 		int re= dao.insertCommunity(community);
 		
-		if(re==1){
-			request.setAttribute("emp_no", emp_no);
-			forward.setRedirect(false);
-			forward.setPath("main.do");
-		}else{
-			forward.setRedirect(true);
-			forward.setPath("community/communityInsertForm.jsp");
-		}
+		
+		request.setAttribute("emp_no", emp_no);
+		forward.setRedirect(false);
+		forward.setPath("main.do");
+		
 		
 		return forward;
 	}

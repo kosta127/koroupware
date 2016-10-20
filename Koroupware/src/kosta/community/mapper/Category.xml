@@ -7,18 +7,18 @@
 <mapper namespace="kosta.community.mapper.CategoryMapper">
 	<insert id="insertCategory" parameterType="Category">
 		insert into category(
-			community_no, category_name, category_regdate, community_no
+			category_no, category_name, category_regdate, community_no
 		)
 		values(
-			seq_community.NEXTVAL, #{category_name}, SYSDATE, #{community_no}
+			seq_category.NEXTVAL, #{category_name}, SYSDATE, #{community_no}
 		)
 	</insert>
 	
-	<select id="listCategory" resultType="Category">
-		select c.category_no, c.category_name, c.category_regdate, c.community_no 
+	<select id="listCategory" resultType="Category" parameterType="int">
+		select c.category_name, c.category_no, cm.community_no
 		from category c, community cm
   		where c.community_no = cm.community_no
-  			and category_deldate is null 
+  			and c.community_no = #{community_no}
 	</select>
 	
 </mapper>

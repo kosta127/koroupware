@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fun" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%
-	Emp emp = (Emp) session.getAttribute("emp");
+	Emp emp = (Emp)session.getAttribute("emp");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,14 +14,15 @@
 <title>메인</title>
 <script type="text/javascript">
 	function logout() {
-		location.href = "login.jsp"
+		location.href = "login.jsp";
 	}
 	function signUpdate() {
-		location.href = "signUpdateForm.jsp"
+		location.href = "signUpdateForm.jsp";
 	}
 	function community_create() {
-		location.href="insertCommunityForm.do?emp_no=${emp.emp_no}"
+		location.href="insertCommunityForm.do?emp_no=${emp.emp_no}";
 	}
+	
 </script>
  
 </head>
@@ -43,7 +44,21 @@
 	<ul>
 		<li><a href="listDoc_box.do">문서</a></li>
 		<li><a>결재</a></li>
-		<li><a href="listCommsunity.do?emp_no=${emp.emp_no}">커뮤니티</a></li>
+		<li><a href="listCommunity.do">커뮤니티</a>
+			<ul>
+				<c:forEach var="communityList" items="${communityList }">
+					<li>
+						<a href="listCategory.do?community_no=${communityList.community_no }">${communityList.community_name}</a>
+						<a href="insertCategoryForm.do?community_no=${communityList.community_no}">+</a>
+					</li>		
+				</c:forEach>
+				<c:forEach var="categoryList" items="${categoryList }">	
+							<ul>
+								<li><a href="listBoard.do?category_no=${categoryList.category_no}">${categoryList.category_name}</a></li>
+							</ul>
+				</c:forEach>
+			</ul>
+		</li>
 		<li><a>조직도</a></li>
 		<li><a href="messagePage.do">쪽지</a></li>
 	</ul>

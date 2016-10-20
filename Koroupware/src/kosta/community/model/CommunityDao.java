@@ -59,8 +59,8 @@ public class CommunityDao {
 	}
 	
 	public List<Community> listCommunity(int emp_no){
-		List<Community> list = null;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Community> list = null;
 		
 		try {
 			list = sqlSession.getMapper(CommunityMapper.class).listCommunity(emp_no);

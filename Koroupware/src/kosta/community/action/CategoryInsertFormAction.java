@@ -12,6 +12,9 @@ public class CategoryInsertFormAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
 		
+		int community_no = Integer.parseInt(request.getParameter("community_no"));
+		request.setAttribute("community_no", community_no);
+		
 		forward.setRedirect(false);
 		forward.setPath("category/categoryInsertForm.jsp");
 		

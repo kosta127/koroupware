@@ -44,7 +44,7 @@ public class BoardDao {
 	}
 	
 	public int insertBoard(Board board){
-		int re=-1;
+		int re=0;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
 		try {
@@ -62,12 +62,12 @@ public class BoardDao {
 		return re;
 	}
 	
-	public List<Board> listBoard(int startRow, Search search){
+	public List<Board> listBoard(int startRow, Search search, int category_no){
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		List<Board> list = null;
 		int page_size = ListAction.PAGE_SIZE;
 		try {
-			list = sqlSession.getMapper(BoardMapper.class).listBoard(new RowBounds(startRow, page_size), search);
+			list = sqlSession.getMapper(BoardMapper.class).listBoard(new RowBounds(startRow, page_size), search, category_no);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -77,12 +77,13 @@ public class BoardDao {
 		
 	}
 	
-	public List<BoardModel> listBoardModel(int startRow, Search search){
+	public List<BoardModel> listBoardModel(SelectModel selectModel){
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		List<BoardModel> list = null;
 		int page_size = ListAction.PAGE_SIZE;
 		try {
-			list = sqlSession.getMapper(BoardMapper.class).listBoardModel(new RowBounds(startRow, page_size), search);
+			list = sqlSession.getMapper(BoardMapper.class).listBoardModel(new RowBounds(selectModel.getStartRow(), page_size),
+					selectModel);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -190,13 +191,13 @@ public class BoardDao {
 		return result;
 	}
 	
-	public int countBoard(Search search){
+	public int countBoard(SelectModel selectModel){
 		int re = -1;
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
 		try {
-			re = sqlSession.getMapper(BoardMapper.class).countBoard(search);
+			re = sqlSession.getMapper(BoardMapper.class).countBoard(selectModel);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
