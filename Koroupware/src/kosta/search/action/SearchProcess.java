@@ -20,8 +20,7 @@ public class SearchProcess implements Action {
 		String search_content = request.getParameter("search_content");
 		String keyfield = request.getParameter("keyField");
 		SearchService service = SearchService.getInstance();
-		
-		
+
 		List<Emp> emplist = service.ListEmpServivce();
 		List<Doc> doclist = service.ListDocService();
 		ActionForward forward = new ActionForward();
@@ -40,11 +39,11 @@ public class SearchProcess implements Action {
 					forward.setPath("main.jsp");
 					forward.setRedirect(false);
 				}
-				
-			}
-			
 
-		} if (keyfield.equals("document")) {
+			}
+
+		}
+		if (keyfield.equals("document")) {
 			for (int i = 0; i < doclist.size(); i++) {
 				if (doclist.get(i).getDoc_contents().equals(search_content)) {
 					List<Doc> searchDoclist = service.SearchDocService(search_content);
@@ -54,32 +53,38 @@ public class SearchProcess implements Action {
 					forward.setPath("./Search/searchDocSucess.jsp");
 					forward.setRedirect(false);
 					break;
-				}else if(doclist.get(i).getDoc_title().equals(search_content)){
+				} else if (doclist.get(i).getDoc_title().equals(search_content)) {
 					List<Doc> searchDoclist = service.SearchDocService(search_content);
-					System.out.println("문서 검색 성공 - 제목으로 검색");
+					System.out.println(search_content);
+					System.out.println("문서 검색 성공 - 제목");
 					request.setAttribute("SearchDoc", searchDoclist);
 					forward.setPath("./Search/searchDocSucess.jsp");
 					forward.setRedirect(false);
 					break;
-				} else if(emplist.get(i).getEmp_name().equals(search_content)){
-					List<Doc> searchDoclist_empName = service.SearchDocEmpNameService(search_content);
-					System.out.println("문서 검색 성공 - 작성자");
-					request.setAttribute("SearchDoc", searchDoclist_empName);
-					forward.setPath("./Search/searchDocSucess.jsp");
-					forward.setRedirect(false);
-					break;
-				}else {
-				}
+				} else if (!doclist.get(i).getDoc_title().equals(search_content)
+						&& !doclist.get(i).getDoc_contents().equals(search_content)) {
+					for (int j = 0; j < emplist.size(); j++) {
+						if (emplist.get(j).getEmp_name().equals(search_content)) {
+							List<Doc> searchDoclist = service.SearchDocService(search_content);
+							System.out.println("문서 검색 성공 - 작성자");
+							request.setAttribute("SearchDoc", searchDoclist);
+							forward.setPath("./Search/searchDocSucess.jsp");
+							forward.setRedirect(false);
+							break;
+						}
+					}
+
+				} else {
+
 					System.out.println("실패");
 					forward.setPath("main.jsp");
 					forward.setRedirect(false);
 					break;
 				}
-				
-			}
-			
-		
-		return forward;
 
+			}
+
+		}
+		return forward;
 	}
 }

@@ -29,7 +29,7 @@ public class FindPasswordProcess implements Action {
 					&& list.get(i).getEmp_no()== num){
 				session.setAttribute("find_no", list.get(i).getEmp_no());
 				session.setAttribute("sendemail_to", list.get(i).getEmp_email());
-				forward.setPath("SendMail.jsp");
+				forward.setPath("sendRandomPwdMail.do");
 				forward.setRedirect(false);
 				break;
 			}else{

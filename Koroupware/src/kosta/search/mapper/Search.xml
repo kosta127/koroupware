@@ -5,7 +5,7 @@
 <mapper namespace="kosta.search.mapper.SearchMapper">
 	<cache />
 	<select id="ListEmp" resultType="Emp">
-		select * from emp
+		select * from emp 
 	</select>
 	
 	
@@ -17,23 +17,16 @@
 		select dept.dept_name, emp.EMP_NAME, emp.EMP_ID, emp.EMP_ADDRESS, emp.EMP_EMAIL, emp.EMP_HIREDATE  
 		from dept Inner Join emp 
 		on dept.DEPT_NO = emp.DEPT_NO
-		where emp.EMP_NAME= #{search_content}
+		where emp.EMP_NAME like #{search_content}
 	</select>
 	
 	
 	
 	<select id="SearchDoc" parameterType="String" resultType="SearchModel">
-		select doc.doc_no, doc.doc_title, doc.doc_con_period,emp.emp_no,emp.EMP_NAME,doc.DOC_CONTENTS 
+  	select doc.doc_no, doc.doc_title, doc.doc_con_period,emp.emp_no,emp.EMP_NAME,doc.DOC_CONTENTS 
 	from doc Inner Join emp
 	on doc.emp_no = emp.emp_no
-	where (doc.doc_title like #{search_content} ) or (doc.DOC_CONTENTS like #{search_content} )
-	</select>
-
-	<select id="SearchDocEmpName" parameterType="String" resultType="SearchModel">
-		select doc.doc_no, doc.doc_title, doc.doc_con_period,emp.emp_no,emp.EMP_NAME,doc.DOC_CONTENTS 
-	from doc Inner Join emp
-	on doc.emp_no = emp.emp_no
-	where emp.EMP_NAME= #{search_content} 
+	where (doc.doc_title like #{search_content} ) or (doc.DOC_CONTENTS like #{search_content} ) or (emp.EMP_NAME like #{search_content})
 	</select>
 	
 </mapper>

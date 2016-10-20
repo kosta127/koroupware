@@ -28,7 +28,7 @@ public class SearchService {
 	}
 
 	public List<Search> SearchNameService(String search_content) {
-		return dao.SearchName(search_content);
+		return dao.SearchName("%"+search_content+"%");
 	}
 	
 	public List<Doc> SearchDocService(String search_content){
