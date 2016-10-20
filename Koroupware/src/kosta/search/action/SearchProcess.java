@@ -9,7 +9,7 @@ import kosta.action.Action;
 import kosta.action.ActionForward;
 import kosta.emp.model.Emp;
 import kosta.search.dao.SearchDao;
-import kosta.search.model.Search;
+import kosta.search.model.Search; 
 import kosta.search.service.SearchService;
 
 
