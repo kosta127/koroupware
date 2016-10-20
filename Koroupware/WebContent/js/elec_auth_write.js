@@ -1,6 +1,3 @@
-/**
- * 
- */
 
 $(function(){
 	// CKEDITOR 사용 세팅
@@ -8,7 +5,7 @@ $(function(){
 })
 
 $(function(){
-	//임시저장
+	//임시저장버튼
 	var $value = $('#elec_auth_temp_save');
 	
 	$value.on('click',function(){
@@ -16,6 +13,11 @@ $(function(){
 		form.attr('action', 'elec_authSubmission.do?tempYN=Y');
 		form.submit();
 	});
+	
+	//취소버튼
+	$('#elec_auth_cancel').on('click', function(){
+		history.back();
+	})
 })
 
 $(function(){
@@ -132,3 +134,39 @@ $( function() {
 		$(this).remove();
 	});
 });
+
+$(function(){
+	//검증
+	$('#elec_auth_form').validate({
+		rules : {
+			doc_no : {required : true},
+			elec_auth_enddate : {required : true},
+			elec_auth_con_period : {required : true},
+			elec_auth_title : {required : true, minlength : 1, maxlength : 200},
+			elec_auth_contents : {required : true}
+		},
+		messages : {
+			doc_no : {required : "문서를 선택해주세요"},
+			elec_auth_enddate : {required : "결재마감일을 선택해주세요"},
+			elec_auth_con_period : {required : "보존년한을 선택해주세요"},
+			elec_auth_title : {required : "제목을 입력해주세요", 
+								minlength : "제목을 1글자 이상 입력해주세요", maxlength : "제목이 너무 깁니다!!"},
+			elec_auth_contents : {required : "내용을 작성해주세요"}
+		},
+		submitHandler : checkApprovals
+	});
+	
+	//결재자선택했는지 검증
+	function checkApprovals(){
+		var cnt = 0;
+		$('#elec_auth_approval_list input[type=hidden]').each(function(){
+			cnt += 1;
+		})
+		if(cnt < 1){ //선택된 결재자 없음
+			$('#elec_auth_approval').after('<label id="elec_auth_approval-error" class="error" for="elec_auth_approval">결재자를 선택해주세요</label>');
+			$('#elec_auth_approval').focus();
+			return false;
+		}
+		return true;
+	}
+})
