@@ -32,12 +32,21 @@ function login() {
 </head>
 <body>
  <form action="SignUpAction.do" method="post" enctype="multipart/form-data">
- 아이디 <input type="text" name="emp_id" class="form-control"><br>
- 비밀번호 <input type="password" name="emp_password" class="form-control"><br>
- 이름 <input type="text" name="emp_name" class="form-control"><br>
- 주민등록번호 <input type="text" name="emp_residentnumber" class="form-control"><br>
- 핸드폰<input type="radio" name="tel_type" value="핸드폰">일반전화<input type="radio" name="tel_type" value="일반전화">번호 <input type="text" name="tel_telephone" class="form-control"><br>
- 이메일 <input type="text" name="emp_email"><br>	
+ 			<label class="col-xs-1 col-lg-1 control-label">아이디</label> 
+ 			<input type="text" name="emp_id" class="form-control" placeholder="야이디"><br>
+			<label class="col-xs-1 col-lg-1 control-label">비밀번호</label>
+ 			<input type="password" name="emp_password" class="form-control" placeholder="비밀번호"><br>
+ 			<label class="col-xs-1 col-lg-1 control-label">이름</label>
+			<input type="text" name="emp_name" class="form-control" placeholder="이름"><br>
+			<label class="col-xs-1 col-lg-1 control-label">주민등록번호</label>
+ 			<input type="text" name="emp_residentnumber" class="form-control" placeholder="주민등록번호"><br>
+ 			<label class="col-xs-1 col-lg-1 control-label">연락처</label>
+			핸드폰<input type="radio" name="tel_type" value="핸드폰">
+			일반전화<input type="radio" name="tel_type" value="일반전화">
+			<input type="text" name="tel_telephone" class="form-control" placeholder="연락처"><br>
+			<label class="col-xs-1 col-lg-1 control-label">이메일</label>
+			<input type="text" name="emp_email" class="form-control" placeholder="이메일"><br>	
+			<label class="col-xs-1 col-lg-1 control-label">비밀번호</label>
  주소 <input type="text" name="emp_address"><br>
  사원이미지 <input type="file" name="emp_img"><br>
  결재사인 <input type="file" name="emp_elec_auth_img"><br>
