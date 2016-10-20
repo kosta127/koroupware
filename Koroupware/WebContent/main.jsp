@@ -20,12 +20,12 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
-	function logout() {
-		location.href = "logout.do";
-	}
-	function signUpdate() {
-		location.href = "signUpdateForm.jsp";
-	}
+   function logout() {
+      location.href = "logout.do";
+   }
+   function signUpdate() {
+      location.href = "signUpdateForm.jsp";
+   }
 </script>
 <title>Insert title here</title>
 
@@ -87,11 +87,18 @@
  <span class="main-font1">K</span><span class="main-font2">o</span><span class="main-font3">r</span><span class="main-font4">o</span><span class="main-font5">u</span><span class="main-font6">p</span><span class="main-font7">w</span><span class="main-font8">a</span><span class="main-font9">r</span><span class="main-font10">e</span>
    </div>
    <div class="search">
-      <form action="SearchAction.do" method="get">
-      <div class="col-xs-6">
-     <input type="text" name="search_content" class="form-control"></div>
+      <form action="SearchAction.do" method="post">
+      <div class="col-xs-2">
+        <select name = "keyField" class="form-control">
+       <option value="emp_name">사원</option>
+       <option value="document">문서</option>
+      </select>
+      </div>
+      <div class="col-xs-5">
+     <input type="text" name="search_content" class="form-control">
+     </div>
      <input type="submit" value="검색" class="btn btn-primary">
-      </form>
+           </form>
       </div>
 </div>
 </body>

@@ -75,6 +75,11 @@
 	font-size: 50px;
 }
 
+.emp-name{
+	font-family:'Nanum Gothic';
+	font-size : 16px;
+	margin-right: 5px;
+}
 .face-img{
 	width : 40px;
 	height: 40px;
@@ -83,7 +88,7 @@
 
 .search{
 	margin-top: 30px;
-	margin-left: 200px;
+	margin-left: 150px;
 }
 
   nav.sidebar, .main{
@@ -202,6 +207,7 @@
   nav:hover .forAnimate{
     opacity: 1;
   }
+  
   section{
     padding-left: 15px;
   }
