@@ -10,19 +10,19 @@ import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import kosta.community.mapper.CommunityMapper;
-import kosta.etc.ETC;
+import kosta.community.mapper.CategoryMapper;
 import kosta.etc.SessionFactory;
 
-public class CommunityDao {
-	private static CommunityDao dao = new CommunityDao();
+public class CategoryDao {
+	
+	private static CategoryDao dao = new CategoryDao();
 	private SqlSessionFactory sqlSessionFactory;
 	
 	{
 		sqlSessionFactory = SessionFactory.getInstance();
 	}
 	
-	public static CommunityDao getInstance(){
+	public static CategoryDao getInstance(){
 		return dao;
 	}
 	
@@ -39,13 +39,13 @@ public class CommunityDao {
 		return null;
 	}
 	
-	public int insertCommunity(Community community){
-		int re = -1;
+	public int insertCategory(Category category){
+		int re = 0;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		
+		System.out.println(category);
 		try {
-			re = sqlSession.getMapper(CommunityMapper.class).insertCommunity(community);
-			if(re > 0){
+			re = sqlSession.getMapper(CategoryMapper.class).insertCategory(category);
+			if(re>0){
 				sqlSession.commit();
 			}else{
 				sqlSession.rollback();
@@ -57,19 +57,21 @@ public class CommunityDao {
 		}
 		return re;
 	}
-	
-	public List<Community> listCommunity(int emp_no){
+	 
+	public List<Category> listCategory(int community_no){
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		List<Community> list = null;
+		
 		
 		try {
-			list = sqlSession.getMapper(CommunityMapper.class).listCommunity(emp_no);
+			return sqlSession.getMapper(CategoryMapper.class).listCategory(community_no);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}finally {
 			if(sqlSession != null) sqlSession.close(); 
 		}
 		
-		return list;
+		
 	}
+
 }

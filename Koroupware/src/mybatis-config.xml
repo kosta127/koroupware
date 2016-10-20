@@ -27,6 +27,7 @@
 		<typeAlias type="kosta.community.model.Community" alias="Community"/>
 		<typeAlias type="kosta.community.model.Search" alias="Search"/>
 		<typeAlias type="kosta.community.model.BoardFile" alias="BoardFile"/>
+		<typeAlias type="kosta.community.model.SelectModel" alias="SelectModel"/>
 		<typeAlias type="kosta.emp.model.Emp" alias="Emp"/>
 		<typeAlias type="kosta.community.model.Reply" alias="Reply"/>
 		<typeAlias type="kosta.community.model.ReplyModel" alias="ReplyModel"/>
@@ -67,6 +68,7 @@
 		<mapper resource="kosta/dept/mapper/Dept.xml"/>
 		<mapper resource="kosta/community/mapper/Board.xml"/>
 		<mapper resource="kosta/community/mapper/Community.xml"/>
+		<mapper resource="kosta/community/mapper/Category.xml"/>
 		<mapper resource="kosta/community/mapper/boardFile.xml"/>
 		<mapper resource="kosta/community/mapper/Reply.xml"/>
 		<mapper resource="kosta/doc/mapper/Doc.xml" />

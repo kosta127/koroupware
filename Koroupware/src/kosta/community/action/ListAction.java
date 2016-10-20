@@ -13,6 +13,7 @@ import kosta.community.model.BoardDao;
 import kosta.community.model.BoardModel;
 import kosta.community.model.ListModel;
 import kosta.community.model.Search;
+import kosta.community.model.SelectModel;
 
 
 
@@ -23,6 +24,15 @@ public class ListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		BoardDao dao = BoardDao.getInstance();
+		
+		int category_no = 0;
+		
+		if(request.getParameter("category_no") != null){
+			category_no = Integer.parseInt(request.getParameter("category_no"));
+		}else if(request.getAttribute("category_no") != null){
+			category_no = (Integer)request.getAttribute("category_no");
+		}
+		
 		Search search = new Search();
 		
 		int requestPage = 1;
@@ -37,6 +47,11 @@ public class ListAction implements Action {
 			session.removeAttribute("search");
 		}
 		
+		SelectModel selectModel = new SelectModel();
+		
+		selectModel.setCategory_no(category_no);
+		selectModel.setSearch(search);
+		
 		//검색시
 		
 		if(request.getParameterValues("area") != null){
@@ -47,7 +62,7 @@ public class ListAction implements Action {
 			search = (Search)session.getAttribute("search");
 		}
 		
-		int totalCount = dao.countBoard(search);
+		int totalCount = dao.countBoard(selectModel);
 		int totalPageCount = totalCount / PAGE_SIZE;
 		
 		if(totalCount%PAGE_SIZE > 0){
@@ -70,12 +85,15 @@ public class ListAction implements Action {
 		request.setAttribute("list", list);
 		request.setAttribute("listModel", listModel);
 		*/
+
+		selectModel.setStartRow(startRow); 
 		
-		List<BoardModel> list = dao.listBoardModel(startRow, search);
+		List<BoardModel> list = dao.listBoardModel(selectModel);
 		ListModel listModel = new ListModel(list, requestPage, totalPageCount, startPage, endPage);
-		System.out.println(listModel);
-		request.setAttribute("list", list);
+
+		//request.setAttribute("list", list);
 		request.setAttribute("listModel", listModel);
+		request.setAttribute("category_no", category_no);
 		
 		ActionForward forward = new ActionForward();
 		
@@ -83,7 +101,7 @@ public class ListAction implements Action {
 			forward.setRedirect(false);
 			forward.setPath("board/list.jsp");
 		}else{
-			forward.setRedirect(true);
+			forward.setRedirect(false);
 			forward.setPath("board/insertForm.jsp");
 		}
 		

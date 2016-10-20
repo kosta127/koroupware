@@ -7,10 +7,10 @@
 <mapper namespace="kosta.community.mapper.BoardMapper">
 	<insert id="insertBoard" parameterType="Board">
 		insert into board(
-			board_no, board_title, board_contents, board_regdate, board_hit
+			board_no, board_title, board_contents, board_regdate, board_hit,emp_no, category_no
 		)
 		values(
-			seq_board.NEXTVAL, #{board_title}, #{board_contents}, SYSDATE, 0
+			seq_board.NEXTVAL, #{board_title}, #{board_contents}, SYSDATE, 0,#{emp_no}, #{category_no}
 		)
 	</insert>
 	
@@ -18,16 +18,17 @@
 		select max(board_no) from board
 	</select>
 	
-	<select id="listBoardModel" resultType="BoardModel">
+	<select id="listBoardModel" resultType="BoardModel" parameterType="SelectModel">
 		SELECT b.board_no, b.board_title, e.emp_name, d.dept_name, o.office_name, p.position_name, b.board_regdate, b.board_hit
 		FROM board b, emp e, position p, office o, dept d
 		WHERE b.emp_no = e.emp_no
 		      AND e.position_no = p.position_no
 		      AND e.office_no = o.office_no
 		      AND e.dept_no = d.dept_no
-		      <if test="area != null">
+		      AND category_no = #{category_no}
+		      <if test="search.area != null">
 		      	AND 
-		      	<foreach collection="area" item="item" separator="or" open="(" close=")">
+		      	<foreach collection="search.area" item="item" separator="or" open="(" close=")">
 					<!-- title LIKE %자바% OR writer LIKE %자바% -->
 						${item} LIKE #{searchKey}
 					</foreach>
@@ -36,8 +37,8 @@
 		ORDER BY board_no DESC
 	</select>
 	
-	<select id="listBoard" resultType="Board">
-		select * from board	
+	<select id="listBoard" resultType="Board" parameterType="int">
+		select * from board	b
 		<choose>
 			<when test="area != null">
 				<where>
@@ -46,12 +47,15 @@
 						${item} LIKE #{searchKey}
 					</foreach>
 					AND board_deldate IS NULL
+					AND category_no = #{category_no}
 				</where>
 			</when>
 			<otherwise>
 				WHERE board_deldate IS NULL
+				AND category_no = #{category_no}
 			</otherwise>
 		</choose>
+		
 		order by board_no DESC
 	</select>
 	
@@ -74,17 +78,23 @@
 			where board_no=#{board_no}
 	</update>
 	
-	<select id="countBoard" resultType="int" parameterType="Search">
+	<select id="countBoard" resultType="int">
 		select count(*)
 		from board
-		<if test="area != null">
-			<where>
-				<foreach collection="area" item="item" separator="or" open="(" close=")">
-				<!-- title LIKE %자바% OR writer LIKE %자바% -->
-					${item} LIKE #{searchKey}
-				</foreach>
-			</where>
-		</if>
+		<choose>
+			<when test="search.area != null">
+				<where>
+					<foreach collection="search.area" item="item" separator="or" open="(" close=")">
+					<!-- title LIKE %자바% OR writer LIKE %자바% -->
+						${item} LIKE #{searchKey}
+					</foreach>
+					AND category_no = ${category_no}
+				</where>
+			</when>
+			<otherwise>
+				WHERE category_no = ${category_no}
+			</otherwise>
+		</choose>
 	</select>
 	
 	

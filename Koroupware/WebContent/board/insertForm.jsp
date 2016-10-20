@@ -6,20 +6,20 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.structure.min.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.theme.min.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 	  
 	<!-- 사용자 css -->
 	
 	<!--  -->
 	
-	<script type="text/javascript" src="../js/jquery.js"></script>
-	<script type="text/javascript" src="../js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 	
 	<!-- 사용자 js -->
 	  
@@ -27,38 +27,30 @@
 		$(function(){
 			CKEDITOR.replace("board_contents");
 		});
-	
-	</script>	
-	  <!--  -->
+	</script>
 		
 	
 </head>
 <body>
 	<form action="insert.do" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="category_no" value="${category_no}"/>
 		<table border="1" cellpadding="0" cellspacing="0">
 		
-		<tr height="30">
-			<td>작성자</td>
-			<td>
-				<input type="text" name="emp_name" size="10">
-			</td>
-			<td width="80">제목</td>
-			<td align="left" colspan="3">
-				<c:choose>
-					<c:when test="${board_no == null }">
-						<input type="text" name="board_title" size="50">	
-					</c:when>
-				</c:choose>					
-			</td>			
-		</tr>		
-		<!-- <tr height="30">
-			<td width="80">작성자</td>
-			<td width="170">
-				<input type="text" name="emp_name" size="10">
-			</td>	
-		</tr> -->
+			<tr height="30">
+				<td align="center">작성자</td>
+				<td align="left">
+					<input type="hidden" value="${sessionScope.emp.emp_no}" name="emp_no"/>
+						${sessionScope.emp.emp_name}</td>
+			</tr>
+			<tr>
+				<td width="80" align="center">제목</td>
+				<td align="left" colspan="3">		
+					<input type="text" name="board_title" size="80">	
+				</td>			
+			</tr>
+				
 		<tr height="30">		
-			<td>파일</td>
+			<td align="center">파일</td>
 			<td colspan="3">
 				<input type="file" name="board_fname">	
 			</td>

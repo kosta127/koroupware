@@ -23,12 +23,12 @@ public class LoginProcess implements Action {
 		SessionService service = SessionService.getInstance();
 		List<Emp> list = logService.ListEmpServivce();
 		HttpSession session = request.getSession();
-		
-		
+
 		// 1 세렉트 전체 문
 		// 2. 거기에서 
 		
 		for(int i=0; i<list.size(); i++){
+			System.out.println(list.get(i).getEmp_id());
 			if(list.get(i).getEmp_id().equals(request.getParameter("emp_id"))
 					&&list.get(i).getEmp_password().equals(request.getParameter("emp_password"))){
 				System.out.println("로그인성공");
