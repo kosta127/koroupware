@@ -1,6 +1,6 @@
 package kosta.sendRandomPwd.mapper;
 
-import java.util.List;
+
 
 import kosta.emp.model.Emp;
 

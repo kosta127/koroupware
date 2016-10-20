@@ -9,7 +9,7 @@
 	<update id="SendPwd" parameterType="Emp">
 		UPDATE emp
 		SET EMP_PASSWORD = #{emp_password}
-		WHERE EMP_no = #{emp_no}
+		WHERE find_residentnumber = #{find_residentnumber}
 	</update>
 	
 </mapper>

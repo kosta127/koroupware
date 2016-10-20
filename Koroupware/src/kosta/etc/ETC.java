@@ -1,5 +1,7 @@
 package kosta.etc;
 
+import java.util.regex.Pattern;
+
 import org.apache.ibatis.session.SqlSession;
 
 public class ETC {
@@ -20,11 +22,26 @@ public class ETC {
 		return false;
 	}
 	
-	public void commit(SqlSession session, int result){
+	public static void commit(SqlSession session, int result){
 		if(ETC.isCommit(result)){
 			session.commit();
 		}else{
 			session.rollback();
 		}
+	}
+	
+	public static String toTelephoneFormat(String telephone){
+		//전화번호 양식으로 포맷
+		String regEx = "(\\d{3})(\\d{3,4})(\\d{4})";
+		
+		if(Pattern.matches(regEx, telephone)){
+			if(telephone.length() == 10 && telephone.startsWith("02")){
+				telephone = telephone.replaceAll("(\\d{2})(\\d{3,4})(\\d{4})", "$1-$2-$3");
+			}else{
+				telephone = telephone.replaceAll(regEx, "$1-$2-$3");
+			}
+		}
+		
+		return telephone;
 	}
 }

@@ -18,7 +18,6 @@ import java.util.Properties;
 public class sendRandomPwdMail implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("dkvk");
 		ActionForward forward = new ActionForward();
 		response.setCharacterEncoding("EUC-KR");
 		HttpSession session1 = request.getSession();
@@ -151,7 +150,7 @@ public class sendRandomPwdMail implements Action {
 		System.out.println(value);
 		//(String) session1.getAttribute("sendemail_to");
 		String from = "sdc337dc@naver.com";
-		String to = "sdc337dc@naver.com";
+		String to = (String) session1.getAttribute("sendemail_to");
 		String subject = "임시비밀번호 입니다";
 		String content = value;
 		request.setAttribute("pwd", value);

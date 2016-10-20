@@ -33,6 +33,12 @@ import kosta.doc.action.ListDocAction;
 import kosta.doc.action.ListDocBoxAction;
 import kosta.doc.action.updateDocBoxFormAction;
 import kosta.doc.action.updateDocBoxProcAction;
+import kosta.elecauth.action.Elec_authDetailAction;
+import kosta.elecauth.action.Elec_authErrorAction;
+import kosta.elecauth.action.Elec_authListAction;
+import kosta.elecauth.action.Elec_authSubmissionAction;
+import kosta.elecauth.action.Elec_authWriteFormAction;
+import kosta.elecauth.action.EmpSearchAsJSONAction;
 import kosta.etc.ETC;
 import kosta.login.action.FindIdProcess;
 import kosta.login.action.FindPasswordProcess;
@@ -45,6 +51,7 @@ import kosta.login.action.StartAction;
 import kosta.login.action.TelAddAction;
 import kosta.login.action.TelDeleteAction;
 import kosta.login.action.logout;
+import kosta.login.action.TelUpdateAction;
 import kosta.message.action.FailAction;
 import kosta.message.action.MessagePageAction;
 import kosta.message.action.MessageSendAction;
@@ -150,8 +157,6 @@ public class MainController extends HttpServlet {
             action = new MainAction();
             break;
          case "SearchAction.do":
-        	 System.out.println(request.getParameter("keyField"));
-        	 System.out.println(request.getParameter("search_content"));
             action = new SearchProcess();
             break;
          case "docForm.do":
@@ -191,14 +196,34 @@ public class MainController extends HttpServlet {
 
             break;
          case "deleteDoc_box.do":
+        	 break;
 
-            break;
-         default:
-            System.out.println("없는 요청");
-            break;
-      }
-       
-       actionForward(request, response, action);
+			case "elec_authList.do":
+				action=new Elec_authListAction();
+				break;
+			case "elec_authDetail.do":
+				action=new Elec_authDetailAction();
+				break;
+			case "elec_authSubmission.do":
+				action = new Elec_authSubmissionAction();
+				break;
+			case "elec_authWriteForm.do":
+				action = new Elec_authWriteFormAction();
+				break;
+			case "elec_authError.do":
+				action = new Elec_authErrorAction();
+				break;
+			case "empSearchAsJSON.do":
+				action = new EmpSearchAsJSONAction();
+			case "telUpdate.do":
+				action = new TelUpdateAction();
+				break;
+			default:
+				System.out.println("없는 요청");
+				break;
+		}
+    	
+    	actionForward(request, response, action);
     }
 
     @Override
