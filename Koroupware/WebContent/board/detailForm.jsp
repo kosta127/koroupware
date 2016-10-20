@@ -98,7 +98,7 @@
 								<td>${replyModel.emp_name}</td>
 								<td class="reply_contents">${replyModel.reply_contents}</td>
 								<td>${replyModel.reply_regdate}</td>	
-								<td>
+								<td> 
 									<input type="button" value="삭제" class="btn btn-default" onclick="reply_delete(${replyModel.reply_no})">
 								</td>	
 							</tr>
