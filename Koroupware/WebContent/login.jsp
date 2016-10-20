@@ -23,18 +23,8 @@
 <body>
 	<div class="body">
 		<div class="panel panel-default">
-
 			<div class="panel-heading">
-				<span class="main-font1">K</span>
-				<span class="main-font2">o</span>
-				<span class="main-font3">r</span>
-				<span class="main-font4">o</span>
-				<span class="main-font5">u</span>
-				<span class="main-font6">p</span>
-				<span class="main-font7">w</span>
-				<span class="main-font8">a</span>
-				<span class="main-font9">r</span>
-				<span class="main-font10">e</span>
+				<span class="main-font1">K</span><span class="main-font2">o</span><span class="main-font3">r</span><span class="main-font4">o</span><span class="main-font5">u</span><span class="main-font6">p</span><span class="main-font7">w</span><span class="main-font8">a</span><span class="main-font9">r</span><span class="main-font10">e</span>
 			</div>
 			<div class="panel-body">
 				<form class="login" action="LoginProcessAction.do" method="post">

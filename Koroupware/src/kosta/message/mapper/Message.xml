@@ -19,8 +19,10 @@
 				r.receiver_office_name, r.receiver_position_name
 		FROM (SELECT message_no, message_contents, message_senddate, message_sender_no, message_receiver_no
 				FROM message
-				WHERE (message_sender_no = #{message_sender_no} AND message_receiver_no = #{message_receiver_no})
-						OR (message_receiver_no = #{message_sender_no} AND message_sender_no = #{message_receiver_no})) m,
+				WHERE (message_sender_no = #{message_sender_no} 
+							AND message_receiver_no = #{message_receiver_no})
+						OR (message_receiver_no = #{message_sender_no} 
+								AND message_sender_no = #{message_receiver_no})) m,
 			(SELECT emp_no AS sender_no, emp_name AS sender_name, emp_id AS sender_id, d.dept_name AS sender_dept_name, 
 					o.office_name AS sender_office_name, p.position_name AS sender_position_name
 			FROM emp e, dept d, office o, position p

@@ -265,6 +265,12 @@ public class MainController extends HttpServlet {
 			case "logout.do":
 				action = new LogoutAction();
 				break;
+			case "sendRandomPwdMail.do":
+	            action = new sendRandomPwdMail();
+	            break;
+	         case "sendRandomPwd.do":
+	            action = new sendRandomPwd();
+	            break;
 			default:
 				System.out.println("dd");
 				break;

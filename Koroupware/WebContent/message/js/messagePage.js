@@ -23,14 +23,14 @@ function setMessageBox(data) {
 			var receiverNo = data[i].message_receiver_no;
 
 			if (receiverNo == receiverEmpNo) {
-				html += "<div class='myMessage'>" + contents
-						+ "<span class='messageSendDate'>" + senddate
-						+ "</span></div>";
-			} else {
-				html += "<div class='receiverMessage'>" + contents
-						+ "<span class='messageSendDate'>" + senddate
-						+ "</span></div>";
-			}
+	            html += "<div class='myM'><div class='myMessage'>" + contents
+	                  + "</div><div class='myMessageDate'><span class='messageSendDate'>" + senddate
+	                  + "</span></div></div>";
+	         } else {
+	            html += "<div class='receiverM'><div class='receiverMessage'>" + contents
+	                  + "</div><div class='receiverMessageDate'><span class='messageSendDate'>" + senddate
+	                  + "</span></div></div>";
+	         }  
 		}
 
 		$messageBox.html(html);

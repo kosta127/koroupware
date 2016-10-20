@@ -1,32 +1,162 @@
-.myMessage {
-	font-size: 22px;
-	text-align: right;
-}
-
-.receiverMessage {
-	font-size: 22px;
-	text-align: left;
-}
-
-.messageSendDate {
-	font-size: 10px;
-}
-
 .messageReceiver {
-	font-size: 30px;
-	font-weight: bold;
-	text-align: center;
+   font-size: 30px;
+   font-weight: bold;
+   text-align: center;
 }
-
+/*메세지*/
 div#messageBox {
-	overflow: scroll;
-	width: 780px;
-	height: 400px;
+   border-radius: 5px;
+   background-color: #bce2e4;
+   overflow: scroll;
+   width: 780px;
+   height: 400px;
+}
+/*리스트*/
+div#messageReceiverListDiv {
+   border-radius: 5px;
+   margin-top: 20px;
+   overflow: scroll;
+   width: 280px;
+   height: 310px;
+   background-color: #fdf3bd;
+}
+/* 제목  */
+div#senderInfo{
+   font-family:'Nanum Gothic';
+   font-weight: bold;
+   font-size : 20px;
 }
 
-div#messageReceiverListDiv {
-	margin-top: 20px;
-	overflow: scroll;
-	width: 280px;
-	height: 310px;
+/* 내 메세지 */
+.myMessage{
+   padding : 5px;
+   float : left;
+   width : 220px;
+   border-radius: 3px;
+   background-color: #eff286;
+   font-family:'Nanum Gothic';
+   font-size : 15px;
+   margin-right: 5px;
+}
+
+.myM{
+   padding : 10px;
+   margin-top: 30px;
+   margin-bottom: 30px;
+   width: 300px;
+   margin-left: 420px;
+}
+
+.emp-dept{
+   font-family:'Nanum Gothic';
+   font-size : 20px;
+   font-weight: bold;
+}
+
+.list-emp{   
+   padding : 5px;
+   text-align : center;
+   border-radius: 5px;
+   background-color : white;
+   margin-left : -30px;
+   width: 250px;
+   list-style:none;
+   margin-top: 10px;
+   font-family:'Nanum Gothic';
+   font-size : 15px;
+}
+.receiverM{
+   padding : 10px;
+   margin-left: 30px;
+   margin-top: 30px;
+   margin-bottom : 10px;
+   width: 300px;
+   
+}
+.main-font1{
+   margin-left: 100px;
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #0080c0;
+   font-size: 55px;
+} 
+
+.main-font2{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #E64A19;
+   font-size: 50px;
+}
+.main-font3{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #43A047;
+   font-size: 50px;
+}
+.main-font4{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #F9A825;
+   font-size: 50px;
+}
+.main-font5{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #E64A19;
+   font-size: 50px;
+}
+.main-font6{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #0080c0;
+   font-size: 50px;
+}
+.main-font7{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #43A047;
+   font-size: 50px;
+}
+.main-font8{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color: #F9A825;
+   font-size: 50px;
+}
+.main-font9{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color: #0080c0;
+   font-size: 50px;
+}
+.main-font10{
+   font-family: 'Product Sans', Arial, sans-serif;
+   color : #E64A19;
+   font-size: 50px;
+}
+.massage-main{
+   font-family:'Nanum Gothic';
+   font-size : 30px;
+   font-weight : bold;
+   margin-left: 400px;
+}
+/* 상대방 메세지 */
+.receiverMessage{
+   padding : 5px;
+   float : left;
+   width: 220px;
+   border-radius: 3px;
+   background-color: #ffffff;
+   font-family:'Nanum Gothic';
+   font-size : 15px;
+   margin-right: 5px;
+}
+/* 날짜 */
+.messageSendDate{
+   width: 30px;
+   font-family: 'Product Sans', Arial, sans-serif;
+   font-size : 7px;
+}
+
+.myMessageDate{
+   float: right;
+   width: 51px;
+}
+.receiverMessageDate{
+   float: right;
+   width: 51px;
+}
+.submit-button{
+   margin-top: -30px;
 }
