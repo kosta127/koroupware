@@ -48,9 +48,15 @@
 			<ul>
 				<c:forEach var="communityList" items="${communityList }">
 					<li>
-						<a href="listCategory.do?community_no=${communityList.community_no }">${communityList.community_name}</a>
-						<a href="insertCategoryForm.do?community_no=${communityList.community_no}">+</a>
-					</li>		
+					<a href="listCategory.do?community_no=${communityList.community_no }">${communityList.community_name}</a>
+						<%-- <c:forEach var="categoryList" items="${categoryList }">	
+							<ul>
+								<li><a href="list.jsp?category_no=${categoryList.category_no}">${categoryList.category_name}</a></li>
+							</ul>
+						</c:forEach> --%>	
+					<a href="insertCategoryForm.do?community_no=${communityList.community_no}">+</a>
+					</li>
+						
 				</c:forEach>
 				<c:forEach var="categoryList" items="${categoryList }">	
 							<ul>
