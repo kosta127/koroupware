@@ -1,3 +1,16 @@
+.comu-content{
+	width: 140px;
+	z-index:1;
+}
+.comu-plus{
+	float: right;
+	z-index:2;
+}
+
+.li-comu{
+	height:50px;	
+}
+
 .main-main{
 	width : 1000px;
 	height : 500px;

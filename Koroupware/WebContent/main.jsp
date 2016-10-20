@@ -52,9 +52,9 @@
         <li ><a href="#">전자결재<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span> </a></li>
         <li ><a href="listCommunity.do">커뮤니티 <span  class="pull-right hidden-xs showopacity glyphicon glyphicon-comment"></span></a>
 				<c:forEach var="communityList" items="${communityList }">
-					<li>
-					<a href="listCategory.do?community_no=${communityList.community_no }">${communityList.community_name}</a>
-					<a href="insertCategoryForm.do?community_no=${communityList.community_no}">+</a>
+					<li class="li-comu">
+					<a class="comu-content" href="listCategory.do?community_no=${communityList.community_no }">${communityList.community_name} </a>
+					<a class="comu-plus" href="insertCategoryForm.do?community_no=${communityList.community_no}">+</a>
 					</li>
 				</c:forEach>
 				<c:forEach var="categoryList" items="${categoryList }">	
@@ -86,7 +86,7 @@
  <span class="main-font1">K</span><span class="main-font2">o</span><span class="main-font3">r</span><span class="main-font4">o</span><span class="main-font5">u</span><span class="main-font6">p</span><span class="main-font7">w</span><span class="main-font8">a</span><span class="main-font9">r</span><span class="main-font10">e</span>
    </div>
    <div class="search">
-      <form action="SearchAction.do" method="get">
+      <form action="SearchAction.do" method="post">
       <div class="col-xs-2">
       <select name = "keyField" class="form-control select">
        <option value="emp_name">사원</option>

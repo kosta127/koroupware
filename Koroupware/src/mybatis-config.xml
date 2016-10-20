@@ -63,6 +63,7 @@
 		<mapper resource="kosta/elecauth/mapper/Elec_auth.xml"/>
 		<mapper resource="kosta/login/mapper/SignUp.xml"/>
 		<mapper resource="kosta/search/mapper/Search.xml"/>
+		<mapper resource="kosta/sendRandomPwd/mapper/SendPwd.xml"/>
 		<mapper resource="kosta/message/mapper/Message.xml"/>
 		<mapper resource="kosta/emp/mapper/Emp.xml"/>
 		<mapper resource="kosta/dept/mapper/Dept.xml"/>

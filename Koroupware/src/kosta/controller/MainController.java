@@ -56,15 +56,18 @@ import kosta.login.action.SignUpdateAction;
 import kosta.login.action.StartAction;
 import kosta.login.action.TelAddAction;
 import kosta.login.action.TelDeleteAction;
+import kosta.login.action.logout;
 import kosta.login.action.TelUpdateAction;
 import kosta.message.action.FailAction;
 import kosta.message.action.MessagePageAction;
 import kosta.message.action.MessageSendAction;
 import kosta.search.action.SearchProcess;
+import kosta.sendRandomPwd.action.sendRandomPwd;
+import kosta.sendRandomPwd.action.sendRandomPwdMail;
 
 @WebServlet("*.do")
 public class MainController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
        
     public MainController() {
         super();
@@ -205,10 +208,10 @@ public class MainController extends HttpServlet {
 				break;
 			case "deleteDoc.do":
 
-				break;
-			case "deleteDoc_box.do":
+            break;
+         case "deleteDoc_box.do":
+        	 break;
 
-				break;
 			case "elec_authList.do":
 				action=new Elec_authListAction();
 				break;
@@ -238,43 +241,43 @@ public class MainController extends HttpServlet {
     }
 
     @Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
-		doProcess(request, response);
-	}
-	
+   public void doGet(HttpServletRequest request, HttpServletResponse response) 
+         throws ServletException, IOException {
+      doProcess(request, response);
+   }
+   
     @Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
-		doProcess(request, response);
-	}
-	
-	public String getRequestPath(HttpServletRequest request) {
-		String requestURI = request.getRequestURI();
-		String requestPath = requestURI.substring(requestURI.lastIndexOf("/") + 1);
-		
-		System.out.println(requestPath);
-		
-		return requestPath;
-	}
+   public void doPost(HttpServletRequest request, HttpServletResponse response) 
+         throws ServletException, IOException {
+      doProcess(request, response);
+   }
+   
+   public String getRequestPath(HttpServletRequest request) {
+      String requestURI = request.getRequestURI();
+      String requestPath = requestURI.substring(requestURI.lastIndexOf("/") + 1);
+      
+      System.out.println(requestPath);
+      
+      return requestPath;
+   }
 
-	public void actionForward(HttpServletRequest request, HttpServletResponse response, Action action) 
-			throws ServletException, IOException{
-		if(ETC.isNotNull(action)){
-			ActionForward forward = action.execute(request, response);
-			
-			if(ETC.isNotNull(forward)){
-				if(forward.isRedirect()){
-					response.sendRedirect(forward.getPath());
-				}else{
-					RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
-					dispatcher.forward(request, response);
-				}
-			}else{
-				System.out.println("ActionForward가 NULL");
-			}
-		}else{
-			System.out.println("Action이 NULL");
-		}
-	}
+   public void actionForward(HttpServletRequest request, HttpServletResponse response, Action action) 
+         throws ServletException, IOException{
+      if(ETC.isNotNull(action)){
+         ActionForward forward = action.execute(request, response);
+         
+         if(ETC.isNotNull(forward)){
+            if(forward.isRedirect()){
+               response.sendRedirect(forward.getPath());
+            }else{
+               RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
+               dispatcher.forward(request, response);
+            }
+         }else{
+            System.out.println("ActionForward가 NULL");
+         }
+      }else{
+         System.out.println("Action이 NULL");
+      }
+   }
 }
