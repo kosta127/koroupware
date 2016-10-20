@@ -50,18 +50,7 @@
         <li class="active"><a href="main.do">Home<span class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
         <li ><a href="listDoc_box.do">문서<span class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
         <li ><a href="elec_authList.do">전자결재<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span> </a></li>
-        <li ><a href="listCommunity.do">커뮤니티 <span  class="pull-right hidden-xs showopacity glyphicon glyphicon-comment"></span></a>
-				<c:forEach var="communityList" items="${communityList }">
-					<li class="li-comu">
-					<a class="comu-content" href="listCategory.do?community_no=${communityList.community_no }">${communityList.community_name} </a>
-					<a class="comu-plus" href="insertCategoryForm.do?community_no=${communityList.community_no}">+</a>
-					</li>
-				</c:forEach>
-				<c:forEach var="categoryList" items="${categoryList }">	
-							<ul>
-								<li><a href="listBoard.do?category_no=${categoryList.category_no}">${categoryList.category_name}</a></li>
-							</ul>
-				</c:forEach></li>          
+        <li ><a href="listCommunity.do">커뮤니티 <span  class="pull-right hidden-xs showopacity glyphicon glyphicon-comment"></span></a>	          
         <li ><a href="orgChartPage.do">조직도<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
         <li ><a href="messagePage.do">쪽지<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-send"></span></a></li>  
       </ul>
