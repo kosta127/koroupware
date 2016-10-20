@@ -42,7 +42,7 @@
 						</span> <input id="txtUsuario" type="text"
 							class="form-control" name="emp_id" placeholder="Username" />
 					</div>
-				</div> 
+				</div>  
 				<div class="form-group">
 					<div class="input-group">
 						<span class="input-group-addon"> <i
