@@ -42,6 +42,12 @@ import kosta.doc.action.UpdateDocProcAction;
 import kosta.doc.action.UpdateDocProcAction;
 import kosta.doc.action.UpdateDocBoxFormAction;
 import kosta.doc.action.UpdateDocBoxProcAction;
+import kosta.elecauth.action.Elec_authDetailAction;
+import kosta.elecauth.action.Elec_authErrorAction;
+import kosta.elecauth.action.Elec_authListAction;
+import kosta.elecauth.action.Elec_authSubmissionAction;
+import kosta.elecauth.action.Elec_authWriteFormAction;
+import kosta.elecauth.action.EmpSearchAsJSONAction;
 import kosta.etc.ETC;
 import kosta.login.action.FindIdProcess;
 import kosta.login.action.FindPasswordProcess;
@@ -208,6 +214,23 @@ public class MainController extends HttpServlet {
 			case "listDoc_his.do":
 				action = new ListDocHisAction();
 				break;
+			case "elec_authList.do":
+				action=new Elec_authListAction();
+				break;
+			case "elec_authDetail.do":
+				action=new Elec_authDetailAction();
+				break;
+			case "elec_authSubmission.do":
+				action = new Elec_authSubmissionAction();
+				break;
+			case "elec_authWriteForm.do":
+				action = new Elec_authWriteFormAction();
+				break;
+			case "elec_authError.do":
+				action = new Elec_authErrorAction();
+				break;
+			case "empSearchAsJSON.do":
+				action = new EmpSearchAsJSONAction();
 			case "telUpdate.do":
 				action = new TelUpdateAction();
 				break;
