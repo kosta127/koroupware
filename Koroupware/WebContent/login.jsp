@@ -26,7 +26,7 @@
 </script>
 </head>
 <body>	
-	<div class="body">
+	<div class="body"> 
 	<div class="panel panel-default">
 		
 		<div class="panel-heading">
