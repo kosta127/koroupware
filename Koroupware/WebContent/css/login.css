@@ -9,7 +9,7 @@
 
 .searchIdPass
 {
-	margin-left: 38%
+	margin-left: 35%
 }
 
 body
@@ -72,4 +72,58 @@ body
    font-family: 'Product Sans', Arial, sans-serif;
    color : #E64A19;
    font-size: 50px;
+} 
+.panel-success{
+	height: 300px;
+}
+.success-button{
+	width: 200px;
+	margin-top: 50px;
+	margin-left: 115px;
+}
+
+.success-div{
+	margin-top: 30px;
+}
+.success{
+	margin-left: 65px;
+	font-family:'Nanum Gothic';
+	font-size : 30px;
+}
+
+.finds-id1{
+	margin-left: 65px;
+	font-family:'Nanum Gothic';
+	font-size : 30px;
+}
+
+.finds-id2{	
+	font-family:'Nanum Gothic';
+	font-size : 30px;
+}
+
+.finds-pass1{
+	margin-left: 55px;
+	font-family:'Nanum Gothic';
+	font-size : 25px;
+}
+
+.finds-pass2{
+	margin-left: 55px;
+	font-family:'Nanum Gothic';
+	font-size : 25px;
+}
+
+.find-button{
+	width: 200px;
+	margin-top: 30px;
+	margin-left: 115px;
+}
+
+.success-id{
+	margin-left: 10px;
+	margin-right: 10px;
+	font-family:'Nanum Gothic';
+	font-size : 25px;
+	color: #0080c0;
 }

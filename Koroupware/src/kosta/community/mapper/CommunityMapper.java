@@ -6,5 +6,5 @@ import kosta.community.model.Community;
 
 public interface CommunityMapper {
 	public int insertCommunity(Community community);
-	public List<Community> listCommunity();
+	public List<Community> listCommunity(int emp_no);
 }

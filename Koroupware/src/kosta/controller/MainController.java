@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta.action.Action;
 import kosta.action.ActionForward;
+import kosta.community.action.CategoryInsertAction;
+import kosta.community.action.CategoryInsertFormAction;
+import kosta.community.action.CategoryListAction;
+import kosta.community.action.CommunityInsertAction;
+import kosta.community.action.CommunityInsertFormAction;
+import kosta.community.action.CommunityListAction;
 import kosta.community.action.DeleteAction;
 import kosta.community.action.DeleteReplyAction;
 import kosta.community.action.DetailAction;
@@ -60,11 +66,14 @@ import kosta.login.action.SignUpdateAction;
 import kosta.login.action.StartAction;
 import kosta.login.action.TelAddAction;
 import kosta.login.action.TelDeleteAction;
+import kosta.login.action.logout;
 import kosta.login.action.TelUpdateAction;
 import kosta.message.action.FailAction;
 import kosta.message.action.MessagePageAction;
 import kosta.message.action.MessageSendAction;
 import kosta.search.action.SearchProcess;
+import kosta.sendRandomPwd.action.sendRandomPwd;
+import kosta.sendRandomPwd.action.sendRandomPwdMail;
 
 @WebServlet("*.do")
 public class MainController extends HttpServlet {
@@ -76,8 +85,7 @@ public class MainController extends HttpServlet {
 
     public void doProcess(HttpServletRequest request, HttpServletResponse response)
     		throws ServletException, IOException{
-    	System.out.println(123);
-    	
+
     	String command = getRequestPath(request);
     	Action action = null;
     	
@@ -123,6 +131,24 @@ public class MainController extends HttpServlet {
 				break;
 			case "deleteReply.do":
 				action = new DeleteReplyAction();
+				break;
+			case "insertCommunityForm.do":
+				action = new CommunityInsertFormAction();
+				break;
+			case "insertCommunity.do":
+				action = new CommunityInsertAction();
+				break;
+			case "listCommunity.do":
+				action = new CommunityListAction();
+				break;
+			case "insertCategoryForm.do":
+				action = new CategoryInsertFormAction();
+				break;
+			case "insertCategory.do":
+				action = new CategoryInsertAction();
+				break;
+			case "listCategory.do":
+				action = new CategoryListAction();
 				break;
 			case "LoginProcessAction.do":
 				action = new LoginProcess();
@@ -268,23 +294,23 @@ public class MainController extends HttpServlet {
 		return requestPath;
 	}
 
-	public void actionForward(HttpServletRequest request, HttpServletResponse response, Action action) 
-			throws ServletException, IOException{
-		if(ETC.isNotNull(action)){
-			ActionForward forward = action.execute(request, response);
-			
-			if(ETC.isNotNull(forward)){
-				if(forward.isRedirect()){
-					response.sendRedirect(forward.getPath());
-				}else{
-					RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
-					dispatcher.forward(request, response);
-				}
-			}else{
-				System.out.println("ActionForward媛� NULL");
-			}
-		}else{
-			System.out.println("Action�씠 NULL");
-		}
-	}
+	public void actionForward(HttpServletRequest request, HttpServletResponse response, Action action)
+		throws ServletException, IOException {
+      if(ETC.isNotNull(action)){
+         ActionForward forward = action.execute(request, response);
+         
+         if(ETC.isNotNull(forward)){
+            if(forward.isRedirect()){
+               response.sendRedirect(forward.getPath());
+            }else{
+               RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
+               dispatcher.forward(request, response);
+            }
+         }else{
+            System.out.println("ActionForward가 NULL");
+         }
+      }else{
+         System.out.println("Action이 NULL");
+      }
+   }
 }

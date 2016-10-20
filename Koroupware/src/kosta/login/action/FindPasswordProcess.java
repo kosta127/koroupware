@@ -22,12 +22,13 @@ public class FindPasswordProcess implements Action {
 		LoginService service = LoginService.getInstance();
 		List<Emp> list = service.FindPassword_ListEmpService();
 		HttpSession session = request.getSession();
-		int num = Integer.parseInt(request.getParameter("find_no"));
+		String residentnumber = request.getParameter("find_RESIDENTNUMBER");
 		for(int i=0; i<list.size(); i++){
 			if(list.get(i).getEmp_id().equals(request.getParameter("find_id")) 
-					&& list.get(i).getEmp_no()== num){
-				session.setAttribute("find_password", list.get(i).getEmp_password());
-				forward.setPath("FindPasswordResult.jsp");
+					&& list.get(i).getEmp_residentnumber().equals(residentnumber)){
+				session.setAttribute("find_residentnumber", list.get(i).getEmp_residentnumber());
+				session.setAttribute("sendemail_to", list.get(i).getEmp_email());
+				forward.setPath("sendRandomPwdMail.do");
 				forward.setRedirect(false);
 				break;
 			}else{

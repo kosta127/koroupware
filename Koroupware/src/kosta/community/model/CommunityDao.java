@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import kosta.community.mapper.CommunityMapper;
+import kosta.etc.ETC;
 import kosta.etc.SessionFactory;
 
 public class CommunityDao {
@@ -44,6 +45,11 @@ public class CommunityDao {
 		
 		try {
 			re = sqlSession.getMapper(CommunityMapper.class).insertCommunity(community);
+			if(re > 0){
+				sqlSession.commit();
+			}else{
+				sqlSession.rollback();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -52,12 +58,12 @@ public class CommunityDao {
 		return re;
 	}
 	
-	public List<Community> listCommunity(){
-		List<Community> list = null;
+	public List<Community> listCommunity(int emp_no){
 		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Community> list = null;
 		
 		try {
-			list = sqlSession.getMapper(CommunityMapper.class).listCommunity();
+			list = sqlSession.getMapper(CommunityMapper.class).listCommunity(emp_no);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
