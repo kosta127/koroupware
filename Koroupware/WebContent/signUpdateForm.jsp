@@ -30,6 +30,7 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script> 
 </head>
 <body>
+<div class="col-xs-6"> 
 	<form action="SignUpdate.do" method="post"
 		enctype="multipart/form-data">
 		<div class="form-group">
@@ -49,7 +50,7 @@
 		아이디<input class="form-control" type="text" value="${emp.emp_id }" disabled="disabled"><br>
 		이름<input class="form-control" type="text" value="${emp.emp_name }" name="emp_name"><br>
 		비밀번호<input  placeholder="비밀번호를 입력해주세요." class="form-control" type="password" name="emp_password"><br> 주소<input
-			type="text" value="${emp.emp_address}" name="emp_address"><br>
+			type="text" value="${emp.emp_address}" name="emp_address" class="form-control"><br>
 		이메일 <input class="form-control" type="text" value="${emp.emp_email }" name="emp_email"><br>
 		기존번호<br><c:forEach var="tels" items="${tel}" varStatus="status">
 		<input class="form-control" type="hidden" value="${tels.tel_no}" id="oldTelNo-${status.index}">
@@ -79,5 +80,6 @@
 			</div>
 	</form>
 	<button onclick="cancel()">취소</button>
+	</div>
 </body>
 </html>

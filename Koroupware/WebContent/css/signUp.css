@@ -1,0 +1,82 @@
+.main-font1{
+	margin-left: 120px;
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #0080c0;
+	font-size: 55px;
+} 
+
+.main-font2{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #E64A19;
+	font-size: 50px;
+}
+.main-font3{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #43A047;
+	font-size: 50px;
+}
+.main-font4{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #F9A825;
+	font-size: 50px;
+}
+.main-font5{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #E64A19;
+	font-size: 50px;
+}
+.main-font6{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #0080c0;
+	font-size: 50px;
+}
+.main-font7{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #43A047;
+	font-size: 50px;
+}
+.main-font8{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color: #F9A825;
+	font-size: 50px;
+}
+.main-font9{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color: #0080c0;
+	font-size: 50px;
+}
+.main-font10{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #E64A19;
+	font-size: 50px; 
+}
+
+.sign-submit-button{
+	margin-left: 330px; 
+}
+
+.sign-form{
+	margin-left: 150px;
+}
+
+.main-logo{
+	margin-left: 30px;
+	margin-bottom: 40px;
+}
+
+.span{
+	font-family:'Nanum Gothic';
+	font-size : 16px;
+	margin-right: 5px; 
+}
+
+.radio-button{
+	margin-left: 10px;
+}
+
+.signUp-main{
+	margin-left: 500px;
+	font-family:'Nanum Gothic';
+	font-weight: bold;
+	font-size : 30px;
+}
