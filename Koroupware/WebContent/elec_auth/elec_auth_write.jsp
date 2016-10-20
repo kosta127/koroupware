@@ -10,6 +10,9 @@
 <script src="ckeditor/ckeditor.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/jquery-ui.min.js"></script>
+<script src="js/validation/jquery.validate.min.js"></script>
+<script src="js/validation/additional-methods.min.js"></script>
+<script src="js/validation/messages_ko.min.js"></script>
 <script src="js/elec_auth_write.js"></script>
 <!-- <script>alert(window.location.pathname);location.href="js/elec_auth_write.js"</script> -->
 <title>Insert title here</title>
@@ -39,21 +42,21 @@
 				</c:forEach>
 			</div>
 			<div id="enddate_div">
-				결재 마감일  <input type="text" name="elec_auth_enddate" id="elec_auth_enddate" required="required" readonly="readonly">
+				결재 마감일  <input type="text" name="elec_auth_enddate" id="elec_auth_enddate" readonly="readonly">
 			</div>
 			<div id="conperiod_div">
 				보존년한 
-				<select name="elec_auth_con_period" id="elec_auth_con_period" required="required">
+				<select name="elec_auth_con_period" id="elec_auth_con_period">
 					<c:forEach var="i" begin="1" end="10">
 						<option value="${i }">${i }년</option>
 					</c:forEach>
 				</select>
 			</div>
 			<div id="title_div">
-			안건 제목 <input type="text" name="elec_auth_title" id="elec_auth_title" required="required">
+			안건 제목 <input type="text" name="elec_auth_title" id="elec_auth_title">
 			</div>
 			<div id="contents_div">
-			<textarea name="elec_auth_contents" id="elec_auth_contents" required="required"></textarea>
+			<textarea name="elec_auth_contents" id="elec_auth_contents"></textarea>
 			</div>
 			<div id="approval_div">
 				결재자 <input type="text" name="elec_auth_approval" id="elec_auth_approval">
