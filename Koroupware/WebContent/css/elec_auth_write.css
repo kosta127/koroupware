@@ -6,3 +6,8 @@
 #elec_auth_referrer_list{
 	border: solid 1px #8000ff;
 }
+
+#elec_auth_form .error{
+	/*display: inline; */
+	color: red;
+}

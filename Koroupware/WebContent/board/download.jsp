@@ -1,12 +1,10 @@
 <%@page import="java.net.URLEncoder"%>
-<%@page import="kosta.etc.FileDownloadHelper"%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
+<%@page import="kosta.etc.FileDownloadHelper"%><%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 
 <%
 	request.setCharacterEncoding("utf-8");
 	response.reset();
-	
 	String fileName = request.getParameter("board_file_real_name");
 	//String fileName = new String(fileName2.getBytes("8859_1"), "UTF-8");
 	

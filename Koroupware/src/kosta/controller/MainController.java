@@ -231,6 +231,7 @@ public class MainController extends HttpServlet {
 				break;
 			case "empSearchAsJSON.do":
 				action = new EmpSearchAsJSONAction();
+				break;
 			case "telUpdate.do":
 				action = new TelUpdateAction();
 				break;
