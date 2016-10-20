@@ -23,7 +23,7 @@ public class DocFormAction implements Action {
 		request.setAttribute("doc_box_no", doc_box_no);
 		
 		forward.setRedirect(false);
-		forward.setPath("doc/docForm.jsp");
+		forward.setPath("doc/DocForm.jsp");
 		
 		return forward;
 	}

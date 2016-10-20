@@ -88,13 +88,14 @@ public class DocProcAction implements Action {
 	         }else{
 	            doc_file.setDoc_file_real_name("");
 	         }
-		int re = dao.insertDoc(doc);
 		
-		int ref = dao.insertDoc_file(doc_file);
+		int re = dao.insertDoc(doc);
+	
+		
 		
 		
 		if(re > 0) {
-			
+			int ref = dao.insertDoc_file(doc_file);
 			if(ref> 0){
 				forward.setRedirect(false);
 				forward.setPath("listDoc.do");

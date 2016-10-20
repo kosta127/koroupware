@@ -23,6 +23,7 @@ public class ListDocAction implements Action {
 		
 		int doc_box_no = Integer.parseInt(request.getParameter("doc_box_no"));
 		int emp_no = emp.getEmp_no();
+		
 		List<Doc> list = dao.listDoc();
 		
 		request.setAttribute("list",list);
