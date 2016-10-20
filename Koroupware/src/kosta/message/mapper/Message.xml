@@ -4,10 +4,11 @@
 
 <mapper namespace="kosta.message.mapper.MessageMapper">
 	<select id="selectMessageByEmpNo">
-		SELECT 
+		SELECT *
 		FROM message
 		WHERE emp_no = #{message_sender_no}
 				AND message_receiver = #{message_receiver_no}
+				AND message_deldate IS NULL
 	</select>
 	<select id="selectMessageModelsBySenderNoAndReceiverNo" parameterType="MessageModel" resultType="MessageModel">
 		SELECT m.message_no, m.message_contents, TO_CHAR(m.message_senddate,'MM/DD HH24:MI:SS') AS message_senddate,
@@ -25,25 +26,28 @@
 			FROM emp e, dept d, office o, position p
 			WHERE e.dept_no = d.dept_no
 					AND e.office_no = o.office_no
-					AND e.position_no = p.position_no) s,
+					AND e.position_no = p.position_no
+					AND e.emp_resigndate IS NULL) s,
 			(SELECT emp_no AS receiver_no, emp_name AS receiver_name, emp_id AS receiver_id, d.dept_name AS receiver_dept_name, 
 					o.office_name AS receiver_office_name, p.position_name AS receiver_position_name
 			FROM emp e, dept d, office o, position p
 			WHERE e.dept_no = d.dept_no
 					AND e.office_no = o.office_no
-					AND e.position_no = p.position_no) r
+					AND e.position_no = p.position_no
+					AND e.emp_resigndate IS NULL) r
 		WHERE m.message_sender_no = s.sender_no
 				AND m.message_receiver_no = r.receiver_no
 		ORDER BY message_senddate
 	</select>
 	<select id="selectMessageReceiverEmpsByEmpId" resultType="MessageReceiverModel" parameterType="int">
 		SELECT e.emp_no, e.emp_name, e.emp_id, d.dept_name, o.office_name, p.position_name
-		FROM (SELECT emp_no, emp_name, emp_id, dept_no, office_no, position_no
+		FROM (SELECT emp_no, emp_name, emp_id, dept_no, office_no, position_no, emp_resigndate
 				FROM emp
 				WHERE emp_no IN (SELECT DISTINCT message_receiver_no
                                     FROM message
                                     WHERE message_sender_no = #{emp_no}
-                                    		OR message_receiver_no = #{emp_no})) e,
+                                    		OR message_receiver_no = #{emp_no})
+						AND emp_resigndate IS NULL) e,
 			(SELECT dept_no, dept_name
 				FROM dept) d,
 			(SELECT office_no, office_name
@@ -53,6 +57,7 @@
 		WHERE e.dept_no = d.dept_no
 				AND e.office_no = o.office_no
 				AND e.position_no = p.position_no
+				AND e.emp_resigndate IS NULL
 	</select>
 	
 	<insert id="insertMessage" parameterType="Message">

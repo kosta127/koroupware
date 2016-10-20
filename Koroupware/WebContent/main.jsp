@@ -1,3 +1,5 @@
+
+
 <%@page import="kosta.emp.model.Emp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -11,28 +13,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<style type="text/css">
-#logo{
-	margin-top: 3em;
-	margin-left: 30em;
-}
-form{
-	margin-top: 5em;
-	margin-left: 10em;
-}
-</style>
-
-<title>메인</title>
-
 <link rel="stylesheet" type="text/css" href="./css/menu.css"/>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 <link href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i' rel='stylesheet' type='text/css'>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-
 <script type="text/javascript">
    function logout() {
       location.href = "logout.do";
@@ -40,15 +26,14 @@ form{
    function signUpdate() {
       location.href = "signUpdateForm.jsp";
    }
+   function community_create() {
+	      location.href="insertCommunityForm.do?emp_no=${emp.emp_no}";
+   }
 </script>
 <title>Insert title here</title>
 
 </head>
 <body>
-
-
-
-
 
 <nav class="navbar navbar-default sidebar" role="navigation">
     <div class="container-fluid">
@@ -62,26 +47,23 @@ form{
     </div>
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home<span class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+        <li class="active"><a href="main.do">Home<span class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
         <li ><a href="listDoc_box.do">문서<span class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-        <li ><a href="#">전자결재<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span> </a></li>
-        <li ><a href="#">게시판<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>         
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">커뮤니티 <span class="caret"></span><span  class="pull-right hidden-xs showopacity glyphicon glyphicon-comment"></span></a>
-          <ul class="dropdown-menu forAnimate" role="menu">
-            <li><a href="{{URL::to('createusuario')}}">등산</a></li>
-            <li class="divider"></li>
-            <li><a href="#">여행</a></li>
-            <li class="divider"></li>
-            <li><a href="#">요리</a></li>
-            <li class="divider"></li>
-            <li><a href="#">자기개발</a></li>
-            <li class="divider"></li>
-            <li><a href="#">컴퓨터</a></li>
-          </ul>
-        </li>          
-        <li ><a href="#">조직도<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-        <li ><a href="#">쪽지<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-send"></span></a></li>  
+        <li ><a href="elec_authList.do">전자결재<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span> </a></li>
+        <li ><a href="listCommunity.do">커뮤니티 <span  class="pull-right hidden-xs showopacity glyphicon glyphicon-comment"></span></a>
+				<c:forEach var="communityList" items="${communityList }">
+					<li class="li-comu">
+					<a class="comu-content" href="listCategory.do?community_no=${communityList.community_no }">${communityList.community_name} </a>
+					<a class="comu-plus" href="insertCategoryForm.do?community_no=${communityList.community_no}">+</a>
+					</li>
+				</c:forEach>
+				<c:forEach var="categoryList" items="${categoryList }">	
+							<ul>
+								<li><a href="listBoard.do?category_no=${categoryList.category_no}">${categoryList.category_name}</a></li>
+							</ul>
+				</c:forEach></li>          
+        <li ><a href="orgChartPage.do">조직도<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+        <li ><a href="messagePage.do">쪽지<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-send"></span></a></li>  
       </ul>
     </div>
   </div>
@@ -96,7 +78,6 @@ form{
       <img src="upload/${head }_small${pattern}"
          alt="${head }_small${pattern}" class="face-img img-circle"/>
    </c:if>
-  
    <button onclick="signUpdate()" class="btn btn-success">정보변경</button>
    <button onclick="logout()" class="btn btn-warning">로그아웃</button>
    </div>
@@ -107,18 +88,17 @@ form{
    <div class="search">
       <form action="SearchAction.do" method="post">
       <div class="col-xs-2">
-        <select name = "keyField" class="form-control">
+      <select name = "keyField" class="form-control select">
        <option value="emp_name">사원</option>
        <option value="document">문서</option>
       </select>
       </div>
-      <div class="col-xs-5">
-     <input type="text" name="search_content" class="form-control">
-     </div>
+     <div class="col-xs-5">
+     <input type="text" name="search_content" class="form-control"></div>
      <input type="submit" value="검색" class="btn btn-primary">
-           </form>
+      </form>
       </div>
 </div>
-
 </body>
 </html>
+	

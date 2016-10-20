@@ -2,9 +2,11 @@ package kosta.doc.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kosta.action.Action;
 import kosta.action.ActionForward;
+import kosta.emp.model.Emp;
 
 public class DocBoxFormAction implements Action {
 
@@ -12,8 +14,6 @@ public class DocBoxFormAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
 		
-		
-		request.setAttribute("emp_no",request.getParameter("emp_no"));
 		forward.setRedirect(false);
 		forward.setPath("doc/Doc_boxForm.jsp");
 		return forward;

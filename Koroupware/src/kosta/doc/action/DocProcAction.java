@@ -10,6 +10,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -19,12 +20,16 @@ import kosta.action.ActionForward;
 import kosta.doc.dao.DocDao;
 import kosta.doc.model.Doc;
 import kosta.doc.model.DocFile;
-
+import kosta.emp.model.Emp;
+ 
 public class DocProcAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response){
 		ActionForward forward = new ActionForward();
+		HttpSession session = request.getSession();
+		Emp emp = (Emp)session.getAttribute("emp");
+		
 		DocDao dao = DocDao.getInstance();
 		Doc doc = new Doc();
 		DocFile doc_file = new DocFile();
@@ -40,7 +45,7 @@ public class DocProcAction implements Action {
 			e.printStackTrace();
 		}
 		
-		int emp_no = Integer.parseInt(multi.getParameter("emp_no"));
+		int emp_no = emp.getEmp_no();
 		int doc_box_no = Integer.parseInt(multi.getParameter("doc_box_no"));
 		request.setAttribute("emp_no", emp_no);
 		request.setAttribute("doc_box_no", doc_box_no);

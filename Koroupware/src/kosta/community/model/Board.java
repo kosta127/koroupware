@@ -10,7 +10,16 @@ public class Board {
 	private Timestamp board_regdate;
 	private Timestamp board_deldate;
 	private int emp_no; 
+	private int category_no;
 	
+	public int getCategory_no() {
+		return category_no;
+	}
+
+	public void setCategory_no(int category_no) {
+		this.category_no = category_no;
+	}
+
 	public int getEmp_no() {
 		return emp_no;
 	}

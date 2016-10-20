@@ -46,5 +46,12 @@ public class Community {
 		this.community_aprovalYN = community_aprovalYN;
 	}
 	
+	@Override
+	public String toString() {
+		return "Community [community_no=" + community_no + ", emp_no=" + emp_no + ", community_name=" + community_name
+				+ ", community_regdate=" + community_regdate + ", community_deldate=" + community_deldate
+				+ ", community_aprovalYN=" + community_aprovalYN + "]";
+	}
+	
 	
 }

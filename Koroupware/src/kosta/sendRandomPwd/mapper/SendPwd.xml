@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kosta.sendRandomPwd.mapper.SendPwd">
+
+	<cache />
+	
+	<update id="SendPwd" parameterType="Emp">
+		UPDATE emp
+		SET EMP_PASSWORD = #{emp_password}
+		WHERE find_residentnumber = #{find_residentnumber}
+	</update>
+	
+</mapper>

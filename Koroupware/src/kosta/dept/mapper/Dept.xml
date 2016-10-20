@@ -15,6 +15,7 @@
 		        AND e.office_no = o.office_no
 		        AND e.position_no = p.position_no
 		        AND d.dept_no = #{dept_no}
+		        AND e.emp_resigndate IS NULL
 	</select>
 	
 	<select id="selectOrgChartEmpDetailModelByEmpNo" resultType="OrgChartEmpDetailModel" parameterType="int">
@@ -27,6 +28,7 @@
 		        AND e.dept_no = d.dept_no
 		        AND e.emp_resigndate IS NULL
 		        AND e.emp_no = #{emp_no}
+		        AND e.emp_resigndate IS NULL
 	</select>
 </mapper>
 

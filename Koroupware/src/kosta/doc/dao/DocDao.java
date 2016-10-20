@@ -37,6 +37,7 @@ public class DocDao {
 	
 	public int insertDoc(Doc doc){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
+
 		int re = 0;
 		try {
 			re = sqlSession.getMapper(DocMapper.class).insertDoc(doc);

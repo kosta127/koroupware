@@ -32,6 +32,7 @@ public class ListDocBoxAction implements Action {
 		
 		
 		List<DocBox> list = dao.listDoc_box(emp_no);
+		
 		request.setAttribute("list", list);
 		request.setAttribute("emp_no",emp_no);
 		forward.setRedirect(false);

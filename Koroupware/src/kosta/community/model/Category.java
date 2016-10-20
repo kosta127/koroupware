@@ -40,4 +40,11 @@ public class Category {
 		this.category_deldate = category_deldate;
 	}
 	
+	@Override
+	public String toString() {
+		return "Category [category_no=" + category_no + ", community_no=" + community_no + ", category_name="
+				+ category_name + ", category_regdate=" + category_regdate + ", category_deldate=" + category_deldate
+				+ "]";
+	}
+	
 }

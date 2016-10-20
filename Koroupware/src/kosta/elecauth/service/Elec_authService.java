@@ -10,6 +10,7 @@ import kosta.elecauth.model.Elec_authDetail;
 import kosta.elecauth.model.Elec_authDetailApproval;
 import kosta.elecauth.model.Elec_authDetailReferrer;
 import kosta.elecauth.model.Elec_authList;
+import kosta.elecauth.model.Elec_authListCond;
 import kosta.elecauth.model.Elec_authPage;
 import kosta.elecauth.model.Elec_auth_referrer;
 import kosta.elecauth.model.EmpDetail;
@@ -24,14 +25,20 @@ public class Elec_authService {
 		return service;
 	}
 	
-	public List<Elec_authList> elec_authList(int pageNum, int emp_no){
+	public List<Elec_authList> elec_authList(int pageNum, int emp_no, 
+			boolean isReceive, String flag){ //내가받은목록여부, 진행중/임시저장/반려등등플래그
 		int startRow=(pageNum-1)*dao.LIST_SIZE;
-		return dao.elec_authList(startRow, emp_no);
+		Elec_authListCond listCond = 
+				new Elec_authListCond(emp_no, isReceive, flag); 
+		return dao.elec_authList(startRow, listCond);
 	}
 	
-	public Elec_authPage elec_authListPage(int currentPage){
+	public Elec_authPage elec_authListPage(int currentPage, int emp_no, 
+			boolean isReceive, String flag){ //내가받은목록여부, 진행중/임시저장/반려등등플래그
 		int pageNumber=10;
-		int totCount=dao.getTotalCount();
+		Elec_authListCond listCond = 
+				new Elec_authListCond(emp_no, isReceive, flag);
+		int totCount=dao.getTotalCount(listCond);
 		int totalPage = totCount/dao.LIST_SIZE + ((totCount%dao.LIST_SIZE>0)?1:0);
 		int startPage = (currentPage<=pageNumber)?1:((currentPage/pageNumber)*pageNumber)+1;
 		int endPage = (totalPage<(startPage+pageNumber)-1)?totalPage:(startPage+pageNumber)-1;

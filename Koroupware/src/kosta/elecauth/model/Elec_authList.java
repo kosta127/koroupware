@@ -13,7 +13,7 @@ public class Elec_authList implements Serializable{
 	private Date elec_auth_enddate;
 	private String doc_title;
 	private String dept_name;
-	private String emp_name;
+	private String emp_name; 
 	private String approval_list_pass;
 	
 	public Elec_authList(){}

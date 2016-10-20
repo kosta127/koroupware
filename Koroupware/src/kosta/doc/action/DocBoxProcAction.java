@@ -3,11 +3,13 @@ package kosta.doc.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kosta.action.Action;
 import kosta.action.ActionForward;
 import kosta.doc.dao.DocDao;
 import kosta.doc.model.DocBox;
+import kosta.emp.model.Emp;
 
 public class DocBoxProcAction implements Action {
 
@@ -15,8 +17,13 @@ public class DocBoxProcAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
 		DocDao dao = DocDao.getInstance();
+		
+		HttpSession session = request.getSession();
+		Emp emp = (Emp)session.getAttribute("emp");
+		int emp_no = emp.getEmp_no();
+		
 		DocBox doc = new DocBox();
-		int emp_no = Integer.parseInt(request.getParameter("emp_no"));
+		
 		//doc.setDoc_box_no(dao.selectDoc_box_no()+1);
 		doc.setDoc_box_name(request.getParameter("doc_box_name"));
 		doc.setEmp_no(emp_no);

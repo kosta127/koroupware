@@ -13,7 +13,7 @@
 			doc_con_period,emp_no,doc_formYN,doc_deldate
 		)
 		values(
-			#{doc_no},#{doc_title},#{doc_explain},#{doc_contents},SYSDATE,
+			seq_doc.NEXTVAL,#{doc_title},#{doc_explain},#{doc_contents},SYSDATE,
 			#{doc_con_period},#{emp_no},#{doc_formYN},null
 		)
 	</insert>
@@ -34,7 +34,7 @@
 			doc_management_no,doc_no,doc_box_no
 		)
 		values(
-			#{doc_management_no},#{doc_no},#{doc_box_no}
+			seq_doc_management.NEXTVAL,#{doc_no},#{doc_box_no}
 		)
 	</insert>
 	

@@ -26,6 +26,11 @@ public class Elec_authWriteFormAction implements Action {
 		HttpSession session = request.getSession();
 		//회원 정보 가져옴
 		Emp emp = (Emp)session.getAttribute("emp");
+		if(emp == null){ //회원정보 없으면 로그인 페이지로
+			forward.setRedirect(true);
+			forward.setPath(request.getContextPath()+"/login.jsp");
+			return forward;
+		}
 		EmpDetail empDetail = service.getEmpDetail(emp.getEmp_no());
 		
 		if(docFormList != null && empDetail != null){

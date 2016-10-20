@@ -11,14 +11,15 @@ import kosta.elecauth.model.Elec_authDetail;
 import kosta.elecauth.model.Elec_authDetailApproval;
 import kosta.elecauth.model.Elec_authDetailReferrer;
 import kosta.elecauth.model.Elec_authList;
+import kosta.elecauth.model.Elec_authListCond;
 import kosta.elecauth.model.Elec_auth_referrer;
 import kosta.elecauth.model.EmpDetail;
 import kosta.emp.model.Emp;
 import kosta.elecauth.model.Elec_authDetail;
 
 public interface Elec_authMapper {
-	public List<Elec_authList> elec_authList(RowBounds rb, int emp_no);
-	public int getTotalCount();
+	public List<Elec_authList> elec_authList(RowBounds rb, Elec_authListCond listCond);
+	public int getTotalCount(Elec_authListCond listCond);
 	public Elec_authDetail elec_authDetail(int elec_auth_no);
 	public List<Elec_authDetailApproval> elec_authDetailApproval(int elec_auth_no);
 	public List<Elec_authDetailReferrer> elec_authDetailReferrer(int elec_auth_no);

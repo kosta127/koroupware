@@ -1,0 +1,101 @@
+.main-font1{
+	margin-left: 150px;
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #0080c0;
+	font-size: 55px;
+} 
+
+.main-font2{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #E64A19;
+	font-size: 50px;
+}
+.main-font3{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #43A047;
+	font-size: 50px;
+}
+.main-font4{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #F9A825;
+	font-size: 50px;
+}
+.main-font5{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #E64A19;
+	font-size: 50px;
+}
+.main-font6{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #0080c0;
+	font-size: 50px;
+}
+.main-font7{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #43A047;
+	font-size: 50px;
+}
+.main-font8{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color: #F9A825;
+	font-size: 50px;
+}
+.main-font9{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color: #0080c0;
+	font-size: 50px;
+}
+.main-font10{
+	font-family: 'Product Sans', Arial, sans-serif;
+	color : #E64A19;
+	font-size: 50px;
+}
+
+.signUp-main{
+	margin-left: 300px;
+	font-family:'Nanum Gothic';
+	font-weight: bold;
+	font-size : 30px;
+}
+.main-logo{
+	margin-bottom: 100px;
+}
+.find-id{
+	margin-top: 80px;
+	margin-left: 350px;
+}
+
+.find-pass{
+	margin-left: 330px;
+}
+
+.find-all{
+	margin-left: 150px;
+}
+.find-id-search{ 
+	margin-left: 130px;
+	font-family:'Nanum Gothic';
+	font-weight: bold;
+	font-size : 30px;
+}
+
+.find-pass-search{
+	margin-left: 130px;
+	font-family:'Nanum Gothic';
+	font-weight: bold;
+	font-size : 30px;
+}
+.my-id{
+	font-family:'Nanum Gothic';
+	font-weight: bold;
+	font-size : 20px;
+}
+.input-id{
+	margin-bottom: 20px;
+}
+
+.residentnumber{
+	font-family:'Nanum Gothic';
+	font-weight: bold;
+	font-size : 20px;
+}
