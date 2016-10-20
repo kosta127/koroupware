@@ -24,7 +24,11 @@
 			<c:set var="pageUrl" value="elec_authList.do?"></c:set>
 		</c:otherwise>
 	</c:choose>
+	
+	<div class="col-md-3">
+	</div>
 
+	<div class="col-md-3">
 	<div id="elec_auth_box">
 		<h3><a href="elec_authList.do">내가 올린 결재</a></h3>
 		<div id="write_list">					
@@ -41,10 +45,12 @@
 			<p><a href="elec_authList.do?receive=ok&flag=ret">부결/반려한 결재</a></p> 나중에추가합시다-->
 		</div>	
 	</div>
+	</div>
 
+	<div class="col-md-6">
 	<div class="elec_authList">
 			<h3>결재문서 목록</h3>
-			<table border="1" class="center">
+			<table border="1" class="table table-bordered">
 				<thead>
 					<tr>
 						<th>문서번호</th>
@@ -92,8 +98,9 @@
 					<span class="label"><a href="${pageUrl }&pageNum=${paging.endPage+1 }">다음</a></span>
 				</c:if>
 			</div>
+			<input type="button" id="write" class="btn btn-primary" value="결재작성">
 	</div>
-	<input type="button" id="write" value="결재작성">
+	</div>
 
 </body>
 </html>
