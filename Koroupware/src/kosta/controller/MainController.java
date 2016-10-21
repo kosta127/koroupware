@@ -67,7 +67,8 @@ import kosta.login.action.StartAction;
 import kosta.login.action.TelAddAction;
 import kosta.login.action.TelDeleteAction;
 import kosta.login.action.logout;
-import kosta.menu.action.CommunityListAsJSON;
+import kosta.menu.action.CategoryListAsJSONAction;
+import kosta.menu.action.CommunityListAsJSONAction;
 import kosta.login.action.TelUpdateAction;
 import kosta.message.action.FailAction;
 import kosta.message.action.MessagePageAction;
@@ -92,7 +93,10 @@ public class MainController extends HttpServlet {
     	
     	switch (command) {
     		case "communityListAsJSON.do":
-    			action = new CommunityListAsJSON();
+    			action = new CommunityListAsJSONAction();
+    			break;
+    		case "categoryListAsJSON.do":
+    			action = new CategoryListAsJSONAction();
     			break;
 	    	case "messagePage.do":
 				action = new MessagePageAction();
