@@ -42,6 +42,7 @@
 	</table>
 	<form action="Doc_boxForm.do" method="post">
 		<input type="submit" value="문서함 추가" class="btn btn-default">
+		
 	</form>
 		</div>
 		

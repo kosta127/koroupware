@@ -24,7 +24,7 @@ public class DocBoxProcAction implements Action {
 		
 		DocBox doc = new DocBox();
 		
-		//doc.setDoc_box_no(dao.selectDoc_box_no()+1);
+		
 		doc.setDoc_box_name(request.getParameter("doc_box_name"));
 		doc.setEmp_no(emp_no);
 		request.setAttribute("emp_no",emp_no);

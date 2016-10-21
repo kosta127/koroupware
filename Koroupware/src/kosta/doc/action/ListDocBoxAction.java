@@ -24,11 +24,9 @@ public class ListDocBoxAction implements Action {
 		
 		
 			Emp emp = (Emp)session.getAttribute("emp");
-			System.out.println(emp);
+			
 			int emp_no = emp.getEmp_no();
-			if(request.getParameter("emp_no") != null){
-				emp_no = Integer.parseInt(request.getParameter("emp_no"));
-			}
+			
 		
 		
 		List<DocBox> list = dao.listDoc_box(emp_no);
