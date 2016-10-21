@@ -54,7 +54,9 @@ import kosta.elecauth.action.Elec_authListAction;
 import kosta.elecauth.action.Elec_authSubmissionAction;
 import kosta.elecauth.action.Elec_authWriteFormAction;
 import kosta.elecauth.action.EmpSearchAsJSONAction;
+import kosta.emp.action.SignUpdateFormAction;
 import kosta.etc.ETC;
+import kosta.login.action.FindAction;
 import kosta.login.action.FindIdProcess;
 import kosta.login.action.FindPasswordProcess;
 import kosta.login.action.LoginGoAction;
@@ -80,12 +82,10 @@ public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     public MainController() {
-        super();
     }
 
     public void doProcess(HttpServletRequest request, HttpServletResponse response)
     		throws ServletException, IOException{
-
     	String command = getRequestPath(request);
     	Action action = null;
     	
@@ -184,7 +184,6 @@ public class MainController extends HttpServlet {
 				action = new SearchProcess();
 				break;
 			case "DocForm.do":
-				System.out.println("ddddd");
 				action = new DocFormAction();
 				break;
 			case "DocProc.do":
@@ -271,8 +270,14 @@ public class MainController extends HttpServlet {
 	         case "sendRandomPwd.do":
 	            action = new sendRandomPwd();
 	            break;
+	         case "FindAction.do":
+	        	 action = new FindAction();
+	        	 break;
+	         case "signUpdateForm.do":
+	        	 action = new SignUpdateFormAction();
+	        	 break;
 			default:
-				System.out.println("dd");
+				System.out.println("XXXXXXXXXXXXXXXXXXXXX");
 				break;
 		}
     	

@@ -42,11 +42,14 @@
             </div>
             <div class="row">
                <!-- 채팅 입력창 -->
-               
                <form id="sendForm">
-                  <input type="hidden" name="receiverEmpNo" id="receiverEmpNo"/>
-                  <textarea rows="1" cols="100" name="messageContents"></textarea>
-                  <input type="submit" value="전송" class="submit-button btn btn-primary"/>
+	               <div class="col-md-10 sendFormMessageBox">
+	               		<input type="hidden" name="receiverEmpNo" id="receiverEmpNo"/>
+	               		<textarea rows="2" cols="100" name="messageContents"></textarea>
+	               </div>
+	               <div class="col-md-2">
+               			<input type="submit" value="전송" class="submit-button btn btn-primary"/>
+				   </div>
                </form>
             </div>
          </section>

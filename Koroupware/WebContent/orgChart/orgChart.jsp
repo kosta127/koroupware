@@ -121,7 +121,7 @@
 									<li>
 										<a href="#myModal" data-toggle="modal" id="orgChartEmpButton">
 											<span class="hidden">${orgChartEmp.emp_no}</span>
-											${orgChartEmp.dept_name} - ${orgChartEmp.emp_name}${orgChartEmp.office_name}
+												${orgChartEmp.emp_name}${orgChartEmp.office_name}
 												(${orgChartEmp.position_name})
 										</a>
 									</li>

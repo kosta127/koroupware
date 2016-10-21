@@ -24,7 +24,7 @@
       location.href = "logout.do";
    }
    function signUpdate() {
-      location.href = "signUpdateForm.jsp";
+      location.href = "signUpdateForm.do";
    }
    function community_create() {
 	      location.href="insertCommunityForm.do?emp_no=${emp.emp_no}";

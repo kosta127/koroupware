@@ -151,12 +151,21 @@ div#senderInfo{
 
 .myMessageDate{
    float: right;
-   width: 51px;
+   width: 52px;
 }
 .receiverMessageDate{
    float: right;
-   width: 51px;
+   width: 52px;
 }
+
 .submit-button{
-   margin-top: -30px;
+	margin-left:130px;
+	width: 280px;
+	margin-top:15px;
+	height:46px;
 }
+
+.sendFormMessageBox {
+	margin-top:15px;
+}
+

@@ -25,7 +25,6 @@ public class LoginProcess implements Action {
 		HttpSession session = request.getSession();
 		
 		for(int i=0; i<list.size(); i++){
-			System.out.println(list.get(i).getEmp_id());
 			if(list.get(i).getEmp_id().equals(request.getParameter("emp_id"))
 					&&list.get(i).getEmp_password().equals(request.getParameter("emp_password"))){
 				System.out.println("로그인성공");
@@ -36,7 +35,7 @@ public class LoginProcess implements Action {
 				forward.setRedirect(false);
 				break;
 			}else{
-				forward.setPath("login.jsp");
+				forward.setPath("loginGo.do");
 				forward.setRedirect(false);
 			}
 		}

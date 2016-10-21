@@ -26,7 +26,7 @@
 		</insert>
 		
 	<select id="selectEmp_no" resultType="Integer">
-		select max(emp_no) from EMP
+		select seq_emp.currval from EMP
 	</select>
 	
 	<select id="selectTel_no" resultType="Integer">
