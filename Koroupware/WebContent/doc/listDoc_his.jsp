@@ -49,7 +49,9 @@
 					<input type="submit" value="돌아가기" class="btn btn-default">
 			</form>
 		</div>
-		
+		<div class="hidden">
+		<jsp:include page="../menu.jsp"></jsp:include>
+	</div>	
 	
 </body>
 </html>

@@ -51,7 +51,9 @@
 			<input type="button" value="전체 문서 목록보기" onclick="fn_listDoc()" class="btn btn-default">
 			<input type="button" value="돌아가기" class="btn btn-default" onclick="fn_listDoc_box()">
 		</div>
-	
+	<div class="hidden">
+		<jsp:include page="../menu.jsp"></jsp:include>
+	</div>	
 	
 </body>
 </html>

@@ -35,7 +35,9 @@
 			</form>
 		</div>
 		<div class="col-md-2"></div>
-	
+	<div class="hidden">
+		<jsp:include page="../menu.jsp"></jsp:include>
+	</div>	
 	
 </body>
 </html>

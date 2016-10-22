@@ -41,7 +41,9 @@
 				<input type="button" value="돌아가기" class="btn btn-default" onclick="fn_back()">
 			</form>
 		</div>
-		
+		<div class="hidden">
+		<jsp:include page="../menu.jsp"></jsp:include>
+	</div>	
 	
 </body>
 </html>

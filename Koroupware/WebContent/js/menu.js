@@ -27,7 +27,7 @@ $(function(){
 			html += commu.community_name+'</a>';
 			html += '<a class="comu-plus" href="insertCategoryForm.do?community_no='+commu.community_no+'">+</a></li>';
 		});
-		$('#community_list').append(html);
+		$('ul.dropdown-menu forAnimate').append(html);
 	}
 });
 

@@ -19,5 +19,8 @@
 		문서함명 : <input type="text" name="doc_box_name">
 		<input type="submit" value="수정">
 	</form>
+	<div class="hidden">
+		<jsp:include page="../menu.jsp"></jsp:include>
+	</div>	
 </body>
 </html>
